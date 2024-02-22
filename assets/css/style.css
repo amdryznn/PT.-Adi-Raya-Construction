@@ -289,7 +289,7 @@ img {
     display: inline-block;
     font-size: 56px;
     font-weight: 700;
-    text-transform: lowercase;
+    text-transform: uppercase;
     line-height: 1em;
     letter-spacing: -1.6px;
 }
@@ -1521,7 +1521,7 @@ body.dark,
 .single-promo h3 {
     font-size: 55px;
     font-weight: 700;
-    text-transform: lowercase;
+    text-transform: uppercase;
     line-height: 0.9em;
     letter-spacing: -1.6px;
 }
