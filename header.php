@@ -80,11 +80,9 @@ $latitude = "$tr[latitude]";
                 <div class="spinner"></div>
                 <!-- Loader -->
                 <div class="loader">
-                    <span data-text-preloader="V" class="animated-letters">V</span>
-                    <span data-text-preloader="O" class="animated-letters">O</span>
-                    <span data-text-preloader="G" class="animated-letters">G</span>
-                    <span data-text-preloader="U" class="animated-letters">U</span>
-                    <span data-text-preloader="E" class="animated-letters">E</span>
+                    <span data-text-preloader="V" class="animated-letters">A</span>
+                    <span data-text-preloader="O" class="animated-letters">R</span>
+                    <span data-text-preloader="G" class="animated-letters">C</span>
                 </div>
                 <p class="fw-5 text-center text-uppercase">Loading</p>
             </div>
@@ -157,7 +155,7 @@ $latitude = "$tr[latitude]";
                                 <li><a class="dropdown-item" href="about">About ARC</a></li>
                                 <li><a class="dropdown-item" href="#">Vision & Mission</a></li>
                                 <li><a class="dropdown-item" href="#">Corporate Structuree</a></li>
-                                <li><a class="dropdown-item" href="#">Corporate Values</a></li>
+                                <li><a class="dropdown-item" href="services">Corporate Values</a></li>
                             </ul>
 
                         <li class="nav-item dropdown">
