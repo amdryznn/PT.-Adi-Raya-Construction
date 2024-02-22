@@ -165,7 +165,7 @@ $latitude = "$tr[latitude]";
                                 data-bs-toggle="dropdown" aria-expanded="false">Experiences</a>
 
                             <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
-                                <li><a class="dropdown-item" href="#">Project Experiences</a></li>
+                                <li><a class="dropdown-item" href="portfolio">Project Experiences</a></li>
                                 <li><a class="dropdown-item" href="#">Legality of Company</a></li>
                             </ul>
 
