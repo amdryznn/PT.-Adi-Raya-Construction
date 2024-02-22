@@ -154,63 +154,63 @@ $latitude = "$tr[latitude]";
                         </li>
 
                         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" 
-          role="button" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</a>
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">About ARC</a>
 
-          <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a>
-                        </li>
-                    </ul>
-            
+                            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+                                <li><a class="dropdown-item" href="#">About ARC</a></li>
+                                <li><a class="dropdown-item" href="#">Vision & Mission</a></li>
+                                <li><a class="dropdown-item" href="#">Corporate Structuree</a></li>
+                                <li><a class="dropdown-item" href="#">Corporate Values</a></li>
+                            </ul>
+
                         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" 
-          role="button" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</a>
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">Dropdown</a>
 
-          <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a>
-                        </li>
-                    </ul>
+                            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+                                <li><a class="dropdown-item" href="#">Action</a></li>
+                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                <li><a class="dropdown-item" href="#">Something else here</a>
+                                </li>
+                            </ul>
 
-                    <!-- Navbar Icons -->
-                    <li class="navbar-nav icons">
-                        <?php
-                        $q = "SELECT * FROM  social ORDER BY id DESC LIMIT 5";
-                        $r123 = mysqli_query($con, $q);
+                            <!-- Navbar Icons -->
+                        <li class="navbar-nav icons">
+                            <?php
+                            $q = "SELECT * FROM  social ORDER BY id DESC LIMIT 5";
+                            $r123 = mysqli_query($con, $q);
 
-                        while ($ro = mysqli_fetch_array($r123)) {
+                            while ($ro = mysqli_fetch_array($r123)) {
 
-                            $id = "$ro[id]";
-                            $fa = "$ro[fa]";
-                            $social_link = "$ro[social_link]";
+                                $id = "$ro[id]";
+                                $fa = "$ro[fa]";
+                                $social_link = "$ro[social_link]";
 
-                            print "
+                                print "
 <li class='nav-item social'>
 <a href='$social_link' class='nav-link'><i class='fab $fa'></i></a>
 </li>
 ";
-                        } ?>
-                    </>
+                            } ?>
+                            </>
 
-                    <!-- Navbar Toggler -->
-                    <ul class="navbar-nav toggle">
-                        <li class="nav-item">
-                            <a href="#" class="nav-link" data-toggle="modal" data-target="#menu">
-                                <i class="fas fa-bars toggle-icon m-0"></i>
-                            </a>
-                        </li>
-                    </ul>
+                            <!-- Navbar Toggler -->
+                            <ul class="navbar-nav toggle">
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link" data-toggle="modal" data-target="#menu">
+                                        <i class="fas fa-bars toggle-icon m-0"></i>
+                                    </a>
+                                </li>
+                            </ul>
 
-                    <!-- Navbar Action Button -->
-                    <ul class="navbar-nav action">
-                        <li class="nav-item ml-3">
-                            <a href="contact" class="btn ml-lg-auto btn-bordered-white"><i
-                                    class="fas fa-paper-plane contact-icon mr-md-2"></i>Contact Us</a>
-                        </li>
-                    </ul>
+                            <!-- Navbar Action Button -->
+                            <ul class="navbar-nav action">
+                                <li class="nav-item ml-3">
+                                    <a href="contact" class="btn ml-lg-auto btn-bordered-white"><i
+                                            class="fas fa-paper-plane contact-icon mr-md-2"></i>Contact Us</a>
+                                </li>
+                            </ul>
                 </div>
             </nav>
         </header>
