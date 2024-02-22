@@ -146,10 +146,6 @@ $latitude = "$tr[latitude]";
                         </li>
 
                         <li class="nav-item">
-                            <a href="about" class="nav-link">About Us</a>
-                        </li>
-
-                        <li class="nav-item">
                             <a href="services" class="nav-link">Services</a>
                         </li>
 
@@ -158,7 +154,7 @@ $latitude = "$tr[latitude]";
                                 data-bs-toggle="dropdown" aria-expanded="false">About ARC</a>
 
                             <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
-                                <li><a class="dropdown-item" href="#">About ARC</a></li>
+                                <li><a class="dropdown-item" href="about">About ARC</a></li>
                                 <li><a class="dropdown-item" href="#">Vision & Mission</a></li>
                                 <li><a class="dropdown-item" href="#">Corporate Structuree</a></li>
                                 <li><a class="dropdown-item" href="#">Corporate Values</a></li>
@@ -166,11 +162,13 @@ $latitude = "$tr[latitude]";
 
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">Experience</a>
+                                data-bs-toggle="dropdown" aria-expanded="false">Dropdown</a>
 
                             <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
-                                <li><a class="dropdown-item" href="#">Project Experiences</a></li>
-                                <li><a class="dropdown-item" href="#">Legality of Company</a></li>
+                                <li><a class="dropdown-item" href="#">Action</a></li>
+                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                <li><a class="dropdown-item" href="#">Something else here</a>
+                                </li>
                             </ul>
 
                             <!-- Navbar Icons -->
