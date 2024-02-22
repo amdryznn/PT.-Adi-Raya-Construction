@@ -189,7 +189,7 @@
                                                 <div class="mb-3">
                                                     <label for="firstnameInput" class="form-label">Footer Text</label>
                                                     <input type="text" class="form-control" id="firstnameInput"
-                                                        name="site_footer" placeholder="&copy; 2022 All Rights Reserved"
+                                                        name="site_footer" placeholder="&copy; 2024 All Rights Reserved"
                                                         value="<?php print $site_footer ?>">
                                                 </div>
                                             </div>
