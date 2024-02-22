@@ -140,27 +140,43 @@ $latitude = "$tr[latitude]";
                     <div class="ml-auto"></div>
                     <!-- Navbar -->
                     <ul class="navbar-nav items">
+
                         <li class="nav-item">
                             <a class="nav-link" href="home">Home </a>
-
                         </li>
+
                         <li class="nav-item">
                             <a href="about" class="nav-link">About Us</a>
                         </li>
+
                         <li class="nav-item">
                             <a href="services" class="nav-link">Services</a>
                         </li>
-                        <li class="nav-item">
-                            <a href="portfolio" class="nav-link">Portfolio</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="portfolio" class="nav-link">Portfolio 1</a>
-                        </li>
 
+                        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" 
+          role="button" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</a>
 
+          <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><a class="dropdown-item" href="#">Something else here</a>
+                        </li>
                     </ul>
+            
+                        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" 
+          role="button" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</a>
+
+          <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><a class="dropdown-item" href="#">Something else here</a>
+                        </li>
+                    </ul>
+
                     <!-- Navbar Icons -->
-                    <ul class="navbar-nav icons">
+                    <li class="navbar-nav icons">
                         <?php
                         $q = "SELECT * FROM  social ORDER BY id DESC LIMIT 5";
                         $r123 = mysqli_query($con, $q);
@@ -177,7 +193,7 @@ $latitude = "$tr[latitude]";
 </li>
 ";
                         } ?>
-                    </ul>
+                    </>
 
                     <!-- Navbar Toggler -->
                     <ul class="navbar-nav toggle">
