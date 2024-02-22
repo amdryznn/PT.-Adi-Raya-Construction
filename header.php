@@ -144,7 +144,7 @@ $latitude = "$tr[latitude]";
                         </li>
 
                         <li class="nav-item">
-                            <a href="services" class="nav-link">Services</a>
+                            <a href="#" class="nav-link">Services</a>
                         </li>
 
                         <li class="nav-item dropdown">
@@ -154,7 +154,7 @@ $latitude = "$tr[latitude]";
                             <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
                                 <li><a class="dropdown-item" href="about">About ARC</a></li>
                                 <li><a class="dropdown-item" href="#">Vision & Mission</a></li>
-                                <li><a class="dropdown-item" href="#">Corporate Structuree</a></li>
+                                <li><a class="dropdown-item" href="#">Corporate Structure</a></li>
                                 <li><a class="dropdown-item" href="services">Corporate Values</a></li>
                             </ul>
 
