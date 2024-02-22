@@ -80,9 +80,9 @@ $latitude = "$tr[latitude]";
                 <div class="spinner"></div>
                 <!-- Loader -->
                 <div class="loader">
-                    <span data-text-preloader="V" class="animated-letters">A</span>
-                    <span data-text-preloader="O" class="animated-letters">R</span>
-                    <span data-text-preloader="G" class="animated-letters">C</span>
+                    <span data-text-preloader="A" class="animated-letters">A</span>
+                    <span data-text-preloader="R" class="animated-letters">R</span>
+                    <span data-text-preloader="C" class="animated-letters">C</span>
                 </div>
                 <p class="fw-5 text-center text-uppercase">Loading</p>
             </div>
