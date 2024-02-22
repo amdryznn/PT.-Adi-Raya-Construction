@@ -548,7 +548,7 @@ img {
     width: 100%;
     display: block;
     border-radius: 120px;
-    background: linear-gradient(-47deg, #3D474D 0%, #4528DC 100%);
+    background: linear-gradient(-47deg, #8731E8 0%, #4528DC 100%);
     bottom: 0;
     right: 0;
     -webkit-transform: translate(35%, -28%) rotate(-35deg);
@@ -670,7 +670,7 @@ img {
 .btn:active,
 .btn.btn-bordered:before,
 .btn.btn-bordered-white:after {
-    background: linear-gradient(-45deg, #af52ed 0%, #8830df 100%);
+    background: linear-gradient(-45deg, #a8bfce 0%, #3D474D 100%);
 }
 
 /*SOCIAL ICONS*/
@@ -1972,7 +1972,7 @@ body.dark,
     width: 100%;
     top: 0;
     left: 0;
-    background: linear-gradient(135deg, #3D474D 0%, #879fad 100%);
+    background: linear-gradient(135deg, #3D474D 0%, #7e9eb3 100%);
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -2386,7 +2386,7 @@ body.dark,
     font-weight: 900;
     line-height: 1em;
     letter-spacing: -1.6px;
-    background-image: -webkit-linear-gradient(45deg, #3D474D 15%, #3D474D 65%);
+    background-image: -webkit-linear-gradient(45deg, #af52ed 15%, #8830df 65%);
     background-image: linear-gradient(45deg, #af52ed 15%, #8830df 65%);
     -webkit-background-clip: text;
     -moz-background-clip: text;
