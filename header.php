@@ -135,8 +135,7 @@ $latitude = "$tr[latitude]";
                     <a class="navbar-brand" href="index.html">
                         <img class="navbar-brand-regular" src="dashboard/uploads/logo/<?php print $ufile ?>"
                             alt="brand-logo">
-                        <img class="navbar-brand-sticky" src="dashboard/uploads/logo/black.png"
-                            alt="sticky brand-logo">
+                        <img class="navbar-brand-sticky" src="dashboard/uploads/logo/black.png" alt="sticky brand-logo">
                     </a>
                     <div class="ml-auto"></div>
                     <!-- Navbar -->
@@ -155,7 +154,7 @@ $latitude = "$tr[latitude]";
                             <a href="portfolio" class="nav-link">Portfolio</a>
                         </li>
                         <li class="nav-item">
-                            <a href="portfolio" class="nav-link">Portfolio 2</a>
+                            <a href="portfolio" class="nav-link">Portfolio 1</a>
                         </li>
 
 
