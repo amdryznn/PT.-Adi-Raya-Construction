@@ -227,7 +227,7 @@ img {
 }
 
 .text-primary {
-    color: #7c4fe0 !important;
+    color: #3D474D !important;
 }
 
 .text-secondary {
@@ -593,7 +593,7 @@ img {
 
 /*BACKGROUND COLORS*/
 .color-1 {
-    color: #be63f9;
+    color: #3D474D;
 }
 
 .color-2 {
@@ -1391,7 +1391,7 @@ header {
 .homepage-2 .btn.btn-bordered-white::after,
 .homepage-2 .bg-overlay::after,
 .homepage-2 .benifits-item::after {
-    background: linear-gradient(135deg, #be63f9 0%, #0449c4 100%);
+    background: linear-gradient(135deg, #3D474D 0%, #0449c4 100%);
 }
 
 /* ******************************
@@ -2502,7 +2502,7 @@ body.dark,
 }
 
 .widget-items li a.active {
-    color: #7c4fe0;
+    color: #3D474D;
 }
 
 .widget-items li a span {

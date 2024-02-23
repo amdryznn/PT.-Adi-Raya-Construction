@@ -55,7 +55,7 @@
 
 
             <?php
-            $q = "SELECT * FROM  why_us ORDER BY id DESC LIMIT 3";
+            $q = "SELECT * FROM  why_us ORDER BY id DESC LIMIT 4";
 
 
             $r123 = mysqli_query($con, $q);
@@ -66,7 +66,7 @@
                 $detail = "$ro[detail]";
 
                 print "
-<div class='col-12 col-md-6 col-lg-4 res-margin'>
+<div class='col-16 col-md-8 col-lg-6 res-margin'>
 <!-- Single Promo -->
 <div class='single-promo color-1 bg-hover hover-bottom text-center p-5'>
     <h3 class='mb-3'>$title</h3>
