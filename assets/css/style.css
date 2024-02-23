@@ -618,7 +618,7 @@ img {
 
 .color-1.bg-hover:hover::after,
 .color-1.bg-hover.active::after {
-    background-color: #be63f9;
+    background-color: #3D474D;
 }
 
 .color-2.bg-hover:hover::after,
@@ -733,7 +733,7 @@ img {
 }
 
 .cta-area {
-    background: rgba(0, 0, 0, 0) url("../img/bg/cta_bg.jpg") no-repeat fixed center center / cover;
+    background: rgba(0, 0, 0, 0) url("../img/bg/cta_bgr.jpg") no-repeat fixed center center / cover;
 }
 
 .breadcrumb-area {
