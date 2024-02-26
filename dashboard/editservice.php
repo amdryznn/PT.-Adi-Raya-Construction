@@ -16,7 +16,7 @@ include "sidebar.php";
             <div class="row">
                 <div class="col-12">
                     <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                        <h4 class="mb-sm-0">Edit Service</h4>
+                        <h4 class="mb-sm-0"> </h4>
 
                         <div class="page-title-right">
                             <ol class="breadcrumb m-0">
@@ -53,7 +53,7 @@ include "sidebar.php";
                                 <li class="nav-item">
                                     <a class="nav-link active" data-bs-toggle="tab" href="#personalDetails" role="tab"
                                         aria-selected="false">
-                                        <i class="fas fa-home"></i> Edit Service
+                                        <i class="fas fa-home"></i> Edit Values
                                     </a>
                                 </li>
 
@@ -166,7 +166,7 @@ include "sidebar.php";
                                             <div class="col-lg-12">
                                                 <div class="hstack gap-2 justify-content-end">
                                                     <button type="submit" name="save" class="btn btn-primary">Update
-                                                        Service</button>
+                                                        Values</button>
 
                                                 </div>
                                             </div>

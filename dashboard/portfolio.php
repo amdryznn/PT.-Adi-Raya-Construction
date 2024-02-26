@@ -12,12 +12,12 @@
             <div class="row">
                 <div class="col-12">
                     <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                        <h4 class="mb-sm-0">Portfolio</h4>
+                        <h4 class="mb-sm-0">Work</h4>
 
                         <div class="page-title-right">
                             <ol class="breadcrumb m-0">
                                 <li class="breadcrumb-item"><a href="javascript: void(0);">All</a></li>
-                                <li class="breadcrumb-item active">Portfolio</li>
+                                <li class="breadcrumb-item active">Work</li>
                             </ol>
                         </div>
 
