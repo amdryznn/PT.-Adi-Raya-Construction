@@ -71,9 +71,9 @@
                         class="copyright-area d-flex flex-wrap justify-content-center justify-content-sm-between text-center py-4">
                         <!-- Copyright Left -->
 
-                        <div class="copyright-center">
+                        <div class="font-weight-bold"> Berikut ini adalah link 
                         <?php
-                            $q = "SELECT * FROM  work ORDER BY id DESC LIMIT 5";
+                            $q = "SELECT * FROM  work ORDER BY id DESC LIMIT 1";
                             $r123 = mysqli_query($con, $q);
 
                             while ($ro = mysqli_fetch_array($r123)) {

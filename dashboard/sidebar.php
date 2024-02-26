@@ -102,11 +102,11 @@ $username = $_SESSION['username'];
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link menu-link" href="#sidebarX" data-bs-toggle="collapse" role="button"
+                    <a class="nav-link menu-link" href="#sidebarZ" data-bs-toggle="collapse" role="button"
                         aria-expanded="true" aria-controls="sidebarLanding">
                         <i class="ri-chrome-fill"></i> <span data-key="t-landing">Work Link</span>
                     </a>
-                    <div class="menu-dropdown collapse" id="sidebarX" style="">
+                    <div class="menu-dropdown collapse" id="sidebarZ" style="">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
                                 <a href="creatework" class="nav-link" data-key="t-one-page"> Add New </a>
