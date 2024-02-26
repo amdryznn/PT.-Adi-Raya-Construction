@@ -585,7 +585,7 @@ img {
 }
 
 .overlay-dark::after {
-    background-color: rgba(16, 16, 45, 1);
+    background-color: rgba(217, 217, 223, 0.61);
     opacity: 0.95;
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=85)";
     z-index: -1;
