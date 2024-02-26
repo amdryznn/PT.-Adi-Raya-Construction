@@ -20,7 +20,7 @@
                     <!-- Footer Items -->
                     <div class="footer-items">
                         <!-- Footer Title -->
-                        <h3 class="footer-title text-uppercase mb-2">Services</h3>
+                        <h3 class="footer-title text-uppercase mb-2">Values</h3>
                         <ul>
 
                             <?php
@@ -90,11 +90,11 @@
                             <?php print $site_footer ?>
                         </div>
                         <!-- Copyright Right -->
-                        
+
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 </footer>
 <!--====== Footer Area End ======-->
 
