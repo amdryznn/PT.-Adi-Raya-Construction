@@ -585,7 +585,7 @@ img {
 }
 
 .overlay-dark::after {
-    background-color: rgba(217, 217, 223, 0.61);
+    background-color: rgb(80, 80, 116);
     opacity: 0.95;
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=85)";
     z-index: -1;
@@ -663,7 +663,7 @@ img {
 }
 
 .breadcrumb-area.bg-overlay::after {
-    background: linear-gradient(-45deg, #ffffff 0%, #ffffff 100%);
+    background: linear-gradient(-45deg, #5B7C9A 0%, #5b7c9a98 100%);
 }
 
 .btn,
