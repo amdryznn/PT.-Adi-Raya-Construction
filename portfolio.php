@@ -62,39 +62,39 @@
 
         </div>
 
-        <div class="footer-bottom bg-grey">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <!-- Copyright Area -->
-                    <div
-                        class="copyright-area d-flex flex-wrap justify-content-center justify-content-sm-between text-center py-4">
-                        <!-- Copyright Left -->
+        <div class="footer-bottom bg-white">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <!-- Copyright Area -->
+                        <div
+                            class="copyright-area d-flex flex-wrap justify-content-center justify-content-sm-between text-center py-4">
+                            <!-- Copyright Left -->
 
-                        <div class="font-weight-bold"> Berikut ini adalah link 
-                        <?php
-                            $q = "SELECT * FROM  work ORDER BY id DESC LIMIT 1";
-                            $r123 = mysqli_query($con, $q);
+                            <div class="font-weight-bold"> Our Past Work:
+                                <?php
+                                $q = "SELECT * FROM  work ORDER BY id DESC LIMIT 1";
+                                $r123 = mysqli_query($con, $q);
 
-                            while ($ro = mysqli_fetch_array($r123)) {
+                                while ($ro = mysqli_fetch_array($r123)) {
 
-                                $id = "$ro[id]";
-                                $work_link = "$ro[work_link]";
+                                    $id = "$ro[id]";
+                                    $work_link = "$ro[work_link]";
 
-                                print "
+                                    print "
 
                                 <a class='service-btn mt-3' href='$work_link'>View All</a>
 ";
-                            } ?>    
+                                } ?>
 
+
+                            </div>
+                            <!-- Copyright Right -->
 
                         </div>
-                        <!-- Copyright Right -->
-
                     </div>
                 </div>
             </div>
-        </div>
 
 </section>
 <!-- ***** Portfolio Area End ***** -->
