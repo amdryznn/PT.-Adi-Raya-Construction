@@ -13,7 +13,7 @@ $todo = mysqli_real_escape_string($con, $_GET["id"]);
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a class="text-uppercase text-white" href="index.html">Home</a></li>
 
-                        <li class="breadcrumb-item text-white active">Service</li>
+                        <li class="breadcrumb-item text-white active">Values</li>
                     </ol>
                 </div>
             </div>
