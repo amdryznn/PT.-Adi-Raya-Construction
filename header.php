@@ -130,7 +130,7 @@ $latitude = "$tr[latitude]";
                     $ufile = "$tr[ufile]";
                     ?>
 
-                    <a class="navbar-brand" href="index.html">
+                    <a class="navbar-brand" href="#">
                         <img class="navbar-brand-regular" src="dashboard/uploads/logo/<?php print $ufile ?>"
                             alt="brand-logo">
                         <img class="navbar-brand-sticky" src="dashboard/uploads/logo/black.png" alt="sticky brand-logo">
