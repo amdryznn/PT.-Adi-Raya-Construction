@@ -177,7 +177,7 @@
                 <div class="contact-us">
                     <ul>
                         <!-- Contact Info -->
-                        <li class="contact-info color-2 bg-hover active hover-bottom text-center p-5 m-3">
+                        <li class="contact-info color-1 bg-hover active hover-bottom text-center p-5 m-3">
                             <span><i class="fas fa-mobile-alt fa-3x"></i></span>
                             <a class="d-block my-2" href="tel:<?php print $phone1 ?>">
                                 <h3>
@@ -187,7 +187,7 @@
 
                         </li>
                         <!-- Contact Info -->
-                        <li class="contact-info color-3 bg-hover active hover-bottom text-center p-5 m-3">
+                        <li class="contact-info color-1 bg-hover active hover-bottom text-center p-5 m-3">
                             <span><i class="fas fa-envelope-open-text fa-3x"></i></span>
                             <a class="d-none d-sm-block my-2" href="mailto:<?php print $email1 ?>">
                                 <h3>
