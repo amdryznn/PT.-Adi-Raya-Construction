@@ -102,6 +102,23 @@ $username = $_SESSION['username'];
                 </li>
 
                 <li class="nav-item">
+                    <a class="nav-link menu-link" href="#sidebarX" data-bs-toggle="collapse" role="button"
+                        aria-expanded="true" aria-controls="sidebarLanding">
+                        <i class="ri-chrome-fill"></i> <span data-key="t-landing">Work Link</span>
+                    </a>
+                    <div class="menu-dropdown collapse" id="sidebarX" style="">
+                        <ul class="nav nav-sm flex-column">
+                            <li class="nav-item">
+                                <a href="creatework" class="nav-link" data-key="t-one-page"> Add New </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="work" class="nav-link" data-key="t-nft-landing">Link List </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+
+                <li class="nav-item">
                     <a class="nav-link menu-link" href="#sidebarSl" data-bs-toggle="collapse" role="button"
                         aria-expanded="true" aria-controls="sidebarLanding">
                         <i class="ri-image-fill"></i> <span data-key="t-landing">Manage Slider</span>

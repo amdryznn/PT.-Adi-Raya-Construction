@@ -10,6 +10,7 @@ RewriteRule    ^profile/?$    profile.php    [NC,L]
 RewriteRule    ^createportfolio/?$    add-portfolio.php    [NC,L]
 RewriteRule    ^createservice/?$    add-service.php    [NC,L]
 RewriteRule    ^createsocial/?$    add-social.php    [NC,L]
+RewriteRule    ^creatework/?$    add-work.php    [NC,L]
 RewriteRule    ^addwhy/?$    add-why.php    [NC,L]
 
 RewriteRule    ^editportfolio/([A-Za-z0-9-]+)/?$    editport.php?id=$1    [NC,L]
@@ -22,6 +23,7 @@ RewriteRule    ^services/?$    services.php    [NC,L]
 
 RewriteRule    ^settings/?$    site-settings.php    [NC,L]
 RewriteRule    ^social/?$    social-links.php    [NC,L]
+RewriteRule    ^work/?$    work-links.php    [NC,L]
 
 RewriteRule    ^why/?$    why-us.php    [NC,L]
 RewriteRule    ^logo/?$    updatelogo.php    [NC,L]
