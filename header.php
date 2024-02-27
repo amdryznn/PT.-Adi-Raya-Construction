@@ -143,10 +143,6 @@ $latitude = "$tr[latitude]";
                             <a class="nav-link" href="home">Home </a>
                         </li>
 
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">Services</a>
-                        </li>
-
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button"
                                 data-bs-toggle="dropdown" aria-expanded="false">About Us</a>
