@@ -50,6 +50,16 @@
 
 <!-- ***** Promo Area Start ***** -->
 <section class="section promo-area ptb_100">
+
+    <div class="section-heading text-center">
+        <h2> Our Services
+
+        </h2>
+        <p class="d-none d-sm-block mt-4">
+            <?php print $service_text ?>
+        </p>
+    </div>
+
     <div class="container">
         <div class="row">
 
