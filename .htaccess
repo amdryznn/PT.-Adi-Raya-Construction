@@ -3,6 +3,6 @@ RewriteEngine On    # Turn on the rewriting engine
 RewriteRule    ^home/?$    index.php    [NC,L]
 RewriteRule    ^about/?$    about.php    [NC,L]
 RewriteRule    ^vision/?$    vision-mission.php    [NC,L]
-RewriteRule    ^services/?$    services.php    [NC,L]
+RewriteRule    ^values/?$    services.php    [NC,L]
 RewriteRule    ^contact/?$    contact.php    [NC,L]
 RewriteRule    ^portfolio/?$    portfolio.php    [NC,L]

@@ -155,7 +155,7 @@ $latitude = "$tr[latitude]";
                                 <li><a class="dropdown-item" href="about">About Us</a></li>
                                 <li><a class="dropdown-item" href="vision">Vision & Mission</a></li>
                                 <li><a class="dropdown-item" href="#">Corporate Structure</a></li>
-                                <li><a class="dropdown-item" href="services">Corporate Values</a></li>
+                                <li><a class="dropdown-item" href="values">Corporate Values</a></li>
                             </ul>
 
                         <li class="nav-item dropdown">
