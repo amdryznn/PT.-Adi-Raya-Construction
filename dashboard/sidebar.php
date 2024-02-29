@@ -119,6 +119,40 @@ $username = $_SESSION['username'];
                 </li>
 
                 <li class="nav-item">
+                    <a class="nav-link menu-link" href="#sidebarU" data-bs-toggle="collapse" role="button"
+                        aria-expanded="true" aria-controls="sidebarLanding">
+                        <i class="ri-bar-chart-grouped-fill"></i> <span data-key="t-landing">Category</span>
+                    </a>
+                    <div class="menu-dropdown collapse" id="sidebarU" style="">
+                        <ul class="nav nav-sm flex-column">
+                            <li class="nav-item">
+                                <a href="createcategory" class="nav-link" data-key="t-one-page"> Add New </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="categorylist" class="nav-link" data-key="t-nft-landing">Category List </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link menu-link" href="#sidebarGU" data-bs-toggle="collapse" role="button"
+                        aria-expanded="true" aria-controls="sidebarLanding">
+                        <i class="ri-task-line"></i> <span data-key="t-landing">Project</span>
+                    </a>
+                    <div class="menu-dropdown collapse" id="sidebarGU" style="">
+                        <ul class="nav nav-sm flex-column">
+                            <li class="nav-item">
+                                <a href="createproject" class="nav-link" data-key="t-one-page"> Add New </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="projectlist" class="nav-link" data-key="t-nft-landing">Project List </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+
+                <li class="nav-item">
                     <a class="nav-link menu-link" href="#sidebarSl" data-bs-toggle="collapse" role="button"
                         aria-expanded="true" aria-controls="sidebarLanding">
                         <i class="ri-image-fill"></i> <span data-key="t-landing">Manage Slider</span>

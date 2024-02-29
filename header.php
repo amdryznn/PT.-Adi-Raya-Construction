@@ -1,4 +1,7 @@
 <?php include "z_db.php"; ?>
+<?php
+$qc = mysqli_query($con, "SELECT * FROM category");
+?>
 <!doctype html>
 <html class="no-js" lang="en">
 <?php
@@ -20,7 +23,6 @@ $why_text = "$rs[why_text]";
 $about_title = "$rs[about_title]";
 $about_text = "$rs[about_text]";
 ?>
-
 
 
 <?php
@@ -143,6 +145,10 @@ $latitude = "$tr[latitude]";
                             <a class="nav-link" href="home">Home </a>
                         </li>
 
+                        <li class="nav-item">
+                            <a class="nav-link" href="home">Legality </a>
+                        </li>
+
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button"
                                 data-bs-toggle="dropdown" aria-expanded="false">About Us</a>
@@ -153,15 +159,23 @@ $latitude = "$tr[latitude]";
                                 <li><a class="dropdown-item" href="structure">Corporate Structure</a></li>
                                 <li><a class="dropdown-item" href="values">Corporate Values</a></li>
                             </ul>
+                        </li>
 
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">Experiences</a>
-
-                            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
-                                <li><a class="dropdown-item" href="portfolio">Project Experiences</a></li>
-                                <li><a class="dropdown-item" href="#">Legality of Company</a></li>
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">Projects</a>
+                            <ul class="dropdown-menu">
+                                <?php
+                                foreach ($qc as $ro):
+                                    ?>
+                                    <li>
+                                        <a class="dropdown-item" href="projectdetail.php?id=<?= $ro['cat_id'] ?>">
+                                            <?= $ro['name'] ?>
+                                        </a>
+                                    </li>
+                                <?php endforeach ?>
                             </ul>
+                        </li>
 
                             <!-- Navbar Icons -->
                         <li class="navbar-nav icons">

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 26, 2024 at 08:49 AM
+-- Generation Time: Feb 29, 2024 at 03:59 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `arcon`
+-- Database: `arcon-coba`
 --
 
 -- --------------------------------------------------------
@@ -61,8 +61,30 @@ CREATE TABLE `blog` (
 --
 
 INSERT INTO `blog` (`id`, `blog_title`, `blog_desc`, `blog_detail`, `ufile`, `updated_at`) VALUES
-(1, 'We provide the best digital services', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit nihil tenetur minus quidem.', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit nihil tenetur minus quidem est deserunt molestias accusamus harum ullam tempore debitis et, expedita, repellat delectus aspernatur neque itaque qui quod.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit nihil tenetur minus quidem est deserunt molestias accusamus harum ullam tempore debitis et, expedita, repellat delectus aspernatur neque itaque qui quod.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit nihil tenetur minus quidem est deserunt molestias accusamus harum ullam tempore debitis et, expedita, repellat delectus aspernatur neque itaque qui quod.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit nihil tenetur minus quidem est deserunt molestias accusamus harum ullam tempore debitis et, expedita, repellat delectus aspernatur neque itaque qui quod.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit nihil tenetur minus quidem est deserunt molestias accusamus harum ullam tempore debitis et, expedita, repellat delectus aspernatur neque itaque qui quod.', '', '2022-07-15 12:47:45'),
-(2, 'We provide the best digital services', 'We provide the best digital servicesWe provide the best digital servicesWe provide the best digital services', 'We provide the best digital servicesWe provide the best digital servicesWe provide the best digital servicesWe provide the best digital servicesWe provide the best digital servicesWe provide the best digital servicesWe provide the best digital services', '60936059d354562031616499540.png', '2022-07-16 05:49:44');
+(1, 'We provide the best digital servicesss', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit nihil tenetur minus quidem.', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit nihil tenetur minus quidem est deserunt molestias accusamus harum ullam tempore debitis et, expedita, repellat delectus aspernatur neque itaque qui quod.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit nihil tenetur minus quidem est deserunt molestias accusamus harum ullam tempore debitis et, expedita, repellat delectus aspernatur neque itaque qui quod.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit nihil tenetur minus quidem est deserunt molestias accusamus harum ullam tempore debitis et, expedita, repellat delectus aspernatur neque itaque qui quod.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit nihil tenetur minus quidem est deserunt molestias accusamus harum ullam tempore debitis et, expedita, repellat delectus aspernatur neque itaque qui quod.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit nihil tenetur minus quidem est deserunt molestias accusamus harum ullam tempore debitis et, expedita, repellat delectus aspernatur neque itaque qui quod.', '', '2024-02-29 13:52:21');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `category`
+--
+
+CREATE TABLE `category` (
+  `cat_id` int(11) NOT NULL,
+  `name` varchar(150) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `category`
+--
+
+INSERT INTO `category` (`cat_id`, `name`) VALUES
+(1, 'UI/UX'),
+(7, 'Engineering'),
+(12, 'Berenang'),
+(14, 'Boiler'),
+(16, 'Paving'),
+(17, 'Instalasi Tangki');
 
 -- --------------------------------------------------------
 
@@ -105,6 +127,36 @@ CREATE TABLE `portfolio` (
 
 INSERT INTO `portfolio` (`id`, `port_title`, `port_desc`, `port_detail`, `ufile`, `updated_at`) VALUES
 (3, 'App Development', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. ', '926070de04f0-df57-11ec-85a8-bda8f2c6ca77-rimg-w720-h720-gmir.jpg', '2022-07-18 14:48:54');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `project`
+--
+
+CREATE TABLE `project` (
+  `id` int(100) NOT NULL,
+  `code` varchar(20) NOT NULL,
+  `date` varchar(50) NOT NULL,
+  `client` varchar(150) NOT NULL,
+  `proj_title` varchar(200) NOT NULL,
+  `proj_desc` varchar(200) NOT NULL,
+  `proj_detail` varchar(200) NOT NULL,
+  `ufile` varchar(1000) NOT NULL,
+  `cat_id` int(11) NOT NULL,
+  `name` varchar(150) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `project`
+--
+
+INSERT INTO `project` (`id`, `code`, `date`, `client`, `proj_title`, `proj_desc`, `proj_detail`, `ufile`, `cat_id`, `name`) VALUES
+(13, '1234567', '2022', 'PT. PERTAMINA', 'KILANG BPP- II PERTAMINA', 'Pekerjaan Re-engineering and RLA Peralatan Kilang BPP- II Dengan Umur ≥ 30 Tahun', 'Pekerjaan Re-engineering and RLA Peralatan Kilang BPP- II Dengan Umur ≥ 30 Tahun', '5145926070de04f0-df57-11ec-85a8-bda8f2c6ca77-rimg-w720-h720-gmir.jpg', 12, ''),
+(14, '123445wywtrywutr', '2023', 'PT. So Far Away', 'Penginstalan Pipa Kali', 'hahahahahahahhahhahahahahahahahahah', 'hahahahahahhahahahahahahahahah', '4109926070de04f0-df57-11ec-85a8-bda8f2c6ca77-rimg-w720-h720-gmir.jpg', 7, ''),
+(15, 'fhjjhfkfhflufluflfuy', '2019', 'pt tidurrrrrrrrrrr', 'Penginstalan paving', 'yfififfyfyfufuyhjkfhgfjhfhigfg', 'fyvfuyifiyfiuffkyfiuyfyufyufbyufyfyufiyufidityddthgkgdhd', '9633363e87d37114cb34c0c1956c45dcddf4.jpg', 1, ''),
+(19, '12333333333', '19 Mei 2003', 'PT. Angkasa Raya', 'Penginstalan Tangki', ' Lorem ipsum dolor sit amet, consectetur adipiscing elit, ', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut a', '843020240205_214845.png', 16, ''),
+(20, 'Lorem ipsum dolor si', '19 January 2024', 'PT. JAYA JAYA JAYA', 'Penginstalan Tangki Medium', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut a', '473520240221_140038.jpg', 17, '');
 
 -- --------------------------------------------------------
 
@@ -249,7 +301,6 @@ CREATE TABLE `social` (
 --
 
 INSERT INTO `social` (`id`, `name`, `fa`, `social_link`) VALUES
-(1, 'Facebook', 'fa-facebook', 'https://facebook.com/faithyemi'),
 (2, 'Instagram', 'fa-instagram', 'https://instagram.com/faith_awolu');
 
 -- --------------------------------------------------------
@@ -336,7 +387,9 @@ CREATE TABLE `work` (
 --
 
 INSERT INTO `work` (`id`, `name`, `work_link`) VALUES
-(1, '2024', 'https://docs.google.com/spreadsheets/d/1Qkp4btUo-TP3u1_pWMOjXeQlAC_7WcWGqaRpjzOh3ZY/edit?usp=sharing');
+(1, '2024', 'https://docs.google.com/spreadsheets/d/1Qkp4btUo-TP3u1_pWMOjXeQlAC_7WcWGqaRpjzOh3ZY/edit?usp=sharing'),
+(4, '2023', 'https://docs.google.com/spreadsheets/d/1Qkp4btUo-TP3u1_pWMOjXeQlAC_7WcWGqaRpjzOh3ZY/edit?usp=sharing'),
+(5, '2029', 'https://instagram.com/farsaj.123');
 
 --
 -- Indexes for dumped tables
@@ -355,6 +408,12 @@ ALTER TABLE `blog`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `category`
+--
+ALTER TABLE `category`
+  ADD PRIMARY KEY (`cat_id`);
+
+--
 -- Indexes for table `logo`
 --
 ALTER TABLE `logo`
@@ -364,6 +423,12 @@ ALTER TABLE `logo`
 -- Indexes for table `portfolio`
 --
 ALTER TABLE `portfolio`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `project`
+--
+ALTER TABLE `project`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -443,6 +508,12 @@ ALTER TABLE `blog`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
+-- AUTO_INCREMENT for table `category`
+--
+ALTER TABLE `category`
+  MODIFY `cat_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+
+--
 -- AUTO_INCREMENT for table `logo`
 --
 ALTER TABLE `logo`
@@ -452,7 +523,13 @@ ALTER TABLE `logo`
 -- AUTO_INCREMENT for table `portfolio`
 --
 ALTER TABLE `portfolio`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `project`
+--
+ALTER TABLE `project`
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `section_title`
@@ -506,7 +583,7 @@ ALTER TABLE `why_us`
 -- AUTO_INCREMENT for table `work`
 --
 ALTER TABLE `work`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

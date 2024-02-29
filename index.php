@@ -228,9 +228,6 @@
 </section>
 <!-- ***** Portfolio Area End ***** -->
 
-<!-- ***** Price Plan Area Start ***** -->
-
-<!-- ***** Price Plan Area End ***** -->
 
 <!-- ***** Review Area Start ***** -->
 <section id="review" class="section review-area bg-overlay ptb_100">
@@ -259,8 +256,6 @@
 
                 <?php
                 $q = "SELECT * FROM  testimony ORDER BY id DESC LIMIT 6";
-
-
                 $r123 = mysqli_query($con, $q);
 
                 while ($ro = mysqli_fetch_array($r123)) {
