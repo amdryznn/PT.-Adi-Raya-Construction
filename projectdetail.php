@@ -10,11 +10,11 @@ $cat_id = ($_GET["id"]);
                     <div class="col-12">
                         <!-- Breamcrumb Content -->
                         <div class="breadcrumb-content d-flex flex-column align-items-center text-center">
-                            <h2 class="text-white text-uppercase mb-3">Portfolio Details</h2>
+                            <h2 class="text-white text-uppercase mb-3">Project Details</h2>
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a class="text-uppercase text-white" href="index.html">Home</a></li>
 
-                                <li class="breadcrumb-item text-white active">Portfolio</li>
+                                <li class="breadcrumb-item text-white active">Project</li>
                             </ol>
                         </div>
                     </div>
