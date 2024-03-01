@@ -10,7 +10,7 @@ $todelete= mysqli_real_escape_string($con,$_GET["id"]);
 $result=mysqli_query($con,"DELETE FROM project WHERE id='$todelete'");
 if ($result)
 {
-print "<center>Category deleted<br/>Redirecting in 2 seconds...</center>";
+print "<center>Project deleted<br/>Redirecting in 2 seconds...</center>";
 }
 else
 {
