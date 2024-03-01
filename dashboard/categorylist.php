@@ -46,7 +46,7 @@
 
 
                                         <?php
-				   $q="SELECT * FROM  category ORDER BY cat_id DESC";
+				   $q="SELECT * FROM category ORDER BY cat_id DESC";
 
 
  $r123 = mysqli_query($con,$q);
@@ -71,8 +71,8 @@ while($ro = mysqli_fetch_array($r123))
                                                             <i class='ri-more-fill align-middle'></i>
                                                         </button>
                                                         <ul class='dropdown-menu dropdown-menu-end'>
-
-
+                                                        <li><a href='editcategory.php?id=$cat_id' class='dropdown-item edit-item-btn'><i class='ri-pencil-fill align-bottom me-2 text-muted'></i> Edit</a></li>
+                                                          <li>
                                                             <li>
                                                                 <a href='deletecategory.php?id=$cat_id' class='dropdown-item remove-item-btn'>
                                                                     <i class='ri-delete-bin-fill align-bottom me-2 text-muted'></i> Delete
