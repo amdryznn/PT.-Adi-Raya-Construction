@@ -41,11 +41,11 @@
                                         <thead>
                                             <tr>
                                             <th data-ordering="false">Image</th>
-                                            <th data-ordering="false">Project Id</th>
+                                            <th data-ordering="false">ID Project</th>
                                             <th data-ordering="false">Date</th>
                                             <th data-ordering="false">Client</th>
                                                 <th data-ordering="false">Project Title</th>
-                                                <th data-ordering="false">ID Category</th>
+                                                <th data-ordering="false">Category</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
@@ -53,8 +53,8 @@
 
 
                                         <?php
-				   $q="SELECT * FROM project ORDER BY id DESC";
-               
+				   $q="SELECT project.id, project.proj_title, project.code, project.client, project.date, project.ufile, category.name FROM project JOIN category ON project.cat_id = category.cat_id ORDER BY id DESC";
+                   
 
                    
  $r123 = mysqli_query($con,$q);
@@ -68,14 +68,14 @@ while($ro = mysqli_fetch_array($r123))
     $date="$ro[date]";
     $client="$ro[client]";
 	$proj_title="$ro[proj_title]";
-    $cat_id="$ro[cat_id]";
     $ufile="$ro[ufile]";
+    $name="$ro[name]";
   
   
 
   print "<tr>
   <td>
-  <img src='uploads/project/$ufile' alt='img' style='max-height:150px;'>
+  <img src='uploads/project/$ufile' alt='img' style='max-height:50px;'>
   </td>
 				  <td>
 				  $code
@@ -90,7 +90,7 @@ while($ro = mysqli_fetch_array($r123))
 				  $proj_title
 				  </td>
                   <td>
-				  $cat_id
+				  $name
 				  </td>
                  
                                                 <td>
