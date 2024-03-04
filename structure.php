@@ -17,17 +17,55 @@
         </div>
     </div>
 </section>
+</div>
 <!-- ***** Breadcrumb Area End ***** -->
 
-<!-- ***** About Area Start ***** -->
-<section class="section about-area ptb_100">
-    <div style="left: 0; width: 100%; height: 0; position: relative; padding-bottom: 47.5%;">
-        <iframe
-            src="https://docs.google.com/document/d/1HXCsm_u7ATa7NhUy-OAFi9TYfMI3qp6u9202GjRLfzA/preview?usp=embed_googleplus"
-            style="top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;" allowfullscreen></iframe>
+<section id="portfolio" class="portfolio-area overflow-hidden ptb_100">
+    <div class="container">
+
+        <!-- Portfolio Items -->
+        <div class="row items portfolio-items">
+
+            <?php
+            $q = "SELECT * FROM  portfolio ORDER BY id DESC";
+
+
+            $r123 = mysqli_query($con, $q);
+
+            while ($ro = mysqli_fetch_array($r123)) {
+
+                $id = "$ro[id]";
+                $port_title = "$ro[port_title]";
+                $port_desc = "$ro[port_desc]";
+                $ufile = "$ro[ufile]";
+
+                print "
+<div class='col-12 col-sm-6 col-lg-4 portfolio-item' data-groups='['marketing','development']'>
+<!-- Single Case Studies -->
+<div class='single-case-studies'>
+    <!-- Case Studies Thumb -->
+    <a href='structuredetail.php?id=$id'>
+        <img src='dashboard/uploads/portfolio/$ufile' alt=''>
+    </a>
+    <!-- Case Studies Overlay -->
+    <a href='structuredetail.php?id=$id' class='case-studies-overlay'>
+        <!-- Overlay Text -->
+        <span class='overlay-text text-center p-3'>
+            <h3 class='text-white mb-3'>$port_title</h3>
+            <p class='text-white'>$port_desc.</p>
+        </span>
+    </a>
+</div>
+</div>
+";
+            }
+            ?>
+
+        </div>
+
     </div>
 </section>
-<!-- ***** About Area End ***** -->
+<!-- ***** Portfolio Area End ***** -->
 
 
 <!-- ***** Our Goal Area End ***** -->

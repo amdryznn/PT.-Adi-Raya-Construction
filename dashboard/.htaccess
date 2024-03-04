@@ -17,12 +17,14 @@ RewriteRule    ^createsocial/?$    add-social.php    [NC,L]
 RewriteRule    ^creatework/?$    add-work.php    [NC,L]
 RewriteRule    ^addwhy/?$    add-why.php    [NC,L]
 RewriteRule    ^createcategory/?$    add-category.php    [NC,L]
+RewriteRule    ^createstructure/?$    add-structure.php    [NC,L]
 
 RewriteRule    ^editportfolio/([A-Za-z0-9-]+)/?$    editport.php?id=$1    [NC,L]
 RewriteRule    ^editservice/([A-Za-z0-9-]+)/?$    editservice.php?id=$1    [NC,L]
 
 RewriteRule    ^portfolio/?$    portfolio.php    [NC,L]
 RewriteRule    ^legality/?$    legality.php    [NC,L]
+RewriteRule    ^structure/?$    structure.php    [NC,L]
 
 RewriteRule    ^sections/?$    section-title.php    [NC,L]
 RewriteRule    ^vision-mission/?$    vision-mission.php    [NC,L]

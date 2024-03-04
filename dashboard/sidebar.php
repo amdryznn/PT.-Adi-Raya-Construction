@@ -119,6 +119,23 @@ $username = $_SESSION['username'];
                     </div>
                 </li>
 
+                <li class="nav-item">
+                    <a class="nav-link menu-link" href="#sidebarStr" data-bs-toggle="collapse" role="button"
+                        aria-expanded="true" aria-controls="sidebarLanding">
+                        <i class="ri-rhythm-fill"></i> <span data-key="t-landing">Structure</span>
+                    </a>
+                    <div class="menu-dropdown collapse" id="sidebarStr" style="">
+                        <ul class="nav nav-sm flex-column">
+                            <li class="nav-item">
+                                <a href="createstructure" class="nav-link" data-key="t-one-page"> Add New </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="structure" class="nav-link" data-key="t-nft-landing"> Structure List </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+
 
                 <li class="nav-item">
                     <a class="nav-link menu-link" href="#sidebarPot" data-bs-toggle="collapse" role="button"

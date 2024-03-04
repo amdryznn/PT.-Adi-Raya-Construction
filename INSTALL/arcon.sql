@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 04 Mar 2024 pada 06.24
+-- Waktu pembuatan: 04 Mar 2024 pada 15.04
 -- Versi server: 10.4.27-MariaDB
 -- Versi PHP: 8.2.0
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `arcon-coba-lagi`
+-- Database: `arcon-coba-coba`
 --
 
 -- --------------------------------------------------------
@@ -160,15 +160,18 @@ CREATE TABLE `portfolio` (
   `port_desc` varchar(1000) NOT NULL,
   `port_detail` varchar(2000) NOT NULL,
   `ufile` varchar(1000) NOT NULL,
-  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `tw_link` varchar(2000) NOT NULL,
+  `fb_link` varchar(2000) NOT NULL,
+  `li_link` varchar(2000) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data untuk tabel `portfolio`
 --
 
-INSERT INTO `portfolio` (`id`, `port_title`, `port_desc`, `port_detail`, `ufile`, `updated_at`) VALUES
-(3, 'App Development', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. ', '926070de04f0-df57-11ec-85a8-bda8f2c6ca77-rimg-w720-h720-gmir.jpg', '2022-07-18 14:48:54');
+INSERT INTO `portfolio` (`id`, `port_title`, `port_desc`, `port_detail`, `ufile`, `updated_at`, `tw_link`, `fb_link`, `li_link`) VALUES
+(11, 'Amanda Manopo', 'Direktur', 'Saya adalah Amanda Manopo. Saya murah senyum dan tidak mudah marah-marah.', '88651675621107626.jpg', '2024-03-04 13:44:16', 'https://twitter.com/amandamanopo', 'https://instagram.com/amandamanopo', 'https://www.linkedin.com/in/farhanahsajidah/');
 
 -- --------------------------------------------------------
 
@@ -589,7 +592,7 @@ ALTER TABLE `logo`
 -- AUTO_INCREMENT untuk tabel `portfolio`
 --
 ALTER TABLE `portfolio`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT untuk tabel `project`
