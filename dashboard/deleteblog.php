@@ -1,5 +1,5 @@
 <?php
-header("refresh:2;url=blog");
+header("refresh:2;url=vision");
 include_once("../z_db.php");
 // Inialize session
 session_start();

@@ -32,7 +32,7 @@ while ($row = mysqli_fetch_array($query)) {
     ?>
 
     <!-- ***** About Area Start ***** -->
-    <section class="section about-area ptb_100">
+    <section class="section about-area ptb_50">
         <div class="container">
             <div class="row justify-content-between align-items-center">
                 <div class="col-12 col-lg-6">
