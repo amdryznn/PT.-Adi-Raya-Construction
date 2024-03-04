@@ -41,6 +41,7 @@ include "sidebar.php";
                 $tw_link = "$row[tw_link]";
                 $fb_link = "$row[fb_link]";
                 $li_link = "$row[li_link]";
+                $ufile="$row[ufile]";
 
             }
             ?>
@@ -75,8 +76,8 @@ include "sidebar.php";
                             $tw_link = mysqli_real_escape_string($con, $_POST['tw_link']);
                             $fb_link = mysqli_real_escape_string($con, $_POST['fb_link']);
                             $li_link = mysqli_real_escape_string($con, $_POST['li_link']);
-                            /*
-                           $uploads_dir = 'uploads';
+                            
+                           $uploads_dir = 'uploads/portfolio';
 
                                    $tmp_name = $_FILES["ufile"]["tmp_name"];
                                    // basename() may prevent filesystem traversal attacks;
@@ -85,10 +86,10 @@ include "sidebar.php";
                                    $random_digit=rand(0000,9999);
                                    $new_file_name=$random_digit.$name;
 
-                                   move_uploaded_file($tmp_name, "$uploads_dir/$new_file_name");*/
+                                   move_uploaded_file($tmp_name, "$uploads_dir/$new_file_name");
 
                             if ($status == "OK") {
-                                $qb = mysqli_query($con, "update portfolio set port_title='$port_title', port_desc='$port_desc', port_detail='$port_detail', tw_link='$tw_link', fb_link='$fb_link', li_link='$li_link' where id='$todo'");
+                                $qb = mysqli_query($con, "update portfolio set port_title='$port_title', port_desc='$port_desc', port_detail='$port_detail', tw_link='$tw_link', fb_link='$fb_link', li_link='$li_link', ufile='$new_file_name' where id='$todo'");
 
 
                                 if ($qb) {
@@ -181,6 +182,14 @@ include "sidebar.php";
                                                     <label for="firstnameInput" class="form-label">LinkedIn Link</label>
                                                     <textarea class="form-control" id="exampleFormControlTextarea5"
                                                         name="li_link" rows="3"><?php print $li_link ?></textarea>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-lg-6">
+                                                <div class="mb-3">
+                                                    <label for="firstnameInput" class="form-label">Photo</label>
+                                                    <input type="file" class="form-control" id="firstnameInput"
+                                                        name="ufile"><?php print $ufile ?></textarea>
                                                 </div>
                                             </div>
 
