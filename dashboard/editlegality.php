@@ -36,6 +36,7 @@ include "sidebar.php";
             $legality_title = "$row[legality_title]";
             $legality_desc = "$row[legality_desc]";
             $legality_detail = "$row[legality_detail]";
+            $ufile="$row[ufile]";
         }
         ?>
 
@@ -66,8 +67,8 @@ include "sidebar.php";
                         $legality_title = mysqli_real_escape_string($con, $_POST['legality_title']);
                         $legality_desc = mysqli_real_escape_string($con, $_POST['legality_desc']);
                         $legality_detail = mysqli_real_escape_string($con, $_POST['legality_detail']);
-                        /*
-                       $uploads_dir = 'uploads';
+                        
+                       $uploads_dir = 'uploads/legality';
 
                                $tmp_name = $_FILES["ufile"]["tmp_name"];
                                // basename() may prevent filesystem traversal attacks;
@@ -76,10 +77,10 @@ include "sidebar.php";
                                $random_digit=rand(0000,9999);
                                $new_file_name=$random_digit.$name;
 
-                               move_uploaded_file($tmp_name, "$uploads_dir/$new_file_name");*/
+                               move_uploaded_file($tmp_name, "$uploads_dir/$new_file_name");
 
                         if ($status == "OK") {
-                            $qb = mysqli_query($con, "update legality set legality_title='$legality_title', legality_desc='$legality_desc', legality_detail='$legality_detail' where id='$todo'");
+                            $qb = mysqli_query($con, "update legality set legality_title='$legality_title', legality_desc='$legality_desc', legality_detail='$legality_detail', ufile='$new_file_name' where id='$todo'");
 
 
                             if ($qb) {
@@ -153,6 +154,14 @@ include "sidebar.php";
                                                     rows="3"><?php print $legality_detail ?></textarea>
                                             </div>
                                         </div>
+
+                                        <div class="col-lg-6">
+                                                <div class="mb-3">
+                                                    <label for="firstnameInput" class="form-label">Photo</label>
+                                                    <input type="file" class="form-control" id="firstnameInput"
+                                                        name="ufile"><?php print $ufile ?></textarea>
+                                                </div>
+                                            </div>
 
 
 
