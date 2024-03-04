@@ -39,6 +39,7 @@ include "sidebar.php";
                 $id = "$row[id]";
                 $about_decs = "$row[about_decs]";
                 $about_detail = "$row[about_detail]";
+                $ufile="$row[ufile]";
             }
             ?>
 
@@ -68,8 +69,8 @@ include "sidebar.php";
                         if (isset($_POST['save'])) {
                             $about_decs = mysqli_real_escape_string($con, $_POST['about_decs']);
                             $about_detail = mysqli_real_escape_string($con, $_POST['about_detail']);
-                            /*
-                           $uploads_dir = 'uploads';
+                            
+                           $uploads_dir = 'uploads/about';
 
                                    $tmp_name = $_FILES["ufile"]["tmp_name"];
                                    // basename() may prevent filesystem traversal attacks;
@@ -78,16 +79,16 @@ include "sidebar.php";
                                    $random_digit=rand(0000,9999);
                                    $new_file_name=$random_digit.$name;
 
-                                   move_uploaded_file($tmp_name, "$uploads_dir/$new_file_name");*/
+                                   move_uploaded_file($tmp_name, "$uploads_dir/$new_file_name");
 
                             if ($status == "OK") {
-                                $qb = mysqli_query($con, "update about set about_decs='$about_decs', about_detail='$about_detail' where id='$todo'");
+                                $qb = mysqli_query($con, "update about set about_decs='$about_decs', about_detail='$about_detail', ufile='$new_file_name' where id='$todo'");
 
 
                                 if ($qb) {
                                     $errormsg = "
 <div class='alert alert-success alert-dismissible alert-outline fade show'>
-                 Vision & Mission Updated successfully.
+                 About Updated successfully.
                   <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
                   </div>
  "; //printing error if found in validation
@@ -143,7 +144,14 @@ include "sidebar.php";
                                                         rows="3"><?php print $about_detail ?></textarea>
                                                 </div>
                                             </div>
-
+      
+                                            <div class="col-lg-6">
+                                                <div class="mb-3">
+                                                    <label for="firstnameInput" class="form-label">Photo</label>
+                                                    <input type="file" class="form-control" id="firstnameInput"
+                                                        name="ufile"><?php print $ufile ?></textarea>
+                                                </div>
+                                            </div>
 
 
                                             <!--end col-->

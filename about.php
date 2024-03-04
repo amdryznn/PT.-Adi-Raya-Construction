@@ -35,7 +35,7 @@ while ($row = mysqli_fetch_array($query)) {
                 <div class="col-12 col-lg-6">
                     <!-- About Thumb -->
                     <div class="about-thumb text-center">
-                        <img src="dashboard/uploads/blog/<?php echo $ufile; ?>" alt="img">
+                        <img src="dashboard/uploads/about/<?php echo $ufile; ?>" alt="img">
                     </div>
                 </div>
                 <div class="col-12 col-lg-6">

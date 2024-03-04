@@ -66,7 +66,7 @@
 
 
 
-                            $uploads_dir = 'uploads/blog';
+                            $uploads_dir = 'uploads/about';
 
                             $tmp_name = $_FILES["ufile"]["tmp_name"];
                             // basename() may prevent filesystem traversal attacks;
@@ -78,7 +78,7 @@
                             move_uploaded_file($tmp_name, "$uploads_dir/$new_file_name");
 
                             if ($status == "OK") {
-                                $qf = mysqli_query($con, "INSERT INTO about (about_decs, about_detail,ufile) VALUES ('$about_decs', '$about_detail', '$new_file_name')");
+                                $qf = mysqli_query($con, "INSERT INTO about (about_decs, about_detail, ufile) VALUES ('$about_decs', '$about_detail', '$new_file_name')");
 
 
 
@@ -86,7 +86,7 @@
                                 if ($qf) {
                                     $errormsg = "
 <div class='alert alert-success alert-dismissible alert-outline fade show'>
-                  Vision & Mission has been added successfully.
+                  About been added successfully.
                   <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
                   </div>
  "; //printing error if found in validation
@@ -152,6 +152,7 @@
                                                     <input type="file" class="form-control" name="ufile">
                                                 </div>
                                             </div>
+
                                             <!--end col-->
                                             <div class="col-lg-12">
                                                 <div class="hstack gap-2 justify-content-end">
