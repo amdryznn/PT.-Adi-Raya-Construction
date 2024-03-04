@@ -91,10 +91,10 @@ $username = $_SESSION['username'];
                     <div class="menu-dropdown collapse" id="sidebarB" style="">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
-                                <a href="createblog" class="nav-link" data-key="t-one-page"> Add New </a>
+                                <a href="createvision" class="nav-link" data-key="t-one-page"> Add New </a>
                             </li>
                             <li class="nav-item">
-                                <a href="blog" class="nav-link" data-key="t-nft-landing">Vision & Mission lists </a>
+                                <a href="vision" class="nav-link" data-key="t-nft-landing">Vision & Mission List </a>
                             </li>
                         </ul>
                     </div>
