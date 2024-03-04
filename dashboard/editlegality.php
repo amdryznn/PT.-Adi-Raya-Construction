@@ -139,7 +139,7 @@ include "sidebar.php";
                                                 <label for="firstnameInput" class="form-label"> Short
                                                     Description</label>
                                                 <textarea class="form-control" id="exampleFormControlTextarea5"
-                                                    name="legalitye_desc"
+                                                    name="legality_desc"
                                                     rows="2"><?php print $legality_desc ?></textarea>
                                             </div>
                                         </div>
