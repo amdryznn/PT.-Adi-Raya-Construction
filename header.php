@@ -146,7 +146,7 @@ $latitude = "$tr[latitude]";
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="home">Legality </a>
+                            <a class="nav-link" href="legality">Legality </a>
                         </li>
 
                         <li class="nav-item dropdown">
@@ -177,7 +177,7 @@ $latitude = "$tr[latitude]";
                             </ul>
                         </li>
 
-                            <!-- Navbar Icons -->
+                        <!-- Navbar Icons -->
                         <li class="navbar-nav icons">
                             <?php
                             $q = "SELECT * FROM  social ORDER BY id DESC LIMIT 5";

@@ -50,9 +50,43 @@ $username = $_SESSION['username'];
                 </li>
 
                 <li class="nav-item">
+                    <a class="nav-link menu-link" href="#sidebarq" data-bs-toggle="collapse" role="button"
+                        aria-expanded="true" aria-controls="sidebarLanding">
+                        <i class="ri-file-list-3-line"></i> <span data-key="t-landing">About</span>
+                    </a>
+                    <div class="menu-dropdown collapse" id="sidebarq" style="">
+                        <ul class="nav nav-sm flex-column">
+                            <li class="nav-item">
+                                <a href="createabout" class="nav-link" data-key="t-one-page"> Add New </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="about" class="nav-link" data-key="t-nft-landing">About lists </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link menu-link" href="#sidebarLgl" data-bs-toggle="collapse" role="button"
+                        aria-expanded="true" aria-controls="sidebarLanding">
+                        <i class="ri-rhythm-fill"></i> <span data-key="t-landing">Legality</span>
+                    </a>
+                    <div class="menu-dropdown collapse" id="sidebarLgl" style="">
+                        <ul class="nav nav-sm flex-column">
+                            <li class="nav-item">
+                                <a href="createlegality" class="nav-link" data-key="t-one-page"> Add New </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="legality" class="nav-link" data-key="t-nft-landing"> Legality List </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+
+                <li class="nav-item">
                     <a class="nav-link menu-link" href="#sidebarB" data-bs-toggle="collapse" role="button"
                         aria-expanded="true" aria-controls="sidebarLanding">
-                        <i class="ri-file-list-3-line"></i> <span data-key="t-landing">Manage Blog</span>
+                        <i class="ri-file-list-3-line"></i> <span data-key="t-landing">Vision & Mission</span>
                     </a>
                     <div class="menu-dropdown collapse" id="sidebarB" style="">
                         <ul class="nav nav-sm flex-column">
@@ -60,11 +94,13 @@ $username = $_SESSION['username'];
                                 <a href="createblog" class="nav-link" data-key="t-one-page"> Add New </a>
                             </li>
                             <li class="nav-item">
-                                <a href="blog" class="nav-link" data-key="t-nft-landing">Blog lists </a>
+                                <a href="blog" class="nav-link" data-key="t-nft-landing">Vision & Mission lists </a>
                             </li>
                         </ul>
                     </div>
                 </li>
+
+
 
                 <li class="nav-item">
                     <a class="nav-link menu-link" href="#sidebarLanding" data-bs-toggle="collapse" role="button"

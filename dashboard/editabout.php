@@ -1,5 +1,9 @@
-<?php include "header.php"; ?>
-<?php include "sidebar.php"; ?>
+<?php
+include "header.php";
+$todo = mysqli_real_escape_string($con, $_GET['id']);
+include "sidebar.php";
+
+?>
 
 <!-- ============================================================== -->
 <!-- Start right Content here -->
@@ -16,8 +20,8 @@
 
                         <div class="page-title-right">
                             <ol class="breadcrumb m-0">
-                                <li class="breadcrumb-item"><a href="javascript: void(0);">Vision & Mission</a></li>
-                                <li class="breadcrumb-item active">Add</li>
+                                <li class="breadcrumb-item"><a href="javascript: void(0);">About</a></li>
+                                <li class="breadcrumb-item active">Edit</li>
                             </ol>
                         </div>
 
@@ -25,7 +29,18 @@
                 </div>
             </div>
             <!-- end page title -->
+            <?php
+            $query = "SELECT * FROM  about where id='$todo' ";
 
+
+            $result = mysqli_query($con, $query);
+            $i = 0;
+            while ($row = mysqli_fetch_array($result)) {
+                $id = "$row[id]";
+                $about_decs = "$row[about_decs]";
+                $about_detail = "$row[about_detail]";
+            }
+            ?>
 
             <div class="row">
 
@@ -37,7 +52,7 @@
                                 <li class="nav-item">
                                     <a class="nav-link active" data-bs-toggle="tab" href="#personalDetails" role="tab"
                                         aria-selected="false">
-                                        <i class="fas fa-home"></i> New Vision & Mission
+                                        <i class="fas fa-home"></i> Edit About
                                     </a>
                                 </li>
 
@@ -51,52 +66,31 @@
                         $status = "OK"; //initial status
                         $msg = "";
                         if (isset($_POST['save'])) {
-                            $blog_title = mysqli_real_escape_string($con, $_POST['blog_title']);
-                            $blog_detail = mysqli_real_escape_string($con, $_POST['blog_detail']);
+                            $about_decs = mysqli_real_escape_string($con, $_POST['about_decs']);
+                            $about_detail = mysqli_real_escape_string($con, $_POST['about_detail']);
+                            /*
+                           $uploads_dir = 'uploads';
 
-                            if (strlen($blog_title) < 5) {
-                                $msg = $msg . "itle Must Be More Than 5 Char Length.<BR>";
-                                $status = "NOTOK";
-                            }
+                                   $tmp_name = $_FILES["ufile"]["tmp_name"];
+                                   // basename() may prevent filesystem traversal attacks;
+                                   // further validation/sanitation of the filename may be appropriate
+                                   $name = basename($_FILES["ufile"]["name"]);
+                                   $random_digit=rand(0000,9999);
+                                   $new_file_name=$random_digit.$name;
 
-                            if (strlen($blog_detail) < 15) {
-                                $msg = $msg . "Detail Must Be More Than 15 Char Length.<BR>";
-                                $status = "NOTOK";
-                            }
-
-
-
-                            $uploads_dir = 'uploads/blog';
-
-                            $tmp_name = $_FILES["ufile"]["tmp_name"];
-                            // basename() may prevent filesystem traversal attacks;
-                            // further validation/sanitation of the filename may be appropriate
-                            $name = basename($_FILES["ufile"]["name"]);
-                            $random_digit = rand(0000, 9999);
-                            $new_file_name = $random_digit . $name;
-
-                            move_uploaded_file($tmp_name, "$uploads_dir/$new_file_name");
+                                   move_uploaded_file($tmp_name, "$uploads_dir/$new_file_name");*/
 
                             if ($status == "OK") {
-                                $qf = mysqli_query($con, "INSERT INTO blog (blog_title, blog_detail,ufile) VALUES ('$blog_title', '$blog_detail', '$new_file_name')");
+                                $qb = mysqli_query($con, "update about set about_decs='$about_decs', about_detail='$about_detail' where id='$todo'");
 
 
-
-
-                                if ($qf) {
+                                if ($qb) {
                                     $errormsg = "
 <div class='alert alert-success alert-dismissible alert-outline fade show'>
-                  Vision & Mission has been added successfully.
+                 Vision & Mission Updated successfully.
                   <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
                   </div>
  "; //printing error if found in validation
-                        
-                                } else {
-                                    $errormsg = "
-            <div class='alert alert-danger alert-dismissible alert-outline fade show'>
-                       Some Technical Glitch Is There. Please Try Again Later Or Ask Admin For Help.
-                       <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
-                       </div>"; //printing error if found in validation
                         
                                 }
                             } elseif ($status !== "OK") {
@@ -129,34 +123,36 @@
                                     ?>
                                     <form action="" method="post" enctype="multipart/form-data">
                                         <div class="row">
+
+
+
                                             <div class="col-lg-6">
                                                 <div class="mb-3">
-                                                    <label for="firstnameInput" class="form-label">Title</label>
-                                                    <input type="text" class="form-control" name="blog_title"
+                                                    <label for="firstnameInput" class="form-label"> Title</label>
+                                                    <input type="text" class="form-control" id="firstnameInput"
+                                                        name="about_decs" value="<?php print $about_decs ?>"
                                                         placeholder="Enter Title">
                                                 </div>
                                             </div>
 
                                             <div class="col-lg-6">
                                                 <div class="mb-3">
-                                                    <label for="firstnameInput" class="form-label">Detail</label>
-                                                    <textarea class="form-control" name="blog_detail"
-                                                        rows="3"></textarea>
+                                                    <label for="firstnameInput" class="form-label"> Detail</label>
+                                                    <textarea class="form-control" id="exampleFormControlTextarea5"
+                                                        name="about_detail"
+                                                        rows="3"><?php print $about_detail ?></textarea>
                                                 </div>
                                             </div>
 
 
-                                            <div class="col-lg-6">
-                                                <div class="mb-3">
-                                                    <label for="firstnameInput" class="form-label">Photo</label>
-                                                    <input type="file" class="form-control" name="ufile">
-                                                </div>
-                                            </div>
+
+                                            <!--end col-->
+
                                             <!--end col-->
                                             <div class="col-lg-12">
                                                 <div class="hstack gap-2 justify-content-end">
-                                                    <button type="submit" name="save" class="btn btn-primary">Create
-                                                        Vision & Mission</button>
+                                                    <button type="submit" name="save" class="btn btn-primary">Update
+                                                        About</button>
 
                                                 </div>
                                             </div>

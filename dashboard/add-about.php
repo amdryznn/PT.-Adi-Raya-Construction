@@ -16,7 +16,7 @@
 
                         <div class="page-title-right">
                             <ol class="breadcrumb m-0">
-                                <li class="breadcrumb-item"><a href="javascript: void(0);">Vision & Mission</a></li>
+                                <li class="breadcrumb-item"><a href="javascript: void(0);">About</a></li>
                                 <li class="breadcrumb-item active">Add</li>
                             </ol>
                         </div>
@@ -37,7 +37,7 @@
                                 <li class="nav-item">
                                     <a class="nav-link active" data-bs-toggle="tab" href="#personalDetails" role="tab"
                                         aria-selected="false">
-                                        <i class="fas fa-home"></i> New Vision & Mission
+                                        <i class="fas fa-home"></i> New About
                                     </a>
                                 </li>
 
@@ -51,15 +51,15 @@
                         $status = "OK"; //initial status
                         $msg = "";
                         if (isset($_POST['save'])) {
-                            $blog_title = mysqli_real_escape_string($con, $_POST['blog_title']);
-                            $blog_detail = mysqli_real_escape_string($con, $_POST['blog_detail']);
+                            $about_decs = mysqli_real_escape_string($con, $_POST['about_decs']);
+                            $about_detail = mysqli_real_escape_string($con, $_POST['about_detail']);
 
-                            if (strlen($blog_title) < 5) {
+                            if (strlen($about_decs) < 5) {
                                 $msg = $msg . "itle Must Be More Than 5 Char Length.<BR>";
                                 $status = "NOTOK";
                             }
 
-                            if (strlen($blog_detail) < 15) {
+                            if (strlen($about_detail) < 15) {
                                 $msg = $msg . "Detail Must Be More Than 15 Char Length.<BR>";
                                 $status = "NOTOK";
                             }
@@ -78,7 +78,7 @@
                             move_uploaded_file($tmp_name, "$uploads_dir/$new_file_name");
 
                             if ($status == "OK") {
-                                $qf = mysqli_query($con, "INSERT INTO blog (blog_title, blog_detail,ufile) VALUES ('$blog_title', '$blog_detail', '$new_file_name')");
+                                $qf = mysqli_query($con, "INSERT INTO about (about_decs, about_detail,ufile) VALUES ('$about_decs', '$about_detail', '$new_file_name')");
 
 
 
@@ -132,7 +132,7 @@
                                             <div class="col-lg-6">
                                                 <div class="mb-3">
                                                     <label for="firstnameInput" class="form-label">Title</label>
-                                                    <input type="text" class="form-control" name="blog_title"
+                                                    <input type="text" class="form-control" name="about_decs"
                                                         placeholder="Enter Title">
                                                 </div>
                                             </div>
@@ -140,7 +140,7 @@
                                             <div class="col-lg-6">
                                                 <div class="mb-3">
                                                     <label for="firstnameInput" class="form-label">Detail</label>
-                                                    <textarea class="form-control" name="blog_detail"
+                                                    <textarea class="form-control" name="about_detail"
                                                         rows="3"></textarea>
                                                 </div>
                                             </div>
@@ -156,7 +156,7 @@
                                             <div class="col-lg-12">
                                                 <div class="hstack gap-2 justify-content-end">
                                                     <button type="submit" name="save" class="btn btn-primary">Create
-                                                        Vision & Mission</button>
+                                                        About</button>
 
                                                 </div>
                                             </div>

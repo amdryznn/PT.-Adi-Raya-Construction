@@ -1,5 +1,6 @@
 <?php
 include "header.php";
+$todo = mysqli_real_escape_string($con, $_GET["id"]);
 ?>
 <!-- ***** Breadcrumb Area Start ***** -->
 <section class="section breadcrumb-area overlay-dark d-flex align-items-center">
@@ -8,11 +9,11 @@ include "header.php";
             <div class="col-12">
                 <!-- Breamcrumb Content -->
                 <div class="breadcrumb-content d-flex flex-column align-items-center text-center">
-                    <h2 class="text-white text-uppercase mb-3">Vision & Mission</h2>
+                    <h2 class="text-white text-uppercase mb-3">Legality Details</h2>
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a class="text-uppercase text-white" href="index.html">Home</a></li>
 
-                        <li class="breadcrumb-item text-white active">Vision & Mission</li>
+                        <li class="breadcrumb-item text-white active">Legality</li>
                     </ol>
                 </div>
             </div>
@@ -23,43 +24,40 @@ include "header.php";
 
 
 <?php
-$query = mysqli_query($con, "SELECT * FROM blog");
+$rt = mysqli_query($con, "SELECT * FROM legality where id='$todo'");
+$tr = mysqli_fetch_array($rt);
+$legality_title = "$tr[legality_title]";
+$legality_detail = "$tr[legality_detail]";
+$ufile = "$tr[ufile]";
+?>
 
-while ($row = mysqli_fetch_array($query)) {
-    $blog_title = $row['blog_title'];
-    $blog_detail = $row['blog_detail'];
-    $ufile = $row['ufile'];
-    ?>
 
-    <!-- ***** About Area Start ***** -->
-    <section class="section about-area ptb_100">
-        <div class="container">
-            <div class="row justify-content-between align-items-center">
-                <div class="col-12 col-lg-6">
-                    <!-- About Thumb -->
-                    <div class="about-thumb text-center">
-                        <img src="dashboard/uploads/blog/<?php echo $ufile; ?>" alt="img">
-                    </div>
+<!-- ***** About Area Start ***** -->
+<section class="section legality-area ptb_100">
+    <div class="container">
+        <div class="row justify-content-between align-items-center">
+            <div class="col-12 col-lg-6">
+                <!-- About Thumb -->
+                <div class="legality-thumb text-center">
+                    <img src="dashboard/uploads/legality/<?php print $ufile; ?>" alt="img">
                 </div>
-                <div class="col-12 col-lg-6">
-                    <!-- About Content -->
-                    <div class="about-content section-heading text-center text-lg-left pl-md-4 mt-5 mt-lg-0 mb-0">
-                        <h2 class="mb-3 mx-auto">
-                            <?php echo $blog_title; ?>
-                        </h2>
-                        <p style="text-align: left;">
-                            <?php echo nl2br($blog_detail); ?>
-                        </p>
-                        <!-- Counter Area -->
-                    </div>
+            </div>
+            <div class="col-12 col-lg-6">
+                <!-- About Content -->
+                <div class="legality-content section-heading text-center text-lg-left pl-md-4 mt-5 mt-lg-0 mb-0">
+                    <h2 class="mb-3">
+                        <?php print $legality_title ?>
+                    </h2>
+                    <p>
+                        <?php print $legality_detail; ?>
+                    </p>
+                    <!-- Counter Area -->
+
                 </div>
             </div>
         </div>
-    </section>
-
-    <?php
-}
-?>
+    </div>
+</section>
 <!-- ***** About Area End ***** -->
 
 

@@ -7,7 +7,10 @@ RewriteRule    ^logout/?$    logout.php    [NC,L]
 
 RewriteRule    ^profile/?$    profile.php    [NC,L]
 
+RewriteRule    ^createabout/?$    add-about.php    [NC,L]
+RewriteRule    ^createlegality/?$    add-legality.php    [NC,L]
 RewriteRule    ^createportfolio/?$    add-portfolio.php    [NC,L]
+RewriteRule    ^createvision/?$    add-vision-mission.php    [NC,L]
 RewriteRule    ^createproject/?$    add-project.php    [NC,L]
 RewriteRule    ^createservice/?$    add-service.php    [NC,L]
 RewriteRule    ^createsocial/?$    add-social.php    [NC,L]
@@ -19,8 +22,10 @@ RewriteRule    ^editportfolio/([A-Za-z0-9-]+)/?$    editport.php?id=$1    [NC,L]
 RewriteRule    ^editservice/([A-Za-z0-9-]+)/?$    editservice.php?id=$1    [NC,L]
 
 RewriteRule    ^portfolio/?$    portfolio.php    [NC,L]
+RewriteRule    ^legality/?$    legality.php    [NC,L]
 
 RewriteRule    ^sections/?$    section-title.php    [NC,L]
+RewriteRule    ^vision-mission/?$    vision-mission.php    [NC,L]
 RewriteRule    ^services/?$    services.php    [NC,L]
 
 RewriteRule    ^settings/?$    site-settings.php    [NC,L]
@@ -34,6 +39,7 @@ RewriteRule    ^logo/?$    updatelogo.php    [NC,L]
 
 RewriteRule    ^createblog/?$    add-blog.php    [NC,L]
 RewriteRule    ^blog/?$    bloglist.php    [NC,L]
+RewriteRule    ^about/?$    aboutlist.php    [NC,L]
 
 RewriteRule    ^createslide/?$    add-slider.php    [NC,L]
 RewriteRule    ^slider/?$    sliderlist.php    [NC,L]

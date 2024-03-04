@@ -12,12 +12,12 @@
             <div class="row">
                 <div class="col-12">
                     <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                        <h4 class="mb-sm-0">Vision & Mission</h4>
+                        <h4 class="mb-sm-0">Legality</h4>
 
                         <div class="page-title-right">
                             <ol class="breadcrumb m-0">
                                 <li class="breadcrumb-item"><a href="javascript: void(0);">All</a></li>
-                                <li class="breadcrumb-item active">Vision & Mission</li>
+                                <li class="breadcrumb-item active">Legality</li>
                             </ol>
                         </div>
 
@@ -31,7 +31,7 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-header">
-                            <h5 class="card-title mb-0">Vision & Mission</h5>
+                            <h5 class="card-title mb-0">Legality List</h5>
                         </div>
                         <div class="card-body">
                             <table id="example"
@@ -40,7 +40,7 @@
                                 <thead>
                                     <tr>
 
-                                        <th data-ordering="false">Title</th>
+                                        <th data-ordering="false">Legality Title</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -48,7 +48,7 @@
 
 
                                     <?php
-                                    $q = "SELECT * FROM  blog ORDER BY id DESC";
+                                    $q = "SELECT * FROM  legality ORDER BY id DESC";
 
 
                                     $r123 = mysqli_query($con, $q);
@@ -56,13 +56,13 @@
                                     while ($ro = mysqli_fetch_array($r123)) {
 
                                         $id = "$ro[id]";
-                                        $blog_title = "$ro[blog_title]";
+                                        $legality_title = "$ro[legality_title]";
 
 
                                         print "<tr>
 
 				  <td>
-				  $blog_title
+				  $legality_title
 				  </td>
 
           <td>
@@ -72,9 +72,9 @@
                                                         </button>
                                                         <ul class='dropdown-menu dropdown-menu-end'>
 
-                                                            <li><a href='editblog.php?id=$id' class='dropdown-item edit-item-btn'><i class='ri-pencil-fill align-bottom me-2 text-muted'></i> Edit</a></li>
+                                                            <li><a href='editlegality.php?id=$id' class='dropdown-item edit-item-btn'><i class='ri-pencil-fill align-bottom me-2 text-muted'></i> Edit</a></li>
                                                             <li>
-                                                                <a href='deleteblog.php?id=$id' class='dropdown-item remove-item-btn'>
+                                                                <a href='deletelegality.php?id=$id' class='dropdown-item remove-item-btn'>
                                                                     <i class='ri-delete-bin-fill align-bottom me-2 text-muted'></i> Delete
                                                                 </a>
                                                             </li>

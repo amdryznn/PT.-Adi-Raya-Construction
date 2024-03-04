@@ -1,5 +1,5 @@
 <?php
-header("refresh:2;url=blog");
+header("refresh:2;url=legality");
 include_once("../z_db.php");
 // Inialize session
 session_start();
@@ -7,9 +7,9 @@ session_start();
 
 $todelete = mysqli_real_escape_string($con, $_GET["id"]);
 
-$result = mysqli_query($con, "DELETE FROM blog WHERE id='$todelete'");
+$result = mysqli_query($con, "DELETE FROM legality WHERE id='$todelete'");
 if ($result) {
-    print "<center> Vision & Mission deleted<br/>Redirecting in 2 seconds...</center>";
+    print "<center> legality deleted<br/>Redirecting in 2 seconds...</center>";
 } else {
     print "<center>Action could not be performed, check back again<br/>Redirecting in 2 seconds...</center>";
 }

@@ -1,18 +1,15 @@
-<?php
-include "header.php";
-?>
-<!-- ***** Breadcrumb Area Start ***** -->
+<?php include "header.php"; ?>
 <section class="section breadcrumb-area overlay-dark d-flex align-items-center">
     <div class="container">
         <div class="row">
             <div class="col-12">
                 <!-- Breamcrumb Content -->
-                <div class="breadcrumb-content d-flex flex-column align-items-center text-center">
-                    <h2 class="text-white text-uppercase mb-3">Vision & Mission</h2>
-                    <ol class="breadcrumb">
+                <div class="breadcrumb-content text-center">
+                    <h2 class="text-white text-uppercase mb-3">Legality</h2>
+                    <ol class="breadcrumb d-flex justify-content-center">
                         <li class="breadcrumb-item"><a class="text-uppercase text-white" href="index.html">Home</a></li>
 
-                        <li class="breadcrumb-item text-white active">Vision & Mission</li>
+                        <li class="breadcrumb-item text-white active">Our Legality</li>
                     </ol>
                 </div>
             </div>
@@ -21,53 +18,127 @@ include "header.php";
 </section>
 <!-- ***** Breadcrumb Area End ***** -->
 
+<!-- ***** Portfolio Area Start ***** -->
+<section id="legality" class="legality-area overflow-hidden ptb_100">
+    <div class="container">
 
-<?php
-$query = mysqli_query($con, "SELECT * FROM blog");
+        <!-- Portfolio Items -->
+        <div class="row items legality-items">
 
-while ($row = mysqli_fetch_array($query)) {
-    $blog_title = $row['blog_title'];
-    $blog_detail = $row['blog_detail'];
-    $ufile = $row['ufile'];
-    ?>
+            <?php
+            $q = "SELECT * FROM  legality ORDER BY id DESC";
 
-    <!-- ***** About Area Start ***** -->
-    <section class="section about-area ptb_100">
-        <div class="container">
-            <div class="row justify-content-between align-items-center">
-                <div class="col-12 col-lg-6">
-                    <!-- About Thumb -->
-                    <div class="about-thumb text-center">
-                        <img src="dashboard/uploads/blog/<?php echo $ufile; ?>" alt="img">
-                    </div>
-                </div>
-                <div class="col-12 col-lg-6">
-                    <!-- About Content -->
-                    <div class="about-content section-heading text-center text-lg-left pl-md-4 mt-5 mt-lg-0 mb-0">
-                        <h2 class="mb-3 mx-auto">
-                            <?php echo $blog_title; ?>
-                        </h2>
-                        <p style="text-align: left;">
-                            <?php echo nl2br($blog_detail); ?>
-                        </p>
-                        <!-- Counter Area -->
-                    </div>
+
+            $r123 = mysqli_query($con, $q);
+
+            while ($ro = mysqli_fetch_array($r123)) {
+
+                $id = "$ro[id]";
+                $legality_title = "$ro[legality_title]";
+                $legality_desc = "$ro[legality_desc]";
+                $ufile = "$ro[ufile]";
+
+                print "
+<div class='col-12 col-sm-6 col-lg-4 portfolio-item' data-groups='['marketing','development']'>
+<!-- Single Case Studies -->
+<div class='single-case-studies'>
+    <!-- Case Studies Thumb -->
+    <a href='legalitydetail.php?id=$id'>
+        <img src='dashboard/uploads/legality/$ufile' alt=''>
+    </a>
+    <!-- Case Studies Overlay -->
+    <a href='legalitydetail.php?id=$id' class='case-studies-overlay'>
+        <!-- Overlay Text -->
+        <span class='overlay-text text-center p-3'>
+            <h3 class='text-white mb-3'>$legality_title</h3>
+            <p class='text-white'>$legality_desc.</p>
+        </span>
+    </a>
+</div>
+</div>
+";
+            }
+            ?>
+
+        </div>
+
+    </div>
+</section>
+<!-- ***** Portfolio Area End ***** -->
+
+<!-- ***** Review Area Start ***** -->
+<section id="review" class="section review-area bg-overlay ptb_100">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-10 col-lg-7">
+                <!-- Section Heading -->
+
+
+                <div class="section-heading text-center">
+                    <h2 class="text-white">
+                        <?php print $test_title; ?>
+                    </h2>
+                    <p class="text-white d-none d-sm-block mt-4">
+                        <?php print $test_text; ?>
+                    </p>
                 </div>
             </div>
         </div>
-    </section>
-
-    <?php
-}
-?>
-<!-- ***** About Area End ***** -->
+        <div class="row">
+            <!-- Client Reviews -->
+            <div class="client-reviews owl-carousel">
+                <!-- Single Review -->
 
 
-<!-- ***** Our Goal Area End ***** -->
 
-<!-- ***** Team Area Start ***** -->
+                <?php
+                $q = "SELECT * FROM  testimony ORDER BY id DESC LIMIT 6";
 
-<!-- ***** Team Area End ***** -->
+
+                $r123 = mysqli_query($con, $q);
+
+                while ($ro = mysqli_fetch_array($r123)) {
+
+                    $name = "$ro[name]";
+                    $position = "$ro[position]";
+                    $message = "$ro[message]";
+                    $ufile = "$ro[ufile]";
+
+                    print "
+
+<div class='single-review p-5'>
+<!-- Review Content -->
+<div class='review-content'>
+    <!-- Review Text -->
+    <div class='review-text'>
+        <p>$message</p>
+    </div>
+    <!-- Quotation Icon -->
+
+</div>
+<!-- Reviewer -->
+<div class='reviewer media mt-3'>
+    <!-- Reviewer Thumb -->
+    <div class='reviewer-thumb'>
+        <img class='avatar-lg radius-100' src='dashboard/uploads/testimony/$ufile' alt='img'>
+    </div>
+    <!-- Reviewer Media -->
+    <div class='reviewer-meta media-body align-self-center ml-4'>
+        <h5 class='reviewer-name color-primary mb-2'>$name</h5>
+        <h6 class='text-secondary fw-6'>$position</h6>
+    </div>
+</div>
+</div>
+
+
+";
+                }
+                ?>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ***** Review Area End ***** -->
 
 <!--====== Contact Area Start ======-->
 <section id="contact" class="contact-area ptb_100">
@@ -245,4 +316,5 @@ while ($row = mysqli_fetch_array($query)) {
     </div>
 </section>
 <!--====== Call To Action Area End ======-->
+
 <?php include "footer.php"; ?>
