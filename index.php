@@ -211,7 +211,7 @@
         <!-- Overlay Text -->
         <span class='overlay-text text-center p-3'>
             <h3 class='text-white mb-3'>$port_title</h3>
-            <p class='text-white'>$port_desc.</p>
+            <p class='text-white'>$port_desc</p>
         </span>
     </a>
 </div>

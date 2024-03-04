@@ -52,7 +52,7 @@ $ufile = "$tr[ufile]";
                     </h2>
                     <p>
                         <?php echo htmlspecialchars($port_detail); ?>
-                        <!-- Social Media Icons within Portfolio Detail -->
+                        <!-- Social Media Icons within Portfolio Details -->
 
                     <div><span class="social-icons-in-detail">
                             <?php if ($tw_link): ?>
