@@ -9,7 +9,7 @@ $todelete = mysqli_real_escape_string($con, $_GET["id"]);
 
 $result = mysqli_query($con, "DELETE FROM legality WHERE id='$todelete'");
 if ($result) {
-    print "<center> legality deleted<br/>Redirecting in 2 seconds...</center>";
+    print "<center> Legality deleted<br/>Redirecting in 2 seconds...</center>";
 } else {
     print "<center>Action could not be performed, check back again<br/>Redirecting in 2 seconds...</center>";
 }
