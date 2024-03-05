@@ -5,11 +5,11 @@
             <div class="col-12">
                 <!-- Breamcrumb Content -->
                 <div class="breadcrumb-content text-center">
-                    <h2 class="text-white text-uppercase mb-3">What we offer</h2>
+                    <h2 class="text-white text-uppercase mb-3">Values</h2>
                     <ol class="breadcrumb d-flex justify-content-center">
                         <li class="breadcrumb-item"><a class="text-uppercase text-white" href="index.html">Home</a></li>
 
-                        <li class="breadcrumb-item text-white active">Our Values</li>
+                        <li class="breadcrumb-item text-white active">Values</li>
                     </ol>
                 </div>
             </div>
