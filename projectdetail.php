@@ -65,30 +65,35 @@ $ufile = htmlspecialchars($tr['ufile']);
                             <div class="col-lg-12">
                                 <div class="table-responsive">
                                     <table id="example"
-                                        class="table table-bordered dt-responsive nowrap table-striped align-middle">
+                                        class="table table-bordered dt-responsive nowrap table align-middle">
                                         <tbody>
                                             <tr>
-                                                <td><strong>ID Project</strong>:
+                                                <td><strong>ID Project</strong>
+                                                <td colspan="2">
                                                     <?php echo $tr['code']; ?>
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td><strong>Date</strong>:
+                                                <td><strong>Date</strong>
+                                                <td colspan="2">
                                                     <?php echo $tr['date']; ?>
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td><strong>Client</strong>:
+                                                <td><strong>Client</strong>
+                                                <td colspan="2">
                                                     <?php echo $tr['client']; ?>
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td><strong>Location</strong>:
+                                                <td><strong>Location</strong>
+                                                <td colspan="2">
                                                     <?php echo $tr['location']; ?>
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td><strong>Category</strong>:
+                                                <td><strong>Category</strong>
+                                                <td colspan="2">
                                                     <?php echo $tr['name']; ?>
                                                 </td>
                                             </tr>
