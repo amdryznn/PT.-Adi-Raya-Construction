@@ -715,6 +715,13 @@ img {
     background-color: #00b489 !important;
 }
 
+
+.social-icons2 img {
+    width: 10px; /* Sesuaikan ukuran lebar gambar */
+    height: 10px; /* Sesuaikan ukuran tinggi gambar */
+}
+
+
 /*BACKGROUND IMAGES*/
 .welcome-area {
     background: rgba(0, 0, 0, 0) url("../img/bg/welcome_bgr.jpg") no-repeat fixed center center / cover;

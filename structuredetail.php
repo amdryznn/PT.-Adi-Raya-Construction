@@ -52,27 +52,39 @@ $ufile = "$tr[ufile]";
                     </h2>
                     <p>
                         <?php echo htmlspecialchars($port_detail); ?>
-                        <!-- Social Media Icons within Portfolio Details -->
+                    </p>
 
-                    <div><span class="social-icons-in-detail">
+       <!-- Social Media Icons within Portfolio Details -->
+                   <style>
+                    .social-icons2 img {
+        width: 24px; /* Sesuaikan ukuran lebar gambar */
+        height: 24px; /* Sesuaikan ukuran tinggi gambar */
+                    }   
+                    .social-icons2 img:hover {
+        transform: scale(1.2); /* Mengubah skala gambar saat hover */
+                    }
+                    </style>
+
+                    <section class="section portfolio-area ptb_50">
+                    <div class="social-icons2">
                             <?php if ($tw_link): ?>
                                 <a href="<?php echo htmlspecialchars($tw_link); ?>" target="_blank" class="twitter">
-                                    <i class="fab fa-twitter"></i>
+                                    <img src="dashboard\uploads\icon\twitter.png" alt="Twitter">
                                 </a>
                             <?php endif; ?>
                             <?php if ($fb_link): ?>
                                 <a href="<?php echo htmlspecialchars($fb_link); ?>" target="_blank" class="facebook">
-                                    <i class="fab fa-facebook"></i>
+                                    <img src="dashboard\uploads\icon\facebook.png" alt="Facebook">
                                 </a>
                             <?php endif; ?>
                             <?php if ($li_link): ?>
                                 <a href="<?php echo htmlspecialchars($li_link); ?>" target="_blank" class="linkedin">
-                                    <i class="fab fa-linkedin"></i>
+                                    <img src="path_to_your_linkedin_image" alt="LinkedIn">
                                 </a>
-                            <?php endif; ?>
-                        </span>
-                        </p>
-                    </div>
+                            <?php endif; ?> 
+                        </div>
+                   </section>
+
                 </div>
             </div>
         </div>
