@@ -155,18 +155,17 @@
 
                                         <div class="col-lg-6">
                                             <div class="mb-3">
-                                                <label for="firstnameInput" class="form-label"> Jabatan</label>
-                                                <textarea class="form-control" id="exampleFormControlTextarea5"
-                                                    name="port_desc" rows="2"></textarea>
+                                                <label for="facebookLinkInput" class="form-label"> Facebook Link</label>
+                                                <input type="text" class="form-control" id="facebookLinkInput"
+                                                    name="fb_link" placeholder="https://facebook.com/...">
                                             </div>
                                         </div>
 
                                         <div class="col-lg-6">
                                             <div class="mb-3">
-                                                <label for="firstnameInput" class="form-label">
-                                                    Description</label>
+                                                <label for="firstnameInput" class="form-label"> Jabatan</label>
                                                 <textarea class="form-control" id="exampleFormControlTextarea5"
-                                                    name="port_detail" rows="3"></textarea>
+                                                    name="port_desc" rows="1"></textarea>
                                             </div>
                                         </div>
 
@@ -180,11 +179,14 @@
 
                                         <div class="col-lg-6">
                                             <div class="mb-3">
-                                                <label for="facebookLinkInput" class="form-label"> Facebook Link</label>
-                                                <input type="text" class="form-control" id="facebookLinkInput"
-                                                    name="fb_link" placeholder="https://instagram.com/...">
+                                                <label for="firstnameInput" class="form-label">
+                                                    Description</label>
+                                                <textarea class="form-control" id="exampleFormControlTextarea5"
+                                                    name="port_detail" rows="3"></textarea>
                                             </div>
                                         </div>
+
+                                       
 
                                         <div class="col-lg-6">
                                             <div class="mb-3">
