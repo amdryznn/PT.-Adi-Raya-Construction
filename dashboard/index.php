@@ -95,13 +95,13 @@ $username = $_SESSION['username'];
                                             </div>
                                             <div class="flex-grow-1 ms-3">
                                                 <?php
-                                                $result = mysqli_query($con, "SELECT count(*) FROM portfolio");
+                                                $result = mysqli_query($con, "SELECT count(*) FROM project");
                                                 $rowx = mysqli_fetch_row($result);
                                                 $nux = $rowx[0];
 
                                                 ?>
                                                 <p class="text-uppercase fw-semibold fs-12 text-muted mb-1"> Total
-                                                    Portfolio</p>
+                                                    Project</p>
                                                 <h4 class=" mb-0"><span class="counter-value"
                                                         data-target="<?php print $nux; ?>"></span></h4>
                                             </div>
@@ -126,7 +126,7 @@ $username = $_SESSION['username'];
                                                 $nud = $rod[0];
 
                                                 ?>
-                                                <p class="text-uppercase fw-semibold fs-12 text-muted mb-1"> Total Blog
+                                                <p class="text-uppercase fw-semibold fs-12 text-muted mb-1"> Total Vision & Mission
                                                 </p>
                                                 <h4 class=" mb-0"><span class="counter-value"
                                                         data-target="<?php print $nud; ?>"></span></h4>
