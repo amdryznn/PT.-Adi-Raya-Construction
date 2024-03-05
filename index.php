@@ -71,9 +71,8 @@
             $r123 = mysqli_query($con, $q);
 
             while ($ro = mysqli_fetch_array($r123)) {
-
                 $title = "$ro[title]";
-                $detail = "$ro[detail]";
+                $detail = nl2br("$ro[detail]");
 
                 print "
 <div class='col-16 col-md-8 col-lg-6 res-margin'>

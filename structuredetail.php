@@ -50,7 +50,8 @@ $ufile = "$tr[ufile]";
                     <h2 class="mb-3">
                         <?php echo htmlspecialchars($port_title); ?>
                     </h2>
-                    <p>
+
+                    <p style="text-align: justify;">
                         <?php echo htmlspecialchars($port_detail); ?>
                     </p>
 

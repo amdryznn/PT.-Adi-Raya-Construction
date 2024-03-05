@@ -121,12 +121,13 @@ $username = $_SESSION['username'];
                                             </div>
                                             <div class="flex-grow-1 ms-3">
                                                 <?php
-                                                $result = mysqli_query($con, "SELECT count(*) FROM blog");
+                                                $result = mysqli_query($con, "SELECT count(*) FROM category");
                                                 $rod = mysqli_fetch_row($result);
                                                 $nud = $rod[0];
 
                                                 ?>
-                                                <p class="text-uppercase fw-semibold fs-12 text-muted mb-1"> Total Vision & Mission
+                                                <p class="text-uppercase fw-semibold fs-12 text-muted mb-1"> Total
+                                                    Category
                                                 </p>
                                                 <h4 class=" mb-0"><span class="counter-value"
                                                         data-target="<?php print $nud; ?>"></span></h4>

@@ -44,7 +44,7 @@ while ($row = mysqli_fetch_array($query)) {
                         <h2 class="mb-3 mx-auto">
                             <?php echo $about_decs; ?>
                         </h2>
-                        <p style="text-align: left;">
+                        <p style="text-align: justify;">
                             <?php echo nl2br($about_detail); ?>
                         </p>
                         <!-- Counter Area -->

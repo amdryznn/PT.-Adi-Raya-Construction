@@ -49,7 +49,7 @@ $ufile = "$tr[ufile]";
                     <h2 class="mb-3">
                         <?php print $service_title ?>
                     </h2>
-                    <p>
+                    <p style="text-align: justify;">
                         <?php print $service_detail; ?>
                     </p>
                     <!-- Counter Area -->
