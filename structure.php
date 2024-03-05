@@ -8,8 +8,8 @@
                 <div class="breadcrumb-content d-flex flex-column align-items-center text-center">
                     <h2 class="text-white text-uppercase mb-3">Structure</h2>
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a class="text-uppercase text-white" href="index.html">Home</a></li>
-                        <li class="breadcrumb-item text-white active">Structure</li>
+                        <li class="breadcrumb-item"><a class="text-uppercase text-white" href="index.php">Home</a></li>
+                        <li class="breadcrumb-item"><a class="text-uppercase text-white" href="#">Structure</a></li>
 
                     </ol>
                 </div>

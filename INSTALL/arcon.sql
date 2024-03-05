@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 04 Mar 2024 pada 15.04
--- Versi server: 10.4.27-MariaDB
--- Versi PHP: 8.2.0
+-- Generation Time: Mar 05, 2024 at 09:14 AM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `arcon-coba-coba`
+-- Database: `arcon`
 --
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `about`
+-- Table structure for table `about`
 --
 
 CREATE TABLE `about` (
@@ -35,16 +35,16 @@ CREATE TABLE `about` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `about`
+-- Dumping data for table `about`
 --
 
 INSERT INTO `about` (`id`, `about_decs`, `about_detail`, `ufile`) VALUES
-(8, 'PT. ADI RAYA CONSTRUCTION', 'was established at  April 25, 2016, beginning from small company comprised of skillful person from different backgrounds.\r\n\r\n\r\nEven though the company’s relatively recent establishment, our people have been working together since 2012 under different banner. Therefore, our crew members have a lot of experiences to work as a team.\r\n\r\nWe start from construction work, and then began to expand into a public company with engineering, procurement, and construction (EPC) services.\r\n\r\nAs a strategic mission, Adi Raya Construction utilizes the strength in networking, supporting, and partnership to professionally organize the works of supply chain sevices and EPC project within internal expertise resources and specialized expertise outsourced, which included (but not limiter to) engineering, manufacturer, transportation fabrication yard facility & performance, construction, commisioning, and maintenance support such as overhauling.\r\n\r\nResources of expertise and experience within the organization is highly correlated with the partnership arrangement which includes a joint operation, consortium, or business to business subcontracting scope.', '5546about.jpg');
+(13, 'PT. ADI RAYA CONSTRUCTION', 'Was established at April 25, 2016, beginning from small company comprised of skillful person from different backgrounds.\r\n\r\nEven though the company’s relatively recent establishment, our people have been working together since 2012 under different banner. Therefore, our crew members have a lot of experiences to work as a team.\r\n\r\nWe start from construction work, and then began to expand into a public company with engineering, procurement, and construction (EPC) services.\r\n\r\nAs a strategic mission, Adi Raya Construction utilizes the strength in networking, supporting, and partnership to professionally organize the works of supply chain sevices and EPC project within internal expertise resources and specialized expertise outsourced, which included (but not limiter to) engineering, manufacturer, transportation fabrication yard facility & performance, construction, commisioning, and maintenance support such as overhauling.\r\n\r\nResources of expertise and experience within the organization is highly correlated with the partnership arrangement which includes a joint operation, consortium, or business to business subcontracting scope.', '289320240220_134741.jpg');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `admin`
+-- Table structure for table `admin`
 --
 
 CREATE TABLE `admin` (
@@ -55,7 +55,7 @@ CREATE TABLE `admin` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `admin`
+-- Dumping data for table `admin`
 --
 
 INSERT INTO `admin` (`id`, `username`, `password`, `updated_at`) VALUES
@@ -64,7 +64,7 @@ INSERT INTO `admin` (`id`, `username`, `password`, `updated_at`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `blog`
+-- Table structure for table `blog`
 --
 
 CREATE TABLE `blog` (
@@ -76,17 +76,17 @@ CREATE TABLE `blog` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `blog`
+-- Dumping data for table `blog`
 --
 
 INSERT INTO `blog` (`id`, `blog_title`, `blog_detail`, `ufile`, `updated_at`) VALUES
-(12, 'VISION', '“To be leading national company which providing national engineering, procurement and construction services through application of science and technology\"', '400WhatsApp Image 2024-02-26 at 10.14.11.jpeg', '2024-03-03 18:19:16'),
-(13, 'MISSION', '• To generate added values for our shareholders, as well as for the \r\n   associated stakeholders.\r\n• To empower sustainable development through innovation and technology application.\r\n• To create competitive products and services with excellent quality and environment friendly.', '401aneka jasa ghardika.png', '2024-03-03 18:19:50');
+(12, 'VISION', '“To be leading national company which providing national engineering, procurement and construction services through application of science and technology\"', '33245511427about.jpg', '2024-03-04 16:19:23'),
+(13, 'MISSION', '• To generate added values for our shareholders, as well as for the \r\n   associated stakeholders.\r\n• To empower sustainable development through innovation and technology application.\r\n• To create competitive products and services with excellent quality and environment friendly.', '5511427about.jpg', '2024-03-04 16:18:17');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `category`
+-- Table structure for table `category`
 --
 
 CREATE TABLE `category` (
@@ -95,7 +95,7 @@ CREATE TABLE `category` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `category`
+-- Dumping data for table `category`
 --
 
 INSERT INTO `category` (`cat_id`, `name`) VALUES
@@ -109,7 +109,7 @@ INSERT INTO `category` (`cat_id`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `legality`
+-- Table structure for table `legality`
 --
 
 CREATE TABLE `legality` (
@@ -121,17 +121,17 @@ CREATE TABLE `legality` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `legality`
+-- Dumping data for table `legality`
 --
 
 INSERT INTO `legality` (`id`, `legality_title`, `legality_desc`, `legality_detail`, `ufile`) VALUES
-(1, 'SERTIFIKAT', 'Sertifikat pertama saya', 'Sertifikat pertama saya Sertifikat pertama saya Sertifikat pertama saya Sertifikat pertama saya', '5433WhatsApp Image 2024-02-23 at 00.35.30.jpeg'),
-(4, 'SERTIFIKAT II', 'Sertifikat kedua saya', 'Sertifikat kedua saya Sertifikat kedua saya Sertifikat kedua saya Sertifikat kedua saya II', '7685porto.jpg');
+(1, 'SERTIFIKAT', 'sertifikat pertama', 'Sertifikat pertama saya Sertifikat pertama saya Sertifikat pertama saya Sertifikat pertama saya', '46893536Ciputra World.jpg'),
+(4, 'SERTIFIKAT II', 'Sertifikat kedua saya ya', 'Sertifikat kedua saya Sertifikat kedua saya Sertifikat kedua saya Sertifikat kedua saya II', '51846893536Ciputra World.jpg');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `logo`
+-- Table structure for table `logo`
 --
 
 CREATE TABLE `logo` (
@@ -142,7 +142,7 @@ CREATE TABLE `logo` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `logo`
+-- Dumping data for table `logo`
 --
 
 INSERT INTO `logo` (`id`, `xfile`, `ufile`, `updated_at`) VALUES
@@ -151,7 +151,7 @@ INSERT INTO `logo` (`id`, `xfile`, `ufile`, `updated_at`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `portfolio`
+-- Table structure for table `portfolio`
 --
 
 CREATE TABLE `portfolio` (
@@ -167,16 +167,16 @@ CREATE TABLE `portfolio` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `portfolio`
+-- Dumping data for table `portfolio`
 --
 
 INSERT INTO `portfolio` (`id`, `port_title`, `port_desc`, `port_detail`, `ufile`, `updated_at`, `tw_link`, `fb_link`, `li_link`) VALUES
-(11, 'Amanda Manopo', 'Direktur', 'Saya adalah Amanda Manopo. Saya murah senyum dan tidak mudah marah-marah.', '88651675621107626.jpg', '2024-03-04 13:44:16', 'https://twitter.com/amandamanopo', 'https://instagram.com/amandamanopo', 'https://www.linkedin.com/in/farhanahsajidah/');
+(11, 'Amanda Manopo', 'Direktur', 'Saya adalah Amanda Manopo. Saya murah senyum dan tidak mudah marah-marah.', '49245283WhatsApp_Image_2023-04-09_at_22.26.32-removebg-preview (2).png', '2024-03-04 16:38:36', 'https://twitter.com/amandamanopo', 'https://instagram.com/amandamanopo', 'https://www.linkedin.com/in/farhanahsajidah/');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `project`
+-- Table structure for table `project`
 --
 
 CREATE TABLE `project` (
@@ -188,25 +188,26 @@ CREATE TABLE `project` (
   `proj_desc` varchar(200) NOT NULL,
   `proj_detail` varchar(200) NOT NULL,
   `ufile` varchar(1000) NOT NULL,
-  `cat_id` int(11) NOT NULL,
-  `name` varchar(150) NOT NULL
+  `location` varchar(150) NOT NULL,
+  `cat_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `project`
+-- Dumping data for table `project`
 --
 
-INSERT INTO `project` (`id`, `code`, `date`, `client`, `proj_title`, `proj_desc`, `proj_detail`, `ufile`, `cat_id`, `name`) VALUES
-(13, '1234567', '2022', 'PT. PERTAMINA', 'KILANG BPP- II PERTAMINA', 'Pekerjaan Re-engineering and RLA Peralatan Kilang BPP- II Dengan Umur ≥ 30 Tahun', 'Pekerjaan Re-engineering and RLA Peralatan Kilang BPP- II Dengan Umur ≥ 30 Tahun', '5145926070de04f0-df57-11ec-85a8-bda8f2c6ca77-rimg-w720-h720-gmir.jpg', 12, ''),
-(14, '123445wywtrywutr', '2023', 'PT. So Far Away', 'Penginstalan Pipa Kali', 'hahahahahahahhahhahahahahahahahahah', 'hahahahahahhahahahahahahahahah', '4109926070de04f0-df57-11ec-85a8-bda8f2c6ca77-rimg-w720-h720-gmir.jpg', 7, ''),
-(15, 'fhjjhfkfhflufluflfuy', '2019', 'pt tidurrrrrrrrrrr', 'Penginstalan paving', 'yfififfyfyfufuyhjkfhgfjhfhigfg', 'fyvfuyifiyfiuffkyfiuyfyufyufbyufyfyufiyufidityddthgkgdhd', '9633363e87d37114cb34c0c1956c45dcddf4.jpg', 1, ''),
-(19, '12333333333', '19 Mei 2003', 'PT. Angkasa Raya', 'Penginstalan Tangki', ' Lorem ipsum dolor sit amet, consectetur adipiscing elit, ', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut a', '843020240205_214845.png', 16, ''),
-(20, 'Lorem ipsum dolor si', '19 January 2024', 'PT. JAYA JAYA JAYA', 'Penginstalan Tangki Medium', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut a', '473520240221_140038.jpg', 17, '');
+INSERT INTO `project` (`id`, `code`, `date`, `client`, `proj_title`, `proj_desc`, `proj_detail`, `ufile`, `location`, `cat_id`) VALUES
+(13, '1234567', '2022', 'PT. PERTAMINA', 'KILANG BPP- II PERTAMINA', ' Pekerjaan Re-engineering and RLA Peralatan Kilang BPP- II Dengan Umur ≥ 30 Tahun', 'Pekerjaan Re-engineering and RLA Peralatan Kilang BPP- II Dengan Umur ≥ 30 Tahun', '832439939506570926070de04f0-df57-11ec-85a8-bda8f2c6ca77-rimg-w720-h720-gmir.jpg', 'Jaksel', 12),
+(14, '123445wywtrywutr', '2023', 'PT. So Far Away', 'Penginstalan Pipa Kali', ' hahahahahahahhahhahahahahahahahahah', 'hahahahahahhahahahahahahahahah', '249639506570926070de04f0-df57-11ec-85a8-bda8f2c6ca77-rimg-w720-h720-gmir.jpg', 'Jaktim', 7),
+(15, 'fhjjhfkfhflufluflfuy', '2019', 'pt tidurrrrrrrrrrr', 'Penginstalan paving', ' yfififfyfyfufuyhjkfhgfjhfhigfg', 'fyvfuyifiyfiuffkyfiuyfyufyufbyufyfyufiyufidityddthgkgdhd', '4373657363e87d37114cb34c0c1956c45dcddf4.jpg', 'Kaltim', 1),
+(19, '12333333333', '19 Mei 2003', 'PT. Angkasa Raya', 'Penginstalan Tangki', '  Lorem ipsum dolor sit amet, consectetur adipiscing elit, ', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut a', '5774843020240205_214845.png', 'Jabar', 16),
+(20, 'Lorem ipsum dolor si', '19 January 2024', 'PT. JAYA JAYA JAYA', 'Penginstalan Tangki Medium', ' Lorem ipsum dolor sit amet, consectetur adipiscing elit.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut a', '5390473520240221_140038.jpg', 'Surabaya - Jatim', 7),
+(21, '1234566677-10', '12 March 2023', 'PT. Aaaaaaaaaaaa', 'Penginstalan Pipaaaaa', ' Ini adalah short desc Ini adalah short desc Ini adalah short desc Ini adalah short desc Ini adalah short desc.', 'Ini adalah short desc Ini adalah short desc Ini adalah short desc Ini adalah short desc Ini adalah short desc. Ini adalah short desc Ini adalah short desc Ini adalah short desc Ini adalah short desc I', '439939506570926070de04f0-df57-11ec-85a8-bda8f2c6ca77-rimg-w720-h720-gmir.jpg', 'Samarinda - Kaltim', 7);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `section_title`
+-- Table structure for table `section_title`
 --
 
 CREATE TABLE `section_title` (
@@ -228,7 +229,7 @@ CREATE TABLE `section_title` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `section_title`
+-- Dumping data for table `section_title`
 --
 
 INSERT INTO `section_title` (`id`, `about_title`, `about_text`, `why_title`, `why_text`, `service_title`, `service_text`, `port_title`, `port_text`, `test_title`, `test_text`, `contact_title`, `contact_text`, `enquiry_title`, `enquiry_text`) VALUES
@@ -237,7 +238,7 @@ INSERT INTO `section_title` (`id`, `about_title`, `about_text`, `why_title`, `wh
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `service`
+-- Table structure for table `service`
 --
 
 CREATE TABLE `service` (
@@ -250,7 +251,7 @@ CREATE TABLE `service` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `service`
+-- Dumping data for table `service`
 --
 
 INSERT INTO `service` (`id`, `service_title`, `service_desc`, `service_detail`, `ufile`, `upadated_at`) VALUES
@@ -261,7 +262,7 @@ INSERT INTO `service` (`id`, `service_title`, `service_desc`, `service_detail`, 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `siteconfig`
+-- Table structure for table `siteconfig`
 --
 
 CREATE TABLE `siteconfig` (
@@ -277,7 +278,7 @@ CREATE TABLE `siteconfig` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `siteconfig`
+-- Dumping data for table `siteconfig`
 --
 
 INSERT INTO `siteconfig` (`id`, `site_keyword`, `site_desc`, `site_title`, `site_about`, `site_footer`, `follow_text`, `site_url`, `updated_at`) VALUES
@@ -286,7 +287,7 @@ INSERT INTO `siteconfig` (`id`, `site_keyword`, `site_desc`, `site_title`, `site
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `sitecontact`
+-- Table structure for table `sitecontact`
 --
 
 CREATE TABLE `sitecontact` (
@@ -301,7 +302,7 @@ CREATE TABLE `sitecontact` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `sitecontact`
+-- Dumping data for table `sitecontact`
 --
 
 INSERT INTO `sitecontact` (`id`, `phone1`, `phone2`, `email1`, `email2`, `longitude`, `latitude`, `updated_at`) VALUES
@@ -310,7 +311,7 @@ INSERT INTO `sitecontact` (`id`, `phone1`, `phone2`, `email1`, `email2`, `longit
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `slider`
+-- Table structure for table `slider`
 --
 
 CREATE TABLE `slider` (
@@ -322,16 +323,17 @@ CREATE TABLE `slider` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `slider`
+-- Dumping data for table `slider`
 --
 
 INSERT INTO `slider` (`id`, `slide_title`, `slide_text`, `ufile`, `updated_at`) VALUES
-(1, 'We are digital agency & Marketing', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit nihil tenetur minus quidem est deserunt molestias accusamus harum ullam tempore debitis et, expedita, repellat delectus aspernatur neque itaque qui quod.', '58806059d354562031616499540.png', '2022-07-17 14:23:07');
+(1, 'We are digital agency & Marketing', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit nihil tenetur minus quidem est deserunt molestias accusamus harum ullam tempore debitis et, expedita, repellat delectus aspernatur neque itaque qui quod.', '58806059d354562031616499540.png', '2022-07-17 14:23:07'),
+(2, 'We are', 'power ranger', '6959150wilmar.jpg', '2024-03-05 02:47:19');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `social`
+-- Table structure for table `social`
 --
 
 CREATE TABLE `social` (
@@ -342,16 +344,16 @@ CREATE TABLE `social` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `social`
+-- Dumping data for table `social`
 --
 
 INSERT INTO `social` (`id`, `name`, `fa`, `social_link`) VALUES
-(2, 'Instagram', 'fa-instagram', 'https://instagram.com/faith_awolu');
+(3, 'Instagram', 'fa-instagram', 'https://instagram.com/farsaj.123');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `static`
+-- Table structure for table `static`
 --
 
 CREATE TABLE `static` (
@@ -362,16 +364,16 @@ CREATE TABLE `static` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `static`
+-- Dumping data for table `static`
 --
 
 INSERT INTO `static` (`id`, `stitle`, `stext`, `updated_at`) VALUES
-(1, 'We are digital agency & Marketing', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit nihil tenetur minus quidem est deserunt molestias accusamus harum ullam tempore debitis et, expedita, repellat delectus aspernatur neque itaque qui quod.', '2022-07-17 18:38:04');
+(1, 'We are digital agency & Marketingg', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit nihil tenetur minus quidem est deserunt molestias accusamus harum ullam tempore debitis et, expedita, repellat delectus aspernatur neque itaque qui quod.', '2024-03-05 02:46:27');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `testimony`
+-- Table structure for table `testimony`
 --
 
 CREATE TABLE `testimony` (
@@ -384,7 +386,7 @@ CREATE TABLE `testimony` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `testimony`
+-- Dumping data for table `testimony`
 --
 
 INSERT INTO `testimony` (`id`, `message`, `name`, `position`, `ufile`, `updated_at`) VALUES
@@ -395,7 +397,7 @@ INSERT INTO `testimony` (`id`, `message`, `name`, `position`, `ufile`, `updated_
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `why_us`
+-- Table structure for table `why_us`
 --
 
 CREATE TABLE `why_us` (
@@ -406,7 +408,7 @@ CREATE TABLE `why_us` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `why_us`
+-- Dumping data for table `why_us`
 --
 
 INSERT INTO `why_us` (`id`, `title`, `detail`, `updated_on`) VALUES
@@ -418,7 +420,7 @@ INSERT INTO `why_us` (`id`, `title`, `detail`, `updated_on`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `work`
+-- Table structure for table `work`
 --
 
 CREATE TABLE `work` (
@@ -428,7 +430,7 @@ CREATE TABLE `work` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `work`
+-- Dumping data for table `work`
 --
 
 INSERT INTO `work` (`id`, `name`, `work_link`) VALUES
@@ -441,215 +443,215 @@ INSERT INTO `work` (`id`, `name`, `work_link`) VALUES
 --
 
 --
--- Indeks untuk tabel `about`
+-- Indexes for table `about`
 --
 ALTER TABLE `about`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `admin`
+-- Indexes for table `admin`
 --
 ALTER TABLE `admin`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `blog`
+-- Indexes for table `blog`
 --
 ALTER TABLE `blog`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `category`
+-- Indexes for table `category`
 --
 ALTER TABLE `category`
   ADD PRIMARY KEY (`cat_id`);
 
 --
--- Indeks untuk tabel `legality`
+-- Indexes for table `legality`
 --
 ALTER TABLE `legality`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `logo`
+-- Indexes for table `logo`
 --
 ALTER TABLE `logo`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `portfolio`
+-- Indexes for table `portfolio`
 --
 ALTER TABLE `portfolio`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `project`
+-- Indexes for table `project`
 --
 ALTER TABLE `project`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `section_title`
+-- Indexes for table `section_title`
 --
 ALTER TABLE `section_title`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `service`
+-- Indexes for table `service`
 --
 ALTER TABLE `service`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `siteconfig`
+-- Indexes for table `siteconfig`
 --
 ALTER TABLE `siteconfig`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `sitecontact`
+-- Indexes for table `sitecontact`
 --
 ALTER TABLE `sitecontact`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `slider`
+-- Indexes for table `slider`
 --
 ALTER TABLE `slider`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `social`
+-- Indexes for table `social`
 --
 ALTER TABLE `social`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `static`
+-- Indexes for table `static`
 --
 ALTER TABLE `static`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `testimony`
+-- Indexes for table `testimony`
 --
 ALTER TABLE `testimony`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `why_us`
+-- Indexes for table `why_us`
 --
 ALTER TABLE `why_us`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `work`
+-- Indexes for table `work`
 --
 ALTER TABLE `work`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `about`
+-- AUTO_INCREMENT for table `about`
 --
 ALTER TABLE `about`
-  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
--- AUTO_INCREMENT untuk tabel `admin`
+-- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT untuk tabel `blog`
+-- AUTO_INCREMENT for table `blog`
 --
 ALTER TABLE `blog`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
--- AUTO_INCREMENT untuk tabel `category`
+-- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
   MODIFY `cat_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
--- AUTO_INCREMENT untuk tabel `legality`
+-- AUTO_INCREMENT for table `legality`
 --
 ALTER TABLE `legality`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT untuk tabel `logo`
+-- AUTO_INCREMENT for table `logo`
 --
 ALTER TABLE `logo`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT untuk tabel `portfolio`
+-- AUTO_INCREMENT for table `portfolio`
 --
 ALTER TABLE `portfolio`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
--- AUTO_INCREMENT untuk tabel `project`
+-- AUTO_INCREMENT for table `project`
 --
 ALTER TABLE `project`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
--- AUTO_INCREMENT untuk tabel `section_title`
+-- AUTO_INCREMENT for table `section_title`
 --
 ALTER TABLE `section_title`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT untuk tabel `service`
+-- AUTO_INCREMENT for table `service`
 --
 ALTER TABLE `service`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT untuk tabel `sitecontact`
+-- AUTO_INCREMENT for table `sitecontact`
 --
 ALTER TABLE `sitecontact`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT untuk tabel `slider`
+-- AUTO_INCREMENT for table `slider`
 --
 ALTER TABLE `slider`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT untuk tabel `social`
---
-ALTER TABLE `social`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT untuk tabel `static`
+-- AUTO_INCREMENT for table `social`
+--
+ALTER TABLE `social`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `static`
 --
 ALTER TABLE `static`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT untuk tabel `testimony`
+-- AUTO_INCREMENT for table `testimony`
 --
 ALTER TABLE `testimony`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT untuk tabel `why_us`
+-- AUTO_INCREMENT for table `why_us`
 --
 ALTER TABLE `why_us`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT untuk tabel `work`
+-- AUTO_INCREMENT for table `work`
 --
 ALTER TABLE `work`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;

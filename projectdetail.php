@@ -11,10 +11,11 @@ $todo = mysqli_real_escape_string($con, $_GET["id"]);
                 <div class="breadcrumb-content d-flex flex-column align-items-center text-center">
                     <h2 class="text-white text-uppercase mb-3">Project Details</h2>
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a class="text-uppercase text-white" href="index.html">Home</a></li>
-
-                        <li class="breadcrumb-item text-white active">Project</li>
-                        <li class="breadcrumb-item text-white active">Project Detail</li>
+                        <li class="breadcrumb-item"><a class="text-uppercase text-white" href="index.php">Home</a></li>
+                        <li class="breadcrumb-item"><a class="text-uppercase text-white" href="#">Project</a>
+                        </li>
+                        <li class="breadcrumb-item"><a class="text-uppercase text-white" href="#">Project Detail</a>
+                        </li>
                     </ol>
                 </div>
             </div>
@@ -97,7 +98,7 @@ $ufile = htmlspecialchars($tr['ufile']);
                                 </div>
                             </div>
                         </div>
-                     </section>
+                    </section>
 
                 </div>
             </div>
