@@ -44,6 +44,7 @@ while($ro = mysqli_fetch_array($result))
 	$proj_title="$ro[proj_title]";
     $proj_desc="$ro[proj_desc]";
     $proj_detail="$ro[proj_detail]";
+    $location="$ro[location]";
     $cat_id="$ro[cat_id]";
     $ufile="$ro[ufile]";
 }
@@ -79,6 +80,7 @@ $client = mysqli_real_escape_string($con, $_POST['client']);
 $proj_title = mysqli_real_escape_string($con, $_POST['proj_title']);
 $proj_desc = mysqli_real_escape_string($con, $_POST['proj_desc']);
 $proj_detail = mysqli_real_escape_string($con, $_POST['proj_detail']);
+$location = mysqli_real_escape_string($con, $_POST['location']);
 $cat_id = mysqli_real_escape_string($con, $_POST['cat_id']);
 
 
@@ -97,7 +99,7 @@ $uploads_dir = 'uploads/project';
 if($status=="OK")
 {
 $qb=mysqli_query($con,"update project set code='$code', date='$date', client='$client', proj_title='$proj_title', 
-proj_desc='$proj_desc', proj_detail='$proj_detail', ufile='$new_file_name', cat_id='$cat_id' where id='$todo'"); 
+proj_desc='$proj_desc', proj_detail='$proj_detail', location='$location', ufile='$new_file_name', cat_id='$cat_id' where id='$todo'"); 
 
 
 		if($qb){
@@ -201,6 +203,14 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
                                                     <label for="firstnameInput" class="form-label"> Project Detail</label>
                                                     <textarea class="form-control" id="exampleFormControlTextarea5"
                                                         name="proj_detail" rows="3"><?php print $proj_detail ?></textarea>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-lg-6">
+                                                <div class="mb-3">
+                                                    <label for="firstnameInput" class="form-label"> Location</label>
+                                                    <textarea class="form-control" id="exampleFormControlTextarea5"
+                                                        name="location" rows="3"><?php print $location ?></textarea>
                                                 </div>
                                             </div>
 

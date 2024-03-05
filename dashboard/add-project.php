@@ -58,6 +58,7 @@
                             $proj_title = mysqli_real_escape_string($con, $_POST['proj_title']);
                             $proj_desc = mysqli_real_escape_string($con, $_POST['proj_desc']);
                             $proj_detail = mysqli_real_escape_string($con, $_POST['proj_detail']);
+                            $location = mysqli_real_escape_string($con, $_POST['location']);
                             $cat_id = mysqli_real_escape_string($con, $_POST['cat_id']);
 
 
@@ -90,6 +91,11 @@
                                 $msg = $msg . "Portfolio Detail Must Be More Than 15 Char Length.<BR>";
                                 $status = "NOTOK";
                             }
+
+                            if (strlen($location) < 8) {
+                                $msg = $msg . "Portfolio Detail Must Be More Than 8 Char Length.<BR>";
+                                $status = "NOTOK";
+                            }
                             
 
 
@@ -106,7 +112,7 @@
                             move_uploaded_file($tmp_name, "$uploads_dir/$new_file_name");
 
                             if ($status == "OK") {
-                                $qb = mysqli_query($con, "INSERT INTO project (code, date, client, proj_title, proj_desc, proj_detail, ufile, cat_id) VALUES ('$code', '$date', '$client', '$proj_title', '$proj_desc', '$proj_detail', '$new_file_name','$cat_id')");
+                                $qb = mysqli_query($con, "INSERT INTO project (code, date, client, proj_title, proj_desc, proj_detail, location, ufile, cat_id) VALUES ('$code', '$date', '$client', '$proj_title', '$proj_desc', '$proj_detail', '$location', '$new_file_name','$cat_id')");
 
 
                                 if ($qb) {
@@ -211,6 +217,13 @@
                                                 </div>
                                             </div>
 
+                                            <div class="col-lg-6">
+                                                <div class="mb-3">
+                                                    <label for="firstnameInput" class="form-label"> Location</label>
+                                                    <textarea class="form-control" id="exampleFormControlTextarea5"
+                                                        name="location" rows="3"></textarea>
+                                                </div>
+                                            </div>
 
                                             <div class="col-lg-6">
                                                 <div class="mb-3">

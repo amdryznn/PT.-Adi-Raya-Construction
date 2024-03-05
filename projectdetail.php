@@ -28,7 +28,7 @@ $todo = mysqli_real_escape_string($con, $_GET["id"]);
 $todo = mysqli_real_escape_string($con, $todo); // Sanitize input to prevent SQL injection
 
 // Fetch project details and join with category table
-$rt = mysqli_query($con, "SELECT project.proj_title, project.proj_detail, project.id, project.code, project.client, project.date, project.ufile, category.name 
+$rt = mysqli_query($con, "SELECT project.proj_title, project.proj_detail, project.id, project.code, project.client, project.date, project.location, project.ufile, category.name 
                           FROM project 
                           JOIN category ON project.cat_id = category.cat_id
                           WHERE project.id='$todo'");
@@ -82,6 +82,11 @@ $ufile = htmlspecialchars($tr['ufile']);
                                                 </td>
                                             </tr>
                                             <tr>
+                                                <td><strong>Location</strong>:
+                                                    <?php echo $tr['location']; ?>
+                                                </td>
+                                            </tr>
+                                            <tr>
                                                 <td><strong>Category</strong>:
                                                     <?php echo $tr['name']; ?>
                                                 </td>
@@ -92,6 +97,8 @@ $ufile = htmlspecialchars($tr['ufile']);
                                 </div>
                             </div>
                         </div>
+                     </section>
+
                 </div>
             </div>
         </div>
