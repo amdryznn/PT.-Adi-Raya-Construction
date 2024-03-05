@@ -74,17 +74,17 @@ $ufile = "$tr[ufile]";
                         <div class="social-icons2">
                             <?php if ($tw_link): ?>
                                 <a href="<?php echo htmlspecialchars($tw_link); ?>" target="_blank" class="twitter">
-                                    <img src="dashboard\uploads\icon\twitter.png" alt="Twitter">
+                                    <img src="dashboard\uploads\icon\twitter1.png" alt="Twitter">
                                 </a>
                             <?php endif; ?>
                             <?php if ($fb_link): ?>
                                 <a href="<?php echo htmlspecialchars($fb_link); ?>" target="_blank" class="facebook">
-                                    <img src="dashboard\uploads\icon\facebook.png" alt="Facebook">
+                                    <img src="dashboard\uploads\icon\facebook1.png" alt="Facebook">
                                 </a>
                             <?php endif; ?>
                             <?php if ($li_link): ?>
                                 <a href="<?php echo htmlspecialchars($li_link); ?>" target="_blank" class="linkedin">
-                                    <img src="dashboard\uploads\icon\linkedin.png" alt="LinkedIn">
+                                    <img src="dashboard\uploads\icon\linkedin1.png" alt="LinkedIn">
                                 </a>
                             <?php endif; ?>
                         </div>
