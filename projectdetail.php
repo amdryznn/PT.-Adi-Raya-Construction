@@ -29,6 +29,7 @@ $rt = mysqli_query($con, "SELECT * FROM project where id='$todo'");
 $tr = mysqli_fetch_array($rt);
 $proj_title = "$tr[proj_title]";
 $proj_detail = "$tr[proj_detail]";
+
 $ufile = "$tr[ufile]";
 ?>
 
@@ -53,11 +54,58 @@ $ufile = "$tr[ufile]";
                         <?php echo htmlspecialchars($proj_detail); ?>
                     </p>
 
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="table-responsive">
+                                <table id="example"
+                                    class="table table-bordered dt-responsive nowrap table-striped align-middle">
+                                    <tbody>
+                                        <?php
+                                        $q = "SELECT project.id, project.code, project.client, project.date, category.name 
+                                FROM project JOIN category ON project.cat_id = category.cat_id ORDER BY id DESC";
 
+                                        $r123 = mysqli_query($con, $q);
 
+                                        while ($ro = mysqli_fetch_array($r123)) {
+                                            $id = $ro["id"];
+                                            $code = $ro["code"];
+                                            $date = $ro["date"];
+                                            $client = $ro["client"];
+                                            $name = $ro["name"];
+                                            // If you have an image column, adjust the following line
+                                            $ufile = ''; // Add the appropriate code to fetch the image
+                                        
+                                            // Output each record vertically
+                                            print "<tr>";
+                                            print "<td><strong>ID Project</strong>: $code</td>";
+                                            print "</tr>";
+                                            print "<tr>";
+                                            print "<td><strong>Date</strong>: $date</td>";
+                                            print "</tr>";
+                                            print "<tr>";
+                                            print "<td><strong>Client</strong>: $client</td>";
+                                            print "</tr>";
+                                            print "<tr>";
+                                            print "<td><strong>Category</strong>: $name</td>";
+                                            print "</tr>";
+                                            // Add more columns as needed
+                                        }
+                                        ?>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
+
+
+
+
+
         </div>
+    </div>
+    </div>
     </div>
 </section>
 <!-- ***** About Area End ***** -->
