@@ -51,8 +51,7 @@
                         $status = "OK"; //initial status
                         $msg = "";
                         if (isset($_POST['save'])) {
-                            $about_title = mysqli_real_escape_string($con, $_POST['about_title']);
-                            $about_text = mysqli_real_escape_string($con, $_POST['about_text']);
+
                             $why_title = mysqli_real_escape_string($con, $_POST['why_title']);
                             $why_text = mysqli_real_escape_string($con, $_POST['why_text']);
                             $service_title = mysqli_real_escape_string($con, $_POST['service_title']);
@@ -66,14 +65,7 @@
                             $enquiry_title = mysqli_real_escape_string($con, $_POST['enquiry_title']);
                             $enquiry_text = mysqli_real_escape_string($con, $_POST['enquiry_text']);
 
-                            if (strlen($about_title) < 1) {
-                                $msg = $msg . "About Title field can not be empty.<BR>";
-                                $status = "NOTOK";
-                            }
-                            if (strlen($about_text) < 1) {
-                                $msg = $msg . "About Text Field Must contain a Character.<BR>";
-                                $status = "NOTOK";
-                            }
+
 
 
                             /*
@@ -89,7 +81,7 @@
                                    move_uploaded_file($tmp_name, "$uploads_dir/$new_file_name");*/
 
                             if ($status == "OK") {
-                                $qb = mysqli_query($con, "update section_title set about_title='$about_title', about_text='$about_text', why_title='$why_title',why_text='$why_text',service_title='$service_title',service_text='$service_text',port_title='$port_title',port_text='$port_text',test_title='$test_title',test_text='$test_text',contact_title='$contact_title',contact_text='$contact_text',enquiry_title='$enquiry_title',enquiry_text='$enquiry_text' where id=1");
+                                $qb = mysqli_query($con, "update section_title set why_title='$why_title',why_text='$why_text',service_title='$service_title',service_text='$service_text',port_title='$port_title',port_text='$port_text',test_title='$test_title',test_text='$test_text',contact_title='$contact_title',contact_text='$contact_text',enquiry_title='$enquiry_title',enquiry_text='$enquiry_text' where id=1");
 
                                 if ($qb) {
                                     $errormsg = "
@@ -131,8 +123,7 @@
                                     $result = mysqli_query($con, $query);
                                     $i = 0;
                                     while ($row = mysqli_fetch_array($result)) {
-                                        $about_title = "$row[about_title]";
-                                        $about_text = "$row[about_text]";
+
                                         $why_title = "$row[why_title]";
                                         $why_text = "$row[why_text]";
                                         $service_title = "$row[service_title]";
@@ -182,7 +173,7 @@
 
                                             <div class="col-lg-6">
                                                 <div class="mb-3">
-                                                    <label for="firstnameInput" class="form-label"> tle</label>
+                                                    <label for="firstnameInput" class="form-label"> Value Title</label>
                                                     <input type="text" class="form-control" id="firstnameInput"
                                                         name="service_title" value="<?php print $service_title ?>">
                                                 </div>
@@ -190,7 +181,7 @@
 
                                             <div class="col-lg-6">
                                                 <div class="mb-3">
-                                                    <label for="firstnameInput" class="form-label"> Service Text</label>
+                                                    <label for="firstnameInput" class="form-label"> Value Text</label>
                                                     <textarea class="form-control" id="exampleFormControlTextarea5"
                                                         name="service_text"
                                                         rows="2"><?php print $service_text ?></textarea>
@@ -200,7 +191,7 @@
 
                                             <div class="col-lg-6">
                                                 <div class="mb-3">
-                                                    <label for="firstnameInput" class="form-label"> Portfolio
+                                                    <label for="firstnameInput" class="form-label"> Project
                                                         Title</label>
                                                     <input type="text" class="form-control" id="firstnameInput"
                                                         name="port_title" value="<?php print $port_title ?>">
@@ -209,7 +200,7 @@
 
                                             <div class="col-lg-6">
                                                 <div class="mb-3">
-                                                    <label for="firstnameInput" class="form-label"> Portfolio
+                                                    <label for="firstnameInput" class="form-label"> Project
                                                         Text</label>
                                                     <textarea class="form-control" id="exampleFormControlTextarea5"
                                                         name="port_text" rows="2"><?php print $port_text ?></textarea>
