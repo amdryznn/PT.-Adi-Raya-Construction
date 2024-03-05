@@ -26,7 +26,7 @@ $cat_id = ($_GET["id"]);
 
 <!-- ***** Tittle Category ***** -->
 
-<section class="projectdetail ptb_50">
+<section class="project ptb_50">
     <?php
     $rt = mysqli_query($con, "SELECT * FROM category where cat_id='$todo'");
     $tr = mysqli_fetch_array($rt);
@@ -64,11 +64,11 @@ $cat_id = ($_GET["id"]);
 <!-- Single Case Studies -->
 <div class='single-case-studies'>
     <!-- Case Studies Thumb -->
-    <a href='projecdetail.php?id=$id'>
+    <a href='projectdetail.php?id=$id'>
         <img src='dashboard/uploads/project/$ufile' alt=''>
     </a>
     <!-- Case Studies Overlay -->
-    <a href='#' class='case-studies-overlay'>
+    <a href='projectdetail.php?id=$id' class='case-studies-overlay'>
         <!-- Overlay Text -->
         <span class='overlay-text text-center p-3'>
             <h3 class='text-white mb-3'>$proj_title</h3>
