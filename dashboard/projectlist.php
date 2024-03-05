@@ -53,7 +53,8 @@
 
 
                                         <?php
-				   $q="SELECT project.id, project.proj_title, project.code, project.client, project.date, project.ufile, category.name FROM project JOIN category ON project.cat_id = category.cat_id ORDER BY id DESC";
+				   $q="SELECT project.id, project.proj_title, project.code, project.client, project.date, project.ufile, category.name 
+                   FROM project JOIN category ON project.cat_id = category.cat_id ORDER BY id DESC";
                    
 
                    
