@@ -160,21 +160,7 @@
                                         <div class="row">
 
 
-                                            <div class="col-lg-6">
-                                                <div class="mb-3">
-                                                    <label for="firstnameInput" class="form-label"> About Title</label>
-                                                    <input type="text" class="form-control" id="firstnameInput"
-                                                        name="about_title" value="<?php print $about_title ?>">
-                                                </div>
-                                            </div>
 
-                                            <div class="col-lg-6">
-                                                <div class="mb-3">
-                                                    <label for="firstnameInput" class="form-label"> About Text</label>
-                                                    <textarea class="form-control" id="exampleFormControlTextarea5"
-                                                        name="about_text" rows="2"><?php print $about_text ?></textarea>
-                                                </div>
-                                            </div>
 
 
                                             <div class="col-lg-6">
