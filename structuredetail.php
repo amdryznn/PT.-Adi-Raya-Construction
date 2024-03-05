@@ -54,19 +54,24 @@ $ufile = "$tr[ufile]";
                         <?php echo htmlspecialchars($port_detail); ?>
                     </p>
 
-       <!-- Social Media Icons within Portfolio Details -->
-                   <style>
-                    .social-icons2 img {
-        width: 24px; /* Sesuaikan ukuran lebar gambar */
-        height: 24px; /* Sesuaikan ukuran tinggi gambar */
-                    }   
-                    .social-icons2 img:hover {
-        transform: scale(1.2); /* Mengubah skala gambar saat hover */
-                    }
+                    <!-- Social Media Icons within Portfolio Details -->
+                    <style>
+                        .social-icons2 img {
+                            width: 27px;
+                            /* Sesuaikan ukuran lebar gambar */
+                            height: 27px;
+                            /* Sesuaikan ukuran tinggi gambar */
+                            margin-right: 5px;
+                        }
+
+                        .social-icons2 img:hover {
+                            transform: scale(1.2);
+                            /* Mengubah skala gambar saat hover */
+                        }
                     </style>
 
                     <section class="section portfolio-area ptb_50">
-                    <div class="social-icons2">
+                        <div class="social-icons2">
                             <?php if ($tw_link): ?>
                                 <a href="<?php echo htmlspecialchars($tw_link); ?>" target="_blank" class="twitter">
                                     <img src="dashboard\uploads\icon\twitter.png" alt="Twitter">
@@ -79,11 +84,11 @@ $ufile = "$tr[ufile]";
                             <?php endif; ?>
                             <?php if ($li_link): ?>
                                 <a href="<?php echo htmlspecialchars($li_link); ?>" target="_blank" class="linkedin">
-                                    <img src="path_to_your_linkedin_image" alt="LinkedIn">
+                                    <img src="dashboard\uploads\icon\linkedin.png" alt="LinkedIn">
                                 </a>
-                            <?php endif; ?> 
+                            <?php endif; ?>
                         </div>
-                   </section>
+                    </section>
 
                 </div>
             </div>
