@@ -25,12 +25,17 @@ $todo = mysqli_real_escape_string($con, $_GET["id"]);
 
 
 <?php
-$rt = mysqli_query($con, "SELECT * FROM project where id='$todo'");
-$tr = mysqli_fetch_array($rt);
-$proj_title = "$tr[proj_title]";
-$proj_detail = "$tr[proj_detail]";
+$todo = mysqli_real_escape_string($con, $todo); // Sanitize input to prevent SQL injection
 
-$ufile = "$tr[ufile]";
+// Fetch project details and join with category table
+$rt = mysqli_query($con, "SELECT project.proj_title, project.proj_detail, project.id, project.code, project.client, project.date, project.ufile, category.name 
+                          FROM project 
+                          JOIN category ON project.cat_id = category.cat_id
+                          WHERE project.id='$todo'");
+$tr = mysqli_fetch_array($rt);
+$proj_title = htmlspecialchars($tr['proj_title']);
+$proj_detail = htmlspecialchars($tr['proj_detail']);
+$ufile = htmlspecialchars($tr['ufile']);
 ?>
 
 <!-- ***** About Area Start ***** -->
@@ -40,73 +45,69 @@ $ufile = "$tr[ufile]";
             <div class="col-12 col-lg-6">
                 <!-- About Thumb -->
                 <div class="portfolio-thumb text-center">
-                    <img src="dashboard/uploads/project/<?php echo htmlspecialchars($ufile); ?>" alt="img">
+                    <img src="dashboard/uploads/project/<?php echo $ufile; ?>" alt="img">
                 </div>
             </div>
             <div class="col-12 col-lg-6">
                 <!-- About Content -->
                 <div class="portfolio-content section-heading text-center text-lg-left pl-md-4 mt-5 mt-lg-0 mb-0">
                     <h2 class="mb-3">
-                        <?php echo htmlspecialchars($proj_title); ?>
+                        <?php echo $proj_title; ?>
                     </h2>
 
                     <p style="text-align: justify;">
-                        <?php echo htmlspecialchars($proj_detail); ?>
+                        <?php echo $proj_detail; ?>
                     </p>
 
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="table-responsive">
-                                <table id="example"
-                                    class="table table-bordered dt-responsive nowrap table-striped align-middle">
-                                    <tbody>
-                                        <?php
-                                        $q = "SELECT project.id, project.code, project.client, project.date, category.name 
-                                FROM project JOIN category ON project.cat_id = category.cat_id ORDER BY id DESC";
-
-                                        $r123 = mysqli_query($con, $q);
-
-                                        while ($ro = mysqli_fetch_array($r123)) {
-                                            $id = $ro["id"];
-                                            $code = $ro["code"];
-                                            $date = $ro["date"];
-                                            $client = $ro["client"];
-                                            $name = $ro["name"];
-                                            // If you have an image column, adjust the following line
-                                            $ufile = ''; // Add the appropriate code to fetch the image
-                                        
-                                            // Output each record vertically
-                                            print "<tr>";
-                                            print "<td><strong>ID Project</strong>: $code</td>";
-                                            print "</tr>";
-                                            print "<tr>";
-                                            print "<td><strong>Date</strong>: $date</td>";
-                                            print "</tr>";
-                                            print "<tr>";
-                                            print "<td><strong>Client</strong>: $client</td>";
-                                            print "</tr>";
-                                            print "<tr>";
-                                            print "<td><strong>Category</strong>: $name</td>";
-                                            print "</tr>";
-                                            // Add more columns as needed
-                                        }
-                                        ?>
-                                    </tbody>
-                                </table>
+                    <section class="section portfolio-area ptb_50">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="table-responsive">
+                                    <table id="example"
+                                        class="table table-bordered dt-responsive nowrap table-striped align-middle">
+                                        <tbody>
+                                            <tr>
+                                                <td><strong>ID Project</strong>:
+                                                    <?php echo $tr['code']; ?>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Date</strong>:
+                                                    <?php echo $tr['date']; ?>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Client</strong>:
+                                                    <?php echo $tr['client']; ?>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Category</strong>:
+                                                    <?php echo $tr['name']; ?>
+                                                </td>
+                                            </tr>
+                                            <!-- Add more columns as needed -->
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
-                    </div>
                 </div>
             </div>
-
-
-
-
-
         </div>
     </div>
-    </div>
-    </div>
+</section>
+
+
+
+
+
+
+
+</div>
+</div>
+</div>
+</div>
 </section>
 <!-- ***** About Area End ***** -->
 
