@@ -169,7 +169,7 @@ $latitude = "$tr[latitude]";
                                 foreach ($qc as $ro):
                                     ?>
                                     <li>
-                                        <a class="dropdown-item" href="projectdetail.php?id=<?= $ro['cat_id'] ?>">
+                                        <a class="dropdown-item" href="project.php?id=<?= $ro['cat_id'] ?>">
                                             <?= $ro['name'] ?>
                                         </a>
                                     </li>
