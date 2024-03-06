@@ -56,7 +56,7 @@
                             $service_detail = mysqli_real_escape_string($con, $_POST['service_detail']);
 
                             if (strlen($service_title) < 5) {
-                                $msg = $msg . "Service Title Must Be More Than 5 Char Length.<BR>";
+                                $msg = $msg . "Values Title Must Be More Than 5 Char Length.<BR>";
                                 $status = "NOTOK";
                             }
                             if (strlen($service_desc) > 150) {
@@ -65,7 +65,7 @@
                             }
 
                             if (strlen($service_detail) < 15) {
-                                $msg = $msg . "Service Detail Must Be More Than 15 Char Length.<BR>";
+                                $msg = $msg . "Values Detail Must Be More Than 15 Char Length.<BR>";
                                 $status = "NOTOK";
                             }
 
@@ -133,7 +133,7 @@
                                                     <label for="firstnameInput" class="form-label"> Values
                                                         Title</label>
                                                     <input type="text" class="form-control" id="firstnameInput"
-                                                        name="service_title" placeholder="Enter Service Title">
+                                                        name="service_title" placeholder="Enter Values Title">
                                                 </div>
                                             </div>
 

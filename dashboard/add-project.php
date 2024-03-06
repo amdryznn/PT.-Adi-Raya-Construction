@@ -1,6 +1,6 @@
 <?php include "header.php"; ?>
 <?php include "sidebar.php"; ?>
-<?php $qc = mysqli_query($con, "SELECT * FROM category");?>
+<?php $qc = mysqli_query($con, "SELECT * FROM category"); ?>
 
 <!-- ============================================================== -->
 <!-- Start right Content here -->
@@ -62,41 +62,41 @@
                             $cat_id = mysqli_real_escape_string($con, $_POST['cat_id']);
 
 
-                            
+
                             if (strlen($code) < 1) {
-                                $msg = $msg . "Portfolio Title Must Be More Than 5 Char Length.<BR>";
+                                $msg = $msg . "Project Code Must Be More Than 5 Char Length.<BR>";
                                 $status = "NOTOK";
                             }
 
-                            if (strlen($date) < 3) {
-                                $msg = $msg . "Portfolio Title Must Be More Than 5 Char Length.<BR>";
+                            if (strlen($date) < 1) {
+                                $msg = $msg . "Date Must Be More Than 5 Char Length.<BR>";
                                 $status = "NOTOK";
                             }
 
-                            if (strlen($client) < 7) {
-                                $msg = $msg . "Portfolio Title Must Be More Than 5 Char Length.<BR>";
+                            if (strlen($client) < 1) {
+                                $msg = $msg . "Client Must Be More Than 5 Char Length.<BR>";
                                 $status = "NOTOK";
                             }
 
-                            if (strlen($proj_title) < 5) {
-                                $msg = $msg . "Portfolio Title Must Be More Than 5 Char Length.<BR>";
+                            if (strlen($proj_title) < 1) {
+                                $msg = $msg . "Project Title Must Be More Than 5 Char Length.<BR>";
                                 $status = "NOTOK";
                             }
                             if (strlen($proj_desc) > 150) {
-                                $msg = $msg . "Portfolio description Must Be Less Than 150 Char Length.<BR>";
+                                $msg = $msg . "Short Description Must Be Less Than 15 Char Length.<BR>";
                                 $status = "NOTOK";
                             }
 
-                            if (strlen($proj_detail) < 15) {
-                                $msg = $msg . "Portfolio Detail Must Be More Than 15 Char Length.<BR>";
+                            if (strlen($proj_detail) < 1) {
+                                $msg = $msg . "Project Detail Must Be More Than 15 Char Length.<BR>";
                                 $status = "NOTOK";
                             }
 
-                            if (strlen($location) < 8) {
-                                $msg = $msg . "Portfolio Detail Must Be More Than 8 Char Length.<BR>";
+                            if (strlen($location) < 1) {
+                                $msg = $msg . "Location Must Be More Than 8 Char Length.<BR>";
                                 $status = "NOTOK";
                             }
-                            
+
 
 
 
@@ -156,20 +156,21 @@
 
                                     <form action="" method="post" enctype="multipart/form-data">
                                         <div class="row">
-                                        
-                                        <div class="mb-3">
-                            <h6>Select Category</h6>
-                            <select class="form-select" aria-label="Default select example" name="cat_id">
-                                <option selected>Select Category</option>
-                                <?php foreach ($qc as $row): ?>
-                                    <option value="<?= $row["cat_id"] ?>">
-                                        <?= $row["name"] ?>
-                                    </option>
-                                <?php endforeach ?>
-                            </select>
-                                        </div>
 
-                                        <div class="col-lg-6">
+                                            <div class="mb-3">
+                                                <h6>Select Category</h6>
+                                                <select class="form-select" aria-label="Default select example"
+                                                    name="cat_id">
+                                                    <option selected>Select Category</option>
+                                                    <?php foreach ($qc as $row): ?>
+                                                        <option value="<?= $row["cat_id"] ?>">
+                                                            <?= $row["name"] ?>
+                                                        </option>
+                                                    <?php endforeach ?>
+                                                </select>
+                                            </div>
+
+                                            <div class="col-lg-6">
                                                 <div class="mb-3">
                                                     <label for="firstnameInput" class="form-label"> Project Id</label>
                                                     <textarea class="form-control" id="exampleFormControlTextarea5"
@@ -195,15 +196,17 @@
 
                                             <div class="col-lg-6">
                                                 <div class="mb-3">
-                                                    <label for="firstnameInput" class="form-label"> Project Title</label>
+                                                    <label for="firstnameInput" class="form-label"> Project
+                                                        Title</label>
                                                     <input type="text" class="form-control" id="firstnameInput"
-                                                        name="proj_title" placeholder="Enter Portfolio Title">
+                                                        name="proj_title" placeholder="Enter Project Title">
                                                 </div>
                                             </div>
 
                                             <div class="col-lg-6">
                                                 <div class="mb-3">
-                                                    <label for="firstnameInput" class="form-label"> Short Description</label>
+                                                    <label for="firstnameInput" class="form-label"> Short
+                                                        Description</label>
                                                     <textarea class="form-control" id="exampleFormControlTextarea5"
                                                         name="proj_desc" rows="2"></textarea>
                                                 </div>
@@ -211,7 +214,8 @@
 
                                             <div class="col-lg-6">
                                                 <div class="mb-3">
-                                                    <label for="firstnameInput" class="form-label"> Project Detail</label>
+                                                    <label for="firstnameInput" class="form-label"> Project
+                                                        Detail</label>
                                                     <textarea class="form-control" id="exampleFormControlTextarea5"
                                                         name="proj_detail" rows="3"></textarea>
                                                 </div>

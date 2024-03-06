@@ -21,7 +21,7 @@ include "sidebar.php";
                         <div class="page-title-right">
                             <ol class="breadcrumb m-0">
                                 <li class="breadcrumb-item"><a href="javascript: void(0);">User</a></li>
-                                <li class="breadcrumb-item active">Service</li>
+                                <li class="breadcrumb-item active">Values</li>
                             </ol>
                         </div>
 

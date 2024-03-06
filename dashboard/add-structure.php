@@ -148,8 +148,7 @@
 
                                             <div class="col-lg-6">
                                                 <div class="mb-3">
-                                                    <label for="firstnameInput" class="form-label"> Structure
-                                                        Title</label>
+                                                    <label for="firstnameInput" class="form-label"> Name</label>
                                                     <input type="text" class="form-control" id="firstnameInput"
                                                         name="port_title" placeholder="Enter  Name">
                                                 </div>

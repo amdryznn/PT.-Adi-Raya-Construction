@@ -57,9 +57,6 @@ $username = $_SESSION['username'];
                     <div class="menu-dropdown collapse" id="sidebarSl" style="">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
-                                <a href="createslide" class="nav-link" data-key="t-one-page"> Add New </a>
-                            </li>
-                            <li class="nav-item">
                                 <a href="static" class="nav-link" data-key="t-nft-landing"> Static Sliders</a>
                             </li>
                         </ul>
@@ -94,7 +91,7 @@ $username = $_SESSION['username'];
                                 <a href="createabout" class="nav-link" data-key="t-one-page"> Add New </a>
                             </li>
                             <li class="nav-item">
-                                <a href="about" class="nav-link" data-key="t-nft-landing">About lists </a>
+                                <a href="about" class="nav-link" data-key="t-nft-landing">List </a>
                             </li>
                         </ul>
                     </div>
@@ -111,7 +108,7 @@ $username = $_SESSION['username'];
                                 <a href="createlegality" class="nav-link" data-key="t-one-page"> Add New </a>
                             </li>
                             <li class="nav-item">
-                                <a href="legality" class="nav-link" data-key="t-nft-landing"> Legality List </a>
+                                <a href="legality" class="nav-link" data-key="t-nft-landing"> List </a>
                             </li>
                         </ul>
                     </div>
@@ -144,7 +141,7 @@ $username = $_SESSION['username'];
                     <div class="menu-dropdown collapse" id="sidebarLanding" style="">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
-                                <a href="createservice" class="nav-link" data-key="t-one-page"> Add Values </a>
+                                <a href="createservice" class="nav-link" data-key="t-one-page"> Add New </a>
                             </li>
                             <li class="nav-item">
                                 <a href="services" class="nav-link" data-key="t-nft-landing"> List </a>
@@ -229,10 +226,10 @@ $username = $_SESSION['username'];
                     <div class="menu-dropdown collapse" id="sidebarT" style="">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
-                                <a href="newtestimony" class="nav-link" data-key="t-one-page">New Testimony</a>
+                                <a href="newtestimony" class="nav-link" data-key="t-one-page">Add New</a>
                             </li>
                             <li class="nav-item">
-                                <a href="testimony" class="nav-link" data-key="t-nft-landing"> All Testimonies </a>
+                                <a href="testimony" class="nav-link" data-key="t-nft-landing"> List </a>
                             </li>
                         </ul>
                     </div>
