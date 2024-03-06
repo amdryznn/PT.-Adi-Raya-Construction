@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 05, 2024 at 09:14 AM
+-- Generation Time: Mar 06, 2024 at 06:21 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -39,7 +39,7 @@ CREATE TABLE `about` (
 --
 
 INSERT INTO `about` (`id`, `about_decs`, `about_detail`, `ufile`) VALUES
-(13, 'PT. ADI RAYA CONSTRUCTION', 'Was established at April 25, 2016, beginning from small company comprised of skillful person from different backgrounds.\r\n\r\nEven though the company’s relatively recent establishment, our people have been working together since 2012 under different banner. Therefore, our crew members have a lot of experiences to work as a team.\r\n\r\nWe start from construction work, and then began to expand into a public company with engineering, procurement, and construction (EPC) services.\r\n\r\nAs a strategic mission, Adi Raya Construction utilizes the strength in networking, supporting, and partnership to professionally organize the works of supply chain sevices and EPC project within internal expertise resources and specialized expertise outsourced, which included (but not limiter to) engineering, manufacturer, transportation fabrication yard facility & performance, construction, commisioning, and maintenance support such as overhauling.\r\n\r\nResources of expertise and experience within the organization is highly correlated with the partnership arrangement which includes a joint operation, consortium, or business to business subcontracting scope.', '289320240220_134741.jpg');
+(13, 'PT. ADI RAYA CONSTRUCTION', 'Was established at April 25, 2016, beginning from small company comprised of skillful person from different backgrounds.\r\n\r\nEven though the company’s relatively recent establishment, our people have been working together since 2012 under different banner. Therefore, our crew members have a lot of experiences to work as a team.\r\n\r\nWe start from construction work, and then began to expand into a public company with engineering, procurement, and construction (EPC) services.\r\n\r\nAs a strategic mission, Adi Raya Construction utilizes the strength in networking, supporting, and partnership to professionally organize the works of supply chain sevices and EPC project within internal expertise resources and specialized expertise outsourced, which included (but not limiter to) engineering, manufacturer, transportation fabrication yard facility & performance, construction, commisioning, and maintenance support such as overhauling.\r\n\r\nResources of expertise and experience within the organization is highly correlated with the partnership arrangement which includes a joint operation, consortium, or business to business subcontracting scope.', '7546240about.jpg');
 
 -- --------------------------------------------------------
 
@@ -189,20 +189,16 @@ CREATE TABLE `project` (
   `proj_detail` varchar(200) NOT NULL,
   `ufile` varchar(1000) NOT NULL,
   `location` varchar(150) NOT NULL,
-  `cat_id` int(11) NOT NULL
+  `cat_id` int(11) NOT NULL,
+  `st_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `project`
 --
 
-INSERT INTO `project` (`id`, `code`, `date`, `client`, `proj_title`, `proj_desc`, `proj_detail`, `ufile`, `location`, `cat_id`) VALUES
-(13, '1234567', '2022', 'PT. PERTAMINA', 'KILANG BPP- II PERTAMINA', ' Pekerjaan Re-engineering and RLA Peralatan Kilang BPP- II Dengan Umur ≥ 30 Tahun', 'Pekerjaan Re-engineering and RLA Peralatan Kilang BPP- II Dengan Umur ≥ 30 Tahun', '832439939506570926070de04f0-df57-11ec-85a8-bda8f2c6ca77-rimg-w720-h720-gmir.jpg', 'Jaksel', 12),
-(14, '123445wywtrywutr', '2023', 'PT. So Far Away', 'Penginstalan Pipa Kali', ' hahahahahahahhahhahahahahahahahahah', 'hahahahahahhahahahahahahahahah', '249639506570926070de04f0-df57-11ec-85a8-bda8f2c6ca77-rimg-w720-h720-gmir.jpg', 'Jaktim', 7),
-(15, 'fhjjhfkfhflufluflfuy', '2019', 'pt tidurrrrrrrrrrr', 'Penginstalan paving', ' yfififfyfyfufuyhjkfhgfjhfhigfg', 'fyvfuyifiyfiuffkyfiuyfyufyufbyufyfyufiyufidityddthgkgdhd', '4373657363e87d37114cb34c0c1956c45dcddf4.jpg', 'Kaltim', 1),
-(19, '12333333333', '19 Mei 2003', 'PT. Angkasa Raya', 'Penginstalan Tangki', '  Lorem ipsum dolor sit amet, consectetur adipiscing elit, ', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut a', '5774843020240205_214845.png', 'Jabar', 16),
-(20, 'Lorem ipsum dolor si', '19 January 2024', 'PT. JAYA JAYA JAYA', 'Penginstalan Tangki Medium', ' Lorem ipsum dolor sit amet, consectetur adipiscing elit.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut a', '5390473520240221_140038.jpg', 'Surabaya - Jatim', 7),
-(21, '1234566677-10', '12 March 2023', 'PT. Aaaaaaaaaaaa', 'Penginstalan Pipaaaaa', ' Ini adalah short desc Ini adalah short desc Ini adalah short desc Ini adalah short desc Ini adalah short desc.', 'Ini adalah short desc Ini adalah short desc Ini adalah short desc Ini adalah short desc Ini adalah short desc. Ini adalah short desc Ini adalah short desc Ini adalah short desc Ini adalah short desc I', '439939506570926070de04f0-df57-11ec-85a8-bda8f2c6ca77-rimg-w720-h720-gmir.jpg', 'Samarinda - Kaltim', 7);
+INSERT INTO `project` (`id`, `code`, `date`, `client`, `proj_title`, `proj_desc`, `proj_detail`, `ufile`, `location`, `cat_id`, `st_id`) VALUES
+(25, '333-3333-3333', '2-02-2024', 'Pt. abcjfjdfjdjfgjsgfj', 'papan dada', '   uyeufuwtviwteiuenouvyeytieyptceytieytppytuiewyctytcuwe', 'ewtbcytwywcfntyeuwfuywgxfyggxfnYFYEGWFGWEygfyewgfgewygfy', '66075390473520240221_140038.jpg', 'Gresik', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -373,6 +369,25 @@ INSERT INTO `static` (`id`, `stitle`, `stext`, `updated_at`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `status`
+--
+
+CREATE TABLE `status` (
+  `st_id` int(11) NOT NULL,
+  `st_name` varchar(150) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `status`
+--
+
+INSERT INTO `status` (`st_id`, `st_name`) VALUES
+(1, 'On Going'),
+(2, 'Closed');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `testimony`
 --
 
@@ -533,6 +548,12 @@ ALTER TABLE `static`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `status`
+--
+ALTER TABLE `status`
+  ADD PRIMARY KEY (`st_id`);
+
+--
 -- Indexes for table `testimony`
 --
 ALTER TABLE `testimony`
@@ -558,7 +579,7 @@ ALTER TABLE `work`
 -- AUTO_INCREMENT for table `about`
 --
 ALTER TABLE `about`
-  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `admin`
@@ -600,7 +621,7 @@ ALTER TABLE `portfolio`
 -- AUTO_INCREMENT for table `project`
 --
 ALTER TABLE `project`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `section_title`
@@ -637,6 +658,12 @@ ALTER TABLE `social`
 --
 ALTER TABLE `static`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `status`
+--
+ALTER TABLE `status`
+  MODIFY `st_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `testimony`
