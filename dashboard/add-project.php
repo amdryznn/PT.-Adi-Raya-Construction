@@ -174,7 +174,7 @@
                                                 <div class="mb-3">
                                                     <label for="firstnameInput" class="form-label"> Project Id</label>
                                                     <textarea class="form-control" id="exampleFormControlTextarea5"
-                                                        name="code" rows="2"></textarea>
+                                                        name="code" rows="1"></textarea>
                                                 </div>
                                             </div>
 
@@ -182,7 +182,7 @@
                                                 <div class="mb-3">
                                                     <label for="firstnameInput" class="form-label"> Date</label>
                                                     <textarea class="form-control" id="exampleFormControlTextarea5"
-                                                        name="date" rows="2"></textarea>
+                                                        name="date" placeholder="dd-mm-yyyy" rows="1"></textarea>
                                                 </div>
                                             </div>
 
@@ -190,7 +190,7 @@
                                                 <div class="mb-3">
                                                     <label for="firstnameInput" class="form-label"> Client</label>
                                                     <textarea class="form-control" id="exampleFormControlTextarea5"
-                                                        name="client" rows="2"></textarea>
+                                                        name="client" rows="1"></textarea>
                                                 </div>
                                             </div>
 
@@ -225,7 +225,7 @@
                                                 <div class="mb-3">
                                                     <label for="firstnameInput" class="form-label"> Location</label>
                                                     <textarea class="form-control" id="exampleFormControlTextarea5"
-                                                        name="location" rows="3"></textarea>
+                                                        name="location" rows="1"></textarea>
                                                 </div>
                                             </div>
 
