@@ -1,6 +1,7 @@
 <?php include "header.php"; ?>
 <?php include "sidebar.php"; ?>
 <?php $qc = mysqli_query($con, "SELECT * FROM category"); ?>
+<?php $qs = mysqli_query($con, "SELECT * FROM status"); ?>
 
 <!-- ============================================================== -->
 <!-- Start right Content here -->
@@ -60,7 +61,7 @@
                             $proj_detail = mysqli_real_escape_string($con, $_POST['proj_detail']);
                             $location = mysqli_real_escape_string($con, $_POST['location']);
                             $cat_id = mysqli_real_escape_string($con, $_POST['cat_id']);
-
+                            $st_id = mysqli_real_escape_string($con, $_POST['st_id']);
 
 
                             if (strlen($code) < 1) {
@@ -112,7 +113,7 @@
                             move_uploaded_file($tmp_name, "$uploads_dir/$new_file_name");
 
                             if ($status == "OK") {
-                                $qb = mysqli_query($con, "INSERT INTO project (code, date, client, proj_title, proj_desc, proj_detail, location, ufile, cat_id) VALUES ('$code', '$date', '$client', '$proj_title', '$proj_desc', '$proj_detail', '$location', '$new_file_name','$cat_id')");
+                                $qb = mysqli_query($con, "INSERT INTO project (code, date, client, proj_title, proj_desc, proj_detail, location, ufile, cat_id, st_id) VALUES ('$code', '$date', '$client', '$proj_title', '$proj_desc', '$proj_detail', '$location', '$new_file_name','$cat_id', '$st_id')");
 
 
                                 if ($qb) {
@@ -158,13 +159,26 @@
                                         <div class="row">
 
                                             <div class="mb-3">
-                                                <h6>Select Category</h6>
+                                                <h6>Category</h6>
                                                 <select class="form-select" aria-label="Default select example"
                                                     name="cat_id">
                                                     <option selected>Select Category</option>
                                                     <?php foreach ($qc as $row): ?>
                                                         <option value="<?= $row["cat_id"] ?>">
                                                             <?= $row["name"] ?>
+                                                        </option>
+                                                    <?php endforeach ?>
+                                                </select>
+                                            </div>
+
+                                            <div class="mb-3">
+                                                <h6>Status</h6>
+                                                <select class="form-select" aria-label="Default select example"
+                                                    name="st_id">
+                                                    <option selected>Select Status</option>
+                                                    <?php foreach ($qs as $row): ?>
+                                                        <option value="<?= $row["st_id"] ?>">
+                                                            <?= $row["st_name"] ?>
                                                         </option>
                                                     <?php endforeach ?>
                                                 </select>

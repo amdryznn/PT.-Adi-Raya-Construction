@@ -2,9 +2,9 @@
 include "header.php";
 $todo = mysqli_real_escape_string($con, $_GET['id']);
 include "sidebar.php";
-
 ?>
 <?php $qc = mysqli_query($con, "SELECT * FROM category"); ?>
+<?php $qs = mysqli_query($con, "SELECT * FROM status"); ?>
 <!-- ============================================================== -->
 <!-- Start right Content here -->
 <!-- ============================================================== -->
@@ -45,6 +45,7 @@ include "sidebar.php";
                 $proj_detail = "$ro[proj_detail]";
                 $location = "$ro[location]";
                 $cat_id = "$ro[cat_id]";
+                $st_id = "$ro[st_id]";
                 $ufile = "$ro[ufile]";
             }
             ?>
@@ -82,6 +83,7 @@ include "sidebar.php";
                             $proj_detail = mysqli_real_escape_string($con, $_POST['proj_detail']);
                             $location = mysqli_real_escape_string($con, $_POST['location']);
                             $cat_id = mysqli_real_escape_string($con, $_POST['cat_id']);
+                            $st_id = mysqli_real_escape_string($con, $_POST['st_id']);
 
 
 
@@ -98,7 +100,7 @@ include "sidebar.php";
 
                             if ($status == "OK") {
                                 $qb = mysqli_query($con, "update project set code='$code', date='$date', client='$client', proj_title='$proj_title', 
-proj_desc='$proj_desc', proj_detail='$proj_detail', location='$location', ufile='$new_file_name', cat_id='$cat_id' where id='$todo'");
+proj_desc='$proj_desc', proj_detail='$proj_detail', location='$location', ufile='$new_file_name', cat_id='$cat_id', st_id='$st_id' where id='$todo'");
 
 
                                 if ($qb) {
@@ -143,13 +145,27 @@ proj_desc='$proj_desc', proj_detail='$proj_detail', location='$location', ufile=
 
                                             <!-- Select Category -->
                                             <div class="mb-3">
-                                                <h6>Select Category</h6>
+                                                <h6>Category</h6>
                                                 <select class="form-select" aria-label="Default select example"
                                                     name="cat_id">
                                                     <option>Select Category</option>
                                                     <?php foreach ($qc as $row): ?>
                                                         <option value="<?= $row["cat_id"] ?>" <?php echo ($row["cat_id"] == $cat_id) ? 'selected' : ''; ?>>
                                                             <?= $row["name"] ?>
+                                                        </option>
+                                                    <?php endforeach ?>
+                                                </select>
+                                            </div>
+
+                                            <!-- Select Status -->
+                                            <div class="mb-3">
+                                                <h6>Status</h6>
+                                                <select class="form-select" aria-label="Default select example"
+                                                    name="st_id">
+                                                    <option>Select Status</option>
+                                                    <?php foreach ($qs as $row): ?>
+                                                        <option value="<?= $row["st_id"] ?>" <?php echo ($row["st_id"] == $st_id) ? 'selected' : ''; ?>>
+                                                            <?= $row["st_name"] ?>
                                                         </option>
                                                     <?php endforeach ?>
                                                 </select>

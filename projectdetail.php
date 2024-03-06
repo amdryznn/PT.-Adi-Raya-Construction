@@ -29,9 +29,10 @@ $todo = mysqli_real_escape_string($con, $_GET["id"]);
 $todo = mysqli_real_escape_string($con, $todo); // Sanitize input to prevent SQL injection
 
 // Fetch project details and join with category table
-$rt = mysqli_query($con, "SELECT project.proj_title, project.proj_detail, project.id, project.code, project.client, project.date, project.location, project.ufile, category.name 
-                          FROM project 
-                          JOIN category ON project.cat_id = category.cat_id
+$rt = mysqli_query($con, "SELECT project.id, project.proj_title, proj_detail, project.code, project.client, project.date, project.location, 
+project.ufile, category.name, status.st_name FROM project 
+JOIN category ON project.cat_id = category.cat_id 
+JOIN status ON project.st_id = status.st_id
                           WHERE project.id='$todo'");
 $tr = mysqli_fetch_array($rt);
 $proj_title = htmlspecialchars($tr['proj_title']);
@@ -95,6 +96,12 @@ $ufile = htmlspecialchars($tr['ufile']);
                                                 <td><strong>Category</strong>
                                                 <td colspan="2">
                                                     <?php echo $tr['name']; ?>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Status</strong>
+                                                <td colspan="2">
+                                                    <?php echo $tr['st_name']; ?>
                                                 </td>
                                             </tr>
                                             <!-- Add more columns as needed -->

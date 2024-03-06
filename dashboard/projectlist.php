@@ -47,6 +47,7 @@
                                                 <th data-ordering="false">Project Title</th>
                                                 <th data-ordering="false">Location</th>
                                                 <th data-ordering="false">Category</th>
+                                                <th data-ordering="false">Status</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
@@ -54,8 +55,10 @@
 
 
                                         <?php
-				   $q="SELECT project.id, project.proj_title, project.code, project.client, project.date, project.location, project.ufile, category.name 
-                   FROM project JOIN category ON project.cat_id = category.cat_id ORDER BY id DESC";
+				   $q="SELECT project.id, project.proj_title, project.code, project.client, project.date, project.location, 
+                   project.ufile, category.name, status.st_name FROM project 
+                   JOIN category ON project.cat_id = category.cat_id 
+                   JOIN status ON project.st_id = status.st_id ORDER BY project.id DESC;";
                    
 
                    
@@ -73,6 +76,7 @@ while($ro = mysqli_fetch_array($r123))
     $location="$ro[location]";
     $ufile="$ro[ufile]";
     $name="$ro[name]";
+    $st_name="$ro[st_name]";
   
   
 
@@ -97,6 +101,9 @@ while($ro = mysqli_fetch_array($r123))
 				  </td>
                   <td>
 				  $name
+				  </td>
+                  <td>
+				  $st_name
 				  </td>
                  
                                                 <td>
