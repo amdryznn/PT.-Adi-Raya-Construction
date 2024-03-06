@@ -117,7 +117,7 @@ $username = $_SESSION['username'];
                 <li class="nav-item">
                     <a class="nav-link menu-link" href="#sidebarB" data-bs-toggle="collapse" role="button"
                         aria-expanded="true" aria-controls="sidebarLanding">
-                        <i class="ri-file-list-3-line"></i> <span data-key="t-landing">Vision & Mission</span>
+                        <i class="ri-file-list-line"></i> <span data-key="t-landing">Vision & Mission</span>
                     </a>
                     <div class="menu-dropdown collapse" id="sidebarB" style="">
                         <ul class="nav nav-sm flex-column">

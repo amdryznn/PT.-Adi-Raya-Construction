@@ -92,24 +92,16 @@ $latitude = "$tr[latitude]";
             <div class="loader-animation">
                 <div class="row h-100">
                     <!-- Single Loader -->
-                    <div class="col-3 single-loader p-0">
+                    <div class="col-12 single-loader p-0">
                         <div class="loader-bg"></div>
                     </div>
+
                     <!-- Single Loader -->
-                    <div class="col-3 single-loader p-0">
-                        <div class="loader-bg"></div>
-                    </div>
-                    <!-- Single Loader -->
-                    <div class="col-3 single-loader p-0">
-                        <div class="loader-bg"></div>
-                    </div>
-                    <!-- Single Loader -->
-                    <div class="col-3 single-loader p-0">
-                        <div class="loader-bg"></div>
-                    </div>
+
                 </div>
             </div>
         </div>
+    </div>
     </div>
     <!--====== Preloader Area End ======-->
 
