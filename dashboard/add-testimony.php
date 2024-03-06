@@ -36,7 +36,7 @@
                                     <ul class="nav nav-tabs-custom rounded card-header-tabs border-bottom-0" role="tablist">
                                         <li class="nav-item">
                                             <a class="nav-link active" data-bs-toggle="tab" href="#personalDetails" role="tab" aria-selected="false">
-                                                <i class="fas fa-home"></i> New Testimony
+                                                <i class="fas fa-home"></i> Add Testimony
                                             </a>
                                         </li>
 

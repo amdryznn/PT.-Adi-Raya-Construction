@@ -147,7 +147,7 @@
                                             <div class="col-lg-12">
                                                 <div class="hstack gap-2 justify-content-end">
                                                     <button type="submit" name="save" class="btn btn-primary">Add
-                                                        Social</button>
+                                                        Social Media</button>
 
                                                 </div>
                                             </div>

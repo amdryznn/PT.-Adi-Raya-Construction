@@ -37,7 +37,7 @@
                                 <li class="nav-item">
                                     <a class="nav-link active" data-bs-toggle="tab" href="#personalDetails" role="tab"
                                         aria-selected="false">
-                                        <i class="fas fa-home"></i> New About
+                                        <i class="fas fa-home"></i> Add About
                                     </a>
                                 </li>
 
@@ -55,7 +55,7 @@
                             $about_detail = mysqli_real_escape_string($con, $_POST['about_detail']);
 
                             if (strlen($about_decs) < 5) {
-                                $msg = $msg . "itle Must Be More Than 5 Char Length.<BR>";
+                                $msg = $msg . "Title Must Be More Than 5 Char Length.<BR>";
                                 $status = "NOTOK";
                             }
 
