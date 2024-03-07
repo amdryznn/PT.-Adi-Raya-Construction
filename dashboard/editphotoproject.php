@@ -67,7 +67,7 @@ include "sidebar.php";
                         $msg = "";
                         if (isset($_POST['save'])) {
 
-                            $uploads_dir = 'uploads/portfolio';
+                            $uploads_dir = 'uploads/project';
 
                             $tmp_name = $_FILES["ufile"]["tmp_name"];
                             // basename() may prevent filesystem traversal attacks;
