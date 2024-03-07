@@ -5,11 +5,11 @@
             <div class="col-12">
                 <!-- Breamcrumb Content -->
                 <div class="breadcrumb-content text-center">
-                    <h2 class="text-white text-uppercase mb-3">Our Past Works</h2>
+                    <h2 class="text-white text-uppercase mb-3">All Project</h2>
                     <ol class="breadcrumb d-flex justify-content-center">
                         <li class="breadcrumb-item"><a class="text-uppercase text-white" href="index.html">Home</a></li>
 
-                        <li class="breadcrumb-item text-white active">Our Work</li>
+                        <li class="breadcrumb-item text-white active">All Project</li>
                     </ol>
                 </div>
             </div>
@@ -18,41 +18,14 @@
 </section>
 <!-- ***** Breadcrumb Area End ***** -->
 
-</div>
-<div class="footer-bottom bg-white">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <!-- Link Area -->
-                <div
-                    class="copyright-area d-flex flex-wrap justify-content-center justify-content-sm-between text-center py-4">
-                    <!-- Link Left -->
 
-                    <div class="font-weight-bold">
-                        <?php
-                        $q = "SELECT * FROM  work ORDER BY id DESC LIMIT 1";
-                        $r123 = mysqli_query($con, $q);
-
-                        while ($ro = mysqli_fetch_array($r123)) {
-
-                            $id = "$ro[id]";
-                            $work_link = "$ro[work_link]";
-
-                            print "
-
-                                <a class='font-weight-bold service-btn mt-3' href='$work_link'>View All</a>
-";
-                        } ?>
 
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <div style="left: 0; width: 100%; height: 0; position: relative; padding-bottom: 47.5%;"><iframe
-            src="https://docs.google.com/document/d/1_Oe-Ko8Dhmd0wTMFzPGb-49Fz0GuU3hoiKp8b6QQ0nY/preview?usp=embed_googleplus"
-            style="top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;" allowfullscreen></iframe>
-    </div>
+    
     <!-- ***** Portfolio Area Start ***** -->
     <section id="portfolio" class="portfolio-area overflow-hidden ptb_100">
         <div class="container">
@@ -61,7 +34,7 @@
             <div class="row items portfolio-items">
 
                 <?php
-                $q = "SELECT * FROM  portfolio ORDER BY id DESC";
+                $q = "SELECT * FROM  project ORDER BY id DESC";
 
 
                 $r123 = mysqli_query($con, $q);
@@ -69,8 +42,8 @@
                 while ($ro = mysqli_fetch_array($r123)) {
 
                     $id = "$ro[id]";
-                    $port_title = "$ro[port_title]";
-                    $port_desc = "$ro[port_desc]";
+                    $proj_title = "$ro[proj_title]";
+                    $proj_desc = "$ro[proj_desc]";
                     $ufile = "$ro[ufile]";
 
                     print "
@@ -78,15 +51,15 @@
 <!-- Single Case Studies -->
 <div class='single-case-studies'>
     <!-- Case Studies Thumb -->
-    <a href='portdetail.php?id=$id'>
-        <img src='dashboard/uploads/portfolio/$ufile' alt=''>
+    <a href='projectdetail.php?id=$id'>
+        <img src='dashboard/uploads/project/$ufile' alt=''>
     </a>
     <!-- Case Studies Overlay -->
-    <a href='portdetail.php?id=$id' class='case-studies-overlay'>
+    <a href='projectdetail.php?id=$id' class='case-studies-overlay'>
         <!-- Overlay Text -->
         <span class='overlay-text text-center p-3'>
-            <h3 class='text-white mb-3'>$port_title</h3>
-            <p class='text-white'>$port_desc.</p>
+            <h3 class='text-white mb-3'>$proj_title</h3>
+            <p class='text-white'>$proj_desc.</p>
         </span>
     </a>
 </div>

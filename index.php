@@ -222,7 +222,7 @@
 
         </div>
         <div class="row justify-content-center">
-            <a href="portfolio" class="btn btn-bordered mt-4">View More</a>
+            <a href="portfolio" class="btn btn-bordered mt-4">View All</a>
         </div>
     </div>
 </section>
