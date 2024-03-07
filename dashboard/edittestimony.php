@@ -16,12 +16,11 @@ include "sidebar.php";
             <div class="row">
                 <div class="col-12">
                     <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                        <h4 class="mb-sm-0"></h4>
+                        <h4 class="mb-sm-0"> </h4>
 
                         <div class="page-title-right">
                             <ol class="breadcrumb m-0">
-                                <li class="breadcrumb-item"><a href="javascript: void(0);">Project Photo</a>
-                                </li>
+                                <li class="breadcrumb-item"><a href="javascript: void(0);">Testimony</a></li>
                                 <li class="breadcrumb-item active">Edit</li>
                             </ol>
                         </div>
@@ -31,14 +30,16 @@ include "sidebar.php";
             </div>
             <!-- end page title -->
             <?php
-            $query = "SELECT * FROM  project where id='$todo' ";
+            $query = "SELECT * FROM  testimony where id='$todo' ";
 
 
             $result = mysqli_query($con, $query);
             $i = 0;
             while ($row = mysqli_fetch_array($result)) {
                 $id = "$row[id]";
-                $ufile = "$row[ufile]";
+                $name = "$row[name]";
+                $message = "$row[message]";
+                $position = "$row[position]";
             }
             ?>
 
@@ -52,7 +53,7 @@ include "sidebar.php";
                                 <li class="nav-item">
                                     <a class="nav-link active" data-bs-toggle="tab" href="#personalDetails" role="tab"
                                         aria-selected="false">
-                                        <i class="fas fa-home"></i> Edit Project Photo
+                                        <i class="fas fa-home"></i> Edit Testimony
                                     </a>
                                 </li>
 
@@ -66,26 +67,29 @@ include "sidebar.php";
                         $status = "OK"; //initial status
                         $msg = "";
                         if (isset($_POST['save'])) {
+                            $name = mysqli_real_escape_string($con, $_POST['name']);
+                            $message = mysqli_real_escape_string($con, $_POST['message']);
+                            $position = mysqli_real_escape_string($con, $_POST['position']);
+                            /*
+                           $uploads_dir = 'uploads';
 
-                            $uploads_dir = 'uploads/portfolio';
+                                   $tmp_name = $_FILES["ufile"]["tmp_name"];
+                                   // basename() may prevent filesystem traversal attacks;
+                                   // further validation/sanitation of the filename may be appropriate
+                                   $name = basename($_FILES["ufile"]["name"]);
+                                   $random_digit=rand(0000,9999);
+                                   $new_file_name=$random_digit.$name;
 
-                            $tmp_name = $_FILES["ufile"]["tmp_name"];
-                            // basename() may prevent filesystem traversal attacks;
-                            // further validation/sanitation of the filename may be appropriate
-                            $name = basename($_FILES["ufile"]["name"]);
-                            $random_digit = rand(0000, 9999);
-                            $new_file_name = $random_digit . $name;
-
-                            move_uploaded_file($tmp_name, "$uploads_dir/$new_file_name");
+                                   move_uploaded_file($tmp_name, "$uploads_dir/$new_file_name");*/
 
                             if ($status == "OK") {
-                                $qb = mysqli_query($con, "update project set ufile='$new_file_name' where id='$todo'");
+                                $qb = mysqli_query($con, "update testimony set name='$name', message='$message', position='$position' where id='$todo'");
 
 
                                 if ($qb) {
                                     $errormsg = "
 <div class='alert alert-success alert-dismissible alert-outline fade show'>
-                 Project Photo Updated successfully.
+                 Testimony Updated successfully.
                   <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
                   </div>
  "; //printing error if found in validation
@@ -122,14 +126,34 @@ include "sidebar.php";
                                     <form action="" method="post" enctype="multipart/form-data">
                                         <div class="row">
 
+
+
                                             <div class="col-lg-6">
                                                 <div class="mb-3">
-                                                    <label for="firstnameInput" class="form-label">Photo</label>
-                                                    <input type="file" class="form-control" id="firstnameInput"
-                                                        name="ufile">
-                                                    <?php print $ufile ?></textarea>
+                                                    <label for="firstnameInput" class="form-label"> Client's
+                                                        Name</label>
+                                                    <input type="text" class="form-control" id="firstnameInput"
+                                                        name="name" value="<?php print $name ?>"
+                                                        placeholder="Enter Clien's Name">
                                                 </div>
                                             </div>
+
+                                            <div class="col-lg-6">
+                                                <div class="mb-3">
+                                                    <label for="firstnameInput" class="form-label"> Position</label>
+                                                    <textarea class="form-control" id="exampleFormControlTextarea5"
+                                                        name="position" rows="1"><?php print $position ?></textarea>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-lg-6">
+                                                <div class="mb-3">
+                                                    <label for="firstnameInput" class="form-label"> Testimony</label>
+                                                    <textarea class="form-control" id="exampleFormControlTextarea5"
+                                                        name="message" rows="3"><?php print $message ?></textarea>
+                                                </div>
+                                            </div>
+
 
 
                                             <!--end col-->
@@ -138,7 +162,7 @@ include "sidebar.php";
                                             <div class="col-lg-12">
                                                 <div class="hstack gap-2 justify-content-end">
                                                     <button type="submit" name="save" class="btn btn-primary">Update
-                                                        Project Photo</button>
+                                                        Testimony</button>
 
                                                 </div>
                                             </div>

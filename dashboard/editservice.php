@@ -20,8 +20,8 @@ include "sidebar.php";
 
                         <div class="page-title-right">
                             <ol class="breadcrumb m-0">
-                                <li class="breadcrumb-item"><a href="javascript: void(0);">User</a></li>
-                                <li class="breadcrumb-item active">Values</li>
+                                <li class="breadcrumb-item"><a href="javascript: void(0);">Values</a></li>
+                                <li class="breadcrumb-item active">Edit</li>
                             </ol>
                         </div>
 
