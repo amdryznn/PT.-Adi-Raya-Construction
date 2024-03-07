@@ -73,6 +73,7 @@
                                                         <ul class='dropdown-menu dropdown-menu-end'>
 
                                                             <li><a href='editlegality.php?id=$id' class='dropdown-item edit-item-btn'><i class='ri-pencil-fill align-bottom me-2 text-muted'></i> Edit</a></li>
+                                                            <li><a href='editphotolegality.php?id=$id' class='dropdown-item edit-item-btn'><i class='ri-image-edit-fill align-bottom me-2 text-muted'></i> Edit Photo</a></li>
                                                             <li>
                                                                 <a href='deletelegality.php?id=$id' class='dropdown-item remove-item-btn'>
                                                                     <i class='ri-delete-bin-fill align-bottom me-2 text-muted'></i> Delete

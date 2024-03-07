@@ -20,7 +20,7 @@ include "sidebar.php";
 
                         <div class="page-title-right">
                             <ol class="breadcrumb m-0">
-                                <li class="breadcrumb-item"><a href="javascript: void(0);">About</a></li>
+                                <li class="breadcrumb-item"><a href="javascript: void(0);">Legality Photo</a></li>
                                 <li class="breadcrumb-item active">Edit</li>
                             </ol>
                         </div>
@@ -30,15 +30,14 @@ include "sidebar.php";
             </div>
             <!-- end page title -->
             <?php
-            $query = "SELECT * FROM  about where id='$todo' ";
+            $query = "SELECT * FROM  legality where id='$todo' ";
 
 
             $result = mysqli_query($con, $query);
             $i = 0;
             while ($row = mysqli_fetch_array($result)) {
                 $id = "$row[id]";
-                $about_decs = "$row[about_decs]";
-                $about_detail = "$row[about_detail]";
+                $ufile = "$row[ufile]";
             }
             ?>
 
@@ -52,7 +51,7 @@ include "sidebar.php";
                                 <li class="nav-item">
                                     <a class="nav-link active" data-bs-toggle="tab" href="#personalDetails" role="tab"
                                         aria-selected="false">
-                                        <i class="fas fa-home"></i> Edit About
+                                        <i class="fas fa-home"></i> Edit Legality Photo
                                     </a>
                                 </li>
 
@@ -66,28 +65,26 @@ include "sidebar.php";
                         $status = "OK"; //initial status
                         $msg = "";
                         if (isset($_POST['save'])) {
-                            $about_decs = mysqli_real_escape_string($con, $_POST['about_decs']);
-                            $about_detail = mysqli_real_escape_string($con, $_POST['about_detail']);
 
-                            //$uploads_dir = 'uploads/about';
-                        
-                            //$tmp_name = $_FILES["ufile"]["tmp_name"];
+                            $uploads_dir = 'uploads/legality';
+
+                            $tmp_name = $_FILES["ufile"]["tmp_name"];
                             // basename() may prevent filesystem traversal attacks;
                             // further validation/sanitation of the filename may be appropriate
-                            //$name = basename($_FILES["ufile"]["name"]);
-                            //$random_digit=rand(0000,9999);
-                            //$new_file_name=$random_digit.$name;
-                        
-                            //move_uploaded_file($tmp_name, "$uploads_dir/$new_file_name");
-                        
+                            $name = basename($_FILES["ufile"]["name"]);
+                            $random_digit = rand(0000, 9999);
+                            $new_file_name = $random_digit . $name;
+
+                            move_uploaded_file($tmp_name, "$uploads_dir/$new_file_name");
+
                             if ($status == "OK") {
-                                $qb = mysqli_query($con, "update about set about_decs='$about_decs', about_detail='$about_detail' where id='$todo'");
+                                $qb = mysqli_query($con, "update legality set ufile='$new_file_name' where id='$todo'");
 
 
                                 if ($qb) {
                                     $errormsg = "
 <div class='alert alert-success alert-dismissible alert-outline fade show'>
-                 About Updated successfully.
+                 About Photo Updated successfully.
                   <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
                   </div>
  "; //printing error if found in validation
@@ -124,25 +121,15 @@ include "sidebar.php";
                                     <form action="" method="post" enctype="multipart/form-data">
                                         <div class="row">
 
-
-
                                             <div class="col-lg-6">
                                                 <div class="mb-3">
-                                                    <label for="firstnameInput" class="form-label"> Title</label>
-                                                    <input type="text" class="form-control" id="firstnameInput"
-                                                        name="about_decs" value="<?php print $about_decs ?>"
-                                                        placeholder="Enter Title">
+                                                    <label for="firstnameInput" class="form-label">Photo</label>
+                                                    <input type="file" class="form-control" id="firstnameInput"
+                                                        name="ufile">
+                                                    <?php print $ufile ?></textarea>
                                                 </div>
                                             </div>
 
-                                            <div class="col-lg-6">
-                                                <div class="mb-3">
-                                                    <label for="firstnameInput" class="form-label"> Detail</label>
-                                                    <textarea class="form-control" id="exampleFormControlTextarea5"
-                                                        name="about_detail"
-                                                        rows="3"><?php print $about_detail ?></textarea>
-                                                </div>
-                                            </div>
 
                                             <!--end col-->
 
@@ -150,7 +137,7 @@ include "sidebar.php";
                                             <div class="col-lg-12">
                                                 <div class="hstack gap-2 justify-content-end">
                                                     <button type="submit" name="save" class="btn btn-primary">Update
-                                                        About</button>
+                                                        Legality Photo</button>
 
                                                 </div>
                                             </div>

@@ -73,6 +73,8 @@
                                                         <ul class='dropdown-menu dropdown-menu-end'>
 
                                                             <li><a href='editabout.php?id=$id' class='dropdown-item edit-item-btn'><i class='ri-pencil-fill align-bottom me-2 text-muted'></i> Edit</a></li>
+                                                        
+                                                            <li><a href='editphotoabout.php?id=$id' class='dropdown-item edit-item-btn'><i class='ri-image-edit-fill align-bottom me-2 text-muted'></i> Edit Photo</a></li>
                                                             <li>
                                                                 <a href='deleteabout.php?id=$id' class='dropdown-item remove-item-btn'>
                                                                     <i class='ri-delete-bin-fill align-bottom me-2 text-muted'></i> Delete
