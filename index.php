@@ -256,7 +256,7 @@
 
 
                 <?php
-                $q = "SELECT * FROM  testimony ORDER BY id DESC LIMIT 6";
+                $q = "SELECT * FROM  testimony ORDER BY id DESC";
                 $r123 = mysqli_query($con, $q);
 
                 while ($ro = mysqli_fetch_array($r123)) {
