@@ -16,12 +16,13 @@ include "sidebar.php";
             <div class="row">
                 <div class="col-12">
                     <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                        <h4 class="mb-sm-0"> </h4>
+                        <h4 class="mb-sm-0"></h4>
 
                         <div class="page-title-right">
                             <ol class="breadcrumb m-0">
-                                <li class="breadcrumb-item"><a href="javascript: void(0);">User</a></li>
-                                <li class="breadcrumb-item active">Structure</li>
+                                <li class="breadcrumb-item"><a href="javascript: void(0);">Vision & Mission Photo</a>
+                                </li>
+                                <li class="breadcrumb-item active">Edit</li>
                             </ol>
                         </div>
 
@@ -30,19 +31,14 @@ include "sidebar.php";
             </div>
             <!-- end page title -->
             <?php
-            $query = "SELECT * FROM  portfolio where id='$todo' ";
+            $query = "SELECT * FROM  blog where id='$todo' ";
+
+
             $result = mysqli_query($con, $query);
             $i = 0;
             while ($row = mysqli_fetch_array($result)) {
                 $id = "$row[id]";
-                $port_title = "$row[port_title]";
-                $port_desc = "$row[port_desc]";
-                $port_detail = "$row[port_detail]";
-                $tw_link = "$row[tw_link]";
-                $fb_link = "$row[fb_link]";
-                $li_link = "$row[li_link]";
                 $ufile = "$row[ufile]";
-
             }
             ?>
 
@@ -56,7 +52,7 @@ include "sidebar.php";
                                 <li class="nav-item">
                                     <a class="nav-link active" data-bs-toggle="tab" href="#personalDetails" role="tab"
                                         aria-selected="false">
-                                        <i class="fas fa-home"></i> Edit Structure
+                                        <i class="fas fa-home"></i> Edit Vision & Mission Photo
                                     </a>
                                 </li>
 
@@ -70,21 +66,26 @@ include "sidebar.php";
                         $status = "OK"; //initial status
                         $msg = "";
                         if (isset($_POST['save'])) {
-                            $port_title = mysqli_real_escape_string($con, $_POST['port_title']);
-                            $port_desc = mysqli_real_escape_string($con, $_POST['port_desc']);
-                            $port_detail = mysqli_real_escape_string($con, $_POST['port_detail']);
-                            $tw_link = mysqli_real_escape_string($con, $_POST['tw_link']);
-                            $fb_link = mysqli_real_escape_string($con, $_POST['fb_link']);
-                            $li_link = mysqli_real_escape_string($con, $_POST['li_link']);
+
+                            $uploads_dir = 'uploads/blog';
+
+                            $tmp_name = $_FILES["ufile"]["tmp_name"];
+                            // basename() may prevent filesystem traversal attacks;
+                            // further validation/sanitation of the filename may be appropriate
+                            $name = basename($_FILES["ufile"]["name"]);
+                            $random_digit = rand(0000, 9999);
+                            $new_file_name = $random_digit . $name;
+
+                            move_uploaded_file($tmp_name, "$uploads_dir/$new_file_name");
 
                             if ($status == "OK") {
-                                $qb = mysqli_query($con, "update portfolio set port_title='$port_title', port_desc='$port_desc', port_detail='$port_detail', tw_link='$tw_link', fb_link='$fb_link', li_link='$li_link' where id='$todo'");
+                                $qb = mysqli_query($con, "update blog set ufile='$new_file_name' where id='$todo'");
 
 
                                 if ($qb) {
                                     $errormsg = "
 <div class='alert alert-success alert-dismissible alert-outline fade show'>
-                 Structure Updated successfully.
+                 About Photo Updated successfully.
                   <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
                   </div>
  "; //printing error if found in validation
@@ -121,58 +122,15 @@ include "sidebar.php";
                                     <form action="" method="post" enctype="multipart/form-data">
                                         <div class="row">
 
-
-
                                             <div class="col-lg-6">
                                                 <div class="mb-3">
-                                                    <label for="firstnameInput" class="form-label"> Work Title</label>
-                                                    <input type="text" class="form-control" id="firstnameInput"
-                                                        name="port_title" value="<?php print $port_title ?>"
-                                                        placeholder="Enter Portfolio Title">
+                                                    <label for="firstnameInput" class="form-label">Photo</label>
+                                                    <input type="file" class="form-control" id="firstnameInput"
+                                                        name="ufile">
+                                                    <?php print $ufile ?></textarea>
                                                 </div>
                                             </div>
 
-                                            <div class="col-lg-6">
-                                                <div class="mb-3">
-                                                    <label for="firstnameInput" class="form-label"> Jabatan</label>
-                                                    <textarea class="form-control" id="exampleFormControlTextarea5"
-                                                        name="port_desc" rows="2"><?php print $port_desc ?></textarea>
-                                                </div>
-                                            </div>
-
-                                            <div class="col-lg-6">
-                                                <div class="mb-3">
-                                                    <label for="firstnameInput" class="form-label">
-                                                        Description</label>
-                                                    <textarea class="form-control" id="exampleFormControlTextarea5"
-                                                        name="port_detail"
-                                                        rows="3"><?php print $port_detail ?></textarea>
-                                                </div>
-                                            </div>
-
-                                            <div class="col-lg-6">
-                                                <div class="mb-3">
-                                                    <label for="firstnameInput" class="form-label">Twitter Link</label>
-                                                    <textarea class="form-control" id="exampleFormControlTextarea5"
-                                                        name="tw_link" rows="3"><?php print $tw_link ?></textarea>
-                                                </div>
-                                            </div>
-
-                                            <div class="col-lg-6">
-                                                <div class="mb-3">
-                                                    <label for="firstnameInput" class="form-label">Facebook Link</label>
-                                                    <textarea class="form-control" id="exampleFormControlTextarea5"
-                                                        name="fb_link" rows="3"><?php print $fb_link ?></textarea>
-                                                </div>
-                                            </div>
-
-                                            <div class="col-lg-6">
-                                                <div class="mb-3">
-                                                    <label for="firstnameInput" class="form-label">LinkedIn Link</label>
-                                                    <textarea class="form-control" id="exampleFormControlTextarea5"
-                                                        name="li_link" rows="3"><?php print $li_link ?></textarea>
-                                                </div>
-                                            </div>
 
                                             <!--end col-->
 
@@ -180,7 +138,7 @@ include "sidebar.php";
                                             <div class="col-lg-12">
                                                 <div class="hstack gap-2 justify-content-end">
                                                     <button type="submit" name="save" class="btn btn-primary">Update
-                                                        Structure</button>
+                                                        Vision & Mission Photo</button>
 
                                                 </div>
                                             </div>

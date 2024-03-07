@@ -20,7 +20,8 @@ include "sidebar.php";
 
                         <div class="page-title-right">
                             <ol class="breadcrumb m-0">
-                                <li class="breadcrumb-item"><a href="javascript: void(0);">Project</a></li>
+                                <li class="breadcrumb-item"><a href="javascript: void(0);">Project</a>
+                                </li>
                                 <li class="breadcrumb-item active">Edit</li>
                             </ol>
                         </div>
@@ -175,7 +176,7 @@ proj_desc='$proj_desc', proj_detail='$proj_detail', location='$location', ufile=
                                                 <div class="mb-3">
                                                     <label for="firstnameInput" class="form-label"> Project Id</label>
                                                     <textarea class="form-control" id="exampleFormControlTextarea5"
-                                                        name="code" rows="2"><?php print $code ?></textarea>
+                                                        name="code" rows="1"><?php print $code ?></textarea>
                                                 </div>
                                             </div>
 
@@ -183,7 +184,7 @@ proj_desc='$proj_desc', proj_detail='$proj_detail', location='$location', ufile=
                                                 <div class="mb-3">
                                                     <label for="firstnameInput" class="form-label"> Date</label>
                                                     <textarea class="form-control" id="exampleFormControlTextarea5"
-                                                        name="date" rows="2"><?php print $date ?></textarea>
+                                                        name="date" rows="1"><?php print $date ?></textarea>
                                                 </div>
                                             </div>
 
@@ -191,7 +192,7 @@ proj_desc='$proj_desc', proj_detail='$proj_detail', location='$location', ufile=
                                                 <div class="mb-3">
                                                     <label for="firstnameInput" class="form-label"> Client</label>
                                                     <textarea class="form-control" id="exampleFormControlTextarea5"
-                                                        name="client" rows="2"><?php print $client ?></textarea>
+                                                        name="client" rows="1"><?php print $client ?></textarea>
                                                 </div>
                                             </div>
 
@@ -210,7 +211,15 @@ proj_desc='$proj_desc', proj_detail='$proj_detail', location='$location', ufile=
                                                     <label for="firstnameInput" class="form-label"> Short
                                                         Description</label>
                                                     <textarea class="form-control" id="exampleFormControlTextarea5"
-                                                        name="proj_desc" rows="2"> <?php print $proj_desc ?></textarea>
+                                                        name="proj_desc" rows="1"> <?php print $proj_desc ?></textarea>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-lg-6">
+                                                <div class="mb-3">
+                                                    <label for="firstnameInput" class="form-label"> Location</label>
+                                                    <textarea class="form-control" id="exampleFormControlTextarea5"
+                                                        name="location" rows="1"><?php print $location ?></textarea>
                                                 </div>
                                             </div>
 
@@ -221,14 +230,6 @@ proj_desc='$proj_desc', proj_detail='$proj_detail', location='$location', ufile=
                                                     <textarea class="form-control" id="exampleFormControlTextarea5"
                                                         name="proj_detail"
                                                         rows="3"><?php print $proj_detail ?></textarea>
-                                                </div>
-                                            </div>
-
-                                            <div class="col-lg-6">
-                                                <div class="mb-3">
-                                                    <label for="firstnameInput" class="form-label"> Location</label>
-                                                    <textarea class="form-control" id="exampleFormControlTextarea5"
-                                                        name="location" rows="3"><?php print $location ?></textarea>
                                                 </div>
                                             </div>
 

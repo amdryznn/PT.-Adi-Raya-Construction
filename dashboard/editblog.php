@@ -39,7 +39,7 @@ include "sidebar.php";
                 $id = "$row[id]";
                 $blog_title = "$row[blog_title]";
                 $blog_detail = "$row[blog_detail]";
-                $ufile="$row[ufile]";
+                $ufile = "$row[ufile]";
             }
             ?>
 
@@ -69,20 +69,9 @@ include "sidebar.php";
                         if (isset($_POST['save'])) {
                             $blog_title = mysqli_real_escape_string($con, $_POST['blog_title']);
                             $blog_detail = mysqli_real_escape_string($con, $_POST['blog_detail']);
-                            
-                           $uploads_dir = 'uploads/blog';
-
-                                   $tmp_name = $_FILES["ufile"]["tmp_name"];
-                                   // basename() may prevent filesystem traversal attacks;
-                                   // further validation/sanitation of the filename may be appropriate
-                                   $name = basename($_FILES["ufile"]["name"]);
-                                   $random_digit=rand(0000,9999);
-                                   $new_file_name=$random_digit.$name;
-
-                                   move_uploaded_file($tmp_name, "$uploads_dir/$new_file_name");
 
                             if ($status == "OK") {
-                                $qb = mysqli_query($con, "update blog set blog_title='$blog_title', blog_detail='$blog_detail', ufile='$new_file_name' where id='$todo'");
+                                $qb = mysqli_query($con, "update blog set blog_title='$blog_title', blog_detail='$blog_detail' where id='$todo'");
 
 
                                 if ($qb) {
@@ -144,16 +133,6 @@ include "sidebar.php";
                                                         rows="3"><?php print $blog_detail ?></textarea>
                                                 </div>
                                             </div>
-
-                                            <div class="col-lg-6">
-                                                <div class="mb-3">
-                                                    <label for="firstnameInput" class="form-label">Photo</label>
-                                                    <input type="file" class="form-control" id="firstnameInput"
-                                                        name="ufile"><?php print $ufile ?></textarea>
-                                                </div>
-                                            </div>
-
-
 
                                             <!--end col-->
 

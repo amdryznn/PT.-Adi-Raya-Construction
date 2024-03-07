@@ -213,7 +213,7 @@
                                                     <label for="firstnameInput" class="form-label"> Project
                                                         Title</label>
                                                     <input type="text" class="form-control" id="firstnameInput"
-                                                        name="proj_title" placeholder="Enter Project Title">
+                                                        name="proj_title">
                                                 </div>
                                             </div>
 
@@ -222,7 +222,15 @@
                                                     <label for="firstnameInput" class="form-label"> Short
                                                         Description</label>
                                                     <textarea class="form-control" id="exampleFormControlTextarea5"
-                                                        name="proj_desc" rows="2"></textarea>
+                                                        name="proj_desc" rows="1"></textarea>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-lg-6">
+                                                <div class="mb-3">
+                                                    <label for="firstnameInput" class="form-label"> Location</label>
+                                                    <textarea class="form-control" id="exampleFormControlTextarea5"
+                                                        name="location" rows="1"></textarea>
                                                 </div>
                                             </div>
 
@@ -232,14 +240,6 @@
                                                         Detail</label>
                                                     <textarea class="form-control" id="exampleFormControlTextarea5"
                                                         name="proj_detail" rows="3"></textarea>
-                                                </div>
-                                            </div>
-
-                                            <div class="col-lg-6">
-                                                <div class="mb-3">
-                                                    <label for="firstnameInput" class="form-label"> Location</label>
-                                                    <textarea class="form-control" id="exampleFormControlTextarea5"
-                                                        name="location" rows="1"></textarea>
                                                 </div>
                                             </div>
 
