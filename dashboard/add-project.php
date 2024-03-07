@@ -65,7 +65,7 @@
 
 
                             if (strlen($code) < 1) {
-                                $msg = $msg . "Project Code Must Be More Than 5 Char Length.<BR>";
+                                $msg = $msg . "Project ID Must Be More Than 5 Char Length.<BR>";
                                 $status = "NOTOK";
                             }
 
