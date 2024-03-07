@@ -88,20 +88,9 @@ include "sidebar.php";
 
 
 
-                            $uploads_dir = 'uploads/project';
-
-                            $tmp_name = $_FILES["ufile"]["tmp_name"];
-                            // basename() may prevent filesystem traversal attacks;
-                            // further validation/sanitation of the filename may be appropriate
-                            $name = basename($_FILES["ufile"]["name"]);
-                            $random_digit = rand(0000, 9999);
-                            $new_file_name = $random_digit . $name;
-
-                            move_uploaded_file($tmp_name, "$uploads_dir/$new_file_name");
-
                             if ($status == "OK") {
                                 $qb = mysqli_query($con, "update project set code='$code', date='$date', client='$client', proj_title='$proj_title', 
-proj_desc='$proj_desc', proj_detail='$proj_detail', location='$location', ufile='$new_file_name', cat_id='$cat_id', st_id='$st_id' where id='$todo'");
+proj_desc='$proj_desc', proj_detail='$proj_detail', location='$location', cat_id='$cat_id', st_id='$st_id' where id='$todo'");
 
 
                                 if ($qb) {
@@ -231,17 +220,6 @@ proj_desc='$proj_desc', proj_detail='$proj_detail', location='$location', ufile=
                                                         rows="3"><?php print $proj_detail ?></textarea>
                                                 </div>
                                             </div>
-
-
-                                            <div class="col-lg-6">
-                                                <div class="mb-3">
-                                                    <label for="firstnameInput" class="form-label">Photo</label>
-                                                    <input type="file" class="form-control" id="firstnameInput"
-                                                        name="ufile">
-                                                    <?php print $ufile ?></textarea>
-                                                </div>
-                                            </div>
-
 
                                             <!--end col-->
 
