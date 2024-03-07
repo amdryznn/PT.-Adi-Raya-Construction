@@ -21,8 +21,9 @@
                     </p>
                     <!-- Buttons -->
                     <div class="button-group">
-                        <a href="#" class="btn btn-bordered-white">Start a Project</a>
-                        <a href="#" class="btn btn-bordered-white d-none d-sm-inline-block">Contact Us</a>
+                        <a href="#" class="btn btn-bordered-white">Engineering</a>
+                        <a href="#" class="btn btn-bordered-white d-none d-sm-inline-block">Procurement</a>
+                        <a href="#" class="btn btn-bordered-white d-none d-sm-inline-block">Construction</a>
                     </div>
                 </div>
             </div>
@@ -222,7 +223,7 @@
 
         </div>
         <div class="row justify-content-center">
-            <a href="portfolio" class="btn btn-bordered mt-4">View All</a>
+            <a href="allproject" class="btn btn-bordered mt-4">View All</a>
         </div>
     </div>
 </section>
