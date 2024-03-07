@@ -57,7 +57,7 @@
 
         </h2>
         <p class="d-none d-sm-block mt-4">
-            <?php print $service_text ?>
+            lorem
         </p>
     </div>
 
@@ -220,137 +220,151 @@
 ";
             }
             ?>
-
         </div>
+
         <div class="row justify-content-center">
             <a href="allproject" class="btn btn-bordered mt-4">View All</a>
         </div>
-    </div>
 </section>
+
 <!-- ***** Portfolio Area End ***** -->
 
 <!-- ***** Logo Slider Area ***** -->
+<!-- CSS Logo Slider -->
 <style>
-  body {
-	align-items: center;
-	justify-content: center;
-}
+    body {
+        align-items: center;
+        justify-content: center;
+    }
 
-$animationSpeed: 40s;
+    $animationSpeed: 40s;
 
-@keyframes scroll {
-	0% { transform: translateX(0); }
-	100% { transform: translateX(calc(-250px * 7))}
-}
+    @keyframes scroll {
+        0% {
+            transform: translateX(0);
+        }
 
-.slider {
-	height: 100px;
-	margin: auto;
-	overflow:hidden;
-	position: relative;
-	width: auto;
-	
-	.slide-track {
-		animation: scroll $animationSpeed linear infinite;
-		display: flex;
-		width: calc(250px * 14);
-	}
-	.slide {
-		height: 100px;
-		width: 250px;
-	}
-}
-  
+        100% {
+            transform: translateX(calc(-250px * 7))
+        }
+    }
 
+    .slider {
+        height: 100px;
+        margin: auto;
+        overflow: hidden;
+        position: relative;
+        width: 64%;
+
+        .slide-track {
+            animation: scroll $animationSpeed linear infinite;
+            display: flex;
+            width: calc(250px * 14);
+        }
+
+        .slide {
+            height: 100px;
+            width: 250px;
+        }
+    }
 </style>
 
+<section id="logoslider" class="portfolio-area overflow-hidden ptb_100">
+    <div class="section-heading text-center">
+        <h2> Our Brand Partner
 
+        </h2>
+        <p class="d-none d-sm-block mt-4">
+            lorem
+        </p>
+    </div>
+    <div class="slider">
+        <div class="slide-track">
+            <div class="slide">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/2.png" height="100" width="250" alt="" />
+            </div>
+            <div class="slide">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/3.png" height="100" width="250" alt="" />
+            </div>
+            <div class="slide">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/4.png" height="100" width="250" alt="" />
+            </div>
+            <div class="slide">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/5.png" height="100" width="250" alt="" />
+            </div>
+            <div class="slide">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/6.png" height="100" width="250" alt="" />
+            </div>
+            <div class="slide">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/7.png" height="100" width="250" alt="" />
+            </div>
+            <div class="slide">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/1.png" height="100" width="250" alt="" />
+            </div>
+            <div class="slide">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/2.png" height="100" width="250" alt="" />
+            </div>
+            <div class="slide">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/3.png" height="100" width="250" alt="" />
+            </div>
+            <div class="slide">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/4.png" height="100" width="250" alt="" />
+            </div>
+            <div class="slide">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/5.png" height="100" width="250" alt="" />
+            </div>
+            <div class="slide">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/6.png" height="100" width="250" alt="" />
+            </div>
+            <div class="slide">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/7.png" height="100" width="250" alt="" />
+            </div>
+        </div>
+    </div>
 
-<div class="slider">
-	<div class="slide-track">
-		<div class="slide">
-			<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/2.png" height="100" width="250" alt="" />
-		</div>
-		<div class="slide">
-			<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/3.png" height="100" width="250" alt="" />
-		</div>
-		<div class="slide">
-			<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/4.png" height="100" width="250" alt="" />
-		</div>
-		<div class="slide">
-			<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/5.png" height="100" width="250" alt="" />
-		</div>
-		<div class="slide">
-			<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/6.png" height="100" width="250" alt="" />
-		</div>
-		<div class="slide">
-			<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/7.png" height="100" width="250" alt="" />
-		</div>
-		<div class="slide">
-			<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/1.png" height="100" width="250" alt="" />
-		</div>
-		<div class="slide">
-			<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/2.png" height="100" width="250" alt="" />
-		</div>
-		<div class="slide">
-			<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/3.png" height="100" width="250" alt="" />
-		</div>
-		<div class="slide">
-			<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/4.png" height="100" width="250" alt="" />
-		</div>
-		<div class="slide">
-			<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/5.png" height="100" width="250" alt="" />
-		</div>
-		<div class="slide">
-			<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/6.png" height="100" width="250" alt="" />
-		</div>
-		<div class="slide">
-			<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/7.png" height="100" width="250" alt="" />
-		</div>
-	</div>
-</div>
-
+</section>
+<!-- Javascript Logo Slider -->
 
 <script>
-  // Ambil elemen-elemen yang diperlukan
-  const slider = document.querySelector('.slide-track');
-  const slides = document.querySelectorAll('.slide');
+    // Ambil elemen-elemen yang diperlukan
+    const slider = document.querySelector('.slide-track');
+    const slides = document.querySelectorAll('.slide');
 
-  // Buat variabel untuk mengontrol animasi
-  let currentPosition = 0;
-  let lastTimestamp = null;
-  const animationDuration = 2000; // Durasi animasi dalam milidetik
+    // Buat variabel untuk mengontrol animasi
+    let currentPosition = 0;
+    let lastTimestamp = null;
+    const animationDuration = 2000; // Durasi animasi dalam milidetik
 
-  // Fungsi untuk menggerakkan slider
-  function moveSlider(timestamp) {
-    if (!lastTimestamp) {
-      lastTimestamp = timestamp;
+    // Fungsi untuk menggerakkan slider
+    function moveSlider(timestamp) {
+        if (!lastTimestamp) {
+            lastTimestamp = timestamp;
+        }
+
+        const deltaTime = timestamp - lastTimestamp;
+
+        // Geser posisi berdasarkan waktu yang berlalu
+        const distance = 250 * (deltaTime / animationDuration);
+        currentPosition -= distance;
+
+        // Atur transformasi CSS
+        slider.style.transform = `translateX(${currentPosition}px)`;
+
+        // Jika sudah mencapai batas akhir, kembali ke awal
+        if (currentPosition <= -(slides.length - 7) * 250) {
+            currentPosition = 0;
+        }
+
+        // Panggil requestAnimationFrame lagi untuk animasi yang mulus
+        if (currentPosition > -(slides.length - 7) * 250) {
+            requestAnimationFrame(moveSlider);
+        }
+
+        lastTimestamp = timestamp;
     }
 
-    const deltaTime = timestamp - lastTimestamp;
-
-    // Geser posisi berdasarkan waktu yang berlalu
-    const distance = 250 * (deltaTime / animationDuration);
-    currentPosition -= distance;
-
-    // Atur transformasi CSS
-    slider.style.transform = `translateX(${currentPosition}px)`;
-
-    // Jika sudah mencapai batas akhir, kembali ke awal
-    if (currentPosition <= -(slides.length - 7) * 250) {
-      currentPosition = 0;
-    }
-
-    // Panggil requestAnimationFrame lagi untuk animasi yang mulus
-    if (currentPosition > -(slides.length - 7) * 250) {
-      requestAnimationFrame(moveSlider);
-    }
-
-    lastTimestamp = timestamp;
-  }
-
-  // Panggil requestAnimationFrame untuk memulai animasi
-  requestAnimationFrame(moveSlider);
+    // Panggil requestAnimationFrame untuk memulai animasi
+    requestAnimationFrame(moveSlider);
 </script>
 
 
