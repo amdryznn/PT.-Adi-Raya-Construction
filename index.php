@@ -269,13 +269,23 @@
     }
 </style>
 
+<style>
+    #logoslider p {
+        width: 40%;
+        /* Atur lebar sesuai kebutuhan Anda */
+        margin: 0 auto;
+
+        /* Untuk menyusun teks di tengah secara horizontal */
+    }
+</style>
 <section id="logoslider" class="portfolio-area overflow-hidden ptb_100">
     <div class="section-heading text-center">
         <h2> Our Brand Partner
 
         </h2>
         <p class="d-none d-sm-block mt-4">
-            lorem
+            Thank you for your interest in Adi Raya Construction. Continue to follow our achievements in supporting and
+            building an industry with world-class standards.
         </p>
     </div>
     <div class="slider">
