@@ -132,7 +132,7 @@ include "sidebar.php";
                                                         Description</label>
                                                     <textarea class="form-control" id="exampleFormControlTextarea5"
                                                         name="legality_desc"
-                                                        rows="2"><?php print $legality_desc ?></textarea>
+                                                        rows="1"><?php print $legality_desc ?></textarea>
                                                 </div>
                                             </div>
 
