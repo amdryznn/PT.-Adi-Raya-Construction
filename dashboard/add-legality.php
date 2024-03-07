@@ -140,7 +140,7 @@
                                                 <label for="firstnameInput" class="form-label"> Short
                                                     Description</label>
                                                 <textarea class="form-control" id="exampleFormControlTextarea5"
-                                                    name="legality_desc" rows="2"></textarea>
+                                                    name="legality_desc" rows="1"></textarea>
                                             </div>
                                         </div>
 
