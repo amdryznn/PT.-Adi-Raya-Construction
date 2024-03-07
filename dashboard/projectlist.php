@@ -37,7 +37,7 @@
                                     <h5 class="card-title mb-0">Project List</h5>
                                 </div>
                                 <div class="card-body">
-                                    <table id="example" class="table table-bordered dt-responsive nowrap table-striped align-middle" style="max-width:50px">
+                                    <table id="example" class="table table-bordered dt-responsive nowrap table-striped align-middle" style="width:100%">
                                         <thead>
                                             <tr>
                                             <th data-ordering="false">Image</th>
