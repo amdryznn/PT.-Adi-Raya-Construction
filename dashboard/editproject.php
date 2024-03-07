@@ -201,8 +201,7 @@ proj_desc='$proj_desc', proj_detail='$proj_detail', location='$location', ufile=
                                                     <label for="firstnameInput" class="form-label"> Project
                                                         Title</label>
                                                     <input type="text" class="form-control" id="firstnameInput"
-                                                        name="proj_title" value="<?php print $proj_title ?>"
-                                                        placeholder="Enter Project Title">
+                                                        name="proj_title" value="<?php print $proj_title ?>">
                                                 </div>
                                             </div>
 
