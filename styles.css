@@ -1,0 +1,53 @@
+/* CSS Styles */
+body {
+    align-items: center;
+    justify-content: center;
+}
+
+:root {
+    --animation-speed: 20s;
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(calc(-250px * 7));
+    }
+}
+
+.slider {
+    height: 100px;
+    margin: auto;
+    overflow: hidden;
+    position: relative;
+    width: 70%;
+}
+
+.slide-track {
+    animation: scroll var(--animation-speed) linear infinite;
+    display: flex;
+    width: calc(250px * 14);
+}
+
+.slide {
+    height: 100px;
+    width: 250px;
+}
+
+#logoslider p {
+    width: 40%;
+    margin: 0 auto;
+}
+
+/* Add this style to your existing CSS */
+.image-frame {
+    height: 100px;
+    width: 250px;
+    border: 2px solid white;
+    /* Set the border color to white */
+    box-sizing: border-box;
+    /* Ensure the border size is included in the element's dimensions */
+}
