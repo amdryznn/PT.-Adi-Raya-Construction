@@ -180,7 +180,7 @@
 <!--====== Map Area Start ======-->
 <section class="section map-area">
     <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15831.675671634295!2d5.213205717780946!3d7.250068752504376!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x10478fe4790d8e8f%3A0x2cd76b14809e3d7a!2sAlagbaka%2C%20Akure!5e0!3m2!1sen!2sng!4v1658159211365!5m2!1sen!2sng"
+        src="https://www.google.com/maps/embed/v1/place?key=AIzaSyD1VnYC6EugmolDY9RjsZ77TeXstyj0288&q=Sembayat,+Kec.+Manyar,+Kabupaten+Gresik,+Jawa+Timur&center=-7.0729375,112.5691109&zoom=18"
         width="100" height="100" style="border:0;" allowfullscreen="" loading="lazy"
         referrerpolicy="no-referrer-when-downgrade"></iframe>
 
