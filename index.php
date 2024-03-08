@@ -264,7 +264,7 @@
                     <div class='single-case-studies'>
                         <!-- Case Studies Thumb with Frame -->
                         <div class="image-frame">
-                            <a href='#'>
+                            <a>
                                 <img src='dashboard/uploads/partner/<?php echo $ufile; ?>' alt=''>
                             </a>
                         </div>
