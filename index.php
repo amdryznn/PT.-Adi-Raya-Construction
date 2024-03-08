@@ -254,7 +254,7 @@
         <div class="slider">
             <div class="slide-track">
                 <?php
-                $q = "SELECT * FROM partner ORDER BY id DESC";
+                $q = "SELECT * FROM partner";
                 $r123 = mysqli_query($con, $q);
 
                 while ($ro = mysqli_fetch_array($r123)) {
