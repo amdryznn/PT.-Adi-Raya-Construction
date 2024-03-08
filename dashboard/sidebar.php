@@ -204,7 +204,7 @@ $username = $_SESSION['username'];
                 <li class="nav-item">
                     <a class="nav-link menu-link" href="#sidebarPL" data-bs-toggle="collapse" role="button"
                         aria-expanded="true" aria-controls="sidebarLanding">
-                        <i class="ri-task-line"></i> <span data-key="t-landing">Partner Logo</span>
+                        <i class="ri-contacts-fill"></i> <span data-key="t-landing">Partner Logo</span>
                     </a>
                     <div class="menu-dropdown collapse" id="sidebarPL" style="">
                         <ul class="nav nav-sm flex-column">
