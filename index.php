@@ -231,33 +231,43 @@
 
 <!-- ***** Logo Slider Area ***** -->
 <!-- CSS Logo Slider -->
-<style>
-    body {
-        align-items: center;
-        justify-content: center;
-    }
+<!DOCTYPE html>
+<html lang="en">
 
-    $animationSpeed: 40s;
-
-    @keyframes scroll {
-        0% {
-            transform: translateX(0);
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* CSS Styles */
+        body {
+            align-items: center;
+            justify-content: center;
         }
 
-        100% {
-            transform: translateX(calc(-250px * 7))
+        :root {
+            --animation-speed: 20s;
         }
-    }
 
-    .slider {
-        height: 100px;
-        margin: auto;
-        overflow: hidden;
-        position: relative;
-        width: 64%;
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(calc(-250px * 7));
+            }
+        }
+
+        .slider {
+            height: 100px;
+            margin: auto;
+            overflow: hidden;
+            position: relative;
+            width: 64%;
+        }
 
         .slide-track {
-            animation: scroll $animationSpeed linear infinite;
+            animation: scroll var(--animation-speed) linear infinite;
             display: flex;
             width: calc(250px * 14);
         }
@@ -266,116 +276,107 @@
             height: 100px;
             width: 250px;
         }
-    }
-</style>
 
-<style>
-    #logoslider p {
-        width: 40%;
-        /* Atur lebar sesuai kebutuhan Anda */
-        margin: 0 auto;
+        #logoslider p {
+            width: 40%;
+            margin: 0 auto;
+        }
 
-        /* Untuk menyusun teks di tengah secara horizontal */
-    }
-</style>
-<section id="logoslider" class="portfolio-area overflow-hidden ptb_100">
-    <div class="section-heading text-center">
-        <h2> Our Brand Partner
+        /* Add this style to your existing CSS */
+        .image-frame {
+            height: 100px;
+            width: 250px;
+            border: 2px solid white;
+            /* Set the border color to white */
+            box-sizing: border-box;
+            /* Ensure the border size is included in the element's dimensions */
+        }
+    </style>
+</head>
 
-        </h2>
-        <p class="d-none d-sm-block mt-4">
-            Thank you for your interest in Adi Raya Construction. Continue to follow our achievements in supporting and
-            building an industry with world-class standards.
-        </p>
-    </div>
-    <div class="slider">
-        <div class="slide-track">
-            <div class="slide">
-                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/2.png" height="100" width="250" alt="" />
-            </div>
-            <div class="slide">
-                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/3.png" height="100" width="250" alt="" />
-            </div>
-            <div class="slide">
-                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/4.png" height="100" width="250" alt="" />
-            </div>
-            <div class="slide">
-                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/5.png" height="100" width="250" alt="" />
-            </div>
-            <div class="slide">
-                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/6.png" height="100" width="250" alt="" />
-            </div>
-            <div class="slide">
-                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/7.png" height="100" width="250" alt="" />
-            </div>
-            <div class="slide">
-                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/1.png" height="100" width="250" alt="" />
-            </div>
-            <div class="slide">
-                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/2.png" height="100" width="250" alt="" />
-            </div>
-            <div class="slide">
-                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/3.png" height="100" width="250" alt="" />
-            </div>
-            <div class="slide">
-                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/4.png" height="100" width="250" alt="" />
-            </div>
-            <div class="slide">
-                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/5.png" height="100" width="250" alt="" />
-            </div>
-            <div class="slide">
-                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/6.png" height="100" width="250" alt="" />
-            </div>
-            <div class="slide">
-                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/7.png" height="100" width="250" alt="" />
+<body>
+    <!-- HTML/PHP Code -->
+    <section id="logoslider" class="portfolio-area overflow-hidden ptb_100">
+        <div class="section-heading text-center">
+            <h2>Our Brand Partner</h2>
+            <p class="d-none d-sm-block mt-4">
+                Thank you for your interest in Adi Raya Construction. Continue to follow our achievements in
+                supporting and building an industry with world-class standards.
+            </p>
+        </div>
+
+        <div class="slider">
+            <div class="slide-track">
+                <?php
+                $q = "SELECT * FROM partner ORDER BY id DESC";
+                $r123 = mysqli_query($con, $q);
+
+                while ($ro = mysqli_fetch_array($r123)) {
+                    $ufile = $ro['ufile'];
+                    ?>
+                    <!-- Single Case Studies -->
+                    <div class='single-case-studies'>
+                        <!-- Case Studies Thumb with Frame -->
+                        <div class="image-frame">
+                            <a href='#'>
+                                <img src='dashboard/uploads/partner/<?php echo $ufile; ?>' alt=''>
+                            </a>
+                        </div>
+                    </div>
+                    <?php
+                }
+                ?>
             </div>
         </div>
-    </div>
 
-</section>
-<!-- Javascript Logo Slider -->
+    </section>
 
-<script>
-    // Ambil elemen-elemen yang diperlukan
-    const slider = document.querySelector('.slide-track');
-    const slides = document.querySelectorAll('.slide');
+    <!-- JavaScript Code -->
+    <script>
+        const slider = document.querySelector('.slide-track');
+        const animationDuration = 5000; // Set the animation duration in milliseconds
+        const slideWidth = 250; // Set the width of each slide
 
-    // Buat variabel untuk mengontrol animasi
-    let currentPosition = 0;
-    let lastTimestamp = null;
-    const animationDuration = 2000; // Durasi animasi dalam milidetik
+        function moveSlider() {
+            const totalSlides = document.querySelectorAll('.single-case-studies').length;
+            const totalWidth = slideWidth * totalSlides;
+            const cloneSlides = slider.innerHTML; // Clone the HTML content of the slider
+            slider.innerHTML += cloneSlides; // Duplicate the slides at the end of the track
 
-    // Fungsi untuk menggerakkan slider
-    function moveSlider(timestamp) {
-        if (!lastTimestamp) {
-            lastTimestamp = timestamp;
+            let startTime;
+
+            function animate(timestamp) {
+                if (!startTime) {
+                    startTime = timestamp;
+                }
+
+                const elapsedTime = timestamp - startTime;
+                const progress = elapsedTime / animationDuration;
+                const newPosition = -slideWidth * progress;
+
+                slider.style.transform = `translateX(${newPosition}px)`;
+
+                if (progress < 1) {
+                    requestAnimationFrame(animate);
+                } else {
+                    // Reset to the initial position
+                    slider.style.transform = `translateX(0)`;
+                    startTime = null;
+
+                    // Trigger the next animation frame
+                    requestAnimationFrame(moveSlider);
+                }
+            }
+
+            requestAnimationFrame(animate);
         }
 
-        const deltaTime = timestamp - lastTimestamp;
+        moveSlider();
+    </script>
+</body>
 
-        // Geser posisi berdasarkan waktu yang berlalu
-        const distance = 250 * (deltaTime / animationDuration);
-        currentPosition -= distance;
+</html>
 
-        // Atur transformasi CSS
-        slider.style.transform = `translateX(${currentPosition}px)`;
-
-        // Jika sudah mencapai batas akhir, kembali ke awal
-        if (currentPosition <= -(slides.length - 7) * 250) {
-            currentPosition = 0;
-        }
-
-        // Panggil requestAnimationFrame lagi untuk animasi yang mulus
-        if (currentPosition > -(slides.length - 7) * 250) {
-            requestAnimationFrame(moveSlider);
-        }
-
-        lastTimestamp = timestamp;
-    }
-
-    // Panggil requestAnimationFrame untuk memulai animasi
-    requestAnimationFrame(moveSlider);
-</script>
 
 
 
