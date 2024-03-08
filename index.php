@@ -57,7 +57,7 @@
 
         </h2>
         <p class="d-none d-sm-block mt-4">
-            lorem
+            Below are our main services, but not limited to them
         </p>
     </div>
 
