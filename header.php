@@ -35,7 +35,7 @@ $email2 = "$tr[email2]";
 $longitude = "$tr[longitude]";
 $latitude = "$tr[latitude]";
 ?>
-<!-- Mirrored from theme-land.com/digimx/demo/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 11 Jul 2022 15:12:40 GMT -->
+
 
 <head>
     <meta charset="UTF-8">
@@ -130,47 +130,45 @@ $latitude = "$tr[latitude]";
                         <img class="navbar-brand-sticky" src="dashboard/uploads/logo/black.png" alt="sticky brand-logo">
                     </a>
                     <div class="ml-auto"></div>
-                    <!-- Navbar -->
-                    <ul class="navbar-nav items">
+                    
+                   <!-- Navbar -->
+                 <ul class="navbar-nav items">
 
-                        <li class="nav-item">
-                            <a class="nav-link" href="home">Home </a>
-                        </li>
+<li class="nav-item">
+    <a class="nav-link" href="home">Home </a>
+</li>
 
-                        <li class="nav-item">
-                            <a class="nav-link" href="legality">Legality </a>
-                        </li>
+<li class="nav-item">
+    <a class="nav-link" href="legality">Legality </a>
+</li>
 
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">About Us</a>
+<li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button"
+        data-bs-toggle="dropdown" aria-expanded="false">About Us</a>
 
-                            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
-                                <li><a class="dropdown-item" href="about">About Us</a></li>
-                                <li><a class="dropdown-item" href="vision">Vision & Mission</a></li>
-                                <li><a class="dropdown-item" href="structure">Corporate Structure</a></li>
-                                <li><a class="dropdown-item" href="values">Corporate Values</a></li>
-                            </ul>
-                        </li>
+    <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+        <li><a class="dropdown-item" href="about">About Us</a></li>
+        <li><a class="dropdown-item" href="vision">Vision & Mission</a></li>
+        <li><a class="dropdown-item" href="structure">Corporate Structure</a></li>
+        <li><a class="dropdown-item" href="values">Corporate Values</a></li>
+    </ul>
+</li>
 
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                                aria-expanded="false">Projects</a>
-                            <ul class="dropdown-menu">
-                                <?php
-                                foreach ($qc as $ro):
-                                    ?>
-                                    <li>
-                                        <a class="dropdown-item" href="project.php?id=<?= $ro['cat_id'] ?>">
-                                            <?= $ro['name'] ?>
-                                        </a>
-                                    </li>
-                                <?php endforeach ?>
-                            </ul>
-                        </li>
+<li class="nav-item dropdown">
+<a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Projects</a>
+<ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+<?php foreach ($qc as $ro): ?>
+<li>
+<a class="dropdown-item" href="project.php?id=<?= $ro['cat_id'] ?>">
+<?= $ro['name'] ?>
+</a>
+</li>
+<?php endforeach ?>
+</ul>
+</li>
 
                         <!-- Navbar Icons -->
-                        <li class="navbar-nav icons">
+                        <ul class="navbar-nav icons">
                             <?php
                             $q = "SELECT * FROM  social ORDER BY id DESC LIMIT 5";
                             $r123 = mysqli_query($con, $q);
@@ -187,16 +185,21 @@ $latitude = "$tr[latitude]";
 </li>
 ";
                             } ?>
-                            </>
+                            </ul>
 
-                            <!-- Navbar Toggler -->
-                            <ul class="navbar-nav toggle">
-                                <li class="nav-item">
-                                    <a href="#" class="nav-link" data-toggle="modal" data-target="#menu">
-                                        <i class="fas fa-bars toggle-icon m-0"></i>
-                                    </a>
+                           
+
                                 </li>
                             </ul>
+                            <!-- Navbar Toggler -->
+                    <ul class="navbar-nav toggle">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#menu">
+                                <i class="fas fa-bars toggle-icon m-0"></i>
+                            </a>
+                        </li>
+                    </ul>
+
 
                             <!-- Navbar Action Button -->
                             <ul class="navbar-nav action">
@@ -209,3 +212,13 @@ $latitude = "$tr[latitude]";
             </nav>
         </header>
         <!-- ***** Header End ***** -->
+        <!-- Konten halaman -->
+
+</div> <!-- Penutup elemen .main -->
+
+<!-- Script JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
