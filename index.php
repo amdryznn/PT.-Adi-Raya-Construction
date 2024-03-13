@@ -21,7 +21,7 @@
                     </p>
                     <!-- Buttons -->
                     <div class="button-group">
-                        <a href="#" class="btn btn-bordered-white">Engineering</a>
+                        <a href="#" class="btn btn-bordered-white d-none d-sm-inline-block">Engineering</a>
                         <a href="#" class="btn btn-bordered-white d-none d-sm-inline-block">Procurement</a>
                         <a href="#" class="btn btn-bordered-white d-none d-sm-inline-block">Construction</a>
                     </div>

@@ -169,7 +169,7 @@ $latitude = "$tr[latitude]";
                         </li>
 
                         <!-- Navbar Icons -->
-                        <ul class="navbar-nav icons">
+                        <li class="navbar-nav icons">
                             <?php
                             $q = "SELECT * FROM  social ORDER BY id DESC LIMIT 5";
                             $r123 = mysqli_query($con, $q);
@@ -186,7 +186,7 @@ $latitude = "$tr[latitude]";
 </li> 
 ";
                             } ?>
-                        </ul>
+                        </li>
 
 
 
