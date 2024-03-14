@@ -168,6 +168,10 @@ $latitude = "$tr[latitude]";
                             </ul>
                         </li>
 
+                        <li class="nav-item">
+                            <a class="nav-link" href="news">News </a>
+                        </li>
+
                         <!-- Navbar Icons -->
                         <li class="navbar-nav icons">
                             <?php

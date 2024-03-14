@@ -1,7 +1,4 @@
-<?php
-include "header.php";
-$todo = mysqli_real_escape_string($con, $_GET["id"]);
-?>
+<?php include "header.php"; ?>
 <!-- ***** Breadcrumb Area Start ***** -->
 <section class="section breadcrumb-area overlay-dark d-flex align-items-center">
     <div class="container">
@@ -9,13 +6,10 @@ $todo = mysqli_real_escape_string($con, $_GET["id"]);
             <div class="col-12">
                 <!-- Breamcrumb Content -->
                 <div class="breadcrumb-content d-flex flex-column align-items-center text-center">
-                    <h2 class="text-white text-uppercase mb-3">Legality Details</h2>
+                    <h2 class="text-white text-uppercase mb-3">News</h2>
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a class="text-uppercase text-white" href="index.php">Home</a></li>
-                        <li class="breadcrumb-item"><a class="text-uppercase text-white"
-                                href="legality.php">Legality</a></li>
-                        <li class="breadcrumb-item"><a class="text-uppercase text-white" href="#">Legality Detail</a>
-                        </li>
+                        <li class="breadcrumb-item"><a class="text-uppercase text-white" href="#">News</a></li>
                     </ol>
                 </div>
             </div>
@@ -24,42 +18,44 @@ $todo = mysqli_real_escape_string($con, $_GET["id"]);
 </section>
 <!-- ***** Breadcrumb Area End ***** -->
 
-
 <?php
-$rt = mysqli_query($con, "SELECT * FROM legality where id='$todo'");
-$tr = mysqli_fetch_array($rt);
-$legality_title = "$tr[legality_title]";
-$legality_detail = "$tr[legality_detail]";
-$ufile = "$tr[ufile]";
-?>
+$query = mysqli_query($con, "SELECT * FROM about");
 
+while ($row = mysqli_fetch_array($query)) {
+    $about_decs = $row['about_decs'];
+    $about_detail = $row['about_detail'];
+    $ufile = $row['ufile'];
+    ?>
 
-<!-- ***** About Area Start ***** -->
-<section class="section legality-area ptb_100">
-    <div class="container">
-        <div class="row justify-content-between align-items-center">
-            <div class="col-12 col-lg-6">
-                <!-- About Thumb -->
-                <div class="legality-thumb text-center">
-                    <img src="dashboard/uploads/legality/<?php print $ufile; ?>" alt="img">
+    <!-- ***** About Area Start ***** -->
+    <section class="section about-area ptb_100">
+        <div class="container">
+            <div class="row justify-content-between align-items-center">
+                <div class="col-12 col-lg-6">
+                    <!-- About Thumb -->
+                    <div class="about-thumb text-center">
+                        <img src="dashboard/uploads/about/<?php echo $ufile; ?>" alt="img">
+                    </div>
                 </div>
-            </div>
-            <div class="col-12 col-lg-6">
-                <!-- About Content -->
-                <div class="legality-content section-heading text-center text-lg-left pl-md-4 mt-5 mt-lg-0 mb-0">
-                    <h2 class="mb-3">
-                        <?php print $legality_title ?>
-                    </h2>
-                    <p>
-                        <?php print $legality_detail; ?>
-                    </p>
-                    <!-- Counter Area -->
-
+                <div class="col-12 col-lg-6">
+                    <!-- About Content -->
+                    <div class="about-content section-heading text-center text-lg-left pl-md-4 mt-5 mt-lg-0 mb-0">
+                        <h2 class="mb-3 mx-auto">
+                            <?php echo $about_decs; ?>
+                        </h2>
+                        <p style="text-align: justify;">
+                            <?php echo nl2br($about_detail); ?>
+                        </p>
+                        <!-- Counter Area -->
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
+
+    <?php
+}
+?>
 <!-- ***** About Area End ***** -->
 
 
