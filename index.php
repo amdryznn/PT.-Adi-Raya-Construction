@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row align-items-center">
             <!-- Welcome Intro Start -->
-            <div class="col-12 col-md-7">
+            <div class="col-12 col-md-8">
                 <?php
                 $rr = mysqli_query($con, "SELECT * FROM static");
                 $r = mysqli_fetch_row($rr);
@@ -16,8 +16,8 @@
                     <h1 class="text-white">
                         <?php print $stitle ?>
                     </h1>
-                    <p class="text-white my-4">
-                        <?php print $stext ?>
+                    <p class="text-white my-4" style="text-align: justify;">
+                        <?php echo nl2br($stext); ?>
                     </p>
                     <!-- Buttons -->
                     <div class="button-group">
@@ -27,7 +27,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-md-5">
+            <div class="col-12 col-md-4">
                 <!-- Welcome Thumb -->
                 <div class="welcome-thumb-wrapper mt-5 mt-md-0">
                     <span class="welcome-thumb-1">
@@ -76,7 +76,7 @@
                 $detail = nl2br("$ro[detail]");
 
                 print "
-<div class='col-16 col-md-8 col-lg-6 res-margin'>
+<div class='col-16 col-md-4 col-lg-6 res-margin'>
 <!-- Single Promo -->
 <div class='single-promo color-1 bg-hover hover-bottom text-center p-5'>
     <h3 class='mb-3'>$title</h3>

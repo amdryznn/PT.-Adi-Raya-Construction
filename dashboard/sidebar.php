@@ -50,216 +50,15 @@ $username = $_SESSION['username'];
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link menu-link" href="#sidebarSl" data-bs-toggle="collapse" role="button"
+                    <a class="nav-link menu-link" href="#sidebarK" data-bs-toggle="collapse" role="button"
                         aria-expanded="true" aria-controls="sidebarLanding">
-                        <i class="ri-image-fill"></i> <span data-key="t-landing">Manage Slider</span>
+                        <i class="ri-tools-fill"></i> <span data-key="t-landing"> Settings </span>
                     </a>
-                    <div class="menu-dropdown collapse" id="sidebarSl" style="">
+                    <div class="menu-dropdown collapse" id="sidebarK" style="">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
                                 <a href="static" class="nav-link" data-key="t-nft-landing"> Static Sliders</a>
                             </li>
-                        </ul>
-                    </div>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link menu-link" href="#sidebarW" data-bs-toggle="collapse" role="button"
-                        aria-expanded="true" aria-controls="sidebarLanding">
-                        <i class="ri-rocket-line"></i> <span data-key="t-landing"> Services</span>
-                    </a>
-                    <div class="menu-dropdown collapse" id="sidebarW" style="">
-                        <ul class="nav nav-sm flex-column">
-                            <li class="nav-item">
-                                <a href="addwhy" class="nav-link" data-key="t-one-page"> Add New </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="why" class="nav-link" data-key="t-nft-landing"> List </a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link menu-link" href="#sidebarq" data-bs-toggle="collapse" role="button"
-                        aria-expanded="true" aria-controls="sidebarLanding">
-                        <i class="ri-file-list-3-line"></i> <span data-key="t-landing">About</span>
-                    </a>
-                    <div class="menu-dropdown collapse" id="sidebarq" style="">
-                        <ul class="nav nav-sm flex-column">
-                            <li class="nav-item">
-                                <a href="createabout" class="nav-link" data-key="t-one-page"> Add New </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="about" class="nav-link" data-key="t-nft-landing">List </a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link menu-link" href="#sidebarLgl" data-bs-toggle="collapse" role="button"
-                        aria-expanded="true" aria-controls="sidebarLanding">
-                        <i class="ri-rhythm-fill"></i> <span data-key="t-landing">Legality</span>
-                    </a>
-                    <div class="menu-dropdown collapse" id="sidebarLgl" style="">
-                        <ul class="nav nav-sm flex-column">
-                            <li class="nav-item">
-                                <a href="createlegality" class="nav-link" data-key="t-one-page"> Add New </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="legality" class="nav-link" data-key="t-nft-landing"> List </a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link menu-link" href="#sidebarB" data-bs-toggle="collapse" role="button"
-                        aria-expanded="true" aria-controls="sidebarLanding">
-                        <i class="ri-file-list-line"></i> <span data-key="t-landing">Vision & Mission</span>
-                    </a>
-                    <div class="menu-dropdown collapse" id="sidebarB" style="">
-                        <ul class="nav nav-sm flex-column">
-                            <li class="nav-item">
-                                <a href="createvision" class="nav-link" data-key="t-one-page"> Add New </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="vision" class="nav-link" data-key="t-nft-landing">List </a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-
-
-
-                <li class="nav-item">
-                    <a class="nav-link menu-link" href="#sidebarLanding" data-bs-toggle="collapse" role="button"
-                        aria-expanded="true" aria-controls="sidebarLanding">
-                        <i class="ri-checkbox-multiple-line"></i> <span data-key="t-landing">Values</span>
-                    </a>
-                    <div class="menu-dropdown collapse" id="sidebarLanding" style="">
-                        <ul class="nav nav-sm flex-column">
-                            <li class="nav-item">
-                                <a href="createservice" class="nav-link" data-key="t-one-page"> Add New </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="services" class="nav-link" data-key="t-nft-landing"> List </a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link menu-link" href="#sidebarStr" data-bs-toggle="collapse" role="button"
-                        aria-expanded="true" aria-controls="sidebarLanding">
-                        <i class="ri-organization-chart"></i> <span data-key="t-landing">Structure</span>
-                    </a>
-                    <div class="menu-dropdown collapse" id="sidebarStr" style="">
-                        <ul class="nav nav-sm flex-column">
-                            <li class="nav-item">
-                                <a href="createstructure" class="nav-link" data-key="t-one-page"> Add New </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="structure" class="nav-link" data-key="t-nft-landing"> List </a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link menu-link" href="#sidebarU" data-bs-toggle="collapse" role="button"
-                        aria-expanded="true" aria-controls="sidebarLanding">
-                        <i class="ri-bar-chart-grouped-fill"></i> <span data-key="t-landing">Category</span>
-                    </a>
-                    <div class="menu-dropdown collapse" id="sidebarU" style="">
-                        <ul class="nav nav-sm flex-column">
-                            <li class="nav-item">
-                                <a href="createcategory" class="nav-link" data-key="t-one-page"> Add New </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="categorylist" class="nav-link" data-key="t-nft-landing">List </a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link menu-link" href="#sidebarGU" data-bs-toggle="collapse" role="button"
-                        aria-expanded="true" aria-controls="sidebarLanding">
-                        <i class="ri-task-line"></i> <span data-key="t-landing">Project</span>
-                    </a>
-                    <div class="menu-dropdown collapse" id="sidebarGU" style="">
-                        <ul class="nav nav-sm flex-column">
-                            <li class="nav-item">
-                                <a href="createproject" class="nav-link" data-key="t-one-page"> Add New </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="projectlist" class="nav-link" data-key="t-nft-landing">List </a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link menu-link" href="#sidebarPL" data-bs-toggle="collapse" role="button"
-                        aria-expanded="true" aria-controls="sidebarLanding">
-                        <i class="ri-contacts-fill"></i> <span data-key="t-landing">Partner Logo</span>
-                    </a>
-                    <div class="menu-dropdown collapse" id="sidebarPL" style="">
-                        <ul class="nav nav-sm flex-column">
-                            <li class="nav-item">
-                                <a href="createpartner" class="nav-link" data-key="t-one-page"> Add New </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="partner" class="nav-link" data-key="t-nft-landing">List </a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link menu-link" href="#sidebarX" data-bs-toggle="collapse" role="button"
-                        aria-expanded="true" aria-controls="sidebarLanding">
-                        <i class="ri-chrome-fill"></i> <span data-key="t-landing">Social Media</span>
-                    </a>
-                    <div class="menu-dropdown collapse" id="sidebarX" style="">
-                        <ul class="nav nav-sm flex-column">
-                            <li class="nav-item">
-                                <a href="createsocial" class="nav-link" data-key="t-one-page"> Add New </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="social" class="nav-link" data-key="t-nft-landing">List </a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link menu-link" href="#sidebarT" data-bs-toggle="collapse" role="button"
-                        aria-expanded="true" aria-controls="sidebarLanding">
-                        <i class="ri-message-line"></i> <span data-key="t-landing">Testimony</span>
-                    </a>
-                    <div class="menu-dropdown collapse" id="sidebarT" style="">
-                        <ul class="nav nav-sm flex-column">
-                            <li class="nav-item">
-                                <a href="newtestimony" class="nav-link" data-key="t-one-page">Add New</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="testimony" class="nav-link" data-key="t-nft-landing"> List </a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-
-
-                <li class="nav-item">
-                    <a class="nav-link menu-link" href="#sidebarK" data-bs-toggle="collapse" role="button"
-                        aria-expanded="true" aria-controls="sidebarLanding">
-                        <i class="ri-tools-fill"></i> <span data-key="t-landing"> Site Configuration </span>
-                    </a>
-                    <div class="menu-dropdown collapse" id="sidebarK" style="">
-                        <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
                                 <a href="settings" class="nav-link" data-key="t-one-page"> Site Settings </a>
                             </li>
@@ -275,6 +74,211 @@ $username = $_SESSION['username'];
                         </ul>
                     </div>
                 </li>
+
+                <li class="nav-item has-treeview menu">
+                    <h5 class="pt-3 pb-1" style="color:#a7bbdb; margin: 0 15px;">BLOG SECTION</h5>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link menu-link" style="margin: 0 20px;" href="#sidebarW" data-bs-toggle="collapse"
+                        role="button" aria-expanded="true" aria-controls="sidebarLanding">
+                        <i class="ri-rocket-line"></i> <span data-key="t-landing"> Services</span>
+                    </a>
+                    <div class="menu-dropdown collapse" id="sidebarW" style="">
+                        <ul class="nav nav-sm flex-column">
+                            <li class="nav-item" style="margin: 0 45px;">
+                                <a href="addwhy" class="nav-link" data-key="t-one-page"> Add New </a>
+                            </li>
+                            <li class="nav-item" style="margin: 0 45px;">
+                                <a href=" why" class="nav-link" data-key="t-nft-landing"> List </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link menu-link" style="margin: 0 20px;" href="#sidebarq" data-bs-toggle="collapse"
+                        role="button" aria-expanded="true" aria-controls="sidebarLanding">
+                        <i class="ri-file-list-3-line"></i> <span data-key="t-landing">About</span>
+                    </a>
+                    <div class="menu-dropdown collapse" id="sidebarq" style="">
+                        <ul class="nav nav-sm flex-column">
+                            <li class="nav-item" style="margin: 0 45px;">
+                                <a href="createabout" class="nav-link" data-key="t-one-page"> Add New </a>
+                            </li>
+                            <li class="nav-item" style="margin: 0 45px;">
+                                <a href="about" class="nav-link" data-key="t-nft-landing">List </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link menu-link" style="margin: 0 20px;" href="#sidebarLgl" data-bs-toggle="collapse"
+                        role="button" aria-expanded="true" aria-controls="sidebarLanding">
+                        <i class="ri-rhythm-fill"></i> <span data-key="t-landing">Legality</span>
+                    </a>
+                    <div class="menu-dropdown collapse" id="sidebarLgl" style="">
+                        <ul class="nav nav-sm flex-column">
+                            <li class="nav-item" style="margin: 0 45px;">
+                                <a href="createlegality" class="nav-link" data-key="t-one-page"> Add New </a>
+                            </li>
+                            <li class="nav-item" style="margin: 0 45px;">
+                                <a href="legality" class="nav-link" data-key="t-nft-landing"> List </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link menu-link" style="margin: 0 20px;" href="#sidebarB" data-bs-toggle="collapse"
+                        role="button" aria-expanded="true" aria-controls="sidebarLanding">
+                        <i class="ri-file-list-line"></i> <span data-key="t-landing">Vision & Mission</span>
+                    </a>
+                    <div class="menu-dropdown collapse" id="sidebarB" style="">
+                        <ul class="nav nav-sm flex-column">
+                            <li class="nav-item" style="margin: 0 45px;">
+                                <a href="createvision" class="nav-link" data-key="t-one-page"> Add New </a>
+                            </li>
+                            <li class="nav-item" style="margin: 0 45px;">
+                                <a href="vision" class="nav-link" data-key="t-nft-landing">List </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+
+
+
+                <li class="nav-item">
+                    <a class="nav-link menu-link" style="margin: 0 20px;" href="#sidebarLanding"
+                        data-bs-toggle="collapse" role="button" aria-expanded="true" aria-controls="sidebarLanding">
+                        <i class="ri-checkbox-multiple-line"></i> <span data-key="t-landing">Values</span>
+                    </a>
+                    <div class="menu-dropdown collapse" id="sidebarLanding" style="">
+                        <ul class="nav nav-sm flex-column">
+                            <li class="nav-item" style="margin: 0 45px;">
+                                <a href="createservice" class="nav-link" data-key="t-one-page"> Add New </a>
+                            </li>
+                            <li class="nav-item" style="margin: 0 45px;">
+                                <a href="services" class="nav-link" data-key="t-nft-landing"> List </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link menu-link" style="margin: 0 20px;" href="#sidebarStr" data-bs-toggle="collapse"
+                        role="button" aria-expanded="true" aria-controls="sidebarLanding">
+                        <i class="ri-organization-chart"></i> <span data-key="t-landing">Structure</span>
+                    </a>
+                    <div class="menu-dropdown collapse" id="sidebarStr" style="">
+                        <ul class="nav nav-sm flex-column">
+                            <li class="nav-item" style="margin: 0 45px;">
+                                <a href="createstructure" class="nav-link" data-key="t-one-page"> Add New </a>
+                            </li>
+                            <li class="nav-item" style="margin: 0 45px;">
+                                <a href="structure" class="nav-link" data-key="t-nft-landing"> List </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+
+                <li class="nav-item has-treeview menu">
+                    <h5 class="pt-3 pb-1" style="color:#a7bbdb; margin: 0 15px;">BLOG SECTION</h5>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link menu-link" style="margin: 0 20px;" href="#sidebarU" data-bs-toggle="collapse"
+                        role="button" aria-expanded="true" aria-controls="sidebarLanding">
+                        <i class="ri-bar-chart-grouped-fill"></i> <span data-key="t-landing">Category</span>
+                    </a>
+                    <div class="menu-dropdown collapse" id="sidebarU" style="">
+                        <ul class="nav nav-sm flex-column">
+                            <li class="nav-item" style="margin: 0 45px;">
+                                <a href="createcategory" class="nav-link" data-key="t-one-page"> Add New </a>
+                            </li>
+                            <li class="nav-item" style="margin: 0 45px;">
+                                <a href="categorylist" class="nav-link" data-key="t-nft-landing">List </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link menu-link" style="margin: 0 20px;" href="#sidebarGU" data-bs-toggle="collapse"
+                        role="button" aria-expanded="true" aria-controls="sidebarLanding">
+                        <i class="ri-task-line"></i> <span data-key="t-landing">Project</span>
+                    </a>
+
+                    <div class="menu-dropdown collapse" id="sidebarGU" style="">
+                        <ul class="nav nav-sm flex-column">
+                            <li class="nav-item" style="margin: 0 45px;">
+                                <a href="createproject" class="nav-link" data-key="t-one-page"> Add New </a>
+                            </li>
+                            <li class="nav-item" style="margin: 0 45px;">
+                                <a href="projectlist" class="nav-link" data-key="t-nft-landing">List </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+
+                <li class="nav-item has-treeview menu">
+                    <h5 class="pt-3 pb-1" style="color:#a7bbdb; margin: 0 15px;">BLOG SECTION</h5>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link menu-link" style="margin: 0 20px;" href="#sidebarPL" data-bs-toggle="collapse"
+                        role="button" aria-expanded="true" aria-controls="sidebarLanding">
+                        <i class="ri-contacts-fill"></i> <span data-key="t-landing">Partner Logo</span>
+                    </a>
+                    <div class="menu-dropdown collapse" id="sidebarPL" style="">
+                        <ul class="nav nav-sm flex-column">
+                            <li class="nav-item" style="margin: 0 45px;">
+                                <a href="createpartner" class="nav-link" data-key="t-one-page"> Add New </a>
+                            </li>
+                            <li class="nav-item" style="margin: 0 45px;">
+                                <a href="partner" class="nav-link" data-key="t-nft-landing">List </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link menu-link" style="margin: 0 20px;" href="#sidebarX" data-bs-toggle="collapse"
+                        role="button" aria-expanded="true" aria-controls="sidebarLanding">
+                        <i class="ri-chrome-fill"></i> <span data-key="t-landing">Social Media</span>
+                    </a>
+                    <div class="menu-dropdown collapse" id="sidebarX" style="">
+                        <ul class="nav nav-sm flex-column">
+                            <li class="nav-item" style="margin: 0 45px;">
+                                <a href="createsocial" class="nav-link" data-key="t-one-page"> Add New </a>
+                            </li>
+                            <li class="nav-item" style="margin: 0 45px;">
+                                <a href="social" class="nav-link" data-key="t-nft-landing">List </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link menu-link" style="margin: 0 20px;" href="#sidebarT" data-bs-toggle="collapse"
+                        role="button" aria-expanded="true" aria-controls="sidebarLanding">
+                        <i class="ri-message-line"></i> <span data-key="t-landing">Testimony</span>
+                    </a>
+                    <div class="menu-dropdown collapse" id="sidebarT" style="">
+                        <ul class="nav nav-sm flex-column">
+                            <li class="nav-item" style="margin: 0 45px;">
+                                <a href="newtestimony" class="nav-link" data-key="t-one-page">Add New</a>
+                            </li>
+                            <li class="nav-item" style="margin: 0 45px;">
+                                <a href="testimony" class="nav-link" data-key="t-nft-landing"> List </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+
+
+
 
 
 
