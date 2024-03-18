@@ -1,10 +1,15 @@
-<?php include "header.php"; ?>
 <?php
-$qc = mysqli_query($con, "SELECT * FROM categories_news");
-?>
+// Sertakan file koneksi ke database dan header
+include "header.php";
 
-<?php
-$qn = mysqli_query($con, "SELECT * FROM news");
+// Ambil ID kategori dari URL
+$kategori_id = mysqli_real_escape_string($con, $_GET["id"]);
+
+// Kueri untuk mengambil berita berdasarkan kategori yang dipilih
+$qn = mysqli_query($con, "SELECT * FROM news WHERE news_id = '$kategori_id'");
+
+// Kueri untuk mengambil daftar kategori
+$qc = mysqli_query($con, "SELECT * FROM categories_news");
 ?>
 <!-- ***** Breadcrumb Area Start ***** -->
 <section class="section breadcrumb-area overlay-dark d-flex align-items-center">
@@ -13,10 +18,10 @@ $qn = mysqli_query($con, "SELECT * FROM news");
             <div class="col-12">
                 <!-- Breamcrumb Content -->
                 <div class="breadcrumb-content d-flex flex-column align-items-center text-center">
-                    <h2 class="text-white text-uppercase mb-3">News</h2>
+                    <h2 class="text-white text-uppercase mb-3">News Detail</h2>
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a class="text-uppercase text-white" href="index.php">Home</a></li>
-                        <li class="breadcrumb-item"><a class="text-uppercase text-white" href="#">News</a></li>
+                        <li class="breadcrumb-item"><a class="text-uppercase text-white" href="#">News Detail</a></li>
                     </ol>
                 </div>
             </div>
@@ -104,26 +109,18 @@ $qn = mysqli_query($con, "SELECT * FROM news");
 
 <!-- ***** News Area Start ***** -->
 <!-- Konten Berita -->
-<?php
-$rt = mysqli_query($con, "SELECT * FROM news");
-$tr = mysqli_fetch_array($rt);
-$title = "$tr[title]";
-$content = "$tr[content]";
-$author = "$tr[author]";
-$created_at = $tr['created_at'];
-$ufile = "$tr[ufile]";
-?>
+
 
 
 <!-- ***** About Area Start ***** -->
 <section class="section news-area ptb_100">
     <div class="container">
         <div class="row">
-            <!-- Loop untuk menampilkan setiap berita -->
             <div class="col-md-6 col-lg-8">
                 <?php foreach ($qn as $news): ?>
+                    <!-- Tampilkan berita berdasarkan kategori yang dipilih -->
                     <div class="single-news-item">
-                        <div class="news-thumb">
+                    <div class="news-thumb">
                             <a href="#">
                                 <img src="dashboard/uploads/news/<?php echo $news['ufile']; ?>" alt="News Image">
                             </a>
@@ -149,7 +146,7 @@ $ufile = "$tr[ufile]";
                 <?php endforeach; ?>
             </div>
 
-            <!-- Categories div -->
+            <!-- Daftar Kategori -->
             <div class="col-md-6 col-lg-4">
                 <div class="single-news-item">
                     <div class="card mb-4">
@@ -158,7 +155,7 @@ $ufile = "$tr[ufile]";
                             <ul class="list-group">
                                 <?php foreach ($qc as $ro): ?>
                                     <li>
-                                        <a class="list-group-item" href="newscategory.php?id=<?= $ro['news_id'] ?>">
+                                    <a class="list-group-item" href="newscategory.php?id=<?= $ro['news_id'] ?>">
                                             <?= $ro['news_name'] ?>
                                         </a>
                                     </li>
@@ -171,7 +168,6 @@ $ufile = "$tr[ufile]";
         </div> <!-- End row -->
     </div>
 </section>
-
 
 
 
