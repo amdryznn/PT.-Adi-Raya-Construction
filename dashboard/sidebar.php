@@ -218,6 +218,43 @@ $username = $_SESSION['username'];
                     </div>
                 </li>
 
+                <li class="menu-title"><span data-key="t-menu">NEWS SECTION</span></li>
+
+                <li class="nav-item">
+                    <a class="nav-link menu-link" href="#sidebarNS" data-bs-toggle="collapse" role="button"
+                        aria-expanded="true" aria-controls="sidebarLanding">
+                        <i class="ri-bar-chart-grouped-fill"></i> <span data-key="t-landing">Category</span>
+                    </a>
+                    <div class="menu-dropdown collapse" id="sidebarNS" style="">
+                        <ul class="nav nav-sm flex-column">
+                            <li class="nav-item" style="margin: 0 30px;">
+                                <a href="createcatnews" class="nav-link" data-key="t-one-page"> Add New </a>
+                            </li>
+                            <li class="nav-item" style="margin: 0 30px;">
+                                <a href="catnewslist" class="nav-link" data-key="t-nft-landing">List </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link menu-link" href="#sidebarNEWS" data-bs-toggle="collapse" role="button"
+                        aria-expanded="true" aria-controls="sidebarLanding">
+                        <i class="ri-task-line"></i> <span data-key="t-landing">News</span>
+                    </a>
+
+                    <div class="menu-dropdown collapse" id="sidebarNEWS" style="">
+                        <ul class="nav nav-sm flex-column">
+                            <li class="nav-item" style="margin: 0 30px;">
+                                <a href="createnews" class="nav-link" data-key="t-one-page"> Add New </a>
+                            </li>
+                            <li class="nav-item" style="margin: 0 30px;">
+                                <a href="newslist" class="nav-link" data-key="t-nft-landing">List </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+
                 <li class="menu-title"><span data-key="t-menu">OTHER</span></li>
 
                 <li class="nav-item">
