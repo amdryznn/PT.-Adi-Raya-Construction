@@ -1,4 +1,11 @@
 <?php include "header.php"; ?>
+<?php
+$qc = mysqli_query($con, "SELECT * FROM categories_news");
+?>
+
+<?php
+$qn = mysqli_query($con, "SELECT * FROM news");
+?>
 <!-- ***** Breadcrumb Area Start ***** -->
 <section class="section breadcrumb-area overlay-dark d-flex align-items-center">
     <div class="container">
@@ -69,21 +76,24 @@
     }
 
     .search-bar-container {
-    margin-bottom: 20px;
-    width: 100%;
-    display: flex;
-    justify-content: flex-end; /* Posisikan ke ujung kanan */
-    align-items: center;
-}
+        margin-bottom: 20px;
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+        /* Posisikan ke ujung kanan */
+        align-items: center;
+    }
 
-.search-bar {
-    width: auto; /* Sesuaikan lebar sesuai kebutuhan */
-    max-width: 250px; /* Batasi lebar maksimum */
-}
+    .search-bar {
+        width: auto;
+        /* Sesuaikan lebar sesuai kebutuhan */
+        max-width: 250px;
+        /* Batasi lebar maksimum */
+    }
 
-.search-bar .form-control {
-    border-radius: 0;
-}
+    .search-bar .form-control {
+        border-radius: 0;
+    }
 
     .news-info {
         font-size: 14px;
@@ -93,11 +103,96 @@
 </style>
 
 <!-- ***** News Area Start ***** -->
+<!-- Konten Berita -->
+<?php
+$rt = mysqli_query($con, "SELECT * FROM news");
+$tr = mysqli_fetch_array($rt);
+$title = "$tr[title]";
+$content = "$tr[content]";
+$author = "$tr[author]";
+$created_at = $tr['created_at'];
+$ufile = "$tr[ufile]";
+?>
+
+
+<!-- ***** About Area Start ***** -->
 <section class="section news-area ptb_100">
     <div class="container">
         <div class="row">
+            <!-- Loop untuk menampilkan setiap berita -->
             <div class="col-md-6 col-lg-8">
-                <!-- Konten Berita -->
+                <?php foreach ($qn as $news): ?>
+                    <div class="single-news-item">
+                        <div class="news-thumb">
+                            <a href="#">
+                                <img src="dashboard/uploads/news/<?php echo $news['ufile']; ?>" alt="News Image">
+                            </a>
+                        </div>
+                        <div class="news-content">
+                            <h3>
+                                <?php echo $news['title']; ?>
+                            </h3>
+                            <div class="news-info">
+                                <span class="news-date">
+                                    <?php echo $news['created_at']; ?>
+                                </span> |
+                                <span class="news-author">
+                                    <?php echo $news['author']; ?>
+                                </span>
+                            </div>
+                            <p>
+                                <?php echo $news['content']; ?>
+                            </p>
+                            <a href="#" class="btn btn-primary">Read More</a>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+
+            <!-- Categories div -->
+            <div class="col-md-6 col-lg-4">
+                <div class="single-news-item">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h5 class="card-title">Categories</h5>
+                            <ul class="list-group">
+                                <?php foreach ($qc as $ro): ?>
+                                    <li>
+                                        <a class="list-group-item" href="newsdetail.php?id=<?= $ro['news_id'] ?>">
+                                            <?= $ro['news_name'] ?>
+                                        </a>
+                                    </li>
+                                <?php endforeach ?>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- End row -->
+    </div>
+</section>
+
+
+
+
+
+
+
+
+<!-- Add more news items as needed -->
+
+<!-- ***** You Might Also Like Section Start ***** -->
+<section class="section news-area ptb_100">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="section-heading text-center">
+                    <h2>You Might Also Like</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
                 <div class="single-news-item">
                     <div class="news-thumb">
                         <a href="#">
@@ -105,34 +200,19 @@
                         </a>
                     </div>
                     <div class="news-content">
-                        <h3>News Title 1</h3>
+                        <h3>News Title 3</h3>
                         <div class="news-info">
-                            <span class="news-date">March 14, 2024</span> | <span class="news-author">John Doe</span>
+                            <span class="news-date">March 12, 2024</span> | <span class="news-author">Adam
+                                Johnson</span>
                         </div>
-                        <p>This is a short description of news 1. It could be a brief summary of the news. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut fermentum neque eget velit accumsan, vel aliquam arcu ultrices. Sed eget quam a elit vehicula efficitur.</p>
+                        <p>This is a short description of news 3. It could be a brief summary of the
+                            news.
+                        </p>
                         <a href="#" class="btn btn-primary">Read More</a>
                     </div>
                 </div>
             </div>
-          
-            <div class="col-md-6 col-lg-4">
-                <div class="card mb-4">
-                    <div class="card-body">
-                        <h5 class="card-title">Categories</h5>
-                        <ul class="list-group">
-                            <li class="list-group-item">Category 1</li>
-                            <li class="list-group-item">Category 2</li>
-                            <li class="list-group-item">Category 3</li>
-                            <!-- Add more categories as needed -->
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            
-           
-
-        <div class="row mt-4">
-            <div class="col-md-6 col-lg-8">
+            <div class="col-md-4">
                 <div class="single-news-item">
                     <div class="news-thumb">
                         <a href="#">
@@ -140,86 +220,43 @@
                         </a>
                     </div>
                     <div class="news-content">
-                        <h3>News Title 2</h3>
+                        <h3>News Title 4</h3>
                         <div class="news-info">
-                            <span class="news-date">March 13, 2024</span> | <span class="news-author">Jane Smith</span>
+                            <span class="news-date">March 11, 2024</span> | <span class="news-author">Emily
+                                Brown</span>
                         </div>
-                        <p>This is a short description of news 2. It could be a brief summary of the news. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut fermentum neque eget velit accumsan, vel aliquam arcu ultrices. Sed eget quam a elit vehicula efficitur.</p>
+                        <p>This is a short description of news 4. It could be a brief summary of the
+                            news.
+                        </p>
+                        <a href="#" class="btn btn-primary">Read More</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="single-news-item">
+                    <div class="news-thumb">
+                        <a href="#">
+                            <img src="dashboard\uploads\blog\40801427about.jpg" alt="News Image">
+                        </a>
+                    </div>
+                    <div class="news-content">
+                        <h3>News Title 5</h3>
+                        <div class="news-info">
+                            <span class="news-date">March 10, 2024</span> | <span class="news-author">Michael
+                                Davis</span>
+                        </div>
+                        <p>This is a short description of news 5. It could be a brief summary of the
+                            news.
+                        </p>
                         <a href="#" class="btn btn-primary">Read More</a>
                     </div>
                 </div>
             </div>
         </div>
-
-        <!-- Add more news items as needed -->
-
-        <!-- ***** You Might Also Like Section Start ***** -->
-        <section class="section news-area ptb_100">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="section-heading text-center">
-                            <h2>You Might Also Like</h2>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="single-news-item">
-                            <div class="news-thumb">
-                                <a href="#">
-                                    <img src="dashboard\uploads\blog\40801427about.jpg" alt="News Image">
-                                </a>
-                            </div>
-                            <div class="news-content">
-                                <h3>News Title 3</h3>
-                                <div class="news-info">
-                                    <span class="news-date">March 12, 2024</span> | <span class="news-author">Adam Johnson</span>
-                                </div>
-                                <p>This is a short description of news 3. It could be a brief summary of the news.</p>
-                                <a href="#" class="btn btn-primary">Read More</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="single-news-item">
-                            <div class="news-thumb">
-                                <a href="#">
-                                    <img src="dashboard\uploads\blog\40801427about.jpg" alt="News Image">
-                                </a>
-                            </div>
-                            <div class="news-content">
-                                <h3>News Title 4</h3>
-                                <div class="news-info">
-                                    <span class="news-date">March 11, 2024</span> | <span class="news-author">Emily Brown</span>
-                                </div>
-                                <p>This is a short description of news 4. It could be a brief summary of the news.</p>
-                                <a href="#" class="btn btn-primary">Read More</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="single-news-item">
-                            <div class="news-thumb">
-                                <a href="#">
-                                    <img src="dashboard\uploads\blog\40801427about.jpg" alt="News Image">
-                                </a>
-                            </div>
-                            <div class="news-content">
-                                <h3>News Title 5</h3>
-                                <div class="news-info">
-                                    <span class="news-date">March 10, 2024</span> | <span class="news-author">Michael Davis</span>
-                                </div>
-                                <p>This is a short description of news 5. It could be a brief summary of the news.</p>
-                                <a href="#" class="btn btn-primary">Read More</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- ***** You Might Also Like Section End ***** -->
     </div>
+</section>
+<!-- ***** You Might Also Like Section End ***** -->
+</div>
 </section>
 <!-- ***** News Area End ***** -->
 
