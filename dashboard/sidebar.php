@@ -56,40 +56,38 @@ $username = $_SESSION['username'];
                     </a>
                     <div class="menu-dropdown collapse" id="sidebarK" style="">
                         <ul class="nav nav-sm flex-column">
-                            <li class="nav-item">
+                            <li class="nav-item" style="margin: 0 30px;">
                                 <a href="static" class="nav-link" data-key="t-nft-landing"> Static Sliders</a>
                             </li>
-                            <li class="nav-item">
+                            <li class="nav-item" style="margin: 0 30px;">
                                 <a href="settings" class="nav-link" data-key="t-one-page"> Site Settings </a>
                             </li>
-                            <li class="nav-item">
+                            <li class="nav-item" style="margin: 0 30px;">
                                 <a href="sections" class="nav-link" data-key="t-nft-landing"> Section Titles </a>
                             </li>
-                            <li class="nav-item">
+                            <li class="nav-item" style="margin: 0 30px;">
                                 <a href="logo" class="nav-link" data-key="t-nft-landing"> Update Logo </a>
                             </li>
-                            <li class="nav-item">
+                            <li class="nav-item" style="margin: 0 30px;">
                                 <a href="contact" class="nav-link" data-key="t-nft-landing"> Update Contact </a>
                             </li>
                         </ul>
                     </div>
                 </li>
 
-                <li class="nav-item has-treeview menu">
-                    <h5 class="pt-3 pb-1" style="color:#a7bbdb; margin: 0 15px;">BLOG SECTION</h5>
-                </li>
+                <li class="menu-title"><span data-key="t-menu">PROFILE SECTION</span></li>
 
                 <li class="nav-item">
-                    <a class="nav-link menu-link" style="margin: 0 20px;" href="#sidebarW" data-bs-toggle="collapse"
-                        role="button" aria-expanded="true" aria-controls="sidebarLanding">
+                    <a class="nav-link menu-link" href="#sidebarW" data-bs-toggle="collapse" role="button"
+                        aria-expanded="true" aria-controls="sidebarLanding">
                         <i class="ri-rocket-line"></i> <span data-key="t-landing"> Services</span>
                     </a>
                     <div class="menu-dropdown collapse" id="sidebarW" style="">
                         <ul class="nav nav-sm flex-column">
-                            <li class="nav-item" style="margin: 0 45px;">
+                            <li class="nav-item" style="margin: 0 30px;">
                                 <a href="addwhy" class="nav-link" data-key="t-one-page"> Add New </a>
                             </li>
-                            <li class="nav-item" style="margin: 0 45px;">
+                            <li class="nav-item" style="margin: 0 30px;">
                                 <a href=" why" class="nav-link" data-key="t-nft-landing"> List </a>
                             </li>
                         </ul>
@@ -97,16 +95,16 @@ $username = $_SESSION['username'];
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link menu-link" style="margin: 0 20px;" href="#sidebarq" data-bs-toggle="collapse"
-                        role="button" aria-expanded="true" aria-controls="sidebarLanding">
+                    <a class="nav-link menu-link" href="#sidebarq" data-bs-toggle="collapse" role="button"
+                        aria-expanded="true" aria-controls="sidebarLanding">
                         <i class="ri-file-list-3-line"></i> <span data-key="t-landing">About</span>
                     </a>
                     <div class="menu-dropdown collapse" id="sidebarq" style="">
                         <ul class="nav nav-sm flex-column">
-                            <li class="nav-item" style="margin: 0 45px;">
+                            <li class="nav-item" style="margin: 0 30px;">
                                 <a href="createabout" class="nav-link" data-key="t-one-page"> Add New </a>
                             </li>
-                            <li class="nav-item" style="margin: 0 45px;">
+                            <li class="nav-item" style="margin: 0 30px;">
                                 <a href="about" class="nav-link" data-key="t-nft-landing">List </a>
                             </li>
                         </ul>
@@ -114,16 +112,16 @@ $username = $_SESSION['username'];
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link menu-link" style="margin: 0 20px;" href="#sidebarLgl" data-bs-toggle="collapse"
-                        role="button" aria-expanded="true" aria-controls="sidebarLanding">
+                    <a class="nav-link menu-link" href="#sidebarLgl" data-bs-toggle="collapse" role="button"
+                        aria-expanded="true" aria-controls="sidebarLanding">
                         <i class="ri-rhythm-fill"></i> <span data-key="t-landing">Legality</span>
                     </a>
                     <div class="menu-dropdown collapse" id="sidebarLgl" style="">
                         <ul class="nav nav-sm flex-column">
-                            <li class="nav-item" style="margin: 0 45px;">
+                            <li class="nav-item" style="margin: 0 30px;">
                                 <a href="createlegality" class="nav-link" data-key="t-one-page"> Add New </a>
                             </li>
-                            <li class="nav-item" style="margin: 0 45px;">
+                            <li class="nav-item" style="margin: 0 30px;">
                                 <a href="legality" class="nav-link" data-key="t-nft-landing"> List </a>
                             </li>
                         </ul>
@@ -131,16 +129,16 @@ $username = $_SESSION['username'];
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link menu-link" style="margin: 0 20px;" href="#sidebarB" data-bs-toggle="collapse"
-                        role="button" aria-expanded="true" aria-controls="sidebarLanding">
+                    <a class="nav-link menu-link" href="#sidebarB" data-bs-toggle="collapse" role="button"
+                        aria-expanded="true" aria-controls="sidebarLanding">
                         <i class="ri-file-list-line"></i> <span data-key="t-landing">Vision & Mission</span>
                     </a>
                     <div class="menu-dropdown collapse" id="sidebarB" style="">
                         <ul class="nav nav-sm flex-column">
-                            <li class="nav-item" style="margin: 0 45px;">
+                            <li class="nav-item" style="margin: 0 30px;">
                                 <a href="createvision" class="nav-link" data-key="t-one-page"> Add New </a>
                             </li>
-                            <li class="nav-item" style="margin: 0 45px;">
+                            <li class="nav-item" style="margin: 0 30px;">
                                 <a href="vision" class="nav-link" data-key="t-nft-landing">List </a>
                             </li>
                         </ul>
@@ -150,16 +148,16 @@ $username = $_SESSION['username'];
 
 
                 <li class="nav-item">
-                    <a class="nav-link menu-link" style="margin: 0 20px;" href="#sidebarLanding"
-                        data-bs-toggle="collapse" role="button" aria-expanded="true" aria-controls="sidebarLanding">
+                    <a class="nav-link menu-link" href="#sidebarLanding" data-bs-toggle="collapse" role="button"
+                        aria-expanded="true" aria-controls="sidebarLanding">
                         <i class="ri-checkbox-multiple-line"></i> <span data-key="t-landing">Values</span>
                     </a>
                     <div class="menu-dropdown collapse" id="sidebarLanding" style="">
                         <ul class="nav nav-sm flex-column">
-                            <li class="nav-item" style="margin: 0 45px;">
+                            <li class="nav-item" style="margin: 0 30px;">
                                 <a href="createservice" class="nav-link" data-key="t-one-page"> Add New </a>
                             </li>
-                            <li class="nav-item" style="margin: 0 45px;">
+                            <li class="nav-item" style="margin: 0 30px;">
                                 <a href="services" class="nav-link" data-key="t-nft-landing"> List </a>
                             </li>
                         </ul>
@@ -167,37 +165,35 @@ $username = $_SESSION['username'];
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link menu-link" style="margin: 0 20px;" href="#sidebarStr" data-bs-toggle="collapse"
-                        role="button" aria-expanded="true" aria-controls="sidebarLanding">
+                    <a class="nav-link menu-link" href="#sidebarStr" data-bs-toggle="collapse" role="button"
+                        aria-expanded="true" aria-controls="sidebarLanding">
                         <i class="ri-organization-chart"></i> <span data-key="t-landing">Structure</span>
                     </a>
                     <div class="menu-dropdown collapse" id="sidebarStr" style="">
                         <ul class="nav nav-sm flex-column">
-                            <li class="nav-item" style="margin: 0 45px;">
+                            <li class="nav-item" style="margin: 0 30px;">
                                 <a href="createstructure" class="nav-link" data-key="t-one-page"> Add New </a>
                             </li>
-                            <li class="nav-item" style="margin: 0 45px;">
+                            <li class="nav-item" style="margin: 0 30px;">
                                 <a href="structure" class="nav-link" data-key="t-nft-landing"> List </a>
                             </li>
                         </ul>
                     </div>
                 </li>
 
-                <li class="nav-item has-treeview menu">
-                    <h5 class="pt-3 pb-1" style="color:#a7bbdb; margin: 0 15px;">BLOG SECTION</h5>
-                </li>
+                <li class="menu-title"><span data-key="t-menu">PROJECT SECTION</span></li>
 
                 <li class="nav-item">
-                    <a class="nav-link menu-link" style="margin: 0 20px;" href="#sidebarU" data-bs-toggle="collapse"
-                        role="button" aria-expanded="true" aria-controls="sidebarLanding">
+                    <a class="nav-link menu-link" href="#sidebarU" data-bs-toggle="collapse" role="button"
+                        aria-expanded="true" aria-controls="sidebarLanding">
                         <i class="ri-bar-chart-grouped-fill"></i> <span data-key="t-landing">Category</span>
                     </a>
                     <div class="menu-dropdown collapse" id="sidebarU" style="">
                         <ul class="nav nav-sm flex-column">
-                            <li class="nav-item" style="margin: 0 45px;">
+                            <li class="nav-item" style="margin: 0 30px;">
                                 <a href="createcategory" class="nav-link" data-key="t-one-page"> Add New </a>
                             </li>
-                            <li class="nav-item" style="margin: 0 45px;">
+                            <li class="nav-item" style="margin: 0 30px;">
                                 <a href="categorylist" class="nav-link" data-key="t-nft-landing">List </a>
                             </li>
                         </ul>
@@ -205,38 +201,36 @@ $username = $_SESSION['username'];
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link menu-link" style="margin: 0 20px;" href="#sidebarGU" data-bs-toggle="collapse"
-                        role="button" aria-expanded="true" aria-controls="sidebarLanding">
+                    <a class="nav-link menu-link" href="#sidebarGU" data-bs-toggle="collapse" role="button"
+                        aria-expanded="true" aria-controls="sidebarLanding">
                         <i class="ri-task-line"></i> <span data-key="t-landing">Project</span>
                     </a>
 
                     <div class="menu-dropdown collapse" id="sidebarGU" style="">
                         <ul class="nav nav-sm flex-column">
-                            <li class="nav-item" style="margin: 0 45px;">
+                            <li class="nav-item" style="margin: 0 30px;">
                                 <a href="createproject" class="nav-link" data-key="t-one-page"> Add New </a>
                             </li>
-                            <li class="nav-item" style="margin: 0 45px;">
+                            <li class="nav-item" style="margin: 0 30px;">
                                 <a href="projectlist" class="nav-link" data-key="t-nft-landing">List </a>
                             </li>
                         </ul>
                     </div>
                 </li>
 
-                <li class="nav-item has-treeview menu">
-                    <h5 class="pt-3 pb-1" style="color:#a7bbdb; margin: 0 15px;">BLOG SECTION</h5>
-                </li>
+                <li class="menu-title"><span data-key="t-menu">OTHER</span></li>
 
                 <li class="nav-item">
-                    <a class="nav-link menu-link" style="margin: 0 20px;" href="#sidebarPL" data-bs-toggle="collapse"
-                        role="button" aria-expanded="true" aria-controls="sidebarLanding">
+                    <a class="nav-link menu-link" href="#sidebarPL" data-bs-toggle="collapse" role="button"
+                        aria-expanded="true" aria-controls="sidebarLanding">
                         <i class="ri-contacts-fill"></i> <span data-key="t-landing">Partner Logo</span>
                     </a>
                     <div class="menu-dropdown collapse" id="sidebarPL" style="">
                         <ul class="nav nav-sm flex-column">
-                            <li class="nav-item" style="margin: 0 45px;">
+                            <li class="nav-item" style="margin: 0 30px;">
                                 <a href="createpartner" class="nav-link" data-key="t-one-page"> Add New </a>
                             </li>
-                            <li class="nav-item" style="margin: 0 45px;">
+                            <li class="nav-item" style="margin: 0 30px;">
                                 <a href="partner" class="nav-link" data-key="t-nft-landing">List </a>
                             </li>
                         </ul>
@@ -244,16 +238,16 @@ $username = $_SESSION['username'];
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link menu-link" style="margin: 0 20px;" href="#sidebarX" data-bs-toggle="collapse"
-                        role="button" aria-expanded="true" aria-controls="sidebarLanding">
+                    <a class="nav-link menu-link" href="#sidebarX" data-bs-toggle="collapse" role="button"
+                        aria-expanded="true" aria-controls="sidebarLanding">
                         <i class="ri-chrome-fill"></i> <span data-key="t-landing">Social Media</span>
                     </a>
                     <div class="menu-dropdown collapse" id="sidebarX" style="">
                         <ul class="nav nav-sm flex-column">
-                            <li class="nav-item" style="margin: 0 45px;">
+                            <li class="nav-item" style="margin: 0 30px;">
                                 <a href="createsocial" class="nav-link" data-key="t-one-page"> Add New </a>
                             </li>
-                            <li class="nav-item" style="margin: 0 45px;">
+                            <li class="nav-item" style="margin: 0 30px;">
                                 <a href="social" class="nav-link" data-key="t-nft-landing">List </a>
                             </li>
                         </ul>
@@ -261,33 +255,21 @@ $username = $_SESSION['username'];
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link menu-link" style="margin: 0 20px;" href="#sidebarT" data-bs-toggle="collapse"
-                        role="button" aria-expanded="true" aria-controls="sidebarLanding">
+                    <a class="nav-link menu-link" href="#sidebarT" data-bs-toggle="collapse" role="button"
+                        aria-expanded="true" aria-controls="sidebarLanding">
                         <i class="ri-message-line"></i> <span data-key="t-landing">Testimony</span>
                     </a>
                     <div class="menu-dropdown collapse" id="sidebarT" style="">
                         <ul class="nav nav-sm flex-column">
-                            <li class="nav-item" style="margin: 0 45px;">
+                            <li class="nav-item" style="margin: 0 30px;">
                                 <a href="newtestimony" class="nav-link" data-key="t-one-page">Add New</a>
                             </li>
-                            <li class="nav-item" style="margin: 0 45px;">
+                            <li class="nav-item" style="margin: 0 30px;">
                                 <a href="testimony" class="nav-link" data-key="t-nft-landing"> List </a>
                             </li>
                         </ul>
                     </div>
                 </li>
-
-
-
-
-
-
-
-
-
-
-
-
             </ul>
         </div>
         <!-- Sidebar -->
