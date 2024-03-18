@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 08 Mar 2024 pada 03.59
+-- Waktu pembuatan: 18 Mar 2024 pada 06.44
 -- Versi server: 10.4.27-MariaDB
 -- Versi PHP: 8.2.0
 
@@ -86,6 +86,30 @@ INSERT INTO `blog` (`id`, `blog_title`, `blog_detail`, `ufile`, `updated_at`) VA
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `categories_news`
+--
+
+CREATE TABLE `categories_news` (
+  `news_id` int(11) NOT NULL,
+  `news_name` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `categories_news`
+--
+
+INSERT INTO `categories_news` (`news_id`, `news_name`) VALUES
+(1, 'News 1'),
+(2, 'News 2'),
+(3, 'News 3'),
+(4, 'News 3'),
+(5, 'News 3'),
+(6, 'News 3'),
+(7, 'news 56');
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `category`
 --
 
@@ -105,7 +129,7 @@ INSERT INTO `category` (`cat_id`, `name`) VALUES
 (14, 'Boiler'),
 (16, 'Paving'),
 (17, 'Instalasi Tangki'),
-(22, 'Farhanah sajidah');
+(22, 'Farhanah sajidahh');
 
 -- --------------------------------------------------------
 
@@ -152,6 +176,29 @@ INSERT INTO `logo` (`id`, `xfile`, `ufile`, `updated_at`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `news`
+--
+
+CREATE TABLE `news` (
+  `id` int(11) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `content` varchar(255) NOT NULL,
+  `author` varchar(255) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `ufile` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `news`
+--
+
+INSERT INTO `news` (`id`, `title`, `content`, `author`, `created_at`, `ufile`) VALUES
+(2, 'ini title ke dua', 'ini title ke dua ini title ke dua ini title ke dua ini title ke duaini title ke dua', 'Aanda', '2024-03-18 03:46:40', 'about.jpg'),
+(3, 'iftqfstwdwftsdwqsvqwvsgfwqv', 'iftqfstwdwftsdwqsvqwvsgfwqv iftqfstwdwftsdwqsvqwvsgfwqv iftqfstwdwftsdwqsvqwvsgfwqv iftqfstwdwftsdwqsvqwvsgfwqv iftqfstwdwftsdwqsvqwvsgfwqv iftqfstwdwftsdwqsvqwvsgfwqv iftqfstwdwftsdwqsvqwvsgfwqv iftqfstwdwftsdwqsvqwvsgfwqv ', 'iya', '2024-03-18 04:13:38', 'about.jpg');
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `partner`
 --
 
@@ -169,7 +216,7 @@ INSERT INTO `partner` (`id`, `ufile`) VALUES
 (11, '65552.png'),
 (12, '45423.png'),
 (13, '82774.png'),
-(14, '11465.png');
+(14, '3521Tanpa judul (720 x 500 piksel) (720 x 200 piksel) (500 x 200 piksel) (1).png');
 
 -- --------------------------------------------------------
 
@@ -223,7 +270,7 @@ CREATE TABLE `project` (
 
 INSERT INTO `project` (`id`, `code`, `date`, `client`, `proj_title`, `proj_desc`, `proj_detail`, `ufile`, `location`, `cat_id`, `st_id`) VALUES
 (27, 'ARC-SPIN/PRJ/2023/1/', '25-Sep-2023', 'PT. Multimas Nabati Asahan', 'Construction of Storage Tank', 'Construction of Storage Tank 1x300T & 4x500 MT SS', 'Pekerjaan Construction of Storage Tank 1x300T & 4x500 MT SS PT. Multimas Nabati Asahan yang berlokasi di Serang ', '5525about.jpg', 'Serang', 1, 3),
-(28, 'ARC-SPIN/PRJ/2023/1/', '20-Nov-2023', 'PT. Wilmar Nabati Indonesia', 'Fabrikasi & Installasi Piping', 'Fabrikasi & Installasi Piping ISBL & OSBL, MCT LYG', 'Fabrikasi & Installasi Piping ISBL & OSBL, MCT LYG PT. Wilmar Nabati Indonesia yang berlokasi di Gres', '7834Tanpa judul (720 x 500 piksel) (720 x 200 piksel) (500 x 200 piksel) (1).png', 'Gresik', 7, 3);
+(28, 'ARC-SPIN/PRJ/2023/1/', '20-Nov-2023', 'PT. Wilmar Nabati Indonesia', 'Fabrikasi & Installasi Piping', ' Fabrikasi & Installasi Piping ISBL & OSBL, MCT LYG', 'Fabrikasi & Installasi Piping ISBL & OSBL, MCT LYG PT. Wilmar Nabati Indonesia yang berlokasi di Gresik', '7834Tanpa judul (720 x 500 piksel) (720 x 200 piksel) (500 x 200 piksel) (1).png', 'Gresik', 7, 3);
 
 -- --------------------------------------------------------
 
@@ -303,7 +350,7 @@ CREATE TABLE `siteconfig` (
 --
 
 INSERT INTO `siteconfig` (`id`, `site_keyword`, `site_desc`, `site_title`, `site_about`, `site_footer`, `follow_text`, `site_url`, `updated_at`) VALUES
-(1, 'Church, Marketing', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit nihil tenetur minus quidem est deserunt molestias accusamus harum ullam tempore debitis et, expedita, repellat delectus aspernatur neque itaque qui quod.', 'Website', '  Young coders can use events to coordinate timing and communication between different sprites or pieces of their story. For instance, the when _ key pressed block is an event that starts code whenever the corresponding key on the keyboard is pressed.', '© 2023 All Rights Reserved', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit nihil tenetur minus quidem est deserunt molestias.', 'http://localhost:8080/arcon/', '2024-02-23 04:44:09');
+(1, 'Church, Marketing', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit nihil tenetur minus quidem est deserunt molestias accusamus harum ullam tempore debitis et, expedita, repellat delectus aspernatur neque itaque qui quod.', 'Website', 'Young coders can use events to coordinate timing and communication between different sprites or pieces of their story. For instance, the when _ key pressed block is an event that starts code whenever the corresponding key on the keyboard is pressed.', '© 2023 All Rights Reserved', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit nihil tenetur minus quidem est deserunt molestias.', 'http://localhost:8080/arcon/', '2024-03-08 04:51:05');
 
 -- --------------------------------------------------------
 
@@ -327,7 +374,7 @@ CREATE TABLE `sitecontact` (
 --
 
 INSERT INTO `sitecontact` (`id`, `phone1`, `phone2`, `email1`, `email2`, `longitude`, `latitude`, `updated_at`) VALUES
-(1, '+89 (0) 2354 5470091', '+89 (0) 2354 5470091', 'mail@company.com', 'mail@company.com', '7.099737483', '7.63734634', '2022-07-15 11:05:25');
+(1, '+89 (0) 2354 547001', '+89  2354 5470091', 'mail@company.com', 'mail@company.com', '112.56920593212594', '-7.072249465917425', '2024-03-08 04:50:00');
 
 -- --------------------------------------------------------
 
@@ -389,7 +436,7 @@ CREATE TABLE `static` (
 --
 
 INSERT INTO `static` (`id`, `stitle`, `stext`, `updated_at`) VALUES
-(1, 'We are digital agency & Marketingg', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit nihil tenetur minus quidem est deserunt molestias accusamus harum ullam tempore debitis et, expedita, repellat delectus aspernatur neque itaque qui quod.', '2024-03-05 02:46:27');
+(1, 'PT. Adi Raya Construction', 'Moving forward to global recognition\r\n\r\nWe, at Adi Raya Construction, endeavour, continuously, to improve designs, technology and services to allow our clients to achieve the most cost affective solutions for engineered construction systems. Our aim is customer satisfaction through products and services of Depnaker standards to Oil and Gas Standards, at competitive prices.', '2024-03-13 07:38:46');
 
 -- --------------------------------------------------------
 
@@ -505,6 +552,12 @@ ALTER TABLE `blog`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indeks untuk tabel `categories_news`
+--
+ALTER TABLE `categories_news`
+  ADD PRIMARY KEY (`news_id`);
+
+--
 -- Indeks untuk tabel `category`
 --
 ALTER TABLE `category`
@@ -520,6 +573,12 @@ ALTER TABLE `legality`
 -- Indeks untuk tabel `logo`
 --
 ALTER TABLE `logo`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indeks untuk tabel `news`
+--
+ALTER TABLE `news`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -629,6 +688,12 @@ ALTER TABLE `blog`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
+-- AUTO_INCREMENT untuk tabel `categories_news`
+--
+ALTER TABLE `categories_news`
+  MODIFY `news_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+
+--
 -- AUTO_INCREMENT untuk tabel `category`
 --
 ALTER TABLE `category`
@@ -647,10 +712,16 @@ ALTER TABLE `logo`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT untuk tabel `news`
+--
+ALTER TABLE `news`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT untuk tabel `partner`
 --
 ALTER TABLE `partner`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT untuk tabel `portfolio`
@@ -692,7 +763,7 @@ ALTER TABLE `slider`
 -- AUTO_INCREMENT untuk tabel `social`
 --
 ALTER TABLE `social`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT untuk tabel `static`
