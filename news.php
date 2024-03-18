@@ -69,20 +69,21 @@
     }
 
     .search-bar-container {
-        margin-bottom: 20px;
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
+    margin-bottom: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end; /* Posisikan ke ujung kanan */
+    align-items: center;
+}
 
-    .search-bar {
-        width: calc(100% - 250px); /* Lebar card category plus margin */
-    }
+.search-bar {
+    width: auto; /* Sesuaikan lebar sesuai kebutuhan */
+    max-width: 250px; /* Batasi lebar maksimum */
+}
 
-    .search-bar .form-control {
-        border-radius: 0;
-    }
+.search-bar .form-control {
+    border-radius: 0;
+}
 
     .news-info {
         font-size: 14px;
@@ -94,27 +95,9 @@
 <!-- ***** News Area Start ***** -->
 <section class="section news-area ptb_100">
     <div class="container">
-        <!-- Search Bar -->
-        <div class="row">
-            <div class="col-md-12">
-                <div class="search-bar-container">
-                    <div class="search-bar">
-                        <form action="#" method="get">
-                            <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Search news...">
-                                <div class="input-group-append">
-                                    <button class="btn btn-primary" type="submit"><i class="fa fa-search"></i></button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                    <div style="width: 250px;"></div> <!-- Membuat ruang kosong sebesar lebar card category plus margin -->
-                </div>
-            </div>
-        </div>
-
         <div class="row">
             <div class="col-md-6 col-lg-8">
+                <!-- Konten Berita -->
                 <div class="single-news-item">
                     <div class="news-thumb">
                         <a href="#">
@@ -131,6 +114,7 @@
                     </div>
                 </div>
             </div>
+          
             <div class="col-md-6 col-lg-4">
                 <div class="card mb-4">
                     <div class="card-body">
@@ -144,7 +128,8 @@
                     </div>
                 </div>
             </div>
-        </div>
+            
+           
 
         <div class="row mt-4">
             <div class="col-md-6 col-lg-8">
