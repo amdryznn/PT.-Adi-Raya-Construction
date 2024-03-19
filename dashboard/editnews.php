@@ -5,6 +5,7 @@ include "sidebar.php";
 ?>
 <?php $qn = mysqli_query($con, "SELECT * FROM categories_news"); ?>
 
+
 <!-- ============================================================== -->
 <!-- Start right Content here -->
 <!-- ============================================================== -->
@@ -68,7 +69,7 @@ include "sidebar.php";
                         <?php
                         $status = "OK"; //initial status
                         $msg = "";
-                        if (isset($_POST['save'])) {
+                        if (isset ($_POST['save'])) {
 
                             $title = mysqli_real_escape_string($con, $_POST['title']);
                             $content = mysqli_real_escape_string($con, $_POST['content']);
@@ -155,8 +156,9 @@ include "sidebar.php";
                                             <div class="col-lg-12">
                                                 <div class="mb-3">
                                                     <label for="firstnameInput" class="form-label"> Content</label>
-                                                    <textarea class="form-control" id="exampleFormControlTextarea5"
-                                                        name="content" rows="10"><?php print $content ?></textarea>
+                                                    <textarea class="form-control summernote"
+                                                        id="exampleFormControlTextarea5" name="content"
+                                                        rows="10"><?php echo htmlspecialchars($content); ?></textarea>
                                                 </div>
                                             </div>
 
@@ -191,5 +193,30 @@ include "sidebar.php";
         <!-- container-fluid -->
     </div>
     <!-- End Page-content -->
+
+    <head>
+        <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
+    </head>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+    <script>
+        $('.summernote').summernote({
+            placeholder: 'Percobaan',
+            tabsize: 2,
+            height: 120,
+            toolbar: [
+                ['style', ['style']],
+                ['font', ['bold', 'underline', 'clear']],
+                ['color', ['color']],
+                ['para', ['ul', 'ol', 'paragraph']],
+                ['table', ['table']],
+                ['insert', ['link', 'picture', 'video']],
+                ['view', ['fullscreen', 'codeview', 'help']]
+            ]
+        });
+    </script>
 
     <?php include "footer.php"; ?>

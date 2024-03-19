@@ -6,7 +6,7 @@ $qc = mysqli_query($con, "SELECT * FROM categories_news");
 <?php
 $qn = mysqli_query($con, "SELECT * FROM news");
 ?>
-<!-- ***** Breadcrumb Area Start ***** -->
+<!-- ** Breadcrumb Area Start ** -->
 <section class="section breadcrumb-area overlay-dark d-flex align-items-center">
     <div class="container">
         <div class="row">
@@ -23,7 +23,7 @@ $qn = mysqli_query($con, "SELECT * FROM news");
         </div>
     </div>
 </section>
-<!-- ***** Breadcrumb Area End ***** -->
+<!-- ** Breadcrumb Area End ** -->
 
 <style>
     .single-news-item {
@@ -102,7 +102,7 @@ $qn = mysqli_query($con, "SELECT * FROM news");
     }
 </style>
 
-<!-- ***** News Area Start ***** -->
+<!-- ** News Area Start ** -->
 <!-- Konten Berita -->
 <?php
 $rt = mysqli_query($con, "SELECT * FROM news");
@@ -115,7 +115,7 @@ $ufile = "$tr[ufile]";
 ?>
 
 
-<!-- ***** About Area Start ***** -->
+<!-- ** About Area Start ** -->
 <section class="section news-area ptb_100">
     <div class="container">
         <div class="row">
@@ -141,13 +141,22 @@ $ufile = "$tr[ufile]";
                                 </span>
                             </div>
                             <p>
-                                <?php echo $news['content']; ?>
+                                <?php
+                                // Memotong konten menjadi 2 baris dan menambahkan titik-titik jika perlu
+                                $content = $news['content'];
+                                if (strlen($content) > 100) {
+                                    $content = substr($content, 0, 200);
+                                    $content = substr($content, 0, strrpos($content, ' ')) . '...';
+                                }
+                                echo $content;
+                                ?>
                             </p>
-                            <a href="#" class="btn btn-primary">Read More</a>
+                            <a href="newsdetail.php" class="btn btn-primary">Read More</a>
                         </div>
                     </div>
                 <?php endforeach; ?>
             </div>
+
 
             <!-- Categories div -->
             <div class="col-md-6 col-lg-4">
@@ -181,7 +190,7 @@ $ufile = "$tr[ufile]";
 
 <!-- Add more news items as needed -->
 
-<!-- ***** You Might Also Like Section Start ***** -->
+<!-- ** You Might Also Like Section Start ** -->
 <section class="section news-area ptb_100">
     <div class="container">
         <div class="row">
@@ -255,10 +264,10 @@ $ufile = "$tr[ufile]";
         </div>
     </div>
 </section>
-<!-- ***** You Might Also Like Section End ***** -->
+<!-- ** You Might Also Like Section End ** -->
 </div>
 </section>
-<!-- ***** News Area End ***** -->
+<!-- ** News Area End ** -->
 
 <!--====== Call To Action Area Start ======-->
 <section class="section cta-area bg-overlay ptb_100">

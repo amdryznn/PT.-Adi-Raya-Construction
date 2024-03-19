@@ -4,9 +4,6 @@
 
 
 
-<!-- ============================================================== -->
-<!-- Start right Content here -->
-<!-- ============================================================== -->
 <div class="main-content">
     <div class="page-content">
         <div class="container-fluid">
@@ -53,8 +50,8 @@
                         <?php
                         $status = "OK"; //initial status
                         $msg = "";
-                        if (isset($_POST['save'])) {
-                           
+                        if (isset ($_POST['save'])) {
+
                             $title = mysqli_real_escape_string($con, $_POST['title']);
                             $content = mysqli_real_escape_string($con, $_POST['content']);
                             $author = mysqli_real_escape_string($con, $_POST['author']);
@@ -70,10 +67,7 @@
                                 $status = "NOTOK";
                             }
 
-                            if (strlen($content) > 150) {
-                                $msg = $msg . "Content Must Be Less Than 15 Char Length.<BR>";
-                                $status = "NOTOK";
-                            }
+
 
 
 
@@ -167,8 +161,9 @@
                                             <div class="col-lg-12">
                                                 <div class="mb-3">
                                                     <label for="firstnameInput" class="form-label"> Content</label>
-                                                    <textarea class="form-control" id="exampleFormControlTextarea5"
-                                                        name="content" rows="10"></textarea>
+                                                    <textarea class="form-control summernote"
+                                                        id="exampleFormControlTextarea5" name="content"
+                                                        rows="10"></textarea>
                                                 </div>
                                             </div>
 
@@ -210,5 +205,42 @@
         <!-- container-fluid -->
     </div>
     <!-- End Page-content -->
+
+    <head>
+        <style>
+            .note-editor .dropdown-toggle::after {
+                all: unset;
+            }
+
+            .note-editor .note-dropdown-menu {
+                box-sizing: content-box;
+            }
+
+            .note-editor .note-modal-footer {
+                box-sizing: content-box;
+            }
+        </style>
+    </head>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+    <script>
+        $('.summernote').summernote({
+            placeholder: 'Percobaan',
+            tabsize: 2,
+            height: 120,
+            toolbar: [
+                ['style', ['style']],
+                ['font', ['bold', 'underline', 'clear']],
+                ['color', ['color']],
+                ['para', ['ul', 'ol', 'paragraph']],
+                ['table', ['table']],
+                ['insert', ['link', 'picture', 'video']],
+                ['view', ['fullscreen', 'codeview', 'help']]
+            ]
+        });
+    </script>
 
     <?php include "footer.php"; ?>

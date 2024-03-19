@@ -1,27 +1,23 @@
+<?php include "header.php"; ?>
 <?php
-// Sertakan file koneksi ke database dan header
-include "header.php";
-
-// Ambil ID kategori dari URL
-$kategori_id = mysqli_real_escape_string($con, $_GET["id"]);
-
-// Kueri untuk mengambil berita berdasarkan kategori yang dipilih
-$qn = mysqli_query($con, "SELECT * FROM news WHERE news_id = '$kategori_id'");
-
-// Kueri untuk mengambil daftar kategori
 $qc = mysqli_query($con, "SELECT * FROM categories_news");
 ?>
-<!-- ***** Breadcrumb Area Start ***** -->
+
+<?php
+$qn = mysqli_query($con, "SELECT * FROM news");
+?>
+
+<!-- ***** Breadcrumb Area End ***** -->
 <section class="section breadcrumb-area overlay-dark d-flex align-items-center">
     <div class="container">
         <div class="row">
             <div class="col-12">
                 <!-- Breamcrumb Content -->
                 <div class="breadcrumb-content d-flex flex-column align-items-center text-center">
-                    <h2 class="text-white text-uppercase mb-3">News</h2>
+                    <h2 class="text-white text-uppercase mb-3">News Detail</h2>
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a class="text-uppercase text-white" href="index.php">Home</a></li>
-                        <li class="breadcrumb-item"><a class="text-uppercase text-white" href="#">News</a></li>
+                        <li class="breadcrumb-item"><a class="text-uppercase text-white" href="#">News Detail</a></li>
                     </ol>
                 </div>
             </div>
@@ -140,7 +136,6 @@ $qc = mysqli_query($con, "SELECT * FROM categories_news");
                             <p>
                                 <?php echo $news['content']; ?>
                             </p>
-                            <a href="newsdetail.php" class="btn btn-primary">Read More</a>
                         </div>
                     </div>
                 <?php endforeach; ?>

@@ -1,16 +1,15 @@
+<footer class="footer">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-6">
+                <script>document.write(new Date().getFullYear())</script> ©
+            </div>
+            <div class="col-sm-6">
 
-    <footer class="footer">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-sm-6">
-                    <script>document.write(new Date().getFullYear())</script> © 
-                </div>
-                <div class="col-sm-6">
-                   
-                </div>
             </div>
         </div>
-    </footer>
+    </div>
+</footer>
 </div>
 <!-- end main content-->
 
@@ -39,7 +38,9 @@
 
 
 
-<script src="code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+
+
 
 <!--datatable js-->
 <script src="cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
@@ -66,6 +67,7 @@
 
 <!-- App js -->
 <script src="assets/js/app.js"></script>
+
 </body>
 
 

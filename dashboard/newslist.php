@@ -30,13 +30,15 @@
 
 
             <div class="row">
-    <div class="col-lg-12">
-        <div class="card">
-            <div class="card-header">
-                <h5 class="card-title mb-0">News List</h5>
-            </div>
-            <div class="card-body" style="overflow-x: auto;">
-                <table id="example" class="table table-bordered dt-responsive nowrap table-striped align-middle" style="width:100%">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="card-title mb-0">News List</h5>
+                        </div>
+                        <div class="card-body" style="overflow-x: auto;">
+                            <table id="example"
+                                class="table table-bordered dt-responsive nowrap table-striped align-middle"
+                                style="width:100%">
                                 <thead>
                                     <tr>
                                         <th data-ordering="false">Image</th>
@@ -70,7 +72,7 @@
 
 
 
-                                        print "<tr>
+                                        echo "<tr>
     <td>
         <img src='uploads/news/$ufile' alt='img' style='max-height:50px;'>
     </td>
