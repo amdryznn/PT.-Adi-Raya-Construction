@@ -186,7 +186,7 @@ $username = $_SESSION['username'];
                 <li class="nav-item">
                     <a class="nav-link menu-link" href="#sidebarU" data-bs-toggle="collapse" role="button"
                         aria-expanded="true" aria-controls="sidebarLanding">
-                        <i class="ri-bar-chart-grouped-fill"></i> <span data-key="t-landing">Category</span>
+                        <i class="ri-bar-chart-grouped-fill"></i> <span data-key="t-landing">Project Category</span>
                     </a>
                     <div class="menu-dropdown collapse" id="sidebarU" style="">
                         <ul class="nav nav-sm flex-column">
@@ -223,7 +223,7 @@ $username = $_SESSION['username'];
                 <li class="nav-item">
                     <a class="nav-link menu-link" href="#sidebarNS" data-bs-toggle="collapse" role="button"
                         aria-expanded="true" aria-controls="sidebarLanding">
-                        <i class="ri-bar-chart-grouped-fill"></i> <span data-key="t-landing">Category</span>
+                        <i class="ri-file-chart-line"></i> <span data-key="t-landing">News Category</span>
                     </a>
                     <div class="menu-dropdown collapse" id="sidebarNS" style="">
                         <ul class="nav nav-sm flex-column">
@@ -240,7 +240,7 @@ $username = $_SESSION['username'];
                 <li class="nav-item">
                     <a class="nav-link menu-link" href="#sidebarNEWS" data-bs-toggle="collapse" role="button"
                         aria-expanded="true" aria-controls="sidebarLanding">
-                        <i class="ri-task-line"></i> <span data-key="t-landing">News</span>
+                        <i class="ri-profile-line"></i> <span data-key="t-landing">News</span>
                     </a>
 
                     <div class="menu-dropdown collapse" id="sidebarNEWS" style="">

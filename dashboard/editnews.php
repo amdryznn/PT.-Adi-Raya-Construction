@@ -1,8 +1,9 @@
-<?php include "header.php"; ?>
-<?php include "sidebar.php"; ?>
+<?php
+include "header.php";
+$todo = mysqli_real_escape_string($con, $_GET['id']);
+include "sidebar.php";
+?>
 <?php $qn = mysqli_query($con, "SELECT * FROM categories_news"); ?>
-
-
 
 <!-- ============================================================== -->
 <!-- Start right Content here -->
@@ -19,8 +20,9 @@
 
                         <div class="page-title-right">
                             <ol class="breadcrumb m-0">
-                                <li class="breadcrumb-item"><a href="javascript: void(0);">News</a></li>
-                                <li class="breadcrumb-item active">Add</li>
+                                <li class="breadcrumb-item"><a href="javascript: void(0);">News</a>
+                                </li>
+                                <li class="breadcrumb-item active">Edit</li>
                             </ol>
                         </div>
 
@@ -28,7 +30,20 @@
                 </div>
             </div>
             <!-- end page title -->
+            <?php
+            $query = "SELECT * FROM news where id='$todo' ";
 
+
+            $result = mysqli_query($con, $query);
+            $i = 0;
+            while ($ro = mysqli_fetch_array($result)) {
+                $id = "$ro[id]";
+                $title = "$ro[title]";
+                $content = "$ro[content]";
+                $author = "$ro[author]";
+                $news_id = "$ro[news_id]";
+            }
+            ?>
 
             <div class="row">
 
@@ -40,7 +55,7 @@
                                 <li class="nav-item">
                                     <a class="nav-link active" data-bs-toggle="tab" href="#personalDetails" role="tab"
                                         aria-selected="false">
-                                        <i class="fas fa-home"></i> Add News
+                                        <i class="fas fa-home"></i> Edit News
                                     </a>
                                 </li>
 
@@ -54,49 +69,22 @@
                         $status = "OK"; //initial status
                         $msg = "";
                         if (isset($_POST['save'])) {
-                           
+
                             $title = mysqli_real_escape_string($con, $_POST['title']);
                             $content = mysqli_real_escape_string($con, $_POST['content']);
                             $author = mysqli_real_escape_string($con, $_POST['author']);
                             $news_id = mysqli_real_escape_string($con, $_POST['news_id']);
 
-                            if (strlen($title) < 1) {
-                                $msg = $msg . "Title Must Be More Than 5 Char Length.<BR>";
-                                $status = "NOTOK";
-                            }
 
-                            if (strlen($author) < 1) {
-                                $msg = $msg . "Author Must Be More Than 5 Char Length.<BR>";
-                                $status = "NOTOK";
-                            }
-
-                            if (strlen($content) > 150) {
-                                $msg = $msg . "Content Must Be Less Than 15 Char Length.<BR>";
-                                $status = "NOTOK";
-                            }
-
-
-
-
-                            $uploads_dir = 'uploads/news';
-
-                            $tmp_name = $_FILES["ufile"]["tmp_name"];
-                            // basename() may prevent filesystem traversal attacks;
-                            // further validation/sanitation of the filename may be appropriate
-                            $name = basename($_FILES["ufile"]["name"]);
-                            $random_digit = rand(0000, 9999);
-                            $new_file_name = $random_digit . $name;
-
-                            move_uploaded_file($tmp_name, "$uploads_dir/$new_file_name");
 
                             if ($status == "OK") {
-                                $qb = mysqli_query($con, "INSERT INTO news (title, content, author, ufile, news_id) VALUES ('$title', '$content', '$author', '$new_file_name','$news_id')");
+                                $qb = mysqli_query($con, "update news set title='$title', content='$content', author='$author', news_id='$news_id' where id='$todo'");
 
 
                                 if ($qb) {
                                     $errormsg = "
 <div class='alert alert-success alert-dismissible alert-outline fade show'>
-                  News has been added successfully.
+                 News Updated successfully.
                   <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
                   </div>
  "; //printing error if found in validation
@@ -130,29 +118,29 @@
                                         print $errormsg;
                                     }
                                     ?>
-
-
                                     <form action="" method="post" enctype="multipart/form-data">
                                         <div class="row">
 
+                                            <!-- Select Category -->
                                             <div class="mb-3">
                                                 <h6>News</h6>
                                                 <select class="form-select" aria-label="Default select example"
                                                     name="news_id">
-                                                    <option selected>Select News Category</option>
+                                                    <option>Select News Category</option>
                                                     <?php foreach ($qn as $row): ?>
-                                                        <option value="<?= $row["news_id"] ?>">
+                                                        <option value="<?= $row["news_id"] ?>" <?php echo ($row["news_id"] == $news_id) ? 'selected' : ''; ?>>
                                                             <?= $row["news_name"] ?>
                                                         </option>
                                                     <?php endforeach ?>
                                                 </select>
                                             </div>
 
+
                                             <div class="col-lg-6">
                                                 <div class="mb-3">
                                                     <label for="firstnameInput" class="form-label"> Title</label>
                                                     <textarea class="form-control" id="exampleFormControlTextarea5"
-                                                        name="title" rows="1"></textarea>
+                                                        name="title" rows="1"><?php print $title ?></textarea>
                                                 </div>
                                             </div>
 
@@ -160,7 +148,7 @@
                                                 <div class="mb-3">
                                                     <label for="firstnameInput" class="form-label"> Author</label>
                                                     <textarea class="form-control" id="exampleFormControlTextarea5"
-                                                        name="author" rows="1"></textarea>
+                                                        name="author" rows="1"><?php print $author ?></textarea>
                                                 </div>
                                             </div>
 
@@ -168,22 +156,15 @@
                                                 <div class="mb-3">
                                                     <label for="firstnameInput" class="form-label"> Content</label>
                                                     <textarea class="form-control" id="exampleFormControlTextarea5"
-                                                        name="content" rows="10"></textarea>
+                                                        name="content" rows="10"><?php print $content ?></textarea>
                                                 </div>
                                             </div>
 
-                                            <div class="col-lg-6">
-                                                <div class="mb-3">
-                                                    <label for="firstnameInput" class="form-label">Photo</label>
-                                                    <input type="file" class="form-control" id="firstnameInput"
-                                                        name="ufile">
-                                                </div>
-                                            </div>
 
                                             <!--end col-->
                                             <div class="col-lg-12">
                                                 <div class="hstack gap-2 justify-content-end">
-                                                    <button type="submit" name="save" class="btn btn-primary">Add
+                                                    <button type="submit" name="save" class="btn btn-primary">Update
                                                         News</button>
 
                                                 </div>

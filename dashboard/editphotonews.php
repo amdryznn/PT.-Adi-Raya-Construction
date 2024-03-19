@@ -1,8 +1,9 @@
-<?php include "header.php"; ?>
-<?php include "sidebar.php"; ?>
-<?php $qn = mysqli_query($con, "SELECT * FROM categories_news"); ?>
+<?php
+include "header.php";
+$todo = mysqli_real_escape_string($con, $_GET['id']);
+include "sidebar.php";
 
-
+?>
 
 <!-- ============================================================== -->
 <!-- Start right Content here -->
@@ -19,8 +20,9 @@
 
                         <div class="page-title-right">
                             <ol class="breadcrumb m-0">
-                                <li class="breadcrumb-item"><a href="javascript: void(0);">News</a></li>
-                                <li class="breadcrumb-item active">Add</li>
+                                <li class="breadcrumb-item"><a href="javascript: void(0);">News Photo</a>
+                                </li>
+                                <li class="breadcrumb-item active">Edit</li>
                             </ol>
                         </div>
 
@@ -28,7 +30,17 @@
                 </div>
             </div>
             <!-- end page title -->
+            <?php
+            $query = "SELECT * FROM  news where id='$todo' ";
 
+
+            $result = mysqli_query($con, $query);
+            $i = 0;
+            while ($row = mysqli_fetch_array($result)) {
+                $id = "$row[id]";
+                $ufile = "$row[ufile]";
+            }
+            ?>
 
             <div class="row">
 
@@ -40,7 +52,7 @@
                                 <li class="nav-item">
                                     <a class="nav-link active" data-bs-toggle="tab" href="#personalDetails" role="tab"
                                         aria-selected="false">
-                                        <i class="fas fa-home"></i> Add News
+                                        <i class="fas fa-home"></i> Edit News Photo
                                     </a>
                                 </li>
 
@@ -54,29 +66,6 @@
                         $status = "OK"; //initial status
                         $msg = "";
                         if (isset($_POST['save'])) {
-                           
-                            $title = mysqli_real_escape_string($con, $_POST['title']);
-                            $content = mysqli_real_escape_string($con, $_POST['content']);
-                            $author = mysqli_real_escape_string($con, $_POST['author']);
-                            $news_id = mysqli_real_escape_string($con, $_POST['news_id']);
-
-                            if (strlen($title) < 1) {
-                                $msg = $msg . "Title Must Be More Than 5 Char Length.<BR>";
-                                $status = "NOTOK";
-                            }
-
-                            if (strlen($author) < 1) {
-                                $msg = $msg . "Author Must Be More Than 5 Char Length.<BR>";
-                                $status = "NOTOK";
-                            }
-
-                            if (strlen($content) > 150) {
-                                $msg = $msg . "Content Must Be Less Than 15 Char Length.<BR>";
-                                $status = "NOTOK";
-                            }
-
-
-
 
                             $uploads_dir = 'uploads/news';
 
@@ -90,13 +79,13 @@
                             move_uploaded_file($tmp_name, "$uploads_dir/$new_file_name");
 
                             if ($status == "OK") {
-                                $qb = mysqli_query($con, "INSERT INTO news (title, content, author, ufile, news_id) VALUES ('$title', '$content', '$author', '$new_file_name','$news_id')");
+                                $qb = mysqli_query($con, "update news set ufile='$new_file_name' where id='$todo'");
 
 
                                 if ($qb) {
                                     $errormsg = "
 <div class='alert alert-success alert-dismissible alert-outline fade show'>
-                  News has been added successfully.
+                 News Photo Updated successfully.
                   <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
                   </div>
  "; //printing error if found in validation
@@ -130,61 +119,26 @@
                                         print $errormsg;
                                     }
                                     ?>
-
-
                                     <form action="" method="post" enctype="multipart/form-data">
                                         <div class="row">
-
-                                            <div class="mb-3">
-                                                <h6>News</h6>
-                                                <select class="form-select" aria-label="Default select example"
-                                                    name="news_id">
-                                                    <option selected>Select News Category</option>
-                                                    <?php foreach ($qn as $row): ?>
-                                                        <option value="<?= $row["news_id"] ?>">
-                                                            <?= $row["news_name"] ?>
-                                                        </option>
-                                                    <?php endforeach ?>
-                                                </select>
-                                            </div>
-
-                                            <div class="col-lg-6">
-                                                <div class="mb-3">
-                                                    <label for="firstnameInput" class="form-label"> Title</label>
-                                                    <textarea class="form-control" id="exampleFormControlTextarea5"
-                                                        name="title" rows="1"></textarea>
-                                                </div>
-                                            </div>
-
-                                            <div class="col-lg-6">
-                                                <div class="mb-3">
-                                                    <label for="firstnameInput" class="form-label"> Author</label>
-                                                    <textarea class="form-control" id="exampleFormControlTextarea5"
-                                                        name="author" rows="1"></textarea>
-                                                </div>
-                                            </div>
-
-                                            <div class="col-lg-12">
-                                                <div class="mb-3">
-                                                    <label for="firstnameInput" class="form-label"> Content</label>
-                                                    <textarea class="form-control" id="exampleFormControlTextarea5"
-                                                        name="content" rows="10"></textarea>
-                                                </div>
-                                            </div>
 
                                             <div class="col-lg-6">
                                                 <div class="mb-3">
                                                     <label for="firstnameInput" class="form-label">Photo</label>
                                                     <input type="file" class="form-control" id="firstnameInput"
                                                         name="ufile">
+                                                    <?php print $ufile ?></textarea>
                                                 </div>
                                             </div>
+
+
+                                            <!--end col-->
 
                                             <!--end col-->
                                             <div class="col-lg-12">
                                                 <div class="hstack gap-2 justify-content-end">
-                                                    <button type="submit" name="save" class="btn btn-primary">Add
-                                                        News</button>
+                                                    <button type="submit" name="save" class="btn btn-primary">Update
+                                                        News Photo</button>
 
                                                 </div>
                                             </div>
