@@ -1,11 +1,10 @@
 <?php include "header.php"; ?>
-<?php
-$qc = mysqli_query($con, "SELECT * FROM categories_news");
-?>
 
 <?php
-$qn = mysqli_query($con, "SELECT * FROM news");
-?>
+$qc = mysqli_query($con, "SELECT * FROM categories_news");?>
+
+<?php $todo= mysqli_real_escape_string($con,$_GET["id"]);?>
+
 
 <!-- ***** Breadcrumb Area End ***** -->
 <section class="section breadcrumb-area overlay-dark d-flex align-items-center">
@@ -25,6 +24,20 @@ $qn = mysqli_query($con, "SELECT * FROM news");
     </div>
 </section>
 <!-- ***** Breadcrumb Area End ***** -->
+<?php 
+$todo = mysqli_real_escape_string($con, $todo);
+
+$rt = mysqli_query($con, "SELECT * FROM news WHERE id = $todo");
+$tr = mysqli_fetch_array($rt);
+$title = htmlspecialchars ($tr ['title']);
+$author = htmlspecialchars ($tr['author']);
+$content = htmlspecialchars ($tr['content']);
+$ufile = htmlspecialchars ($tr['ufile']);
+?>
+
+
+
+
 
 <style>
     .single-news-item {
@@ -107,38 +120,25 @@ $qn = mysqli_query($con, "SELECT * FROM news");
 <!-- Konten Berita -->
 
 
-
-<!-- ***** About Area Start ***** -->
+<!-- ***** News Area Start ***** -->
 <section class="section news-area ptb_100">
     <div class="container">
         <div class="row">
             <div class="col-md-6 col-lg-8">
-                <?php foreach ($qn as $news): ?>
-                    <!-- Tampilkan berita berdasarkan kategori yang dipilih -->
-                    <div class="single-news-item">
-                        <div class="news-thumb">
-                            <a href="#">
-                                <img src="dashboard/uploads/news/<?php echo $news['ufile']; ?>" alt="News Image">
-                            </a>
-                        </div>
-                        <div class="news-content">
-                            <h3>
-                                <?php echo $news['title']; ?>
-                            </h3>
-                            <div class="news-info">
-                                <span class="news-date">
-                                    <?php echo $news['created_at']; ?>
-                                </span> |
-                                <span class="news-author">
-                                    <?php echo $news['author']; ?>
-                                </span>
-                            </div>
-                            <p>
-                                <?php echo $news['content']; ?>
-                            </p>
-                        </div>
+                <!-- Tampilkan berita -->
+                <div class="single-news-item">
+                    <div class="news-thumb">
+                        <img src="dashboard/uploads/news/<?php echo $tr['ufile']; ?>" alt="News Image">
                     </div>
-                <?php endforeach; ?>
+                    <div class="news-content">
+                        <h3><?php echo $tr['title']; ?></h3>
+                        <div class="news-info">
+                            <span class="news-date"><?php echo $tr['created_at']; ?></span> |
+                            <span class="news-author"><?php echo $tr['author']; ?></span>
+                        </div>
+                        <p><?php echo $tr['content']; ?></p>
+                    </div>
+                </div>
             </div>
 
             <!-- Daftar Kategori -->

@@ -6,6 +6,8 @@ $qc = mysqli_query($con, "SELECT * FROM categories_news");
 <?php
 $qn = mysqli_query($con, "SELECT * FROM news");
 ?>
+
+
 <!-- ** Breadcrumb Area Start ** -->
 <section class="section breadcrumb-area overlay-dark d-flex align-items-center">
     <div class="container">
@@ -107,6 +109,7 @@ $qn = mysqli_query($con, "SELECT * FROM news");
 <?php
 $rt = mysqli_query($con, "SELECT * FROM news");
 $tr = mysqli_fetch_array($rt);
+
 $title = "$tr[title]";
 $content = "$tr[content]";
 $author = "$tr[author]";
@@ -114,6 +117,21 @@ $created_at = $tr['created_at'];
 $ufile = "$tr[ufile]";
 ?>
 
+<?php
+            $q = "SELECT * FROM  news WHERE id = '$id'";
+
+
+            $r123 = mysqli_query($con, $q);
+
+            while ($ro = mysqli_fetch_array($r123)) {
+
+                $id = "$ro[id]";
+                $title = "$tr[title]";
+$content = "$tr[content]";
+$author = "$tr[author]";
+$created_at = $tr['created_at'];
+$ufile = "$tr[ufile]";  }
+                ?>
 
 <!-- ** About Area Start ** -->
 <section class="section news-area ptb_100">
@@ -151,7 +169,8 @@ $ufile = "$tr[ufile]";
                                 echo $content;
                                 ?>
                             </p>
-                            <a href="newsdetail.php" class="btn btn-primary">Read More</a>
+                            <a href="newsdetail.php?id=<?php echo $news['id']; ?>" class="btn btn-primary">Read More</a>
+
                         </div>
                     </div>
                 <?php endforeach; ?>
