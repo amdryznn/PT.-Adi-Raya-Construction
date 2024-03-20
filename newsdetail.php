@@ -1,9 +1,21 @@
 <?php include "header.php"; ?>
 
 <?php
-$qc = mysqli_query($con, "SELECT * FROM categories_news");?>
+$qc = mysqli_query($con, "SELECT * FROM categories_news");
+$todo = mysqli_real_escape_string($con, $_GET["id"]);
 
-<?php $todo= mysqli_real_escape_string($con,$_GET["id"]);?>
+// Ambil berita dari database
+$rt = mysqli_query($con, "SELECT * FROM news WHERE id = $todo");
+$tr = mysqli_fetch_array($rt);
+
+// Sanitasi judul dan penulis
+$title = htmlspecialchars($tr['title']);
+$author = htmlspecialchars($tr['author']);
+
+// Konversi konten dari Summernote
+$content = html_entity_decode($tr['content']);
+$ufile = $tr['ufile'];
+?>
 
 
 <!-- ***** Breadcrumb Area End ***** -->
@@ -24,18 +36,6 @@ $qc = mysqli_query($con, "SELECT * FROM categories_news");?>
     </div>
 </section>
 <!-- ***** Breadcrumb Area End ***** -->
-<?php 
-$todo = mysqli_real_escape_string($con, $todo);
-
-$rt = mysqli_query($con, "SELECT * FROM news WHERE id = $todo");
-$tr = mysqli_fetch_array($rt);
-$title = htmlspecialchars ($tr ['title']);
-$author = htmlspecialchars ($tr['author']);
-$content = htmlspecialchars ($tr['content']);
-$ufile = htmlspecialchars ($tr['ufile']);
-?>
-
-
 
 
 
@@ -128,15 +128,15 @@ $ufile = htmlspecialchars ($tr['ufile']);
                 <!-- Tampilkan berita -->
                 <div class="single-news-item">
                     <div class="news-thumb">
-                        <img src="dashboard/uploads/news/<?php echo $tr['ufile']; ?>" alt="News Image">
+                        <img src="dashboard/uploads/news/<?php echo $ufile; ?>" alt="News Image">
                     </div>
                     <div class="news-content">
-                        <h3><?php echo $tr['title']; ?></h3>
+                        <h3><?php echo $title; ?></h3>
                         <div class="news-info">
                             <span class="news-date"><?php echo $tr['created_at']; ?></span> |
-                            <span class="news-author"><?php echo $tr['author']; ?></span>
+                            <span class="news-author"><?php echo $author; ?></span>
                         </div>
-                        <p><?php echo $tr['content']; ?></p>
+                        <?php echo $content; ?>
                     </div>
                 </div>
             </div>

@@ -140,7 +140,7 @@ $qc = mysqli_query($con, "SELECT * FROM categories_news");
                             <p>
                                 <?php echo $news['content']; ?>
                             </p>
-                            <a href="newsdetail.php" class="btn btn-primary">Read More</a>
+                            <a href="newsdetail.php?id=<?php echo $news['id']; ?>" class="btn btn-primary">Read More</a>
                         </div>
                     </div>
                 <?php endforeach; ?>

@@ -1,9 +1,14 @@
-<?php include "header.php"; ?>
-<?php
-$qc = mysqli_query($con, "SELECT * FROM categories_news");
-?>
+<?php 
+// Include header
+include "header.php";
 
-<?php
+// Include database configuration
+include_once "z_db.php";
+
+// Query to fetch news categories
+$qc = mysqli_query($con, "SELECT * FROM categories_news");
+
+// Query to fetch news items
 $qn = mysqli_query($con, "SELECT * FROM news");
 ?>
 
@@ -104,34 +109,6 @@ $qn = mysqli_query($con, "SELECT * FROM news");
     }
 </style>
 
-<!-- ** News Area Start ** -->
-<!-- Konten Berita -->
-<?php
-$rt = mysqli_query($con, "SELECT * FROM news");
-$tr = mysqli_fetch_array($rt);
-
-$title = "$tr[title]";
-$content = "$tr[content]";
-$author = "$tr[author]";
-$created_at = $tr['created_at'];
-$ufile = "$tr[ufile]";
-?>
-
-<?php
-            $q = "SELECT * FROM  news WHERE id = '$id'";
-
-
-            $r123 = mysqli_query($con, $q);
-
-            while ($ro = mysqli_fetch_array($r123)) {
-
-                $id = "$ro[id]";
-                $title = "$tr[title]";
-$content = "$tr[content]";
-$author = "$tr[author]";
-$created_at = $tr['created_at'];
-$ufile = "$tr[ufile]";  }
-                ?>
 
 <!-- ** About Area Start ** -->
 <section class="section news-area ptb_100">
@@ -177,17 +154,17 @@ $ufile = "$tr[ufile]";  }
             </div>
 
 
-            <!-- Categories div -->
+            <!-- Categories Section -->
             <div class="col-md-6 col-lg-4">
                 <div class="single-news-item">
                     <div class="card mb-4">
                         <div class="card-body">
                             <h5 class="card-title">Categories</h5>
                             <ul class="list-group">
-                                <?php foreach ($qc as $ro): ?>
+                                <?php foreach ($qc as $category): ?>
                                     <li>
-                                        <a class="list-group-item" href="newscategory.php?id=<?= $ro['news_id'] ?>">
-                                            <?= $ro['news_name'] ?>
+                                        <a class="list-group-item" href="newscategory.php?id=<?= $category['news_id'] ?>">
+                                            <?= $category['news_name'] ?>
                                         </a>
                                     </li>
                                 <?php endforeach ?>
