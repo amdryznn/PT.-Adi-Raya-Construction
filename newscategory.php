@@ -111,59 +111,106 @@ $qc = mysqli_query($con, "SELECT * FROM categories_news");
         color: #777;
         margin-bottom: 10px;
     }
+
+    .single-news-item {
+        margin-bottom: 20px;
+    }
+
+    .card {
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: box-shadow 0.3s ease-in-out;
+    }
+
+    .card:hover {
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .card-body {
+        padding: 20px;
+    }
+
+    .news-thumb img {
+        width: 100%;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+    }
+
+    .news-content h3 {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    .news-info {
+        font-size: 14px;
+        color: #777;
+        margin-bottom: 10px;
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        border-color: #007bff;
+        color: #fff;
+    }
+
+    .btn-primary:hover {
+        background-color: #0056b3;
+        border-color: #0056b3;
+    }
 </style>
 
 <!-- ***** News Area Start ***** -->
+
 <!-- Konten Berita -->
-
-
-
-<!-- ***** About Area Start ***** -->
 <section class="section news-area ptb_100">
     <div class="container">
         <div class="row">
+            <!-- News Content -->
             <div class="col-md-6 col-lg-8">
                 <?php foreach ($qn as $news): ?>
                     <!-- Tampilkan berita berdasarkan kategori yang dipilih -->
-                    <div class="single-news-item">
-                        <div class="news-thumb">
-                            <a href="#">
-                                <img src="dashboard/uploads/news/<?php echo $news['ufile']; ?>" alt="News Image">
-                            </a>
-                        </div>
-                        <div class="news-content">
-                            <h3>
-                                <?php echo $news['title']; ?>
-                            </h3>
-                            <div class="news-info">
-                                <span class="news-date">
-                                    <?php echo $news['created_at']; ?>
-                                </span> |
-                                <span class="news-author">
-                                    <?php echo $news['author']; ?>
-                                </span>
+                    <div class="single-news-item card mb-4">
+                        <div class="card-body">
+                            <div class="news-thumb">
+                                <a href="newsdetail.php?id=<?php echo $news['id']; ?>">
+                                    <img src="dashboard/uploads/news/<?php echo $news['ufile']; ?>" alt="News Image">
+                                </a>
                             </div>
-                            <p>
-                                <?php
-                                // Memotong konten menjadi 2 baris dan menambahkan titik-titik jika perlu
-                                $content = $news['content'];
-                                if (strlen($content) > 100) {
-                                    $content = substr($content, 0, 200);
-                                    $content = substr($content, 0, strrpos($content, ' ')) . '...';
-                                }
-                                echo $content;
-                                ?>
-                            </p>
-                            <a href="newsdetail.php?id=<?php echo $news['id']; ?>" class="btn btn-primary">Read More</a>
+                            <div class="news-content">
+                                <h3>
+                                    <?php echo $news['title']; ?>
+                                </h3>
+                                <div class="news-info">
+                                    <span class="news-date">
+                                        <?php echo $news['created_at']; ?>
+                                    </span> |
+                                    <span class="news-author">
+                                        <?php echo $news['author']; ?>
+                                    </span>
+                                </div>
+                                <p>
+                                    <?php
+                                    // Memotong konten menjadi 2 baris dan menambahkan titik-titik jika perlu
+                                    $content = $news['content'];
+                                    if (strlen($content) > 100) {
+                                        $content = substr($content, 0, 200);
+                                        $content = substr($content, 0, strrpos($content, ' ')) . '...';
+                                    }
+                                    echo $content;
+                                    ?>
+                                </p>
+                                <a href="newsdetail.php?id=<?php echo $news['id']; ?>" class="btn btn-primary">Read More</a>
+                            </div>
                         </div>
                     </div>
                 <?php endforeach; ?>
             </div>
 
-            <!-- Daftar Kategori -->
+            <!-- Category -->
             <div class="col-md-6 col-lg-4">
                 <div class="single-news-item">
-                    <div class="card mb-4">
+                    <div class="card">
                         <div class="card-body">
                             <h5 class="card-title">Categories</h5>
                             <ul class="list-group">
@@ -180,8 +227,9 @@ $qc = mysqli_query($con, "SELECT * FROM categories_news");
                 </div>
             </div>
         </div> <!-- End row -->
-    </div>
+    </div> <!-- End container -->
 </section>
+
 
 
 

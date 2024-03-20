@@ -114,56 +114,58 @@ $qn = mysqli_query($con, "SELECT * FROM news");
 <section class="section news-area ptb_100">
     <div class="container">
         <div class="row">
-            <!-- Loop untuk menampilkan setiap berita -->
+            <!-- News Content -->
             <div class="col-md-6 col-lg-8">
                 <?php foreach ($qn as $news): ?>
-                    <div class="single-news-item">
-                        <div class="news-thumb">
-                            <a href="#">
-                                <img src="dashboard/uploads/news/<?php echo $news['ufile']; ?>" alt="News Image">
-                            </a>
-                        </div>
-                        <div class="news-content">
-                            <h3>
-                                <?php echo $news['title']; ?>
-                            </h3>
-                            <div class="news-info">
-                                <span class="news-date">
-                                    <?php echo $news['created_at']; ?>
-                                </span> |
-                                <span class="news-author">
-                                    <?php echo $news['author']; ?>
-                                </span>
+                    <!-- Tampilkan berita berdasarkan kategori yang dipilih -->
+                    <div class="single-news-item card mb-4">
+                        <div class="card-body">
+                            <div class="news-thumb">
+                                <a href="newsdetail.php?id=<?php echo $news['id']; ?>">
+                                    <img src="dashboard/uploads/news/<?php echo $news['ufile']; ?>" alt="News Image">
+                                </a>
                             </div>
-                            <p>
-                                <?php
-                                // Memotong konten menjadi 2 baris dan menambahkan titik-titik jika perlu
-                                $content = $news['content'];
-                                if (strlen($content) > 100) {
-                                    $content = substr($content, 0, 200);
-                                    $content = substr($content, 0, strrpos($content, ' ')) . '...';
-                                }
-                                echo $content;
-                                ?>
-                            </p>
-                            <a href="newsdetail.php?id=<?php echo $news['id']; ?>" class="btn btn-primary">Read More</a>
+                            <div class="news-content">
+                                <h3>
+                                    <?php echo $news['title']; ?>
+                                </h3>
+                                <div class="news-info">
+                                    <span class="news-date">
+                                        <?php echo $news['created_at']; ?>
+                                    </span> |
+                                    <span class="news-author">
+                                        <?php echo $news['author']; ?>
+                                    </span>
+                                </div>
+                                <p>
+                                    <?php
+                                    // Memotong konten menjadi 2 baris dan menambahkan titik-titik jika perlu
+                                    $content = $news['content'];
+                                    if (strlen($content) > 100) {
+                                        $content = substr($content, 0, 200);
+                                        $content = substr($content, 0, strrpos($content, ' ')) . '...';
+                                    }
+                                    echo $content;
+                                    ?>
+                                </p>
+                                <a href="newsdetail.php?id=<?php echo $news['id']; ?>" class="btn btn-primary">Read More</a>
+                            </div>
                         </div>
                     </div>
                 <?php endforeach; ?>
             </div>
 
-
-            <!-- Categories Section -->
+            <!-- Category -->
             <div class="col-md-6 col-lg-4">
                 <div class="single-news-item">
-                    <div class="card mb-4">
+                    <div class="card">
                         <div class="card-body">
                             <h5 class="card-title">Categories</h5>
                             <ul class="list-group">
-                                <?php foreach ($qc as $category): ?>
+                                <?php foreach ($qc as $ro): ?>
                                     <li>
-                                        <a class="list-group-item" href="newscategory.php?id=<?= $category['news_id'] ?>">
-                                            <?= $category['news_name'] ?>
+                                        <a class="list-group-item" href="newscategory.php?id=<?= $ro['news_id'] ?>">
+                                            <?= $ro['news_name'] ?>
                                         </a>
                                     </li>
                                 <?php endforeach ?>
@@ -173,7 +175,7 @@ $qn = mysqli_query($con, "SELECT * FROM news");
                 </div>
             </div>
         </div> <!-- End row -->
-    </div>
+    </div> <!-- End container -->
 </section>
 
 
