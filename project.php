@@ -10,7 +10,14 @@ $cat_id = ($_GET["id"]);
             <div class="col-12">
                 <!-- Breamcrumb Content -->
                 <div class="breadcrumb-content d-flex flex-column align-items-center text-center">
-                    <h2 class="text-white text-uppercase mb-3">Project</h2>
+                    <?php
+                    $rt = mysqli_query($con, "SELECT * FROM category where cat_id='$todo'");
+                    $tr = mysqli_fetch_array($rt);
+                    $name = "$tr[name]"; ?>
+
+                    <h2 class="text-white text-uppercase mb-3">
+                        <?php print $name ?>
+                    </h2>
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a class="text-uppercase text-white" href="index.php">Home</a></li>
                         <li class="breadcrumb-item"><a class="text-uppercase text-white" href="#">Project</a></li>
@@ -26,18 +33,7 @@ $cat_id = ($_GET["id"]);
 <!-- ***** Tittle Category ***** -->
 
 <section class="project ptb_50">
-    <?php
-    $rt = mysqli_query($con, "SELECT * FROM category where cat_id='$todo'");
-    $tr = mysqli_fetch_array($rt);
-    $name = "$tr[name]"; ?>
 
-    <div class="section-heading text-center">
-        <h2>
-            <?php print $name ?>
-        </h2>
-    </div>
-
-    <!-- ***** Portfolio Area Start ***** -->
 
     <div class="container">
 

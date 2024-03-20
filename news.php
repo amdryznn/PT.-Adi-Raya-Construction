@@ -1,4 +1,4 @@
-<?php 
+<?php
 // Include header
 include "header.php";
 
@@ -147,7 +147,6 @@ $qn = mysqli_query($con, "SELECT * FROM news");
                                 ?>
                             </p>
                             <a href="newsdetail.php?id=<?php echo $news['id']; ?>" class="btn btn-primary">Read More</a>
-
                         </div>
                     </div>
                 <?php endforeach; ?>

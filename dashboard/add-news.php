@@ -207,22 +207,8 @@
     <!-- End Page-content -->
 
     <head>
-        <style>
-            .note-editor .dropdown-toggle::after {
-                all: unset;
-            }
-
-            .note-editor .note-dropdown-menu {
-                box-sizing: content-box;
-            }
-
-            .note-editor .note-modal-footer {
-                box-sizing: content-box;
-            }
-        </style>
         <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
     </head>
-    
 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
@@ -243,6 +229,41 @@
                 ['view', ['fullscreen', 'codeview', 'help']]
             ]
         });
+
+        $.upload = function (file) {
+            let out = new FormData();
+            out.append('file', file, file.name);
+            $.ajax({
+                method: 'POST',
+                url: 'upload_gambar.php', // Ubah sesuai dengan path ke file PHP Anda
+                contentType: false,
+                cache: false,
+                processData: false,
+                data: out,
+                success: function (img) {
+                    $('.summernote').summernote('insertImage', img);
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    console.error(textStatus + " " + errorThrown);
+                }
+            });
+
+            $.delete = function (src) {
+                let filename = src.split('/').pop(); // Ambil nama file gambar dari URL
+                $.ajax({
+                    method: 'POST',
+                    url: 'delete_image.php', // Ubah sesuai dengan path ke file PHP Anda
+                    data: { filename: filename }, // Kirim nama file yang akan dihapus
+                    success: function (response) {
+                        console.log(response); // Tampilkan pesan sukses atau error jika diperlukan
+                    },
+                    error: function (jqXHR, textStatus, errorThrown) {
+                        console.error(textStatus + " " + errorThrown);
+                    }
+                });
+            };
+        };
+
     </script>
 
     <?php include "footer.php"; ?>

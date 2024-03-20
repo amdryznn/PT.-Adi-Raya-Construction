@@ -18,7 +18,13 @@ $qc = mysqli_query($con, "SELECT * FROM categories_news");
             <div class="col-12">
                 <!-- Breamcrumb Content -->
                 <div class="breadcrumb-content d-flex flex-column align-items-center text-center">
-                    <h2 class="text-white text-uppercase mb-3">News</h2>
+                    <?php
+                    $rt = mysqli_query($con, "SELECT * FROM categories_news where news_id='$kategori_id'");
+                    $tr = mysqli_fetch_array($rt);
+                    $news_name = "$tr[news_name]"; ?>
+                    <h2 class="text-white text-uppercase mb-3">
+                        <?php print $news_name ?>
+                    </h2>
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a class="text-uppercase text-white" href="index.php">Home</a></li>
                         <li class="breadcrumb-item"><a class="text-uppercase text-white" href="#">News</a></li>
@@ -138,7 +144,15 @@ $qc = mysqli_query($con, "SELECT * FROM categories_news");
                                 </span>
                             </div>
                             <p>
-                                <?php echo $news['content']; ?>
+                                <?php
+                                // Memotong konten menjadi 2 baris dan menambahkan titik-titik jika perlu
+                                $content = $news['content'];
+                                if (strlen($content) > 100) {
+                                    $content = substr($content, 0, 200);
+                                    $content = substr($content, 0, strrpos($content, ' ')) . '...';
+                                }
+                                echo $content;
+                                ?>
                             </p>
                             <a href="newsdetail.php?id=<?php echo $news['id']; ?>" class="btn btn-primary">Read More</a>
                         </div>
