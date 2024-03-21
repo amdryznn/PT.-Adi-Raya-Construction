@@ -138,9 +138,7 @@ $latitude = "$tr[latitude]";
                             <a class="nav-link" href="home">Home </a>
                         </li>
 
-                        <li class="nav-item">
-                            <a class="nav-link" href="legality">Legality </a>
-                        </li>
+
 
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button"
@@ -152,6 +150,10 @@ $latitude = "$tr[latitude]";
                                 <li><a class="dropdown-item" href="structure">Corporate Structure</a></li>
                                 <li><a class="dropdown-item" href="values">Corporate Values</a></li>
                             </ul>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="legality">Legality </a>
                         </li>
 
                         <li class="nav-item dropdown">
@@ -167,6 +169,7 @@ $latitude = "$tr[latitude]";
                                 <?php endforeach ?>
                             </ul>
                         </li>
+
 
                         <li class="nav-item">
                             <a class="nav-link" href="news">News </a>

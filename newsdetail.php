@@ -15,6 +15,8 @@ $author = htmlspecialchars($tr['author']);
 // Konversi konten dari Summernote
 $content = html_entity_decode($tr['content']);
 $ufile = $tr['ufile'];
+
+$qw = mysqli_query($con, "SELECT * FROM news LIMIT 3");
 ?>
 
 
@@ -36,7 +38,6 @@ $ufile = $tr['ufile'];
     </div>
 </section>
 <!-- ***** Breadcrumb Area End ***** -->
-
 
 
 <style>
@@ -67,10 +68,6 @@ $ufile = $tr['ufile'];
         transition: all 0.3s ease;
     }
 
-    .card:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
 
     .card-title {
         color: #333;
@@ -106,13 +103,106 @@ $ufile = $tr['ufile'];
     }
 
     .search-bar .form-control {
-        border-radius: 0;
+        border-radius: 5px;
     }
 
     .news-info {
         font-size: 14px;
         color: #777;
         margin-bottom: 10px;
+    }
+
+
+
+    .box {
+        max-width: 400px;
+        width: 100%;
+    }
+
+    .box .search-box {
+        position: relative;
+        height: 50px;
+        max-width: 400px;
+        /* Atur maksimum lebar yang Anda inginkan */
+        margin: auto;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        /* Hapus transisi */
+    }
+
+    .search-box input {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        border-radius: 5px;
+        background: #fff;
+        outline: none;
+        border: none;
+        padding-left: 20px;
+        font-size: 14px;
+        font-family: 'poppins', sans-serif;
+        color: #222;
+    }
+
+    .search-box .icon {
+        position: absolute;
+        right: -2px;
+        top: 0;
+        width: 60px;
+        background: linear-gradient(-45deg, #a8bfce 0%, #3D474D 100%);
+        height: 100%;
+        text-align: center;
+        line-height: 50px;
+        color: #fff;
+        font-size: 20px;
+        border: none;
+        border-radius: 5px;
+    }
+
+    .search-box .icon:hover {
+        background: linear-gradient(-45deg, #a8bfce 0%, #3D474D 100%);
+        /* Warna latar belakang saat hover */
+        color: #FFF;
+        /* Warna teks saat hover */
+        border-radius: 5px;
+        /* Ubah ke bentuk bulat saat hover */
+    }
+
+    .search-box .icon:focus {
+        outline: none;
+    }
+
+    #check:checked~.search-box .icon {
+        background: linear-gradient(-45deg, #a8bfce 0%, #3D474D 100%);
+    }
+
+    #check {
+        display: none;
+    }
+
+    /* Styling untuk button */
+    .search-box .icon button {
+        background: linear-gradient(-45deg, #a8bfce 0%, #3D474D 100%);
+        height: 100%;
+        width: 60px;
+        text-align: center;
+        line-height: 50px;
+        color: #fff;
+        font-size: 20px;
+        border-radius: 5px;
+        border: none;
+        cursor: pointer;
+    }
+
+    .search-box .icon button:hover {
+        background: linear-gradient(-45deg, #a8bfce 0%, #3D474D 100%);
+        /* Warna latar belakang saat hover */
+        color: #FFF;
+        /* Warna teks saat hover */
+        border-radius: 5px;
+        /* Ubah ke bentuk bulat saat hover */
     }
 </style>
 
@@ -131,26 +221,41 @@ $ufile = $tr['ufile'];
                         <img src="dashboard/uploads/news/<?php echo $ufile; ?>" alt="News Image">
                     </div>
                     <div class="news-content">
-                        <h3><?php echo $title; ?></h3>
+                        <h2>
+                            <?php echo $title; ?>
+                        </h2>
                         <div class="news-info">
-                            <span class="news-date"><?php echo $tr['created_at']; ?></span> |
-                            <span class="news-author"><?php echo $author; ?></span>
+                            <span class="news-date">
+                                <?php echo $tr['created_at']; ?>
+                            </span> |
+                            <span class="news-author">
+                                <?php echo $author; ?>
+                            </span>
                         </div>
                         <?php echo $content; ?>
                     </div>
                 </div>
             </div>
 
-            <!-- Daftar Kategori -->
+
             <div class="col-md-6 col-lg-4">
-                <div class="single-news-item">
-                    <div class="card mb-4">
+                <div class="box" style="margin-bottom: 20px;">
+                    <input type="checkbox" id="check">
+                    <div class="search-box">
+                        <form action="s" method="GET">
+                            <input type="text" name="query" placeholder="Type here...">
+                            <button type="submit" class="icon"><i class="fas fa-search"></i></button>
+                        </form>
+                    </div>
+                </div>
+                <div class="single-news-item" style="margin-top: 20px;">
+                    <div class="card">
                         <div class="card-body">
                             <h5 class="card-title">Categories</h5>
                             <ul class="list-group">
                                 <?php foreach ($qc as $ro): ?>
                                     <li>
-                                        <a class="list-group-item" href="newscategory.php?id=<?= $ro['news_id'] ?>">
+                                        <a class="list-group-item" href="c?id=<?= $ro['news_id'] ?>">
                                             <?= $ro['news_name'] ?>
                                         </a>
                                     </li>
@@ -160,7 +265,7 @@ $ufile = $tr['ufile'];
                     </div>
                 </div>
             </div>
-        </div> <!-- End row -->
+        </div>
     </div>
 </section>
 
@@ -172,7 +277,7 @@ $ufile = $tr['ufile'];
 
 <!-- Add more news items as needed -->
 
-<!-- ***** You Might Also Like Section Start ***** -->
+<!-- ** You Might Also Like Section Start ** -->
 <section class="section news-area ptb_100">
     <div class="container">
         <div class="row">
@@ -183,73 +288,50 @@ $ufile = $tr['ufile'];
             </div>
         </div>
         <div class="row">
-            <div class="col-md-4">
-                <div class="single-news-item">
-                    <div class="news-thumb">
-                        <a href="#">
-                            <img src="dashboard\uploads\blog\40801427about.jpg" alt="News Image">
-                        </a>
-                    </div>
-                    <div class="news-content">
-                        <h3>News Title 3</h3>
-                        <div class="news-info">
-                            <span class="news-date">March 12, 2024</span> | <span class="news-author">Adam
-                                Johnson</span>
+            <?php
+            // Mengambil berita yang tidak termasuk berita yang sedang dibuka
+            $exclude_id = $todo; // ID berita yang sedang dibuka
+            $query = "SELECT * FROM news WHERE id != $exclude_id LIMIT 3";
+            $qw_might_also_like = mysqli_query($con, $query);
+            ?>
+            <?php foreach ($qw_might_also_like as $news): ?>
+                <div class="col-md-4">
+                    <div class="card mb-4">
+                        <img class="card-img-top mb-10" src="dashboard/uploads/news/<?php echo $news['ufile']; ?>"
+                            alt="News Image">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <?php echo $news['title']; ?>
+                            </h5>
+                            <div class="news-info">
+                                <span class="news-date">
+                                    <?php echo $news['created_at']; ?>
+                                </span> |
+                                <span class="news-author">
+                                    <?php echo $news['author']; ?>
+                                </span>
+                            </div>
+                            <p class="card-text">
+                                <?php
+                                // Memotong konten menjadi 2 baris dan menambahkan titik-titik jika perlu
+                                $content = strip_tags($news['content']); // Menghapus tag HTML dari konten
+                                if (strlen($content) > 100) {
+                                    $content = substr($content, 0, 70);
+                                    $content = substr($content, 0, strrpos($content, ' ')) . '...';
+                                }
+                                echo $content;
+                                ?>
+                            </p>
+                            <a href="newsdetail.php?id=<?php echo $news['id']; ?>" class="btn btn-bordered-black mt-4">Read
+                                More</a>
                         </div>
-                        <p>This is a short description of news 3. It could be a brief summary of the
-                            news.
-                        </p>
-                        <a href="#" class="btn btn-primary">Read More</a>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-4">
-                <div class="single-news-item">
-                    <div class="news-thumb">
-                        <a href="#">
-                            <img src="dashboard\uploads\blog\40801427about.jpg" alt="News Image">
-                        </a>
-                    </div>
-                    <div class="news-content">
-                        <h3>News Title 4</h3>
-                        <div class="news-info">
-                            <span class="news-date">March 11, 2024</span> | <span class="news-author">Emily
-                                Brown</span>
-                        </div>
-                        <p>This is a short description of news 4. It could be a brief summary of the
-                            news.
-                        </p>
-                        <a href="#" class="btn btn-primary">Read More</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="single-news-item">
-                    <div class="news-thumb">
-                        <a href="#">
-                            <img src="dashboard\uploads\blog\40801427about.jpg" alt="News Image">
-                        </a>
-                    </div>
-                    <div class="news-content">
-                        <h3>News Title 5</h3>
-                        <div class="news-info">
-                            <span class="news-date">March 10, 2024</span> | <span class="news-author">Michael
-                                Davis</span>
-                        </div>
-                        <p>This is a short description of news 5. It could be a brief summary of the
-                            news.
-                        </p>
-                        <a href="#" class="btn btn-primary">Read More</a>
-                    </div>
-                </div>
-            </div>
+            <?php endforeach; ?>
         </div>
     </div>
 </section>
-<!-- ***** You Might Also Like Section End ***** -->
-</div>
-</section>
-<!-- ***** News Area End ***** -->
+
 
 <!--====== Call To Action Area Start ======-->
 <section class="section cta-area bg-overlay ptb_100">

@@ -1,48 +1,44 @@
 <?php
-// Sertakan file koneksi ke database dan header
+// Include header
 include "header.php";
 
-// Ambil ID kategori dari URL
-$kategori_id = isset ($_GET["id"]) ? $_GET["id"] : "";
+// Include database configuration
+include_once "z_db.php";
 
-// Validasi input ID kategori
-if (!is_numeric($kategori_id)) {
-    // Handle error or redirect user
+// Check if query parameter 'query' is set
+if (isset ($_GET['query'])) {
+    $search_query = '%' . $_GET['query'] . '%';
+
+    // Prepared statement to search news based on content
+    $query = "SELECT * FROM news WHERE content LIKE ?";
+    $stmt = mysqli_prepare($con, $query);
+    mysqli_stmt_bind_param($stmt, "s", $search_query);
+    mysqli_stmt_execute($stmt);
+    $result = mysqli_stmt_get_result($stmt);
 }
-
-// Kueri untuk mengambil berita berdasarkan kategori yang dipilih
-$stmt = $con->prepare("SELECT * FROM news WHERE news_id = ?");
-$stmt->bind_param("i", $kategori_id);
-$stmt->execute();
-$result = $stmt->get_result();
-
-// Kueri untuk mengambil daftar kategori
 $qc = mysqli_query($con, "SELECT * FROM categories_news");
 ?>
-<!-- ***** Breadcrumb Area Start ***** -->
+
+
+<!-- ** Breadcrumb Area Start ** -->
 <section class="section breadcrumb-area overlay-dark d-flex align-items-center">
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <!-- Breamcrumb Content -->
+                <!-- Breadcrumb Content -->
                 <div class="breadcrumb-content d-flex flex-column align-items-center text-center">
-                    <?php
-                    $rt = mysqli_query($con, "SELECT * FROM categories_news where news_id='$kategori_id'");
-                    $tr = mysqli_fetch_array($rt);
-                    $news_name = "$tr[news_name]"; ?>
-                    <h2 class="text-white text-uppercase mb-3">
-                        <?php echo htmlspecialchars($news_name); ?>
-                    </h2>
+                    <h2 class="text-white text-uppercase mb-3">Search Results</h2>
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a class="text-uppercase text-white" href="index.php">Home</a></li>
                         <li class="breadcrumb-item"><a class="text-uppercase text-white" href="#">News</a></li>
+                        <li class="breadcrumb-item active text-white">Search</li>
                     </ol>
                 </div>
             </div>
         </div>
     </div>
 </section>
-<!-- ***** Breadcrumb Area End ***** -->
+<!-- ** Breadcrumb Area End ** -->
 
 <style>
     .single-news-item {
@@ -210,57 +206,64 @@ $qc = mysqli_query($con, "SELECT * FROM categories_news");
     }
 </style>
 
-<!-- ***** News Area Start ***** -->
-
-<!-- Konten Berita -->
+<!-- ** News Area Start ** -->
 <section class="section news-area ptb_100">
     <div class="container">
         <div class="row">
-            <!-- News Content -->
             <div class="col-md-6 col-lg-8">
-                <?php foreach ($result as $news): ?>
-                    <!-- Tampilkan berita berdasarkan kategori yang dipilih -->
-                    <div class="single-news-item card mb-4">
-                        <div class="card-body">
-                            <div class="news-thumb">
-                                <a href="newsdetail.php?id=<?php echo htmlspecialchars($news['id']); ?>">
-                                    <img src="dashboard/uploads/news/<?php echo htmlspecialchars($news['ufile']); ?>"
-                                        alt="News Image">
-                                </a>
-                            </div>
-                            <div class="news-content">
-                                <h3>
-                                    <?php echo htmlspecialchars($news['title']); ?>
-                                </h3>
-                                <div class="news-info">
-                                    <span class="news-date">
-                                        <?php echo htmlspecialchars($news['created_at']); ?>
-                                    </span> |
-                                    <span class="news-author">
-                                        <?php echo htmlspecialchars($news['author']); ?>
-                                    </span>
+
+                <?php
+                if (isset ($result) && mysqli_num_rows($result) > 0) {
+                    // Display search results
+                    while ($row = mysqli_fetch_assoc($result)) {
+                        // Display search results in the desired format
+                        ?>
+                        <div class="single-news-item card mb-4">
+                            <div class="card-body">
+                                <div class="news-thumb">
+                                    <a href="newsdetail.php?id=<?php echo $row['id']; ?>">
+                                        <img src="dashboard/uploads/news/<?php echo $row['ufile']; ?>" alt="News Image">
+                                    </a>
                                 </div>
-                                <p>
-                                    <?php
-                                    // Memotong konten menjadi 2 baris dan menambahkan titik-titik jika perlu
-                                    $content = strip_tags($news['content']); // Menghapus tag HTML dari konten
-                                    if (strlen($content) > 100) {
-                                        $content = substr($content, 0, 200);
-                                        $content = substr($content, 0, strrpos($content, ' ')) . '...';
-                                    }
-                                    echo htmlspecialchars($content);
-                                    ?>
-                                </p>
-                                <a href="newsdetail.php?id=<?php echo htmlspecialchars($news['id']); ?>"
-                                    class="btn btn-bordered-black mt-4">Read More</a>
+                                <div class="news-content">
+                                    <h3>
+                                        <?php echo $row['title']; ?>
+                                    </h3>
+                                    <div class="news-info">
+                                        <span class="news-date">
+                                            <?php echo $row['created_at']; ?>
+                                        </span> |
+                                        <span class="news-author">
+                                            <?php echo $row['author']; ?>
+                                        </span>
+                                    </div>
+                                    <p>
+                                        <?php
+                                        // Memotong konten menjadi 2 baris dan menambahkan titik-titik jika perlu
+                                        $content = strip_tags($row['content']); // Menghapus tag HTML dari konten
+                                        if (strlen($content) > 100) {
+                                            $content = substr($content, 0, 200);
+                                            $content = substr($content, 0, strrpos($content, ' ')) . '...';
+                                        }
+                                        echo $content;
+                                        ?>
+                                    </p>
+                                    <a href="newsdetail.php?id=<?php echo $row['id']; ?>"
+                                        class="btn btn-bordered-black mt-4">Read More</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                <?php endforeach; ?>
+                        <?php
+                    }
+                } else {
+                    echo "<h2>No results found</h2>";
+                }
+                ?>
+
             </div>
+
             <div class="col-md-6 col-lg-4">
-                <div class="box" style="margin-bottom: 20px;">
-                    <input type="checkbox" id="check">
+                <div class="box">
                     <div class="search-box">
                         <form action="s" method="GET">
                             <input type="text" name="query" placeholder="Type here...">
@@ -275,8 +278,8 @@ $qc = mysqli_query($con, "SELECT * FROM categories_news");
                             <ul class="list-group">
                                 <?php foreach ($qc as $ro): ?>
                                     <li>
-                                        <a class="list-group-item" href="c?id=<?= htmlspecialchars($ro['news_id']) ?>">
-                                            <?= htmlspecialchars($ro['news_name']) ?>
+                                        <a class="list-group-item" href="c?id=<?= $ro['news_id'] ?>">
+                                            <?= $ro['news_name'] ?>
                                         </a>
                                     </li>
                                 <?php endforeach ?>
@@ -288,7 +291,7 @@ $qc = mysqli_query($con, "SELECT * FROM categories_news");
         </div>
     </div>
 </section>
-<!-- Add more news items as needed -->
+<!-- ** News Area End ** -->
 
 <!--====== Call To Action Area Start ======-->
 <section class="section cta-area bg-overlay ptb_100">
@@ -298,10 +301,10 @@ $qc = mysqli_query($con, "SELECT * FROM categories_news");
                 <!-- Section Heading -->
                 <div class="section-heading text-center m-0">
                     <h2 class="text-white">
-                        <?php echo htmlspecialchars($enquiry_title); ?>
+                        <?php echo $enquiry_title; ?>
                     </h2>
                     <p class="text-white d-none d-sm-block mt-4">
-                        <?php echo htmlspecialchars($enquiry_text); ?>
+                        <?php echo $enquiry_text; ?>
                     </p>
                     <a href="contact" class="btn btn-bordered-white mt-4">Contact Us</a>
                 </div>
@@ -312,3 +315,8 @@ $qc = mysqli_query($con, "SELECT * FROM categories_news");
 <!--====== Call To Action Area End ======-->
 
 <?php include "footer.php"; ?>
+
+<?php
+// Close the database connection
+mysqli_close($con);
+?>
