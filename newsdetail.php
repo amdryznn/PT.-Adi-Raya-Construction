@@ -31,7 +31,8 @@ $qw = mysqli_query($con, "SELECT * FROM news LIMIT 3");
                 <div class="breadcrumb-content d-flex flex-column align-items-center text-center">
                     <h2 class="text-white text-uppercase mb-3">News Detail</h2>
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a class="text-uppercase text-white" href="/arcon/home">Home</a></li>
+                        <li class="breadcrumb-item"><a class="text-uppercase text-white" href="/arcon/home">Home</a>
+                        </li>
                         <li class="breadcrumb-item"><a class="text-uppercase text-white" href="#">News Detail</a></li>
                     </ol>
                 </div>
@@ -208,12 +209,30 @@ $qw = mysqli_query($con, "SELECT * FROM news LIMIT 3");
     }
 
     .share-icons {
-        text-align: center; /* Mengatur ikon-ikon agar ditengah */
+        text-align: center;
+        /* Mengatur ikon-ikon agar ditengah */
     }
 
     .share-icons a {
-        display: inline-block; /* Membuat tautan menjadi blok untuk memberikan jarak */
-        margin: 0 7px; /* Memberikan jarak horizontal antara ikon-ikon */
+        display: inline-block;
+        /* Membuat tautan menjadi blok untuk memberikan jarak */
+        margin: 0 7px;
+        /* Memberikan jarak horizontal antara ikon-ikon */
+    }
+
+    .comment-section .form-control {
+        border: 1px solid #ccc;
+        /* Add border around each form control */
+        padding: 8px;
+        /* Add padding to create space between border and content */
+        margin-bottom: 15px;
+        /* Add margin to create space between form controls */
+        width: 100%;
+        /* Ensure the inputs take up the full width */
+        box-sizing: border-box;
+        /* Include padding and border in the element's total width */
+        box-shadow: linear-gradient(-45deg, #a8bfce 0%, #3D474D 100%)
+            /* Add shadow effect */
     }
 </style>
 
@@ -237,35 +256,81 @@ $qw = mysqli_query($con, "SELECT * FROM news LIMIT 3");
                         </h2>
                         <div class="news-info">
                             <span class="news-date">
-                            <?php echo date('d F, Y', strtotime($tr['created_at'])); ?>
+                                <?php echo date('d F, Y', strtotime($tr['created_at'])); ?>
                             </span> |
                             <span class="news-author">
                                 <?php echo $author; ?>
                             </span>
                         </div>
                         <div class="share-icons">
-    <!-- Facebook Share -->
-    <a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo urlencode($current_url); ?>" target="_blank" rel="noopener noreferrer" style="font-size: 20px;">
-        <i class="fab fa-facebook"></i>
-    </a>
+                            <!-- Facebook Share -->
+                            <a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo urlencode($current_url); ?>"
+                                target="_blank" rel="noopener noreferrer" style="font-size: 20px;">
+                                <i class="fab fa-facebook"></i>
+                            </a>
 
-    <!-- Twitter Share -->
-    <a href="https://twitter.com/intent/tweet?url=<?php echo urlencode($current_url); ?>" target="_blank" rel="noopener noreferrer" style="font-size: 20px;">
-        <i class="fab fa-twitter"></i>
-    </a>
+                            <!-- Twitter Share -->
+                            <a href="https://twitter.com/intent/tweet?url=<?php echo urlencode($current_url); ?>"
+                                target="_blank" rel="noopener noreferrer" style="font-size: 20px;">
+                                <i class="fab fa-twitter"></i>
+                            </a>
 
-    <!-- LinkedIn Share -->
-    <a href="https://www.linkedin.com/shareArticle?url=<?php echo urlencode($current_url); ?>" target="_blank" rel="noopener noreferrer" style="font-size: 20px;">
-        <i class="fab fa-linkedin"></i>
-    </a>
+                            <!-- LinkedIn Share -->
+                            <a href="https://www.linkedin.com/shareArticle?url=<?php echo urlencode($current_url); ?>"
+                                target="_blank" rel="noopener noreferrer" style="font-size: 20px;">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
 
-    <!-- WhatsApp Share -->
-    <a href="https://wa.me/?text=<?php echo urlencode($current_url); ?>" target="_blank" rel="noopener noreferrer" style="font-size: 20px;">
-        <i class="fab fa-whatsapp"></i>
-    </a>
-</div>
+                            <!-- WhatsApp Share -->
+                            <a href="https://wa.me/?text=<?php echo urlencode($current_url); ?>" target="_blank"
+                                rel="noopener noreferrer" style="font-size: 20px;">
+                                <i class="fab fa-whatsapp"></i>
+                            </a>
+                        </div>
 
                         <?php echo $content; ?>
+
+                        <section class="section comment-area ptb_50">
+
+                            <div class="existing-comments mt-4">
+                                <h3>Comments</h3>
+                                <?php
+                                // Fetch comments from the database
+                                $comments_query = mysqli_query($con, "SELECT * FROM comments ORDER BY c_id DESC");
+                                while ($comment = mysqli_fetch_assoc($comments_query)) {
+                                    echo "<div class='comment'>";
+                                    echo "<h5>{$comment['name']}</h5>";
+                                    echo "<p>{$comment['description']}</p>";
+                                    // Tambahkan tombol "Reply" dan "Delete"
+                                    echo "<div class='comment-actions'>";
+                                    echo "<a href='#' class='reply-btn'>Reply </a>";
+                                    echo "<a href='/arcon/delete_comment.php?id={$comment['c_id']}' class='delete-btn'>/ Delete</a>";
+                                    echo "</div>";
+                                    echo "</div>";
+                                }
+                                ?>
+                            </div>
+
+
+
+                            <div class="comment-section mt-4 mb-4"> <!-- Add mb-4 class to add bottom margin -->
+                                <h3>Leave a Comment</h3>
+                                <form action="/arcon/post_comment.php?id=<?php echo $todo; ?>" method="POST">
+                                    <div class="form-group">
+                                        <label for="comment_name">Your Name</label>
+                                        <input type="text" class="form-control" id="comment_name" name="comment_name"
+                                            required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="comment_description">Your Comment</label>
+                                        <textarea class="form-control" id="comment_description"
+                                            name="comment_description" rows="3" required></textarea>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                </form>
+                            </div>
+                        </section>
+
                     </div>
                 </div>
             </div>
@@ -273,7 +338,7 @@ $qw = mysqli_query($con, "SELECT * FROM news LIMIT 3");
                 <div class="box" style="margin-bottom: 20px;">
                     <input type="checkbox" id="check">
                     <div class="search-box">
-                    <form action="/arcon/?" method="GET">
+                        <form action="/arcon/?" method="GET">
                             <input type="text" name="s" placeholder="Type here...">
                             <button type="submit" class="icon"><i class="fas fa-search"></i></button>
                         </form>
@@ -298,6 +363,8 @@ $qw = mysqli_query($con, "SELECT * FROM news LIMIT 3");
             </div>
         </div>
     </div>
+
+
 </section>
 
 
@@ -311,9 +378,9 @@ $qw = mysqli_query($con, "SELECT * FROM news LIMIT 3");
 <!-- ** You Might Also Like Section Start ** -->
 <section class="section news-area ptb_100">
     <div class="container">
-                      <div class="row">
+        <div class="row">
             <div class="col-12">
-                 <div class="section-heading text-center">
+                <div class="section-heading text-center">
                     <h2>You Might Also Like</h2>
                 </div>
             </div>
@@ -336,7 +403,7 @@ $qw = mysqli_query($con, "SELECT * FROM news LIMIT 3");
                             </h5>
                             <div class="news-info">
                                 <span class="news-date">
-                                <?php echo date("d F, Y", strtotime($news['created_at'])); ?>
+                                    <?php echo date("d F, Y", strtotime($news['created_at'])); ?>
                                 </span> |
                                 <span class="news-author">
                                     <?php echo $news['author']; ?>
@@ -353,8 +420,7 @@ $qw = mysqli_query($con, "SELECT * FROM news LIMIT 3");
                                 echo $content;
                                 ?>
                             </p>
-                            <a href="<?php echo($news['id']); ?>"
-                        class="btn btn-bordered-black mt-4">Read More</a>
+                            <a href="<?php echo ($news['id']); ?>" class="btn btn-bordered-black mt-4">Read More</a>
                         </div>
                     </div>
                 </div>

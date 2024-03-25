@@ -74,7 +74,7 @@ include "sidebar.php";
                         <?php
                         $status = "OK"; //initial status
                         $msg = "";
-                        if (isset($_POST['save'])) {
+                        if (isset ($_POST['save'])) {
 
                             $code = mysqli_real_escape_string($con, $_POST['code']);
                             $date = mysqli_real_escape_string($con, $_POST['date']);
@@ -171,11 +171,11 @@ proj_desc='$proj_desc', proj_detail='$proj_detail', location='$location', cat_id
 
                                             <div class="col-lg-6">
                                                 <div class="mb-3">
-                                                    <label for="firstnameInput" class="form-label"> Date</label>
-                                                    <textarea class="form-control" id="exampleFormControlTextarea5"
-                                                        name="date" rows="1"><?php print $date ?></textarea>
+                                                    <label for="dateInput" class="form-label"> Date</label>
+                                                    <input type="date" class="form-control" id="dateInput" name="date">
                                                 </div>
                                             </div>
+
 
                                             <div class="col-lg-6">
                                                 <div class="mb-3">

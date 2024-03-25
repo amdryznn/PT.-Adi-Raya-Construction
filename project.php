@@ -19,7 +19,8 @@ $cat_id = ($_GET["id"]);
                         <?php print $name ?>
                     </h2>
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a class="text-uppercase text-white" href="/arcon/home">Home</a></li>
+                        <li class="breadcrumb-item"><a class="text-uppercase text-white" href="/arcon/home">Home</a>
+                        </li>
                         <li class="breadcrumb-item"><a class="text-uppercase text-white" href="#">Project</a></li>
                     </ol>
                 </div>
