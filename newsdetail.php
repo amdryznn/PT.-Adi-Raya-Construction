@@ -2,13 +2,30 @@
 
 <?php
 $qc = mysqli_query($con, "SELECT * FROM categories_news");
-$todo = mysqli_real_escape_string($con, $_GET["id"]);
+
 $current_url = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 
+// Ambil ID berita dari URL
+$todo = isset($_GET["id"]) ? $_GET["id"] : null;
+$todo = intval($todo); // Konversi menjadi bilangan bulat
+
+// Validasi ID berita
+if ($todo <= 0 || empty($todo)) {
+    echo "Invalid news ID provided.";
+    exit();
+}
 
 // Ambil berita dari database
 $rt = mysqli_query($con, "SELECT * FROM news WHERE id = $todo");
+if (!$rt || mysqli_num_rows($rt) == 0) {
+    echo "News not found.";
+    exit();
+}
+
+// Berita ditemukan, lanjutkan dengan mengambil data berita
 $tr = mysqli_fetch_array($rt);
+// Sekarang Anda memiliki data berita yang sesuai dengan ID yang diberikan dari URL
+
 
 // Sanitasi judul dan penulis
 $title = htmlspecialchars($tr['title']);
@@ -19,7 +36,10 @@ $content = html_entity_decode($tr['content']);
 $ufile = $tr['ufile'];
 
 $qw = mysqli_query($con, "SELECT * FROM news LIMIT 3");
+
+$comments_query = mysqli_query($con, "SELECT * FROM comments WHERE id = $todo ORDER BY c_id DESC");
 ?>
+
 
 
 <!-- ***** Breadcrumb Area End ***** -->
@@ -289,47 +309,41 @@ $qw = mysqli_query($con, "SELECT * FROM news LIMIT 3");
                         </div>
 
                         <?php echo $content; ?>
+<!-- Tampilkan komentar -->
+<section class="section comment-area ptb_50">
+                    <div class="existing-comments mt-4">
+                        <h3>Comments</h3>
+                        <?php
+                        // Loop untuk menampilkan komentar
+                        while ($comment = mysqli_fetch_assoc($comments_query)) {
+                            echo "<div class='comment'>";
+                            echo "<h5>{$comment['name']}</h5>";
+                            echo "<p>{$comment['description']}</p>";
+                            // Tambahkan tombol "Reply" dan "Delete" jika diperlukan
+                            echo "<div class='comment-actions'>";
+                            echo "<a href='/arcon/delete_comment.php?id={$comment['c_id']}' class='btn btn-danger btn-sm'>Delete</a>";
+                            echo "</div>";                            
+                            echo "</div>";
+                        }
+                        ?>
+                    </div>
 
-                        <section class="section comment-area ptb_50">
-
-                            <div class="existing-comments mt-4">
-                                <h3>Comments</h3>
-                                <?php
-                                // Fetch comments from the database
-                                $comments_query = mysqli_query($con, "SELECT * FROM comments ORDER BY c_id DESC");
-                                while ($comment = mysqli_fetch_assoc($comments_query)) {
-                                    echo "<div class='comment'>";
-                                    echo "<h5>{$comment['name']}</h5>";
-                                    echo "<p>{$comment['description']}</p>";
-                                    // Tambahkan tombol "Reply" dan "Delete"
-                                    echo "<div class='comment-actions'>";
-                                    echo "<a href='#' class='reply-btn'>Reply </a>";
-                                    echo "<a href='/arcon/delete_comment.php?id={$comment['c_id']}' class='delete-btn'>/ Delete</a>";
-                                    echo "</div>";
-                                    echo "</div>";
-                                }
-                                ?>
+                    <!-- Form untuk menambahkan komentar baru -->
+                    <div class="comment-section mt-4 mb-4">
+                        <h3>Leave a Comment</h3>
+                        <form action="/arcon/post_comment.php?id=<?php echo $todo; ?>" method="POST">
+                            <div class="form-group">
+                                <label for="comment_name">Your Name</label>
+                                <input type="text" class="form-control" id="comment_name" name="comment_name" required>
                             </div>
-
-
-
-                            <div class="comment-section mt-4 mb-4"> <!-- Add mb-4 class to add bottom margin -->
-                                <h3>Leave a Comment</h3>
-                                <form action="/arcon/post_comment.php?id=<?php echo $todo; ?>" method="POST">
-                                    <div class="form-group">
-                                        <label for="comment_name">Your Name</label>
-                                        <input type="text" class="form-control" id="comment_name" name="comment_name"
-                                            required>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="comment_description">Your Comment</label>
-                                        <textarea class="form-control" id="comment_description"
-                                            name="comment_description" rows="3" required></textarea>
-                                    </div>
-                                    <button type="submit" class="btn btn-primary">Submit</button>
-                                </form>
+                            <div class="form-group">
+                                <label for="comment_description">Your Comment</label>
+                                <textarea class="form-control" id="comment_description" name="comment_description" rows="3" required></textarea>
                             </div>
-                        </section>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>
+                    </div>
+                </section>
 
                     </div>
                 </div>
