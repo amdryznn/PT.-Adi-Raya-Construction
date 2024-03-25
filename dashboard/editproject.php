@@ -170,11 +170,12 @@ proj_desc='$proj_desc', proj_detail='$proj_detail', location='$location', cat_id
                                             </div>
 
                                             <div class="col-lg-6">
-                                                <div class="mb-3">
-                                                    <label for="dateInput" class="form-label"> Date</label>
-                                                    <input type="date" class="form-control" id="dateInput" name="date">
-                                                </div>
-                                            </div>
+    <div class="mb-3">
+        <label for="dateInput" class="form-label"> Date</label>
+        <input type="date" class="form-control" id="dateInput" name="date" value="<?php echo $date; ?>">
+    </div>
+</div>
+
 
 
                                             <div class="col-lg-6">
