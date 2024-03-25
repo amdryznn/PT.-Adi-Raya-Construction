@@ -19,7 +19,7 @@ $cat_id = ($_GET["id"]);
                         <?php print $name ?>
                     </h2>
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a class="text-uppercase text-white" href="index.php">Home</a></li>
+                        <li class="breadcrumb-item"><a class="text-uppercase text-white" href="/arcon/home">Home</a></li>
                         <li class="breadcrumb-item"><a class="text-uppercase text-white" href="#">Project</a></li>
                     </ol>
                 </div>
@@ -59,11 +59,11 @@ $cat_id = ($_GET["id"]);
 <!-- Single Case Studies -->
 <div class='single-case-studies'>
     <!-- Case Studies Thumb -->
-    <a href='projectdetail.php?id=$id'>
-        <img src='dashboard/uploads/project/$ufile' alt=''>
+    <a href='/arcon/projectdetail/$id'>
+        <img src='/arcon/dashboard/uploads/project/$ufile' alt=''>
     </a>
     <!-- Case Studies Overlay -->
-    <a href='projectdetail.php?id=$id' class='case-studies-overlay'>
+    <a href='/arcon/projectdetail/$id' class='case-studies-overlay'>
         <!-- Overlay Text -->
         <span class='overlay-text text-center p-3'>
             <h3 class='text-white mb-3'>$proj_title</h3>
@@ -101,7 +101,7 @@ $cat_id = ($_GET["id"]);
                         <p class="text-white d-none d-sm-block mt-4">
                             <?php print $enquiry_text; ?>
                         </p>
-                        <a href="contact" class="btn btn-bordered-white mt-4">Contact Us</a>
+                        <a href="/arcon/contact" class="btn btn-bordered-white mt-4">Contact Us</a>
                     </div>
                 </div>
             </div>

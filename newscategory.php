@@ -5,20 +5,26 @@ include "header.php";
 // Ambil ID kategori dari URL
 $kategori_id = isset ($_GET["id"]) ? $_GET["id"] : "";
 
-// Validasi input ID kategori
-if (!is_numeric($kategori_id)) {
+// Validasi apakah $kategori_id hanya berisi bilangan bulat positif
+if (!ctype_digit($kategori_id) || $kategori_id <= 0) {
     // Handle error or redirect user
 }
 
-// Kueri untuk mengambil berita berdasarkan kategori yang dipilih
-$stmt = $con->prepare("SELECT * FROM news WHERE news_id = ?");
+// Selanjutnya, pastikan untuk menghindari serangan XSS saat menampilkan nilai tersebut
+$kategori_id = htmlspecialchars($kategori_id);
+
+// Kueri untuk mengambil berita berdasarkan kategori yang dipilih, diurutkan berdasarkan tanggal pembuatan secara descending
+$stmt = $con->prepare("SELECT * FROM news WHERE news_id = ? ORDER BY created_at DESC");
 $stmt->bind_param("i", $kategori_id);
 $stmt->execute();
 $result = $stmt->get_result();
 
+
 // Kueri untuk mengambil daftar kategori
 $qc = mysqli_query($con, "SELECT * FROM categories_news");
 ?>
+
+
 <!-- ***** Breadcrumb Area Start ***** -->
 <section class="section breadcrumb-area overlay-dark d-flex align-items-center">
     <div class="container">
@@ -34,7 +40,7 @@ $qc = mysqli_query($con, "SELECT * FROM categories_news");
                         <?php echo htmlspecialchars($news_name); ?>
                     </h2>
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a class="text-uppercase text-white" href="index.php">Home</a></li>
+                        <li class="breadcrumb-item"><a class="text-uppercase text-white" href="/arcon/home">Home</a></li>
                         <li class="breadcrumb-item"><a class="text-uppercase text-white" href="#">News</a></li>
                     </ol>
                 </div>
@@ -223,8 +229,8 @@ $qc = mysqli_query($con, "SELECT * FROM categories_news");
                     <div class="single-news-item card mb-4">
                         <div class="card-body">
                             <div class="news-thumb">
-                                <a href="newsdetail.php?id=<?php echo htmlspecialchars($news['id']); ?>">
-                                    <img src="dashboard/uploads/news/<?php echo htmlspecialchars($news['ufile']); ?>"
+                                <a href="/arcon/newsdetail/<?php echo htmlspecialchars($news['id']); ?>">
+                                    <img src="/arcon/dashboard/uploads/news/<?php echo htmlspecialchars($news['ufile']); ?>"
                                         alt="News Image">
                                 </a>
                             </div>
@@ -234,7 +240,10 @@ $qc = mysqli_query($con, "SELECT * FROM categories_news");
                                 </h3>
                                 <div class="news-info">
                                     <span class="news-date">
-                                        <?php echo htmlspecialchars($news['created_at']); ?>
+                                    <span class="news-date">
+    <?php echo date("d F, Y", strtotime($news['created_at'])); ?>
+                </span>
+
                                     </span> |
                                     <span class="news-author">
                                         <?php echo htmlspecialchars($news['author']); ?>
@@ -251,8 +260,8 @@ $qc = mysqli_query($con, "SELECT * FROM categories_news");
                                     echo htmlspecialchars($content);
                                     ?>
                                 </p>
-                                <a href="newsdetail.php?id=<?php echo htmlspecialchars($news['id']); ?>"
-                                    class="btn btn-bordered-black mt-4">Read More</a>
+                                <a href="/arcon/newsdetail/<?php echo($news['id']); ?>"
+   class="btn btn-bordered-black mt-4">Read More</a>
                             </div>
                         </div>
                     </div>
@@ -262,10 +271,10 @@ $qc = mysqli_query($con, "SELECT * FROM categories_news");
                 <div class="box" style="margin-bottom: 20px;">
                     <input type="checkbox" id="check">
                     <div class="search-box">
-                        <form action="s" method="GET">
-                            <input type="text" name="query" placeholder="Type here...">
-                            <button type="submit" class="icon"><i class="fas fa-search"></i></button>
-                        </form>
+                    <form action="/arcon/?" method="GET">
+    <input type="text" name="s" placeholder="Type here...">
+    <button type="submit" class="icon"><i class="fas fa-search"></i></button>
+</form>
                     </div>
                 </div>
                 <div class="single-news-item" style="margin-top: 20px;">
@@ -275,7 +284,7 @@ $qc = mysqli_query($con, "SELECT * FROM categories_news");
                             <ul class="list-group">
                                 <?php foreach ($qc as $ro): ?>
                                     <li>
-                                        <a class="list-group-item" href="c?id=<?= htmlspecialchars($ro['news_id']) ?>">
+                                        <a class="list-group-item" href="<?= htmlspecialchars($ro['news_id']) ?>">
                                             <?= htmlspecialchars($ro['news_name']) ?>
                                         </a>
                                     </li>
@@ -303,7 +312,7 @@ $qc = mysqli_query($con, "SELECT * FROM categories_news");
                     <p class="text-white d-none d-sm-block mt-4">
                         <?php echo htmlspecialchars($enquiry_text); ?>
                     </p>
-                    <a href="contact" class="btn btn-bordered-white mt-4">Contact Us</a>
+                    <a href="/arcon/contact" class="btn btn-bordered-white mt-4">Contact Us</a>
                 </div>
             </div>
         </div>

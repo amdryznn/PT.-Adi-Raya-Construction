@@ -11,8 +11,8 @@ $todo = mysqli_real_escape_string($con, $_GET["id"]);
                 <div class="breadcrumb-content d-flex flex-column align-items-center text-center">
                     <h2 class="text-white text-uppercase mb-3">Values Details</h2>
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a class="text-uppercase text-white" href="index.php">Home</a></li>
-                        <li class="breadcrumb-item"><a class="text-uppercase text-white" href="services.php">Values</a>
+                        <li class="breadcrumb-item"><a class="text-uppercase text-white" href="/arcon/home">Home</a></li>
+                        <li class="breadcrumb-item"><a class="text-uppercase text-white" href="/arcon/values">Values</a>
                         </li>
                         <li class="breadcrumb-item"><a class="text-uppercase text-white" href="#">Values Detail</a></li>
                     </ol>
@@ -41,7 +41,7 @@ $ufile = "$tr[ufile]";
             <div class="col-12 col-lg-6">
                 <!-- About Thumb -->
                 <div class="about-thumb text-center">
-                    <img src="dashboard/uploads/services/<?php print $ufile; ?>" alt="img">
+                    <img src="/arcon/dashboard/uploads/services/<?php print $ufile; ?>" alt="img">
                 </div>
             </div>
             <div class="col-12 col-lg-6">
@@ -82,7 +82,7 @@ $ufile = "$tr[ufile]";
                     <p class="text-white d-none d-sm-block mt-4">
                         <?php print $enquiry_text; ?>
                     </p>
-                    <a href="contact" class="btn btn-bordered-white mt-4">Contact Us</a>
+                    <a href="/arcon/contact" class="btn btn-bordered-white mt-4">Contact Us</a>
                 </div>
             </div>
         </div>

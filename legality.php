@@ -7,7 +7,7 @@
                 <div class="breadcrumb-content text-center">
                     <h2 class="text-white text-uppercase mb-3">Legality</h2>
                     <ol class="breadcrumb d-flex justify-content-center">
-                        <li class="breadcrumb-item"><a class="text-uppercase text-white" href="index.php">Home</a></li>
+                        <li class="breadcrumb-item"><a class="text-uppercase text-white" href="home">Home</a></li>
                         <li class="breadcrumb-item"><a class="text-uppercase text-white" href="#">Legality</a></li>
                     </ol>
                 </div>
@@ -42,11 +42,11 @@
 <!-- Single Case Studies -->
 <div class='single-case-studies'>
     <!-- Case Studies Thumb -->
-    <a href='legalitydetail.php?id=$id'>
-        <img src='dashboard/uploads/legality/$ufile' alt=''>
+    <a href='/arcon/legalitydetail/$id'>
+        <img src='/arcon/dashboard/uploads/legality/$ufile' alt=''>
     </a>
     <!-- Case Studies Overlay -->
-    <a href='legalitydetail.php?id=$id' class='case-studies-overlay'>
+    <a href='/arcon/legalitydetail/$id' class='case-studies-overlay'>
         <!-- Overlay Text -->
         <span class='overlay-text text-center p-3'>
             <h3 class='text-white mb-3'>$legality_title</h3>

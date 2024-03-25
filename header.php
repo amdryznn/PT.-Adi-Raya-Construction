@@ -59,15 +59,15 @@ $latitude = "$tr[latitude]";
     </title>
 
     <!-- Favicon  -->
-    <link rel="icon" href="assets/img/iconfav.png">
+    <link rel="icon" href="/arcon/assets/img/iconfav.png">
 
     <!-- ***** All CSS Files ***** -->
 
     <!-- Style css -->
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="/arcon/assets/css/style.css">
 
     <!-- Responsive css -->
-    <link rel="stylesheet" href="assets/css/responsive.css">
+    <link rel="stylesheet" href="/arcon/assets/css/responsive.css">
 
 </head>
 
@@ -125,9 +125,9 @@ $latitude = "$tr[latitude]";
                     ?>
 
                     <a class="navbar-brand" href="#">
-                        <img class="navbar-brand-regular" src="dashboard/uploads/logo/<?php print $ufile ?>"
+                        <img class="navbar-brand-regular" src="/arcon/dashboard/uploads/logo/<?php print $ufile ?>"
                             alt="brand-logo">
-                        <img class="navbar-brand-sticky" src="dashboard/uploads/logo/black.png" alt="sticky brand-logo">
+                        <img class="navbar-brand-sticky" src="/arcon/dashboard/uploads/logo/black.png" alt="sticky brand-logo">
                     </a>
                     <div class="ml-auto"></div>
 
@@ -135,7 +135,7 @@ $latitude = "$tr[latitude]";
                     <ul class="navbar-nav items">
 
                         <li class="nav-item">
-                            <a class="nav-link" href="home">Home </a>
+                            <a class="nav-link" href="/arcon/home">Home </a>
                         </li>
 
 
@@ -145,15 +145,15 @@ $latitude = "$tr[latitude]";
                                 dropdown-toggle="dropdown" aria-expanded="false">About Us</a>
 
                             <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
-                                <li><a class="dropdown-item" href="about">About Us</a></li>
-                                <li><a class="dropdown-item" href="vision">Vision & Mission</a></li>
-                                <li><a class="dropdown-item" href="structure">Corporate Structure</a></li>
-                                <li><a class="dropdown-item" href="values">Corporate Values</a></li>
+                                <li><a class="dropdown-item" href="/arcon/about">About Us</a></li>
+                                <li><a class="dropdown-item" href="/arcon/vision">Vision & Mission</a></li>
+                                <li><a class="dropdown-item" href="/arcon/structure">Corporate Structure</a></li>
+                                <li><a class="dropdown-item" href="/arcon/values">Corporate Values</a></li>
                             </ul>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="legality">Legality </a>
+                            <a class="nav-link" href="/arcon/legality">Legality </a>
                         </li>
 
                         <li class="nav-item dropdown">
@@ -162,7 +162,7 @@ $latitude = "$tr[latitude]";
                             <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
                                 <?php foreach ($qc as $ro): ?>
                                     <li>
-                                        <a class="dropdown-item" href="project.php?id=<?= $ro['cat_id'] ?>">
+                                        <a class="dropdown-item" href="/arcon/project/<?= $ro['cat_id'] ?>">
                                             <?= $ro['name'] ?>
                                         </a>
                                     </li>
@@ -172,7 +172,7 @@ $latitude = "$tr[latitude]";
 
 
                         <li class="nav-item">
-                            <a class="nav-link" href="news">News </a>
+                            <a class="nav-link" href="/arcon/news">News </a>
                         </li>
 
                         <!-- Navbar Icons -->
@@ -213,7 +213,7 @@ $latitude = "$tr[latitude]";
                     <!-- Navbar Action Button -->
                     <ul class="navbar-nav action">
                         <li class="nav-item ml-3">
-                            <a href="contact" class="btn ml-lg-auto btn-bordered-white"><i
+                            <a href="/arcon/contact" class="btn ml-lg-auto btn-bordered-white"><i
                                     class="fas fa-paper-plane contact-icon mr-md-2"></i>Contact Us</a>
                         </li>
                     </ul>

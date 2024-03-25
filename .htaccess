@@ -9,5 +9,16 @@ RewriteRule    ^contact/?$    contact.php    [NC,L]
 RewriteRule    ^allproject/?$    portfolio.php    [NC,L]
 RewriteRule    ^legality/?$    legality.php    [NC,L]
 RewriteRule    ^news/?$    news.php    [NC,L]
-RewriteRule    ^s/?$    search.php    [NC,L]
-RewriteRule    ^c/?$    newscategory.php   [NC,L]
+RewriteRule ^newscategory/([0-9]+) newscategory.php?id=$1 [NC,L]
+RewriteRule ^newsdetail/([0-9]+) newsdetail.php?id=$1 [NC,L]
+RewriteRule ^project/([0-9]+) project.php?id=$1 [NC,L]
+RewriteRule ^projectdetail/([0-9]+) projectdetail.php?id=$1 [NC,L]
+RewriteRule ^legalitydetail/([0-9]+) legalitydetail.php?id=$1 [NC,L]
+RewriteRule ^structuredetail/([0-9]+) structuredetail.php?id=$1 [NC,L]
+RewriteRule ^valuesdetail/([0-9]+) servicedetail.php?id=$1 [NC,L]
+RewriteCond %{QUERY_STRING} ^s=(.*)
+RewriteRule ^$ search.php?query=%1 [NC,L]
+
+
+
+ 

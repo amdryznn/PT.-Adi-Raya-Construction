@@ -8,7 +8,7 @@
                 <div class="breadcrumb-content d-flex flex-column align-items-center text-center">
                     <h2 class="text-white text-uppercase mb-3">Structure</h2>
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a class="text-uppercase text-white" href="index.php">Home</a></li>
+                        <li class="breadcrumb-item"><a class="text-uppercase text-white" href="home">Home</a></li>
                         <li class="breadcrumb-item"><a class="text-uppercase text-white" href="#">Structure</a></li>
 
                     </ol>
@@ -44,11 +44,11 @@
 <!-- Single Case Studies -->
 <div class='single-case-studies'>
     <!-- Case Studies Thumb -->
-    <a href='structuredetail.php?id=$id'>
+    <a href='structuredetail/$id'>
         <img src='dashboard/uploads/portfolio/$ufile' alt=''>
     </a>
     <!-- Case Studies Overlay -->
-    <a href='structuredetail.php?id=$id' class='case-studies-overlay'>
+    <a href='structuredetail/$id' class='case-studies-overlay'>
         <!-- Overlay Text -->
         <span class='overlay-text text-center p-3'>
             <h3 class='text-white mb-3'>$port_title</h3>

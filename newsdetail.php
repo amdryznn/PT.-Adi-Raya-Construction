@@ -3,6 +3,8 @@
 <?php
 $qc = mysqli_query($con, "SELECT * FROM categories_news");
 $todo = mysqli_real_escape_string($con, $_GET["id"]);
+$current_url = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+
 
 // Ambil berita dari database
 $rt = mysqli_query($con, "SELECT * FROM news WHERE id = $todo");
@@ -29,7 +31,7 @@ $qw = mysqli_query($con, "SELECT * FROM news LIMIT 3");
                 <div class="breadcrumb-content d-flex flex-column align-items-center text-center">
                     <h2 class="text-white text-uppercase mb-3">News Detail</h2>
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a class="text-uppercase text-white" href="index.php">Home</a></li>
+                        <li class="breadcrumb-item"><a class="text-uppercase text-white" href="/arcon/home">Home</a></li>
                         <li class="breadcrumb-item"><a class="text-uppercase text-white" href="#">News Detail</a></li>
                     </ol>
                 </div>
@@ -204,6 +206,15 @@ $qw = mysqli_query($con, "SELECT * FROM news LIMIT 3");
         border-radius: 5px;
         /* Ubah ke bentuk bulat saat hover */
     }
+
+    .share-icons {
+        text-align: center; /* Mengatur ikon-ikon agar ditengah */
+    }
+
+    .share-icons a {
+        display: inline-block; /* Membuat tautan menjadi blok untuk memberikan jarak */
+        margin: 0 7px; /* Memberikan jarak horizontal antara ikon-ikon */
+    }
 </style>
 
 <!-- ***** News Area Start ***** -->
@@ -218,7 +229,7 @@ $qw = mysqli_query($con, "SELECT * FROM news LIMIT 3");
                 <!-- Tampilkan berita -->
                 <div class="single-news-item">
                     <div class="news-thumb">
-                        <img src="dashboard/uploads/news/<?php echo $ufile; ?>" alt="News Image">
+                        <img src="/arcon/dashboard/uploads/news/<?php echo $ufile; ?>" alt="News Image">
                     </div>
                     <div class="news-content">
                         <h2>
@@ -226,24 +237,44 @@ $qw = mysqli_query($con, "SELECT * FROM news LIMIT 3");
                         </h2>
                         <div class="news-info">
                             <span class="news-date">
-                                <?php echo $tr['created_at']; ?>
+                            <?php echo date('d F, Y', strtotime($tr['created_at'])); ?>
                             </span> |
                             <span class="news-author">
                                 <?php echo $author; ?>
                             </span>
                         </div>
+                        <div class="share-icons">
+    <!-- Facebook Share -->
+    <a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo urlencode($current_url); ?>" target="_blank" rel="noopener noreferrer" style="font-size: 20px;">
+        <i class="fab fa-facebook"></i>
+    </a>
+
+    <!-- Twitter Share -->
+    <a href="https://twitter.com/intent/tweet?url=<?php echo urlencode($current_url); ?>" target="_blank" rel="noopener noreferrer" style="font-size: 20px;">
+        <i class="fab fa-twitter"></i>
+    </a>
+
+    <!-- LinkedIn Share -->
+    <a href="https://www.linkedin.com/shareArticle?url=<?php echo urlencode($current_url); ?>" target="_blank" rel="noopener noreferrer" style="font-size: 20px;">
+        <i class="fab fa-linkedin"></i>
+    </a>
+
+    <!-- WhatsApp Share -->
+    <a href="https://wa.me/?text=<?php echo urlencode($current_url); ?>" target="_blank" rel="noopener noreferrer" style="font-size: 20px;">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+</div>
+
                         <?php echo $content; ?>
                     </div>
                 </div>
             </div>
-
-
             <div class="col-md-6 col-lg-4">
                 <div class="box" style="margin-bottom: 20px;">
                     <input type="checkbox" id="check">
                     <div class="search-box">
-                        <form action="s" method="GET">
-                            <input type="text" name="query" placeholder="Type here...">
+                    <form action="/arcon/?" method="GET">
+                            <input type="text" name="s" placeholder="Type here...">
                             <button type="submit" class="icon"><i class="fas fa-search"></i></button>
                         </form>
                     </div>
@@ -255,7 +286,7 @@ $qw = mysqli_query($con, "SELECT * FROM news LIMIT 3");
                             <ul class="list-group">
                                 <?php foreach ($qc as $ro): ?>
                                     <li>
-                                        <a class="list-group-item" href="c?id=<?= $ro['news_id'] ?>">
+                                        <a class="list-group-item" href="/arcon/newscategory/<?= $ro['news_id'] ?>">
                                             <?= $ro['news_name'] ?>
                                         </a>
                                     </li>
@@ -280,9 +311,9 @@ $qw = mysqli_query($con, "SELECT * FROM news LIMIT 3");
 <!-- ** You Might Also Like Section Start ** -->
 <section class="section news-area ptb_100">
     <div class="container">
-        <div class="row">
+                      <div class="row">
             <div class="col-12">
-                <div class="section-heading text-center">
+                 <div class="section-heading text-center">
                     <h2>You Might Also Like</h2>
                 </div>
             </div>
@@ -297,7 +328,7 @@ $qw = mysqli_query($con, "SELECT * FROM news LIMIT 3");
             <?php foreach ($qw_might_also_like as $news): ?>
                 <div class="col-md-4">
                     <div class="card mb-4">
-                        <img class="card-img-top mb-10" src="dashboard/uploads/news/<?php echo $news['ufile']; ?>"
+                        <img class="card-img-top mb-10" src="/arcon/dashboard/uploads/news/<?php echo $news['ufile']; ?>"
                             alt="News Image">
                         <div class="card-body">
                             <h5 class="card-title">
@@ -305,7 +336,7 @@ $qw = mysqli_query($con, "SELECT * FROM news LIMIT 3");
                             </h5>
                             <div class="news-info">
                                 <span class="news-date">
-                                    <?php echo $news['created_at']; ?>
+                                <?php echo date("d F, Y", strtotime($news['created_at'])); ?>
                                 </span> |
                                 <span class="news-author">
                                     <?php echo $news['author']; ?>
@@ -322,8 +353,8 @@ $qw = mysqli_query($con, "SELECT * FROM news LIMIT 3");
                                 echo $content;
                                 ?>
                             </p>
-                            <a href="newsdetail.php?id=<?php echo $news['id']; ?>" class="btn btn-bordered-black mt-4">Read
-                                More</a>
+                            <a href="<?php echo($news['id']); ?>"
+                        class="btn btn-bordered-black mt-4">Read More</a>
                         </div>
                     </div>
                 </div>
@@ -346,7 +377,7 @@ $qw = mysqli_query($con, "SELECT * FROM news LIMIT 3");
                     <p class="text-white d-none d-sm-block mt-4">
                         <?php print $enquiry_text; ?>
                     </p>
-                    <a href="contact" class="btn btn-bordered-white mt-4">Contact Us</a>
+                    <a href="/arcon/contact" class="btn btn-bordered-white mt-4">Contact Us</a>
                 </div>
             </div>
         </div>

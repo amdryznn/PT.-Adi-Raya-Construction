@@ -8,8 +8,13 @@ include_once "z_db.php";
 // Query to fetch news categories
 $qc = mysqli_query($con, "SELECT * FROM categories_news");
 
-// Query to fetch news items
-$qn = mysqli_query($con, "SELECT * FROM news LIMIT 3");
+// Prepared statement to fetch news items with formatted created_at
+$qn = mysqli_prepare($con, "SELECT *, DATE_FORMAT(created_at, '%e %M, %Y') AS formatted_created_at FROM news ORDER BY created_at DESC LIMIT ?");
+
+mysqli_stmt_bind_param($qn, "i", $limit);
+$limit = 3;
+mysqli_stmt_execute($qn);
+$result = mysqli_stmt_get_result($qn);
 ?>
 
 
@@ -205,12 +210,12 @@ $qn = mysqli_query($con, "SELECT * FROM news LIMIT 3");
         <div class="row">
             <!-- News Content -->
             <div class="col-md-6 col-lg-8">
-                <?php foreach ($qn as $news): ?>
+                <?php foreach ($result as $news): ?>
                     <!-- Tampilkan berita berdasarkan kategori yang dipilih -->
                     <div class="single-news-item card mb-4">
                         <div class="card-body">
                             <div class="news-thumb">
-                                <a href="newsdetail.php?id=<?php echo $news['id']; ?>">
+                                <a href="newsdetail/<?php echo $news['id']; ?>">
                                     <img src="dashboard/uploads/news/<?php echo $news['ufile']; ?>" alt="News Image">
                                 </a>
                             </div>
@@ -219,26 +224,34 @@ $qn = mysqli_query($con, "SELECT * FROM news LIMIT 3");
                                     <?php echo $news['title']; ?>
                                 </h3>
                                 <div class="news-info">
-                                    <span class="news-date">
-                                        <?php echo $news['created_at']; ?>
-                                    </span> |
+                                <span class="news-date">
+    <?php echo $news['formatted_created_at']; ?>
+</span>
+ |
                                     <span class="news-author">
                                         <?php echo $news['author']; ?>
                                     </span>
                                 </div>
                                 <p>
-                                    <?php
-                                    // Memotong konten menjadi 2 baris dan menambahkan titik-titik jika perlu
-                                    $content = strip_tags($news['content']); // Menghapus tag HTML dari konten
-                                    if (strlen($content) > 100) {
-                                        $content = substr($content, 0, 200);
-                                        $content = substr($content, 0, strrpos($content, ' ')) . '...';
-                                    }
-                                    echo $content;
-                                    ?>
-                                </p>
-                                <a href="newsdetail.php?id=<?php echo $news['id']; ?>"
-                                    class="btn btn-bordered-black mt-4">Read More</a>
+    <?php
+    // Memotong konten menjadi 2 baris dan menambahkan titik-titik jika perlu
+    
+    $content = htmlspecialchars(strip_tags($news['content']));
+
+    // Menghapus tag HTML dari konten
+    if (strlen($content) > 100) {
+        $content = substr($content, 0, 200);
+        $content = substr($content, 0, strrpos($content, ' ')) . '...';
+    }
+    echo $content; // Anda harus menambahkan ini
+    ?>
+</p>
+
+<a href="newsdetail/<?php echo($news['id']); ?>"
+   class="btn btn-bordered-black mt-4">Read More</a>
+
+
+
                             </div>
                         </div>
                     </div>
@@ -248,10 +261,11 @@ $qn = mysqli_query($con, "SELECT * FROM news LIMIT 3");
                 <div class="box" style="margin-bottom: 20px;">
                     <input type="checkbox" id="check">
                     <div class="search-box">
-                        <form action="s" method="GET">
-                            <input type="text" name="query" placeholder="Type here...">
-                            <button type="submit" class="icon"><i class="fas fa-search"></i></button>
-                        </form>
+                    <form action="/arcon/?" method="GET">
+    <input type="text" name="s" placeholder="Type here...">
+    <button type="submit" class="icon"><i class="fas fa-search"></i></button>
+</form>
+
                     </div>
                 </div>
                 <div class="single-news-item" style="margin-top: 20px;">
@@ -261,7 +275,7 @@ $qn = mysqli_query($con, "SELECT * FROM news LIMIT 3");
                             <ul class="list-group">
                                 <?php foreach ($qc as $ro): ?>
                                     <li>
-                                        <a class="list-group-item" href="c?id=<?= $ro['news_id'] ?>">
+                                        <a class="list-group-item" href="newscategory/<?= $ro['news_id'] ?>">
                                             <?= $ro['news_name'] ?>
                                         </a>
                                     </li>

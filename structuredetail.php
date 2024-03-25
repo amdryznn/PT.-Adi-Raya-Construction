@@ -11,9 +11,9 @@ $todo = mysqli_real_escape_string($con, $_GET["id"]);
                 <div class="breadcrumb-content d-flex flex-column align-items-center text-center">
                     <h2 class="text-white text-uppercase mb-3">Structure Details</h2>
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a class="text-uppercase text-white" href="index.php">Home</a></li>
+                        <li class="breadcrumb-item"><a class="text-uppercase text-white" href="/arcon/home">Home</a></li>
                         <li class="breadcrumb-item"><a class="text-uppercase text-white"
-                                href="structure.php">Structure</a></li>
+                                href="/arcon/structure">Structure</a></li>
                         <li class="breadcrumb-item"><a class="text-uppercase text-white" href="#">Structure Detail</a>
                         </li>
                     </ol>
@@ -43,7 +43,7 @@ $ufile = "$tr[ufile]";
             <div class="col-12 col-lg-6">
                 <!-- About Thumb -->
                 <div class="portfolio-thumb text-center">
-                    <img src="dashboard/uploads/portfolio/<?php echo htmlspecialchars($ufile); ?>" alt="img">
+                    <img src="/arcon/dashboard/uploads/portfolio/<?php echo htmlspecialchars($ufile); ?>" alt="img">
                 </div>
             </div>
             <div class="col-12 col-lg-6">
@@ -77,17 +77,17 @@ $ufile = "$tr[ufile]";
                         <div class="social-icons2">
                             <?php if ($tw_link): ?>
                                 <a href="<?php echo htmlspecialchars($tw_link); ?>" target="_blank" class="twitter">
-                                    <img src="dashboard\uploads\icon\twitter1.png" alt="Twitter">
+                                    <img src="/arcon/dashboard/uploads/icon/twitter1.png" alt="Twitter">
                                 </a>
                             <?php endif; ?>
                             <?php if ($fb_link): ?>
                                 <a href="<?php echo htmlspecialchars($fb_link); ?>" target="_blank" class="facebook">
-                                    <img src="dashboard\uploads\icon\facebook1.png" alt="Facebook">
+                                    <img src="/arcon/dashboard/uploads/icon/facebook1.png" alt="Facebook">
                                 </a>
                             <?php endif; ?>
                             <?php if ($li_link): ?>
                                 <a href="<?php echo htmlspecialchars($li_link); ?>" target="_blank" class="linkedin">
-                                    <img src="dashboard\uploads\icon\linkedin1.png" alt="LinkedIn">
+                                    <img src="/arcon/dashboard/uploads/icon/linkedin1.png" alt="LinkedIn">
                                 </a>
                             <?php endif; ?>
                         </div>
@@ -123,7 +123,7 @@ $ufile = "$tr[ufile]";
                     <p class="text-white d-none d-sm-block mt-4">
                         <?php print $enquiry_text; ?>
                     </p>
-                    <a href="contact" class="btn btn-bordered-white mt-4">Contact Us</a>
+                    <a href="/arcon/contact" class="btn btn-bordered-white mt-4">Contact Us</a>
                 </div>
             </div>
         </div>

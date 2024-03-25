@@ -5,27 +5,80 @@ include "header.php";
 // Include database configuration
 include_once "z_db.php";
 
-// Check if query parameter 'query' is set
-if (isset ($_GET['query'])) {
-    $search_query = '%' . $_GET['query'] . '%';
+// Function to clean and filter input data, excluding embed text from Summernote content
+function clean_input($data) {
+    // Remove Summernote embed text
+    $data = preg_replace('/<img[^>]+>/', '', $data); // Remove img tags
+    $data = preg_replace('/<iframe[^>]+>/', '', $data); // Remove iframe tags
+    // Clean input data
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+}
 
-    // Prepared statement to search news based on content
-    $query = "SELECT * FROM news WHERE content LIKE ?";
+function perform_search($search_query, $con) {
+    // Prepared statement to search news based on title, content, or author
+    $query = "SELECT * FROM news WHERE title LIKE ? OR content LIKE ? OR author LIKE ?";
     $stmt = mysqli_prepare($con, $query);
-    mysqli_stmt_bind_param($stmt, "s", $search_query);
+    $search_query_with_wildcards = "%$search_query%";
+    mysqli_stmt_bind_param($stmt, "sss", $search_query_with_wildcards, $search_query_with_wildcards, $search_query_with_wildcards);
     mysqli_stmt_execute($stmt);
     $result = mysqli_stmt_get_result($stmt);
+
+    // Initialize filtered results array
+    $filtered_results = array();
+
+    // Filter search results
+    while ($row = mysqli_fetch_assoc($result)) {
+        // Check if the search query matches title, content, or author
+        $title_matches = stripos($row['title'], $_GET['query']) !== false;
+        $content_matches = stripos($row['content'], $_GET['query']) !== false;
+        $author_matches = stripos($row['author'], $_GET['query']) !== false;
+
+        // Add the row to filtered results if any of the fields match the search query
+        if ($title_matches || $content_matches || $author_matches) {
+            $filtered_results[] = $row;
+        }
+    }
+
+    return $filtered_results;
 }
-$qc = mysqli_query($con, "SELECT * FROM categories_news");
+
+// Check if query parameter 'query' is set and not empty
+if (isset($_GET['query']) && !empty($_GET['query'])) {
+    $search_query = '%' . clean_input($_GET['query']) . '%';
+} else {
+    // If the query parameter is not set or empty, capture the value from the modified URL
+    $parts = explode('/', $_SERVER['REQUEST_URI']);
+    $search_query = '%' . clean_input(end($parts)) . '%';
+}
+
+// Initialize filtered results array
+$filtered_results = array();
+
+// Perform search
+if (!empty($search_query)) { 
+    $filtered_results = perform_search($search_query, $con);
+}
+
+// Update the number of filtered results
+$num_results = count($filtered_results);
+
+// Prepared statement to get categories
+$stmt_category = mysqli_prepare($con, "SELECT * FROM categories_news");
+mysqli_stmt_execute($stmt_category);
+$result_category = mysqli_stmt_get_result($stmt_category);
 ?>
 
 
-<!-- ** Breadcrumb Area Start ** -->
+
+<!-- Breadcrumb Area Start -->
 <section class="section breadcrumb-area overlay-dark d-flex align-items-center">
+    <!-- Breadcrumb Content -->
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <!-- Breadcrumb Content -->
                 <div class="breadcrumb-content d-flex flex-column align-items-center text-center">
                     <h2 class="text-white text-uppercase mb-3">Search Results</h2>
                     <ol class="breadcrumb">
@@ -38,7 +91,7 @@ $qc = mysqli_query($con, "SELECT * FROM categories_news");
         </div>
     </div>
 </section>
-<!-- ** Breadcrumb Area End ** -->
+<!-- Breadcrumb Area End -->
 
 <style>
     .single-news-item {
@@ -206,67 +259,53 @@ $qc = mysqli_query($con, "SELECT * FROM categories_news");
     }
 </style>
 
-<!-- ** News Area Start ** -->
+
+
+<!-- News Area Start -->
 <section class="section news-area ptb_100">
     <div class="container">
         <div class="row">
             <div class="col-md-6 col-lg-8">
-
-                <?php
-                if (isset ($result) && mysqli_num_rows($result) > 0) {
-                    // Display search results
-                    while ($row = mysqli_fetch_assoc($result)) {
-                        // Display search results in the desired format
-                        ?>
+                <!-- Displaying search results info -->
+                <div class="col-12">
+                    <div class="search-results-info text-center mb-4">
+                        <?php if (!empty($_GET['query']) || !empty($_GET['s'])): ?>
+                            <p>Search results for <strong><?php echo htmlspecialchars($_GET['query'] ?? $_GET['s'] ?? ''); ?></strong></p>
+                            <p><?php echo $num_results; ?> results found</p>
+                        <?php endif; ?>
+                    </div>
+                </div>
+                <?php if ($num_results > 0): ?>
+                    <?php foreach ($filtered_results as $row): ?>
                         <div class="single-news-item card mb-4">
                             <div class="card-body">
                                 <div class="news-thumb">
-                                    <a href="newsdetail.php?id=<?php echo $row['id']; ?>">
-                                        <img src="dashboard/uploads/news/<?php echo $row['ufile']; ?>" alt="News Image">
+                                    <a href="newsdetail/<?php echo htmlspecialchars($row['id']); ?>">
+                                        <img src="dashboard/uploads/news/<?php echo htmlspecialchars($row['ufile']); ?>" alt="News Image">
                                     </a>
                                 </div>
                                 <div class="news-content">
-                                    <h3>
-                                        <?php echo $row['title']; ?>
-                                    </h3>
+                                    <h3><?php echo htmlspecialchars($row['title']); ?></h3>
                                     <div class="news-info">
-                                        <span class="news-date">
-                                            <?php echo $row['created_at']; ?>
-                                        </span> |
-                                        <span class="news-author">
-                                            <?php echo $row['author']; ?>
-                                        </span>
+                                    <span class="news-date"><?php echo date("d F, Y", strtotime($row['created_at'])); ?></span> |
+                                        <span class="news-author"><?php echo htmlspecialchars($row['author']); ?></span>
                                     </div>
-                                    <p>
-                                        <?php
-                                        // Memotong konten menjadi 2 baris dan menambahkan titik-titik jika perlu
-                                        $content = strip_tags($row['content']); // Menghapus tag HTML dari konten
-                                        if (strlen($content) > 100) {
-                                            $content = substr($content, 0, 200);
-                                            $content = substr($content, 0, strrpos($content, ' ')) . '...';
-                                        }
-                                        echo $content;
-                                        ?>
-                                    </p>
-                                    <a href="newsdetail.php?id=<?php echo $row['id']; ?>"
-                                        class="btn btn-bordered-black mt-4">Read More</a>
+                                    <p><?php echo htmlspecialchars(substr(strip_tags($row['content']), 0, 200)); ?>...</p>
+                                    <a href="newsdetail/<?php echo htmlspecialchars($row['id']); ?>" class="btn btn-bordered-black mt-4">Read More</a>
                                 </div>
                             </div>
                         </div>
-                        <?php
-                    }
-                } else {
-                    echo "<h2>No results found</h2>";
-                }
-                ?>
-
+                    <?php endforeach; ?>
+                <?php else: ?>
+                    <h2 style='margin-bottom: 20px;' class='text-center'>No results found</h2>
+                <?php endif; ?>
             </div>
 
             <div class="col-md-6 col-lg-4">
                 <div class="box">
                     <div class="search-box">
-                        <form action="s" method="GET">
-                            <input type="text" name="query" placeholder="Type here...">
+                        <form action="/arcon/?" method="GET">
+                            <input type="text" name="s" placeholder="Type here">
                             <button type="submit" class="icon"><i class="fas fa-search"></i></button>
                         </form>
                     </div>
@@ -276,13 +315,13 @@ $qc = mysqli_query($con, "SELECT * FROM categories_news");
                         <div class="card-body">
                             <h5 class="card-title">Categories</h5>
                             <ul class="list-group">
-                                <?php foreach ($qc as $ro): ?>
+                                <?php while ($row_category = mysqli_fetch_assoc($result_category)): ?>
                                     <li>
-                                        <a class="list-group-item" href="c?id=<?= $ro['news_id'] ?>">
-                                            <?= $ro['news_name'] ?>
+                                        <a class="list-group-item" href="newscategory/<?php echo htmlspecialchars($row_category['news_id']); ?>">
+                                            <?php echo htmlspecialchars($row_category['news_name']); ?>
                                         </a>
                                     </li>
-                                <?php endforeach ?>
+                                <?php endwhile; ?>
                             </ul>
                         </div>
                     </div>
@@ -291,28 +330,23 @@ $qc = mysqli_query($con, "SELECT * FROM categories_news");
         </div>
     </div>
 </section>
-<!-- ** News Area End ** -->
+<!-- News Area End -->
 
-<!--====== Call To Action Area Start ======-->
+<!-- Call To Action Area Start -->
 <section class="section cta-area bg-overlay ptb_100">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-12 col-lg-10">
-                <!-- Section Heading -->
                 <div class="section-heading text-center m-0">
-                    <h2 class="text-white">
-                        <?php echo $enquiry_title; ?>
-                    </h2>
-                    <p class="text-white d-none d-sm-block mt-4">
-                        <?php echo $enquiry_text; ?>
-                    </p>
+                    <h2 class="text-white"><?php echo htmlspecialchars($enquiry_title); ?></h2>
+                    <p class="text-white d-none d-sm-block mt-4"><?php echo htmlspecialchars($enquiry_text); ?></p>
                     <a href="contact" class="btn btn-bordered-white mt-4">Contact Us</a>
                 </div>
             </div>
         </div>
     </div>
 </section>
-<!--====== Call To Action Area End ======-->
+<!-- Call To Action Area End -->
 
 <?php include "footer.php"; ?>
 

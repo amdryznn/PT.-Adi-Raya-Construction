@@ -7,7 +7,7 @@
                 <div class="breadcrumb-content text-center">
                     <h2 class="text-white text-uppercase mb-3">Values</h2>
                     <ol class="breadcrumb d-flex justify-content-center">
-                        <li class="breadcrumb-item"><a class="text-uppercase text-white" href="index.php">Home</a></li>
+                        <li class="breadcrumb-item"><a class="text-uppercase text-white" href="home">Home</a></li>
                         <li class="breadcrumb-item"><a class="text-uppercase text-white" href="#">Values</a></li>
                     </ol>
                 </div>
@@ -61,7 +61,7 @@
 <div class='single-service p-4'  style='border: solid 1px #788282;'>
     <h3 class='my-3'>$serviceg</h3>
     <p>$service_desc</p>
-    <a class='service-btn mt-3' href='servicedetail.php?id=$id'>Learn More</a>
+    <a class='service-btn mt-3' href='valuesdetail/$id'>Learn More</a>
 </div>
 </div>
 

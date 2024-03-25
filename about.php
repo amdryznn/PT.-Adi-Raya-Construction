@@ -8,7 +8,7 @@
                 <div class="breadcrumb-content d-flex flex-column align-items-center text-center">
                     <h2 class="text-white text-uppercase mb-3">About Us</h2>
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a class="text-uppercase text-white" href="index.php">Home</a></li>
+                        <li class="breadcrumb-item"><a class="text-uppercase text-white" href="home">Home</a></li>
                         <li class="breadcrumb-item"><a class="text-uppercase text-white" href="#">About Us</a></li>
                     </ol>
                 </div>
