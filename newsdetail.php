@@ -360,10 +360,6 @@ $comments_query = mysqli_query($con, "SELECT * FROM comments WHERE id = $todo OR
                                         echo "</div>";
                                         echo "<div class='comment-content' style='margin-left: 38px;'>";
                                         echo "<p>{$comment['description']}</p>";
-                                        // Tambahkan tombol "Reply" dan "Delete" jika diperlukan
-                                        echo "<div class='comment-actions'>";
-                                        echo "<a href='/arcon/delete_comment.php?id={$comment['c_id']}' class='btn-btn mt-3 delete-button'>Delete</a>"; // Tombol Delete dengan kelas CSS delete-button
-                                        echo "</div>";
                                         // Menampilkan tanggal pembuatan
                                         echo "</div>";
                                         echo "</div>";

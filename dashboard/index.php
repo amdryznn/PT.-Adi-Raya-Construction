@@ -57,86 +57,93 @@ $username = $_SESSION['username'];
                         <!--end row-->
 
                         <div class="row h-100">
+
+
                             <div class="col-lg-4 col-md-6">
                                 <div class="card">
                                     <div class="card-body">
                                         <div class="d-flex align-items-center">
-                                            <div class="avatar-sm flex-shrink-0">
-                                                <span class="avatar-title bg-light text-primary rounded-circle fs-3">
-                                                    <i class="ri-git-merge-fill"></i>
-                                                </span>
-                                            </div>
+                                            <a href=services>
+                                                <div class="avatar-sm flex-shrink-0">
+                                                    <span
+                                                        class="avatar-title bg-light text-primary rounded-circle fs-3">
+                                                        <i class="ri-server-line"></i>
+                                                    </span>
+                                                </div>
+                                            </a>
                                             <div class="flex-grow-1 ms-3">
                                                 <?php
                                                 $result = mysqli_query($con, "SELECT count(*) FROM service");
-                                                $row = mysqli_fetch_row($result);
-                                                $numrows = $row[0];
-
+                                                $rowx = mysqli_fetch_row($result);
+                                                $nux = $rowx[0];
                                                 ?>
-
                                                 <p class="text-uppercase fw-semibold fs-12 text-muted mb-1"> Total
                                                     Values</p>
-                                                <h4 class=" mb-0"><span class="counter-value"
-                                                        data-target="<?php print $numrows; ?>"></span></h4>
+                                                <h4 class="mb-0"><span class="counter-value"
+                                                        data-target="<?php print $nux; ?>"></span></h4>
                                             </div>
-
                                         </div>
                                     </div><!-- end card body -->
                                 </div><!-- end card -->
                             </div><!-- end col -->
+
                             <div class="col-lg-4 col-md-6">
                                 <div class="card">
                                     <div class="card-body">
                                         <div class="d-flex align-items-center">
-                                            <div class="avatar-sm flex-shrink-0">
-                                                <span class="avatar-title bg-light text-primary rounded-circle fs-3">
-                                                    <i class="ri-server-line"></i>
-                                                </span>
-                                            </div>
+                                            <a href=projectlist>
+                                                <div class="avatar-sm flex-shrink-0">
+                                                    <span
+                                                        class="avatar-title bg-light text-primary rounded-circle fs-3">
+                                                        <i class="ri-server-line"></i>
+                                                    </span>
+                                                </div>
+                                            </a>
                                             <div class="flex-grow-1 ms-3">
                                                 <?php
                                                 $result = mysqli_query($con, "SELECT count(*) FROM project");
                                                 $rowx = mysqli_fetch_row($result);
                                                 $nux = $rowx[0];
-
                                                 ?>
                                                 <p class="text-uppercase fw-semibold fs-12 text-muted mb-1"> Total
                                                     Project</p>
-                                                <h4 class=" mb-0"><span class="counter-value"
+                                                <h4 class="mb-0"><span class="counter-value"
                                                         data-target="<?php print $nux; ?>"></span></h4>
                                             </div>
-
                                         </div>
                                     </div><!-- end card body -->
                                 </div><!-- end card -->
                             </div><!-- end col -->
+
                             <div class="col-lg-4 col-md-6">
                                 <div class="card">
                                     <div class="card-body">
                                         <div class="d-flex align-items-center">
-                                            <div class="avatar-sm flex-shrink-0">
-                                                <span class="avatar-title bg-light text-primary rounded-circle fs-3">
-                                                    <i class="ri-pages-line"></i>
-                                                </span>
-                                            </div>
+                                            <a href=comments>
+                                                <div class="avatar-sm flex-shrink-0">
+                                                    <span
+                                                        class="avatar-title bg-light text-primary rounded-circle fs-3">
+                                                        <i class="ri-server-line"></i>
+                                                    </span>
+                                                </div>
+                                            </a>
                                             <div class="flex-grow-1 ms-3">
                                                 <?php
-                                                $result = mysqli_query($con, "SELECT count(*) FROM category");
-                                                $rod = mysqli_fetch_row($result);
-                                                $nud = $rod[0];
-
+                                                $result = mysqli_query($con, "SELECT count(*) FROM comments");
+                                                $rowx = mysqli_fetch_row($result);
+                                                $nux = $rowx[0];
                                                 ?>
                                                 <p class="text-uppercase fw-semibold fs-12 text-muted mb-1"> Total
-                                                    Category
-                                                </p>
-                                                <h4 class=" mb-0"><span class="counter-value"
-                                                        data-target="<?php print $nud; ?>"></span></h4>
+                                                    Comments</p>
+                                                <h4 class="mb-0"><span class="counter-value"
+                                                        data-target="<?php print $nux; ?>"></span></h4>
                                             </div>
-
                                         </div>
                                     </div><!-- end card body -->
                                 </div><!-- end card -->
                             </div><!-- end col -->
+
+
                         </div>
 
                     </div> <!-- end .h-100-->

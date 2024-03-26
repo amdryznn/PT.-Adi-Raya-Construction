@@ -5,20 +5,31 @@ include "header.php";
 // Include database configuration
 include_once "z_db.php";
 
-// Query to fetch news categories
-$qc = mysqli_query($con, "SELECT * FROM categories_news");
-
-// Prepared statement to fetch news items with formatted created_at
-$qn = mysqli_prepare($con, "SELECT *, DATE_FORMAT(created_at, '%e %M, %Y') AS formatted_created_at FROM news ORDER BY created_at DESC LIMIT ?");
-
-mysqli_stmt_bind_param($qn, "i", $limit);
+// Tentukan jumlah berita yang akan ditampilkan per halaman
 $limit = 3;
+
+// Hitung jumlah total berita
+$total_news_query = mysqli_query($con, "SELECT COUNT(*) AS total FROM news");
+$total_news_row = mysqli_fetch_assoc($total_news_query);
+$total_news = $total_news_row['total'];
+
+// Hitung jumlah total halaman berdasarkan jumlah berita dan jumlah berita per halaman
+$total_pages = ceil($total_news / $limit);
+
+// Tentukan halaman yang sedang aktif
+$page = isset ($_GET['page']) ? $_GET['page'] : 1;
+$start = ($page - 1) * $limit;
+
+// Query untuk menampilkan berita sesuai dengan halaman yang dipilih
+$qn = mysqli_prepare($con, "SELECT *, DATE_FORMAT(created_at, '%e %M, %Y') AS formatted_created_at FROM news ORDER BY created_at DESC LIMIT ?, ?");
+mysqli_stmt_bind_param($qn, "ii", $start, $limit);
 mysqli_stmt_execute($qn);
 $result = mysqli_stmt_get_result($qn);
+$qc = mysqli_query($con, "SELECT * FROM categories_news");
 ?>
 
 
-<!-- ** Breadcrumb Area Start ** -->
+<!-- * Breadcrumb Area Start * -->
 <section class="section breadcrumb-area overlay-dark d-flex align-items-center">
     <div class="container">
         <div class="row">
@@ -35,7 +46,7 @@ $result = mysqli_stmt_get_result($qn);
         </div>
     </div>
 </section>
-<!-- ** Breadcrumb Area End ** -->
+<!-- * Breadcrumb Area End * -->
 
 <style>
     .single-news-item {
@@ -201,10 +212,28 @@ $result = mysqli_stmt_get_result($qn);
         border-radius: 5px;
         /* Ubah ke bentuk bulat saat hover */
     }
+
+    a:hover {
+        background-color: #ddd;
+        color: black;
+    }
+
+    .previous {
+        background-color: #f1f1f1;
+        color: black;
+    }
+
+    .next {
+        background-color: #3D474D;
+        color: white;
+    }
+
+    .round {
+        border-radius: 50%;
+    }
 </style>
 
-
-<!-- ** About Area Start ** -->
+<!-- * About Area Start * -->
 <section class="section news-area ptb_100">
     <div class="container">
         <div class="row">
@@ -224,48 +253,65 @@ $result = mysqli_stmt_get_result($qn);
                                     <?php echo $news['title']; ?>
                                 </h3>
                                 <div class="news-info">
-                                <span class="news-date">
-    <?php echo $news['formatted_created_at']; ?>
-</span>
- |
+                                    <span class="news-date">
+                                        <?php echo $news['formatted_created_at']; ?>
+                                    </span>
+                                    |
                                     <span class="news-author">
                                         <?php echo $news['author']; ?>
                                     </span>
                                 </div>
                                 <p>
-    <?php
-    // Memotong konten menjadi 2 baris dan menambahkan titik-titik jika perlu
-    
-    $content = htmlspecialchars(strip_tags($news['content']));
-
-    // Menghapus tag HTML dari konten
-    if (strlen($content) > 100) {
-        $content = substr($content, 0, 200);
-        $content = substr($content, 0, strrpos($content, ' ')) . '...';
-    }
-    echo $content; // Anda harus menambahkan ini
-    ?>
-</p>
-
-<a href="newsdetail/<?php echo($news['id']); ?>"
-   class="btn btn-bordered-black mt-4">Read More</a>
-
-
-
+                                    <?php
+                                    // Memotong konten menjadi 2 baris dan menambahkan titik-titik jika perlu
+                                    $content = htmlspecialchars(strip_tags($news['content']));
+                                    // Menghapus tag HTML dari konten
+                                    if (strlen($content) > 100) {
+                                        $content = substr($content, 0, 200);
+                                        $content = substr($content, 0, strrpos($content, ' ')) . '...';
+                                    }
+                                    echo $content;
+                                    ?>
+                                </p>
+                                <a href="newsdetail/<?php echo $news['id']; ?>" class="btn btn-bordered-black mt-4">Read
+                                    More</a>
                             </div>
                         </div>
                     </div>
                 <?php endforeach; ?>
+
+
+                <!-- Pagination -->
+                <div class="pagination mt-4">
+                    <!-- Tautan Previous -->
+                    <?php if ($page > 1): ?>
+                        <a href="?page=<?php echo ($page - 1); ?>" class="previous">&laquo; Previous</a>
+                    <?php endif; ?>
+
+                    <!-- Tautan Halaman -->
+                    <?php for ($i = 1; $i <= $total_pages; $i++): ?>
+                        <a href="?page=<?php echo $i; ?>">
+                            <?php echo $i; ?>
+                        </a>
+                    <?php endfor; ?>
+
+                    <!-- Tautan Next -->
+                    <?php if ($page < $total_pages): ?>
+                        <a href="?page=<?php echo ($page + 1); ?>" class="next">Next &raquo;</a>
+                    <?php endif; ?>
+                </div>
             </div>
+
+
             <div class="col-md-6 col-lg-4">
+                <!-- Sidebar Content -->
                 <div class="box" style="margin-bottom: 20px;">
                     <input type="checkbox" id="check">
                     <div class="search-box">
-                    <form action="/arcon/?" method="GET">
-    <input type="text" name="s" placeholder="Type here...">
-    <button type="submit" class="icon"><i class="fas fa-search"></i></button>
-</form>
-
+                        <form action="/arcon/?" method="GET">
+                            <input type="text" name="s" placeholder="Type here...">
+                            <button type="submit" class="icon"><i class="fas fa-search"></i></button>
+                        </form>
                     </div>
                 </div>
                 <div class="single-news-item" style="margin-top: 20px;">
@@ -275,8 +321,9 @@ $result = mysqli_stmt_get_result($qn);
                             <ul class="list-group">
                                 <?php foreach ($qc as $ro): ?>
                                     <li>
-                                        <a class="list-group-item" href="newscategory/<?= $ro['news_id'] ?>">
-                                            <?= $ro['news_name'] ?>
+                                        <a class="list-group-item"
+                                            href="newscategory/<?= htmlspecialchars($ro['news_id']) ?>">
+                                            <?= htmlspecialchars($ro['news_name']) ?>
                                         </a>
                                     </li>
                                 <?php endforeach ?>
@@ -288,12 +335,8 @@ $result = mysqli_stmt_get_result($qn);
         </div>
     </div>
 </section>
+<!-- * About Area End * -->
 
-<!-- Add more news items as needed -->
-
-
-
-<!-- ** News Area End ** -->
 
 <!--====== Call To Action Area Start ======-->
 <section class="section cta-area bg-overlay ptb_100">
@@ -303,10 +346,10 @@ $result = mysqli_stmt_get_result($qn);
                 <!-- Section Heading -->
                 <div class="section-heading text-center m-0">
                     <h2 class="text-white">
-                        <?php print $enquiry_title; ?>
+                        <?php echo $enquiry_title; ?>
                     </h2>
                     <p class="text-white d-none d-sm-block mt-4">
-                        <?php print $enquiry_text; ?>
+                        <?php echo $enquiry_text; ?>
                     </p>
                     <a href="contact" class="btn btn-bordered-white mt-4">Contact Us</a>
                 </div>
@@ -315,4 +358,5 @@ $result = mysqli_stmt_get_result($qn);
     </div>
 </section>
 <!--====== Call To Action Area End ======-->
+
 <?php include "footer.php"; ?>

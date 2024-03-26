@@ -48,6 +48,7 @@ RewriteRule    ^createvision/?$    add-blog.php    [NC,L]
 RewriteRule    ^vision/?$    bloglist.php    [NC,L]
 RewriteRule    ^about/?$    aboutlist.php    [NC,L]
 RewriteRule    ^partner/?$    partnerlist.php    [NC,L]
+RewriteRule    ^comments/?$    commentslist.php    [NC,L]
 
 RewriteRule    ^createslide/?$    add-slider.php    [NC,L]
 RewriteRule    ^slider/?$    sliderlist.php    [NC,L]
