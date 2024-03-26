@@ -6,11 +6,11 @@ $qc = mysqli_query($con, "SELECT * FROM categories_news");
 $current_url = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 
 // Ambil ID berita dari URL
-$todo = isset($_GET["id"]) ? $_GET["id"] : null;
+$todo = isset ($_GET["id"]) ? $_GET["id"] : null;
 $todo = intval($todo); // Konversi menjadi bilangan bulat
 
 // Validasi ID berita
-if ($todo <= 0 || empty($todo)) {
+if ($todo <= 0 || empty ($todo)) {
     echo "Invalid news ID provided.";
     exit();
 }
@@ -254,6 +254,35 @@ $comments_query = mysqli_query($con, "SELECT * FROM comments WHERE id = $todo OR
         box-shadow: linear-gradient(-45deg, #a8bfce 0%, #3D474D 100%)
             /* Add shadow effect */
     }
+
+    .comment {
+        margin-bottom: 20px;
+        border: none padding: none
+    }
+
+    .comment-user {
+        display: flex;
+        align-items: center;
+        margin-bottom: 5px;
+    }
+
+    .comment-user i {
+        margin-right: 5px;
+    }
+
+    .comment-content {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .comment-actions {
+        margin-top: 5px;
+    }
+
+    .delete-button {
+        color: #4d69db;
+        /* Menentukan warna teks tombol menjadi biru */
+    }
 </style>
 
 <!-- ***** News Area Start ***** -->
@@ -309,41 +338,63 @@ $comments_query = mysqli_query($con, "SELECT * FROM comments WHERE id = $todo OR
                         </div>
 
                         <?php echo $content; ?>
-<!-- Tampilkan komentar -->
-<section class="section comment-area ptb_50">
-                    <div class="existing-comments mt-4">
-                        <h3>Comments</h3>
-                        <?php
-                        // Loop untuk menampilkan komentar
-                        while ($comment = mysqli_fetch_assoc($comments_query)) {
-                            echo "<div class='comment'>";
-                            echo "<h5>{$comment['name']}</h5>";
-                            echo "<p>{$comment['description']}</p>";
-                            // Tambahkan tombol "Reply" dan "Delete" jika diperlukan
-                            echo "<div class='comment-actions'>";
-                            echo "<a href='/arcon/delete_comment.php?id={$comment['c_id']}' class='btn btn-danger btn-sm'>Delete</a>";
-                            echo "</div>";                            
-                            echo "</div>";
-                        }
-                        ?>
-                    </div>
+                        <!-- Tampilkan komentar -->
+                        <section class="section comment-area ptb_50">
+                            <div class="existing-comments mt-4">
+                                <?php
+                                // Menghitung jumlah total komentar
+                                $total_comments = mysqli_num_rows($comments_query);
+                                ?>
+                                <h3>Comments (
+                                    <?php echo $total_comments; ?>)
+                                </h3>
+                                <div style="margin-top: 20px;"> <!-- Menambah jarak antara judul dan isi komentar -->
+                                    <?php
+                                    // Loop untuk menampilkan komentar
+                                    while ($comment = mysqli_fetch_assoc($comments_query)) {
+                                        echo "<div class='comment'>";
+                                        echo "<div class='comment-user'>";
+                                        echo "<i class='fas fa-user-circle fa-2x' style='margin-right: 10px;'></i>";
+                                        echo "<h5><span>{$comment['name']}</span></h5>";
+                                        echo "<div class='comment-created' style='margin-left: 15px;'>{$comment['created_at']}</div>";// Menggunakan <span> untuk mengelompokkan ikon dan nama pengguna
+                                        echo "</div>";
+                                        echo "<div class='comment-content' style='margin-left: 38px;'>";
+                                        echo "<p>{$comment['description']}</p>";
+                                        // Tambahkan tombol "Reply" dan "Delete" jika diperlukan
+                                        echo "<div class='comment-actions'>";
+                                        echo "<a href='/arcon/delete_comment.php?id={$comment['c_id']}' class='btn-btn mt-3 delete-button'>Delete</a>"; // Tombol Delete dengan kelas CSS delete-button
+                                        echo "</div>";
+                                        // Menampilkan tanggal pembuatan
+                                        echo "</div>";
+                                        echo "</div>";
+                                        // Memberi jarak antara komentar
+                                        echo "<hr style='opacity: 0;'>";
+                                    }
+                                    ?>
+                                </div>
+                            </div>
 
-                    <!-- Form untuk menambahkan komentar baru -->
-                    <div class="comment-section mt-4 mb-4">
-                        <h3>Leave a Comment</h3>
-                        <form action="/arcon/post_comment.php?id=<?php echo $todo; ?>" method="POST">
-                            <div class="form-group">
-                                <label for="comment_name">Your Name</label>
-                                <input type="text" class="form-control" id="comment_name" name="comment_name" required>
+
+
+
+                            <!-- Form untuk menambahkan komentar baru -->
+                            <div class="comment-section mt-4 mb-4">
+                                <h3>Leave a Comment</h3>
+                                <form action="/arcon/post_comment.php?id=<?php echo $todo; ?>" method="POST">
+                                    <div class="form-group">
+                                        <label for="comment_name">Your Name</label>
+                                        <input type="text" class="form-control" id="comment_name" name="comment_name"
+                                            required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="comment_description">Your Comment</label>
+                                        <textarea class="form-control" id="comment_description"
+                                            name="comment_description" rows="3" required></textarea>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                </form>
                             </div>
-                            <div class="form-group">
-                                <label for="comment_description">Your Comment</label>
-                                <textarea class="form-control" id="comment_description" name="comment_description" rows="3" required></textarea>
-                            </div>
-                            <button type="submit" class="btn btn-primary">Submit</button>
-                        </form>
-                    </div>
-                </section>
+                        </section>
 
                     </div>
                 </div>
