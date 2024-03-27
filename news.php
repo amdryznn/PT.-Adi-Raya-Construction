@@ -213,7 +213,7 @@ $qc = mysqli_query($con, "SELECT * FROM categories_news");
         /* Ubah ke bentuk bulat saat hover */
     }
 
-    a {
+    .pagination-link {
         text-decoration: none;
         display: inline-block;
         padding: 8px 16px;
@@ -222,6 +222,9 @@ $qc = mysqli_query($con, "SELECT * FROM categories_news");
     .pagination-link:hover {
         background-color: #ddd;
         color: black;
+        text-decoration: none;
+        display: inline-block;
+        padding: 8px 16px;
     }
 
     .previous:hover {
@@ -237,12 +240,18 @@ $qc = mysqli_query($con, "SELECT * FROM categories_news");
     .previous {
         background-color: #f1f1f1;
         color: black;
+        text-decoration: none;
+        display: inline-block;
+        padding: 8px 16px;
 
     }
 
     .next {
         background-color: #697882;
         color: white;
+        text-decoration: none;
+        display: inline-block;
+        padding: 8px 16px;
     }
 
     .round {
@@ -255,6 +264,7 @@ $qc = mysqli_query($con, "SELECT * FROM categories_news");
         justify-content: center;
         /* Memposisikan elemen secara horizontal ke tengah */
         margin-top: 20px;
+
         /* Sesuaikan margin atas sesuai kebutuhan */
     }
 
