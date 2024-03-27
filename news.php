@@ -213,7 +213,23 @@ $qc = mysqli_query($con, "SELECT * FROM categories_news");
         /* Ubah ke bentuk bulat saat hover */
     }
 
-    a:hover {
+    a {
+        text-decoration: none;
+        display: inline-block;
+        padding: 8px 16px;
+    }
+
+    .pagination-link:hover {
+        background-color: #ddd;
+        color: black;
+    }
+
+    .previous:hover {
+        background-color: #ddd;
+        color: black;
+    }
+
+    .next:hover {
         background-color: #ddd;
         color: black;
     }
@@ -221,15 +237,37 @@ $qc = mysqli_query($con, "SELECT * FROM categories_news");
     .previous {
         background-color: #f1f1f1;
         color: black;
+
     }
 
     .next {
-        background-color: #3D474D;
+        background-color: #697882;
         color: white;
     }
 
     .round {
         border-radius: 50%;
+    }
+
+    .pagination {
+        display: flex;
+        /* Gunakan flexbox untuk mengatur tata letak */
+        justify-content: center;
+        /* Memposisikan elemen secara horizontal ke tengah */
+        margin-top: 20px;
+        /* Sesuaikan margin atas sesuai kebutuhan */
+    }
+
+    .pagination a {
+        margin: 0 5px;
+        /* Menambahkan margin horizontal di antara tautan */
+    }
+
+    .pagination-link.active {
+
+        background-color: #ddd;
+        color: black;
+        /* Contoh: menambahkan sudut yang melengkung */
     }
 </style>
 
@@ -282,15 +320,20 @@ $qc = mysqli_query($con, "SELECT * FROM categories_news");
 
 
                 <!-- Pagination -->
-                <div class="pagination mt-4">
+                <div class="pagination mt-4 text-center">
                     <!-- Tautan Previous -->
                     <?php if ($page > 1): ?>
-                        <a href="?page=<?php echo ($page - 1); ?>" class="previous">&laquo; Previous</a>
+                        <a href="?page=<?php echo ($page - 1); ?>" class="previous">&laquo; Prev</a>
                     <?php endif; ?>
 
                     <!-- Tautan Halaman -->
-                    <?php for ($i = 1; $i <= $total_pages; $i++): ?>
-                        <a href="?page=<?php echo $i; ?>">
+                    <?php
+                    $show_pages = 3; // Batasan jumlah tautan halaman yang ingin ditampilkan
+                    $start_page = max(1, $page - floor($show_pages / 2));
+                    $end_page = min($total_pages, $start_page + $show_pages - 1);
+                    for ($i = 1; $i <= $total_pages; $i++): ?>
+                        <a class="pagination-link <?php echo ($i == $page) ? 'active' : ''; ?>"
+                            href="?page=<?php echo $i; ?>">
                             <?php echo $i; ?>
                         </a>
                     <?php endfor; ?>
@@ -300,9 +343,9 @@ $qc = mysqli_query($con, "SELECT * FROM categories_news");
                         <a href="?page=<?php echo ($page + 1); ?>" class="next">Next &raquo;</a>
                     <?php endif; ?>
                 </div>
+
+
             </div>
-
-
             <div class="col-md-6 col-lg-4">
                 <!-- Sidebar Content -->
                 <div class="box" style="margin-bottom: 20px;">

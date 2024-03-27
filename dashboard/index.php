@@ -119,11 +119,18 @@ $username = $_SESSION['username'];
                                 <div class="card">
                                     <div class="card-body">
                                         <div class="d-flex align-items-center">
-                                            <a href=comments>
-                                                <div class="avatar-sm flex-shrink-0">
+                                            <a href="comments">
+                                                <div
+                                                    class="avatar-sm flex-shrink-0 position-relative avatar-total-comments">
                                                     <span
                                                         class="avatar-title bg-light text-primary rounded-circle fs-3">
                                                         <i class="ri-server-line"></i>
+                                                    </span>
+                                                    <!-- Badge count notification -->
+                                                    <span
+                                                        class="badge bg-danger rounded-circle position-absolute top-0 start-100 translate-middle">
+                                                        <span class="visually-hidden">New comments</span>
+                                                        <span class="badge-count">0</span>
                                                     </span>
                                                 </div>
                                             </a>
@@ -144,6 +151,7 @@ $username = $_SESSION['username'];
                             </div><!-- end col -->
 
 
+
                         </div>
 
                     </div> <!-- end .h-100-->
@@ -158,3 +166,38 @@ $username = $_SESSION['username'];
     </div>
     <!-- End Page-content -->
     <?php include "footer.php"; ?>
+
+    <script>
+        $(document).ready(function () {
+            // Function to periodically check for new comments and update the badge count
+            function checkNewComments() {
+                $.ajax({
+                    url: 'check_new_comments.php',
+                    success: function (response) {
+                        // Update badge count if there are new comments
+                        var newCommentsCount = parseInt(response);
+                        if (newCommentsCount > 0) {
+                            // Increment the badge count by 1 for each new comment
+                            var currentBadgeCount = parseInt($('.badge-count').text());
+                            var updatedBadgeCount = currentBadgeCount + newCommentsCount;
+                            $('.badge-count').text(updatedBadgeCount);
+                            // Add the 'has-new-comments' class to indicate new comments
+                            $('.avatar-total-comments').addClass('has-new-comments');
+                        }
+
+                    }
+                });
+            }
+
+            // Call the function to check for new comments every few seconds (e.g., every 30 seconds)
+            setInterval(checkNewComments, 30000); // Every 30 seconds
+
+            // Event to reset the badge count to 0 and remove the 'has-new-comments' class when the avatar is clicked (read)
+            $('.avatar-total-comments').click(function () {
+                // Set the badge count to 0
+                $('.badge-count').text('0');
+                // Remove the 'has-new-comments' class
+                $(this).removeClass('has-new-comments');
+            });
+        });
+    </script>
