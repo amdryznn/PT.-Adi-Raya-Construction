@@ -115,40 +115,42 @@ $username = $_SESSION['username'];
                                 </div><!-- end card -->
                             </div><!-- end col -->
 
-                            <div class="col-lg-4 col-md-6">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="d-flex align-items-center">
-                                            <a href="comments">
-                                                <div
-                                                    class="avatar-sm flex-shrink-0 position-relative avatar-total-comments">
-                                                    <span
-                                                        class="avatar-title bg-light text-primary rounded-circle fs-3">
-                                                        <i class="ri-server-line"></i>
-                                                    </span>
-                                                    <!-- Badge count notification -->
-                                                    <span
-                                                        class="badge bg-danger rounded-circle position-absolute top-0 start-100 translate-middle">
-                                                        <span class="visually-hidden">New comments</span>
-                                                        <span class="badge-count">0</span>
-                                                    </span>
-                                                </div>
-                                            </a>
-                                            <div class="flex-grow-1 ms-3">
-                                                <?php
-                                                $result = mysqli_query($con, "SELECT count(*) FROM comments");
-                                                $rowx = mysqli_fetch_row($result);
-                                                $nux = $rowx[0];
-                                                ?>
-                                                <p class="text-uppercase fw-semibold fs-12 text-muted mb-1"> Total
-                                                    Comments</p>
-                                                <h4 class="mb-0"><span class="counter-value"
-                                                        data-target="<?php print $nux; ?>"></span></h4>
-                                            </div>
-                                        </div>
-                                    </div><!-- end card body -->
-                                </div><!-- end card -->
-                            </div><!-- end col -->
+                           <div class="col-lg-4 col-md-6">
+    <div class="card">
+        <div class="card-body">
+            <div class="d-flex align-items-center">
+                <a href="comments">
+                    <div class="avatar-sm flex-shrink-0 position-relative avatar-total-comments">
+                        <span class="avatar-title bg-light text-primary rounded-circle fs-3">
+                            <i class="ri-server-line"></i>
+                        </span>
+                        <!-- Badge count notification -->
+                        <?php
+                        $result = mysqli_query($con, "SELECT count(*) FROM comments WHERE new_comments_count = 0");
+                        $rowx = mysqli_fetch_row($result);
+                        $new_comments_count = $rowx[0];
+                        ?>
+                        
+                        <span class="badge bg-danger rounded-circle position-absolute top-0 start-100 translate-middle">
+                            <span class="visually-hidden">New comments</span>
+                            <span class="badge-count"><?php echo $new_comments_count; ?></span>
+                        </span>
+                    </div>
+                </a>
+                 <?php
+                        $result = mysqli_query($con, "SELECT count(*) FROM comments");
+                        $rowy = mysqli_fetch_row($result);
+                        $total = $rowy[0];
+                        ?>
+                <div class="flex-grow-1 ms-3">
+                    <p class="text-uppercase fw-semibold fs-12 text-muted mb-1"> Total Comments</p>
+                    <h4 class="mb-0"><span class="counter-value" data-target="<?php print $total; ?>"></span></h4>
+                </div>
+            </div>
+        </div><!-- end card body -->
+    </div><!-- end card -->
+</div><!-- end col -->
+
 
 
 
@@ -168,36 +170,46 @@ $username = $_SESSION['username'];
     <?php include "footer.php"; ?>
 
     <script>
-        $(document).ready(function () {
-            // Function to periodically check for new comments and update the badge count
-            function checkNewComments() {
-                $.ajax({
-                    url: 'check_new_comments.php',
-                    success: function (response) {
-                        // Update badge count if there are new comments
-                        var newCommentsCount = parseInt(response);
-                        if (newCommentsCount > 0) {
-                            // Increment the badge count by 1 for each new comment
-                            var currentBadgeCount = parseInt($('.badge-count').text());
-                            var updatedBadgeCount = currentBadgeCount + newCommentsCount;
-                            $('.badge-count').text(updatedBadgeCount);
-                            // Add the 'has-new-comments' class to indicate new comments
-                            $('.avatar-total-comments').addClass('has-new-comments');
-                        }
-
+    $(document).ready(function () {
+        // Function to periodically check for new comments and show badge
+        function checkNewComments() {
+            $.ajax({
+                url: 'check_new_comments.php',
+                success: function (response) {
+                    // Show badge if there are new comments
+                    var newCommentsCount = parseInt(response);
+                    if (newCommentsCount > 0) {
+                        // Show badge
+                        $('.avatar-total-comments').addClass('has-new-comments');
                     }
-                });
-            }
+                }
+            });
+        }
 
-            // Call the function to check for new comments every few seconds (e.g., every 30 seconds)
-            setInterval(checkNewComments, 30000); // Every 30 seconds
+  // Event handler untuk saat avatar komentar diklik
+        $('.avatar-total-comments').click(function() {
+            // Menghapus kelas 'has-new-comments' dari elemen
+            $(this).removeClass('has-new-comments');
 
-            // Event to reset the badge count to 0 and remove the 'has-new-comments' class when the avatar is clicked (read)
-            $('.avatar-total-comments').click(function () {
-                // Set the badge count to 0
-                $('.badge-count').text('0');
-                // Remove the 'has-new-comments' class
-                $(this).removeClass('has-new-comments');
+            // Mengatur ulang new_comments_count menjadi 0 di database
+            $.ajax({
+                url: 'reset_new_comments_count.php',
+                success: function(response) {
+                    // Jika sukses, perbarui tampilan badge count menjadi 0
+                    $('.badge-count').text('0');
+                },
+                error: function(xhr, status, error) {
+                    // Tangani kesalahan jika terjadi
+                    console.error(error);
+                }
+            });
+
+            // Mengirimkan permintaan POST ke skrip PHP untuk menandai avatar diklik
+            $.post('check_new_comments.php', { avatar_clicked: true }, function(response) {
+                // Handle response if needed
+                console.log(response);
             });
         });
-    </script>
+    });
+
+</script>
