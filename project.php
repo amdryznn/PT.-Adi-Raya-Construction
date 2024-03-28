@@ -78,7 +78,7 @@ $cat_id = ($_GET["id"]);
             ?>
         </div>
     </div>
-
+  </section>
     <!-- ***** Portfolio Area End ***** -->
 
 
