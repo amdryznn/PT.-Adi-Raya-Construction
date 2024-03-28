@@ -51,7 +51,7 @@
 
 
                                     <?php
-                                    $q = "SELECT comments.c_id, comments.name, comments.description, comments.created_at, news.title FROM comments JOIN news ON comments.id = news.id;";
+                                    $q = "SELECT comments.c_id, comments.name, comments.description, comments.created_at, news.title FROM comments JOIN news ON comments.id = news.id ORDER by comments.c_id DESC";
 
 
                                     $r123 = mysqli_query($con, $q);

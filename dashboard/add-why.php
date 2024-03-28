@@ -63,10 +63,19 @@
                                 $status = "NOTOK";
                             }
 
+                            $uploads_dir = 'uploads/why';
 
+                            $tmp_name = $_FILES["ufile"]["tmp_name"];
+                            // basename() may prevent filesystem traversal attacks;
+                            // further validation/sanitation of the filename may be appropriate
+                            $name = basename($_FILES["ufile"]["name"]);
+                            $random_digit = rand(0000, 9999);
+                            $new_file_name = $random_digit . $name;
+
+                            move_uploaded_file($tmp_name, "$uploads_dir/$new_file_name");
 
                             if ($status == "OK") {
-                                $qb = mysqli_query($con, "INSERT INTO why_us (title, detail) VALUES ('$title','$detail')");
+                                $qb = mysqli_query($con, "INSERT INTO why_us (title, detail, ufile) VALUES ('$title','$detail', '$new_file_name')");
 
 
                                 if ($qb) {
@@ -126,6 +135,14 @@
                                                     <label for="firstnameInput" class="form-label">Detail</label>
                                                     <textarea class="form-control" id="exampleFormControlTextarea5"
                                                         name="detail" rows="3"></textarea>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-lg-6">
+                                                <div class="mb-3">
+                                                    <label for="firstnameInput" class="form-label">Photo</label>
+                                                    <input type="file" class="form-control" id="firstnameInput"
+                                                        name="ufile">
                                                 </div>
                                             </div>
 

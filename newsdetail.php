@@ -6,11 +6,11 @@ $qc = mysqli_query($con, "SELECT * FROM categories_news");
 $current_url = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 
 // Ambil ID berita dari URL
-$todo = isset ($_GET["id"]) ? $_GET["id"] : null;
+$todo = isset($_GET["id"]) ? $_GET["id"] : null;
 $todo = intval($todo); // Konversi menjadi bilangan bulat
 
 // Validasi ID berita
-if ($todo <= 0 || empty ($todo)) {
+if ($todo <= 0 || empty($todo)) {
     echo "Invalid news ID provided.";
     exit();
 }
@@ -346,7 +346,7 @@ $comments_query = mysqli_query($con, "SELECT * FROM comments WHERE id = $todo OR
                                 $total_comments = mysqli_num_rows($comments_query);
                                 ?>
                                 <h3>Comments (
-                                    <?php echo $total_comments; ?>)
+                                    <?php echo $total_comments; ?> )
                                 </h3>
                                 <div style="margin-top: 20px;"> <!-- Menambah jarak antara judul dan isi komentar -->
                                     <?php

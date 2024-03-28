@@ -63,33 +63,29 @@
 
     <div class="container">
         <div class="row">
-
-
             <?php
-            $q = "SELECT * FROM  why_us ORDER BY id DESC LIMIT 4";
-
-
+            $q = "SELECT * FROM why_us ORDER BY id DESC LIMIT 4";
             $r123 = mysqli_query($con, $q);
 
             while ($ro = mysqli_fetch_array($r123)) {
                 $title = "$ro[title]";
                 $detail = nl2br("$ro[detail]");
-
-                print "
-<div class='col-16 col-md-4 col-lg-6 res-margin'>
-<!-- Single Promo -->
-<div class='single-promo color-1 bg-hover hover-bottom text-center p-5'>
-    <h3 class='mb-3'>$title</h3>
-    <p>$detail</p>
-</div>
-</div>
-";
+                $ufile = $ro['ufile']; // Memperbaiki akses ke variabel ufile
+            
+                echo "
+            <div class='col-md-3'>
+                <!-- Single Promo -->
+                <div class='single-promo color-1 bg-hover hover-bottom text-center p-5'>
+                    <div class='circle-img mb-3'>
+                        <img src='dashboard/uploads/why/$ufile' alt='' style='max-width: 80%; height: auto;'>
+                    </div>
+                    <h4 class='mb-3' style='font-weight: bold;'>$title</h4>
+                    <p style='font-size: smaller;'>$detail</p>
+                </div>
+            </div>
+            ";
             }
             ?>
-
-
-
-
         </div>
     </div>
 </section>

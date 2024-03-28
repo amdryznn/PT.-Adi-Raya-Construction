@@ -17,7 +17,7 @@ $total_news = $total_news_row['total'];
 $total_pages = ceil($total_news / $limit);
 
 // Tentukan halaman yang sedang aktif
-$page = isset ($_GET['page']) ? $_GET['page'] : 1;
+$page = isset($_GET['page']) ? $_GET['page'] : 1;
 $start = ($page - 1) * $limit;
 
 // Query untuk menampilkan berita sesuai dengan halaman yang dipilih
@@ -264,7 +264,7 @@ $qc = mysqli_query($con, "SELECT * FROM categories_news");
         justify-content: center;
         /* Memposisikan elemen secara horizontal ke tengah */
         margin-top: 20px;
-
+        margin-bottom: 20px;
         /* Sesuaikan margin atas sesuai kebutuhan */
     }
 
@@ -339,9 +339,9 @@ $qc = mysqli_query($con, "SELECT * FROM categories_news");
                     <!-- Tautan Halaman -->
                     <?php
                     $show_pages = 3; // Batasan jumlah tautan halaman yang ingin ditampilkan
-                    $start_page = max(1, $page - floor($show_pages / 2));
+                    $start_page = max(1, min($total_pages - $show_pages + 1, $page - floor($show_pages / 2)));
                     $end_page = min($total_pages, $start_page + $show_pages - 1);
-                    for ($i = 1; $i <= $total_pages; $i++): ?>
+                    for ($i = $start_page; $i <= $end_page; $i++): ?>
                         <a class="pagination-link <?php echo ($i == $page) ? 'active' : ''; ?>"
                             href="?page=<?php echo $i; ?>">
                             <?php echo $i; ?>
@@ -355,13 +355,15 @@ $qc = mysqli_query($con, "SELECT * FROM categories_news");
                 </div>
 
 
+
+
             </div>
             <div class="col-md-6 col-lg-4">
                 <!-- Sidebar Content -->
                 <div class="box" style="margin-bottom: 20px;">
                     <input type="checkbox" id="check">
                     <div class="search-box">
-                        <form action="/arcon/?" method="GET">
+                        <form action="/try.pti21unesa.com/?" method="GET">
                             <input type="text" name="s" placeholder="Type here...">
                             <button type="submit" class="icon"><i class="fas fa-search"></i></button>
                         </form>
