@@ -186,30 +186,12 @@ $username = $_SESSION['username'];
             });
         }
 
-  // Event handler untuk saat avatar komentar diklik
-        $('.avatar-total-comments').click(function() {
-            // Menghapus kelas 'has-new-comments' dari elemen
-            $(this).removeClass('has-new-comments');
-
-            // Mengatur ulang new_comments_count menjadi 0 di database
-            $.ajax({
-                url: 'reset_new_comments_count.php',
-                success: function(response) {
-                    // Jika sukses, perbarui tampilan badge count menjadi 0
-                    $('.badge-count').text('0');
-                },
-                error: function(xhr, status, error) {
-                    // Tangani kesalahan jika terjadi
-                    console.error(error);
-                }
-            });
-
             // Mengirimkan permintaan POST ke skrip PHP untuk menandai avatar diklik
             $.post('check_new_comments.php', { avatar_clicked: true }, function(response) {
                 // Handle response if needed
                 console.log(response);
             });
         });
-    });
+
 
 </script>

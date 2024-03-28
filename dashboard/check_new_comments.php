@@ -16,15 +16,7 @@ if (isset($_POST['avatar_clicked'])) {
     }
 }
 
-// Get last check time from session or initialize if not set
-
-
-// Close the statement
-$stmt->close();
 
 // Close the connection
 $con->close();
 
-// Return the output
-echo $output;
-?>
